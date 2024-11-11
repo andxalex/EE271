@@ -285,7 +285,7 @@ all: $(EXECUTABLE)
 
 # submission
 submission: cleanall
-	zip -r assignmentN.zip formal gold params rtl tests verif synth/rast_dc.tcl
+	zip -r assignment1.zip formal gold params rtl tests verif synth/rast_dc.tcl
 	@echo "generated assignmentN.zip. Please rename it to have the correct number, then upload to gradescope."
 
 synth_reports:
