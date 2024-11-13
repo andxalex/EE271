@@ -13,9 +13,8 @@
 */
 int min(int a, int b)
 {
- 
-	return a<b?a:b;	
-
+  // return min
+  return a<b?a:b;	
 }
 
 /*
@@ -24,7 +23,8 @@ int min(int a, int b)
 */
 int max(int a, int b)
 {
-  	return a>b?a:b;
+  // return max
+  return a>b?a:b;
 }
 
 /*
@@ -33,8 +33,10 @@ int max(int a, int b)
 */
 int floor_ss(int val, int r_shift, int ss_w_lg2)
 {
+	// sanity check
 	assert(r_shift > ss_w_lg2);
 	
+	// mask bits below decimal of interest
 	int mask = 0xFFFFFFFFU << (r_shift -ss_w_lg2);
 	
 	return val & mask;
@@ -49,17 +51,20 @@ BoundingBox get_bounding_box(Triangle triangle, Screen screen, Config config)
 {
   BoundingBox bbox;
 
+  // get bbox corners
   bbox.lower_left.x = floor_ss(min(min(triangle.v[0].x, triangle.v[1].x), triangle.v[2].x), config.r_shift, config.ss_w_lg2);
   bbox.lower_left.y = floor_ss(min(min(triangle.v[0].y, triangle.v[1].y), triangle.v[2].y), config.r_shift, config.ss_w_lg2);
   bbox.upper_right.x = floor_ss(max(max(triangle.v[0].x, triangle.v[1].x), triangle.v[2].x), config.r_shift, config.ss_w_lg2);
   bbox.upper_right.y = floor_ss(max(max(triangle.v[0].y, triangle.v[1].y), triangle.v[2].y), config.r_shift, config.ss_w_lg2);
 
-
+  // clamp them
   bbox.lower_left.x = bbox.lower_left.x < 0?0:bbox.lower_left.x;
   bbox.lower_left.y = bbox.lower_left.y < 0?0:bbox.lower_left.y;
   bbox.upper_right.x = bbox.upper_right.x > screen.width? screen.width:bbox.upper_right.x;
   bbox.upper_right.y = bbox.upper_right.y > screen.height? screen.height:bbox.upper_right.y;
-  bbox.valid = true;
+  
+  // check that the bbox is valid
+  bbox.valid = (bbox.lower_left.x <= bbox.upper_right.x)&&(bbox.lower_left.y <= bbox.upper_right.y);
  
   return bbox;
 }
@@ -73,7 +78,7 @@ BoundingBox get_bounding_box(Triangle triangle, Screen screen, Config config)
 bool sample_test(Triangle triangle, Sample sample)
 {
   bool isHit;
-
+  // shift vertices
   int v0_x = triangle.v[0].x - sample.x;
   int v0_y = triangle.v[0].y - sample.y;
   int v1_x = triangle.v[1].x - sample.x;
@@ -81,18 +86,18 @@ bool sample_test(Triangle triangle, Sample sample)
   int v2_x = triangle.v[2].x - sample.x;
   int v2_y = triangle.v[2].y - sample.y;
 
+  // calculate distances
   float dist0 = v0_x * v1_y - v1_x * v0_y;
   float dist1 = v1_x * v2_y - v2_x * v1_y;
   float dist2 = v2_x * v0_y - v0_x * v2_y;
 
+  // ensure that pixel is in triangle
   bool b0 = dist0 <= 0.0;
   bool b1 = dist1 < 0.0;
   bool b2 = dist2 <= 0.0;
 
   // w backface culling
-  
   isHit = b0 && b1 && b2;
-
 
   return isHit;
 }
