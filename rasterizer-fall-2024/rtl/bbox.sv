@@ -186,39 +186,45 @@ module bbox
     // Try declaring an always_comb block to assign values to box_R10S
     // Nested ternary to find 3 input minima
     always_comb begin
-        bbox_sel_R10H[0][0] = (tri_R10S[0][0] < tri_R10S[1][0])? ((tri_R10S[0][0]<tri_R10S[2][0])?3'b001:3'b100):((tri_R10S[1][0]<tri_R10S[2][0])?3'b010:3'b100);
-        bbox_sel_R10H[0][1] = (tri_R10S[0][1] < tri_R10S[1][1])? ((tri_R10S[0][1]<tri_R10S[2][1])?3'b001:3'b100):((tri_R10S[1][1]<tri_R10S[2][1])?3'b010:3'b100);
-        bbox_sel_R10H[1][0] = (tri_R10S[0][0] > tri_R10S[1][0])? ((tri_R10S[0][0]>tri_R10S[2][0])?3'b001:3'b100):((tri_R10S[1][0]>tri_R10S[2][0])?3'b010:3'b100);
-        bbox_sel_R10H[1][1] = (tri_R10S[0][1] > tri_R10S[1][1])? ((tri_R10S[0][1]>tri_R10S[2][1])?3'b001:3'b100):((tri_R10S[1][1]>tri_R10S[2][1])?3'b010:3'b100);
+        // bbox_sel_R10H[0][0] = (tri_R10S[0][0] < tri_R10S[1][0])? ((tri_R10S[0][0]<tri_R10S[2][0])?3'b001:3'b100):((tri_R10S[1][0]<tri_R10S[2][0])?3'b010:3'b100);
+        // bbox_sel_R10H[0][1] = (tri_R10S[0][1] < tri_R10S[1][1])? ((tri_R10S[0][1]<tri_R10S[2][1])?3'b001:3'b100):((tri_R10S[1][1]<tri_R10S[2][1])?3'b010:3'b100);
+        // bbox_sel_R10H[1][0] = (tri_R10S[0][0] > tri_R10S[1][0])? ((tri_R10S[0][0]>tri_R10S[2][0])?3'b001:3'b100):((tri_R10S[1][0]>tri_R10S[2][0])?3'b010:3'b100);
+        // bbox_sel_R10H[1][1] = (tri_R10S[0][1] > tri_R10S[1][1])? ((tri_R10S[0][1]>tri_R10S[2][1])?3'b001:3'b100):((tri_R10S[1][1]>tri_R10S[2][1])?3'b010:3'b100);
 
-	    // LL X Coordinate of Bounding Box
-	    case(bbox_sel_R10H[0][0])
-		    3'b001:box_R10S[0][0]= tri_R10S[0][0]; // The X coordinate of the 0th Vertex
-		    3'b010:box_R10S[0][0]= tri_R10S[1][0]; // The X coordinate of the 1st Vertex
-		    3'b100:box_R10S[0][0]= tri_R10S[2][0]; // The X coordinate of the 2nd Vertex
-		    // default:box_R10S[0][0]= 1'bZ;
-	    endcase
-	    // UR X Coordinate of Bounding Box
-	    case(bbox_sel_R10H[1][0])
-		    3'b001:box_R10S[1][0]= tri_R10S[0][0]; // The X coordinate of the 0th Vertex
-		    3'b010:box_R10S[1][0]= tri_R10S[1][0]; // The X coordinate of the 1st Vertex
-		    3'b100:box_R10S[1][0]= tri_R10S[2][0]; // The X coordinate of the 2nd Vertex
-		    // default:box_R10S[1][0]= Z;
-	    endcase
-	    // LL Y Coordinate of Bounding Box
-	    case(bbox_sel_R10H[0][1])
-		    3'b001:box_R10S[0][1]= tri_R10S[0][1]; // The Y coordinate of the 0th Vertex
-		    3'b010:box_R10S[0][1]= tri_R10S[1][1]; // The Y coordinate of the 1st Vertex
-		    3'b100:box_R10S[0][1]= tri_R10S[2][1]; // The Y coordinate of the 2nd Vertex
-		    // default:box_R10S[0][1]= Z;
-	    endcase
-            // UR Y Coordinate of Bounding Box
-	    case(bbox_sel_R10H[1][1])
-		    3'b001:box_R10S[1][1]= tri_R10S[0][1]; // The Y coordinate of the 0th Vertex
-		    3'b010:box_R10S[1][1]= tri_R10S[1][1]; // The Y coordinate of the 1st Vertex
-		    3'b100:box_R10S[1][1]= tri_R10S[2][1]; // The Y coordinate of the 2nd Vertex
-		    // default:box_R10S[1][1]= Z;
-	    endcase
+	    // // LL X Coordinate of Bounding Box
+	    // case(bbox_sel_R10H[0][0])
+		//     3'b001:box_R10S[0][0]= tri_R10S[0][0]; // The X coordinate of the 0th Vertex
+		//     3'b010:box_R10S[0][0]= tri_R10S[1][0]; // The X coordinate of the 1st Vertex
+		//     3'b100:box_R10S[0][0]= tri_R10S[2][0]; // The X coordinate of the 2nd Vertex
+		//     // default:box_R10S[0][0]= 1'bZ;
+	    // endcase
+	    // // UR X Coordinate of Bounding Box
+	    // case(bbox_sel_R10H[1][0])
+		//     3'b001:box_R10S[1][0]= tri_R10S[0][0]; // The X coordinate of the 0th Vertex
+		//     3'b010:box_R10S[1][0]= tri_R10S[1][0]; // The X coordinate of the 1st Vertex
+		//     3'b100:box_R10S[1][0]= tri_R10S[2][0]; // The X coordinate of the 2nd Vertex
+		//     // default:box_R10S[1][0]= Z;
+	    // endcase
+	    // // LL Y Coordinate of Bounding Box
+	    // case(bbox_sel_R10H[0][1])
+		//     3'b001:box_R10S[0][1]= tri_R10S[0][1]; // The Y coordinate of the 0th Vertex
+		//     3'b010:box_R10S[0][1]= tri_R10S[1][1]; // The Y coordinate of the 1st Vertex
+		//     3'b100:box_R10S[0][1]= tri_R10S[2][1]; // The Y coordinate of the 2nd Vertex
+		//     // default:box_R10S[0][1]= Z;
+	    // endcase
+        //     // UR Y Coordinate of Bounding Box
+	    // case(bbox_sel_R10H[1][1])
+		//     3'b001:box_R10S[1][1]= tri_R10S[0][1]; // The Y coordinate of the 0th Vertex
+		//     3'b010:box_R10S[1][1]= tri_R10S[1][1]; // The Y coordinate of the 1st Vertex
+		//     3'b100:box_R10S[1][1]= tri_R10S[2][1]; // The Y coordinate of the 2nd Vertex
+		//     // default:box_R10S[1][1]= Z;
+	    // endcase
+
+
+        box_R10S[0][0] = (tri_R10S[0][0] < tri_R10S[1][0])? ((tri_R10S[0][0]<tri_R10S[2][0])?tri_R10S[0][0]:tri_R10S[2][0]):((tri_R10S[1][0]<tri_R10S[2][0])?tri_R10S[1][0]:tri_R10S[2][0]);
+        box_R10S[0][1] = (tri_R10S[0][1] < tri_R10S[1][1])? ((tri_R10S[0][1]<tri_R10S[2][1])?tri_R10S[0][1]:tri_R10S[2][1]):((tri_R10S[1][1]<tri_R10S[2][1])?tri_R10S[1][1]:tri_R10S[2][1]);
+        box_R10S[1][0] = (tri_R10S[0][0] > tri_R10S[1][0])? ((tri_R10S[0][0]>tri_R10S[2][0])?tri_R10S[0][0]:tri_R10S[2][0]):((tri_R10S[1][0]>tri_R10S[2][0])?tri_R10S[1][0]:tri_R10S[2][0]);
+        box_R10S[1][1] = (tri_R10S[0][1] > tri_R10S[1][1])? ((tri_R10S[0][1]>tri_R10S[2][1])?tri_R10S[0][1]:tri_R10S[2][1]):((tri_R10S[1][1]>tri_R10S[2][1])?tri_R10S[1][1]:tri_R10S[2][1]);
     end
 
     // Assertions to check if box_R10S is assigned properly
@@ -231,10 +237,10 @@ module bbox
     assert property(@(posedge clk) box_R10S[1][0]>box_R10S[0][0]); // Ensuring that the UR X coordinate > LL X coordinate
     //Assertions to check if all cases are covered and assignments are unique 
     // (already done for you if you use the bbox_sel_R10H select signal as declared)
-    assert property(@(posedge clk) $onehot(bbox_sel_R10H[0][0]));
-    assert property(@(posedge clk) $onehot(bbox_sel_R10H[0][1]));
-    assert property(@(posedge clk) $onehot(bbox_sel_R10H[1][0]));
-    assert property(@(posedge clk) $onehot(bbox_sel_R10H[1][1]));
+    // assert property(@(posedge clk) $onehot(bbox_sel_R10H[0][0]));
+    // assert property(@(posedge clk) $onehot(bbox_sel_R10H[0][1]));
+    // assert property(@(posedge clk) $onehot(bbox_sel_R10H[1][0]));
+    // assert property(@(posedge clk) $onehot(bbox_sel_R10H[1][1]));
 
     //Assertions to check UR is never less than LL
     // END CODE HERE
@@ -266,22 +272,14 @@ module bbox
     for(genvar i = 0; i < 2; i = i + 1) begin
         for(genvar j = 0; j < 2; j = j + 1) begin
 
-            logic [RADIX:0] mask;
-
             always_comb begin
-                //Integer Portion of LL and UR Remains the Same
-                rounded_box_R10S[i][j][SIGFIG-1:RADIX]
-                    = box_R10S[i][j][SIGFIG-1:RADIX];
+                //Integer Portion of LL and UR Remains the same
+                rounded_box_R10S[i][j][SIGFIG-1:RADIX] = box_R10S[i][j][SIGFIG-1:RADIX];
 
-                //////// ASSIGN FRACTIONAL PORTION
-                // START CODE HERE
-                mask = ~({subSample_RnnnnU, 7'b0} - 1);
+                // Fraction is rounded
+                rounded_box_R10S[i][j][RADIX-1:0] = box_R10S[i][j][RADIX-1:0] & ~({subSample_RnnnnU, 7'b0} - 1);
 
-                rounded_box_R10S[i][j][RADIX-1:0] = box_R10S[i][j][RADIX-1:0] & mask[RADIX-1:0];
-                // END CODE HERE
-
-            end // always_comb
-
+            end
         end
     end
     endgenerate
@@ -305,60 +303,13 @@ module bbox
     logic bbox_valid[1:0]; 
     always_comb begin
 
-        //////// ASSIGN "out_box_R10S" and "outvalid_R10H"
-        // START CODE HERE
         out_box_R10S= box_R10S;
         outvalid_R10H= 1'b0; // Initialized as invalid
-            
-        // Clamping the LL X Coordinate if necessary
-        // out_box_R10S[0][0] = (box_R10S[0][0]<0)?0:box_R10S[0][0];
-        // out_box_R10S[0][1] = (box_R10S[0][1]<0)?0:box_R10S[0][1];
-        // out_box_R10S[1][0] = (box_R10S[1][0]>screen_RnnnnS[0])?screen_RnnnnS[0]:box_R10S[1][0];
-        // out_box_R10S[1][1] = (box_R10S[1][1]<screen_RnnnnS[1])?screen_RnnnnS[1]:box_R10S[1][1];
 
         out_box_R10S[0][0] = (rounded_box_R10S[0][0]<0)?0:rounded_box_R10S[0][0];
         out_box_R10S[0][1] = (rounded_box_R10S[0][1]<0)?0:rounded_box_R10S[0][1];
         out_box_R10S[1][0] = (rounded_box_R10S[1][0]>screen_RnnnnS[0])?screen_RnnnnS[0]:rounded_box_R10S[1][0];
         out_box_R10S[1][1] = (rounded_box_R10S[1][1]>screen_RnnnnS[1])?screen_RnnnnS[1]:rounded_box_R10S[1][1];
-
-        // if(box_R10S[0][0]< 0)
-        //     begin
-        //         out_box_R10S[0][0]= 0;
-        //     end
-        // else 
-        //     begin
-        //         out_box_R10S[0][0]= box_R10S[0][0];
-        //     end
-            
-        // // Clamping the LL Y Coordinate if necessary
-        // if(box_R10S[0][1]< 0)
-        //     begin
-        //         out_box_R10S[0][1]= 0;
-        //     end
-        // else 
-        //     begin
-        //         out_box_R10S[0][1]= box_R10S[0][1];
-        //     end
-
-        // // Clamping the UR X Coordinate if necessary
-        // if(box_R10S[1][0]> screen_RnnnnS[0])
-        //     begin
-        //         out_box_R10S[1][0]= screen_RnnnnS[0];
-        //     end
-        // else 
-        //     begin
-        //         out_box_R10S[1][0]= box_R10S[1][0];
-        //     end
-        
-        // // Clamping the UR Y Coordinate if necessary
-        // if(box_R10S[1][1]> screen_RnnnnS[1])
-        //     begin
-        //         out_box_R10S[1][1]= screen_RnnnnS[1];
-        //     end
-        // else 
-        //     begin
-        //         out_box_R10S[1][1]= box_R10S[1][1];
-        //     end
 
         if(validTri_R10H) begin
             if((out_box_R10S[0][0]<= screen_RnnnnS[0]) && (out_box_R10S[1][0]>= 0) && (out_box_R10S[0][1]<= screen_RnnnnS[1]) && (out_box_R10S[1][1]>=0))

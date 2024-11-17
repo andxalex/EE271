@@ -57,20 +57,16 @@
 /home/users/andalex/Desktop/EE271/rasterizer-fall-2024
 /packages/gtech/src_ver/
 top_rast
-108
+103
 which_declare=declare -f
 sysc_uni_pwd=/home/users/andalex/Desktop/EE271/rasterizer-fall-2024
 _LMFILES__modshare=/etc/modulefiles/jaspergold/latest:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/syn/latest:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/hercules/B-2008.09-SP4:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/vcs/latest:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/base/1.0:1:/etc/modulefiles/matlab/caddy:1:/etc/modulefiles/incisive/latest:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/synopsys_edk/2011:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/starrc/F-2011.12-SP2:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/synopsys_pdk/2011:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/cx/F-2011.09-SP2:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/cdesigner/F-2011.09-SP2:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/genesis2/latest:1
 _LMFILES_=/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/base/1.0:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/genesis2/latest:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/syn/latest:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/vcs/latest:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/synopsys_edk/2011:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/cdesigner/F-2011.09-SP2:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/hercules/B-2008.09-SP4:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/starrc/F-2011.12-SP2:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/cx/F-2011.09-SP2:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/synopsys_pdk/2011:/etc/modulefiles/matlab/caddy:/etc/modulefiles/incisive/latest:/etc/modulefiles/jaspergold/latest
 YOSYSHQ_LICENSE=/cad/tabby/license/tabbycad-Stanford.lic
-XDG_SESSION_ID=23287
+XDG_SESSION_ID=23707
 XDG_RUNTIME_DIR=/run/user/452147
 XDG_DATA_DIRS=/home/users/andalex/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
-VSCODE_IPC_HOOK_CLI=/run/user/452147/vscode-ipc-8f12f999-1df1-49b6-88e2-34da2a30853d.sock
-VSCODE_GIT_IPC_HANDLE=/run/user/452147/vscode-git-6ac7123a2f.sock
-VSCODE_GIT_ASKPASS_NODE=/home/users/andalex/.vscode-server/cli/servers/Stable-f1a4fb101478ce6ec82fe9627c43efbf9e98c813/server/node
-VSCODE_GIT_ASKPASS_MAIN=/home/users/andalex/.vscode-server/cli/servers/Stable-f1a4fb101478ce6ec82fe9627c43efbf9e98c813/server/extensions/git/dist/askpass-main.js
-VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+VSCODE_IPC_HOOK_CLI=/run/user/452147/vscode-ipc-5ec8980b-bccd-43d5-8454-6fbb7d162ec9.sock
 VRST_HOME=/cad/cadence/INCISIVE15.20.022
 VMR_MODE_FLAG=64
 VIRTUAL_ENV=/cad/aha/venv
@@ -96,8 +92,8 @@ SYNOPSYS_STARRC=/usr/class/ee/synopsys/starrc/F-2011.12-SP2
 SYNOPSYS_LICENSE=27000@cadlic0.stanford.edu
 SSL_CERT_FILE=/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
 SSL_CERT_DIR=/etc/pki/tls/certs
-SSH_CONNECTION=10.34.191.53 52471 172.24.94.105 22
-SSH_CLIENT=10.34.191.53 52471 22
+SSH_CONNECTION=10.34.191.4 58206 172.24.94.105 22
+SSH_CLIENT=10.34.191.4 58206 22
 SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
 SPRINGSOFT_LICENSE=5219@cadlic0.stanford.edu
 SNPS_VCS_CLANG_PATH=/fs/src/interfaces/LLVM_Project/QSCM/opt/llvm-3.9.1/linux64
@@ -147,7 +143,6 @@ HOSTTYPE=x86_64-linux
 HISTCONTROL=ignoreboth
 HERCULES_HOME_DIR=/usr/class/ee/synopsys/hercules/B-2008.09-SP4
 GROUP=operator
-GIT_ASKPASS=/home/users/andalex/.vscode-server/cli/servers/Stable-f1a4fb101478ce6ec82fe9627c43efbf9e98c813/server/extensions/git/dist/askpass.sh
 GENESIS_LIBS=/afs/ir/class/ee/genesis2/r11012/PerlLibs
 GENESIS_HOME=/afs/ir/class/ee/genesis2/r11012
 EE271_VECT=/afs/ir.stanford.edu/class/ee271/project/vect
@@ -189,7 +184,7 @@ AMSHOME=/cad/cadence/INCISIVE15.20.022
 1731289453 rtl/dff.sv
 1731289453 rtl/dff3.sv
 1731289453 rtl/dff2.sv
-1731835283 rtl/bbox.sv
+1731887442 rtl/bbox.sv
 1731289453 params/rast_params.sv
 1731289454 verif/verif_vlog.vf
 1731289453 rtl/vlog.vf
@@ -200,4 +195,4 @@ AMSHOME=/cad/cadence/INCISIVE15.20.022
 1487220396 /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libvirsim.so
 1487219634 /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/liberrorinf.so
 1487219608 /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libsnpsmalloc.so
-1731837748 simv.daidir
+1731887475 simv.daidir
