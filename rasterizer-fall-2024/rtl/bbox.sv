@@ -171,7 +171,6 @@ module bbox
     // and assigning box_R10S to be the proper coordinates
 
     // START CODE HERE
-
     // This select signal structure may help you in selecting your bbox coordinates
     logic [2:0] bbox_sel_R10H [1:0][1:0];
     // The above structure consists of a 3-bit select signal for each coordinate of the 
@@ -185,7 +184,36 @@ module bbox
     //  DECLARE ANY OTHER SIGNALS YOU NEED
 
     // Try declaring an always_comb block to assign values to box_R10S
-    // END CODE HERE
+    always_comb begin
+	    // LL X Coordinate of Bounding Box
+	    case(bbox_sel_R10H[0][0])
+		    3'b001:box_R10S[0][0]= tri_R10S[0][0]; // The X coordinate of the 0th Vertex
+		    3'b010:box_R10S[0][0]= tri_R10S[1][0]; // The X coordinate of the 1st Vertex
+		    3'b100:box_R10S[0][0]= tri_R10S[2][0]; // The X coordinate of the 2nd Vertex
+		    default:box_R10S[0][0]= Z;
+	    endcase
+	    // UR X Coordinate of Bounding Box
+	    case(bbox_sel_R10H[1][0])
+		    3'b001:box_R10S[1][0]= tri_R10S[0][0]; // The X coordinate of the 0th Vertex
+		    3'b010:box_R10S[1][0]= tri_R10S[1][0]; // The X coordinate of the 1st Vertex
+		    3'b100:box_R10S[1][0]= tri_R10S[2][0]; // The X coordinate of the 2nd Vertex
+		    default:box_R10S[1][0]= Z;
+	    endcase
+	    // LL Y Coordinate of Bounding Box
+	    case(bbox_sel_R10H[0][1])
+		    3'b001:box_R10S[0][1]= tri_R10S[0][1]; // The Y coordinate of the 0th Vertex
+		    3'b010:box_R10S[0][1]= tri_R10S[1][1]; // The Y coordinate of the 1st Vertex
+		    3'b100:box_R10S[0][1]= tri_R10S[2][1]; // The Y coordinate of the 2nd Vertex
+		    default:box_R10S[0][1]= Z;
+	    endcase
+            // UR Y Coordinate of Bounding Box
+	    case(bbox_sel_R10H[1][1])
+		    3'b001:box_R10S[1][1]= tri_R10S[0][1]; // The Y coordinate of the 0th Vertex
+		    3'b010:box_R10S[1][1]= tri_R10S[1][1]; // The Y coordinate of the 1st Vertex
+		    3'b100:box_R10S[1][1]= tri_R10S[2][1]; // The Y coordinate of the 2nd Vertex
+		    default:box_R10S[1][1]= Z;
+	    endcase
+    end
 
     // Assertions to check if box_R10S is assigned properly
     // We want to check the following properties:
@@ -193,6 +221,8 @@ module bbox
     // 2) Upper right coordinate is never less than lower left
 
     // START CODE HERE
+    assert property(@(posedge clk) box_R10S[1][1]>box_R10S[0][1]); // Ensuring that the UR Y coordinate > LL Y coordinate
+    assert property(@(posedge clk) box_R10S[1][0]>box_R10S[0][0]); // Ensuring that the UR X coordinate > LL X coordinate
     //Assertions to check if all cases are covered and assignments are unique 
     // (already done for you if you use the bbox_sel_R10H select signal as declared)
     assert property(@(posedge clk) $onehot(bbox_sel_R10H[0][0]));
@@ -237,6 +267,7 @@ for(genvar i = 0; i < 2; i = i + 1) begin
 
             //////// ASSIGN FRACTIONAL PORTION
             // START CODE HERE
+	    rounded_box_R10S[i][j][RADIX-1:0]= {subsample_RnnnnU,6'b0};
             // END CODE HERE
 
         end // always_comb
@@ -261,13 +292,69 @@ endgenerate
     // Invalid if BBox is up/right of Screen
     // Invalid if BBox is down/left of Screen
     // outvalid_R10H high if validTri_R10H && BBox is valid
-
+    logic bbox_valid[1:0]; 
     always_comb begin
 
         //////// ASSIGN "out_box_R10S" and "outvalid_R10H"
         // START CODE HERE
-        // END CODE HERE
+	out_box_R10S= box_R10S;
+	outvalid_R10H= 1'b0; // Initialized as invalid
+        
+	// Clamping the LL X Coordinate if necessary
+	if(box_R10S[0][0]< 0)
+	begin
+		out_box_R10S[0][0]= 0;
+	end
+	else 
+	begin
+		out_box_R10S[0][0]= box_R10S[0][0];
+	end
+        
+	// Clamping the LL Y Coordinate if necessary
+	if(box_R10S[0][1]< 0)
+	begin
+		out_box_R10S[0][1]= 0;
+	end
+	else 
+	begin
+		out_box_R10S[0][1]= box_R10S[0][1];
+	end
 
+	// Clamping the UR X Coordinate if necessary
+	if(box_R10S[1][0]> screen_Rnnnns[0])
+	begin
+		out_box_R10S[1][0]= screen_Rnnnns[0];
+	end
+	else 
+	begin
+		out_box_R10S[1][0]= box_R10S[1][0];
+	end
+	// Clamping the UR Y Coordinate if necessary
+	if(box_R10S[1][1]> screen_Rnnnns[1])
+	begin
+		out_box_R10S[1][1]= screen_Rnnnns[1];
+	end
+	else 
+	begin
+		out_box_R10S[1][1]= box_R10S[1][1];
+	end
+
+    end
+ 
+    if(validTri_R10H)
+    begin
+	 if(out_box_R10S[0][0]<= screen_Rnnnns[0] && out_box_R10S[1][0]>= 0 && out_box_R10S[0][1]<= screen_Rnnnns[1] && out_box_R10S[1][1]>=0)
+	 begin
+		 outvalid_R10H= 1'b1; // Bounding box is valid
+	 end
+	 else
+	 begin
+		 outvalid_R10H= 1'b0; // Bounding box is invalid
+	 end	 
+    end
+    else
+    begin 
+	outvalid_R10H= 1'b0; // Output is invalid as validTri_R10H is low (invalid data for operation)
     end
 
     //Assertion for checking if outvalid_R10H has been assigned properly
@@ -418,6 +505,10 @@ endgenerate
     //Error Checking Assertions
 
 endmodule
+
+
+
+
 
 
 

@@ -232,7 +232,7 @@ if(MOD_FSM == 0) begin // Using baseline FSM
         end
         else begin
             state_R14H <= next_state_R14H;
-        end
+    end
     end
 
     // define some helper signals
@@ -252,9 +252,35 @@ if(MOD_FSM == 0) begin // Using baseline FSM
 
     always_comb begin
         // START CODE HERE
-        // END CODE HERE
-    end
+	at_right_edg_R14H= 1'b0;
+	at_end_box_R14H= 1'b0;
+	at_top_edg_R14H= 1'b0;
+	next_rt_samp_R14S[1] = sample_R14S[1];
+	next_rt_samp_R14S[0] = sample_R14S[0];
 
+	// ************************
+	// minus 1 maybe
+	// ************************
+	if(sample_R14S[0]== box_R14S[1][0] && sample_R14S[1] == box_R14S[1][1])
+	begin
+		at_end_box_R14H = 1'b1;
+	end
+	else if(sample_R14S[0]== box_R14S[1][0])
+	begin
+		at_right_edg_R14H= 1'b1;
+		next_up_samp_R14S[0]= box_R14S[0][0];
+	        next_up_samp_R14S[1]= sample_R14S[1]+ 1;	
+	end
+	else if(sample_R14S[1]== box_R14S[1][1])
+	begin 
+		at_top_edg_R14H= 1'b1;
+		next_rt_samp_R14S[0]= sample_R14S[0]+ 1;
+	end
+	else
+	begin
+		next_rt_samp_R14S[0]= sample_R14S[0]+ 1; // END CODE HERE
+        end
+end
     //////
     ////// Then complete the following combinational logic defining the
     ////// next states
