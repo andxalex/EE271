@@ -1,0 +1,120 @@
+The design has assertions or cover properties.
+The assertion browser can be used to view them. Click on the assertion toolbar button or use the menu 'Window->Panes->Assertion' to open it.
+The file 'wave.vpd' was opened successfully.
+Error: [VPD-ERR_FILE_IO] File I/O error.
+  Libhf entered at hfFileStatus; diagnostic issued from "hfpriv.hh":1165.  
+  Errno condition was "Stale file handle".
+Error: [DVDB062] 
+A read error was received while loading values from the database.
+This can occur when the '.vpd' has been rebuilt on a separate machine.
+Please click OK to reload the database and recover.
+The file '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/wave.vpd' was opened successfully.
+With selected criteria, DVE has found 'results at time 58000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 59000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 60000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 61000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 62000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 63000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 64000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 65000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 66000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 67000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 68000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 69000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 70000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 71000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 72000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 73000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 74000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 75000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 76000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 77000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 78000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 79000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 80000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 81000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 82000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 83000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 84000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 85000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 86000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 87000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 88000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 89000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 90000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 91000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 92000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 93000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 94000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 95000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 96000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 97000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 98000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 99000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 100000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 101000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 102000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 103000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 104000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 105000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 106000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 107000
+    top_rast.rast.test_iterator.sample_R14S[0][23:0]'.
+With selected criteria, DVE has found 'results at time 51000
+    top_rast.halt_RnnnnL'.
+Error: [VPD-ERR_FILE_IO] File I/O error.
+  Libhf entered at hfFileStatus; diagnostic issued from "hfpriv.hh":1165.  
+  Errno condition was "Stale file handle".
+Error: [DVDB062] 
+A read error was received while loading values from the database.
+This can occur when the '.vpd' has been rebuilt on a separate machine.
+Please click OK to reload the database and recover.

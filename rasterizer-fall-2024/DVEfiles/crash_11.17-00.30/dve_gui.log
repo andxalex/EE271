@@ -1,0 +1,328 @@
+The design has assertions or cover properties.
+The assertion browser can be used to view them. Click on the assertion toolbar button or use the menu 'Window->Panes->Assertion' to open it.
+The file 'wave.vpd' was opened successfully.
+---------------------------------------------
+
+The tool has just exited abnormally:
+
+
+Release = 'M-2017.03_Full64'  Architecture = 'linux64'  Program = 'DVE'
+
+'33816655 33853625 33855488 22931904322825'
+
+---------------------------------------------
+=======================DVE Context and Call Stack=========================
+
+An unexpected termination has occurred in /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/gui/dve/linux64/bin/dve.exeHostname caddy15.stanford.edu
+
+Tcl="gui_list_add -id Wave.1 -from Data.1  top_rast.rast.bbox.clk  -insertionbar " 
+Tcl="gui_eval_and_log_cmd gui_list_add -id Wave.1 -from Data.1  top_rast.rast.bbox.clk  -insertionbar " 
+Command line: /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/gui/dve/linux64/bin/dve.exe -full64 -vpd wave.vpd
+
+--- Stack trace follows:
+Could not find platform independent libraries <prefix>
+Could not find platform dependent libraries <exec_prefix>
+Consider setting $PYTHONHOME to <prefix>[:<exec_prefix>]
+'import site' failed; use -v for traceback
+Python Exception <type 'exceptions.ImportError'> No module named traceback: 
+/afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/bin/cbug-gdb-64/bin/gdb: warning: 
+Could not load the Python gdb module from `/afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/bin/cbug-gdb-64/share/gdb/python'.
+Limited Python support is available from the _gdb module.
+Suggest passing --data-directory=/path/to/gdb/data-directory.
+
+[New LWP 2632340]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+0x000014db400e4e42 in waitpid () from /lib64/libc.so.6
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+Python Exception <type 'exceptions.ImportError'> No module named traceback: 
+
+Thread 2 (Thread 0x14db3eb09700 (LWP 2632340)):
+#0  0x000014db417f57da in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x00000000029bd15b in ?? ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#2  0x00000000029bd5ee in QThread::msleep(unsigned long) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#3  0x00000000011167ce in ag::dveXThread::run() ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#4  0x00000000029bd2ea in QThreadInstance::start(void*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#5  0x000014db417ef1ca in start_thread () from /lib64/libpthread.so.0
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#6  0x000014db400168d3 in clone () from /lib64/libc.so.6
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+Python Exception <type 'exceptions.ImportError'> No module named traceback: 
+
+Thread 1 (Thread 0x14db4387f640 (LWP 2632152)):
+#0  0x000014db400e4e42 in waitpid () from /lib64/libc.so.6
+#1  0x000014db40038747 in do_system () from /lib64/libc.so.6
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#2  0x000014db42ded71b in SNPSle_10ee25eff68cd8461c9146fa1d0b35e87067f3c8015b313e639d2928478c79b3f673f99203bcf8be64600612100082236bffb2007f1e0ef9 () from /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/liberrorinf.so
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#3  0x000014db42dedc6b in SNPSle_10ee25eff68cd8461c9146fa1d0b35e87067f3c8015b313e81c34e9ac4c8988ef4a6e067b3aa9271e9f15440f9e8f69ebc77e2fd65860faa () from /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/liberrorinf.so
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#4  0x000014db42deef45 in SNPSle_10ee25eff68cd8461c9146fa1d0b35e87067f3c8015b313efba706aab251478fa49e66610e453774633a6c152e7ef778f2202cda681f3d4e () from /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/liberrorinf.so
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#5  0x000014db42de81f5 in SNPSle_d35ca1ff70d465c2b9b1a72eee90a506fdd009d3de3db1de () from /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/liberrorinf.so
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#6  0x0000000002049063 in ag::logErrorMessage(ag::errorType, QString const&, bool) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#7  0x0000000002049800 in ?? ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#8  0x000014db4002dd09 in __run_exit_handlers () from /lib64/libc.so.6
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#9  0x000014db4002de00 in exit () from /lib64/libc.so.6
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#10 0x00000000029698bc in ?? ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#11 0x000014db40fb9dc2 in _XIOError () from /lib64/libX11.so.6
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#12 0x000014db40fb7545 in _XEventsQueued () from /lib64/libX11.so.6
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#13 0x000014db40f986ee in XFlush () from /lib64/libX11.so.6
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#14 0x000000000296bbfc in QApplication::restoreOverrideCursor() ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#15 0x0000000002087dd4 in ag::baseAppInst::clearBusyCursor(bool, int) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#16 0x0000000001b7ce07 in ag::utilProgress::~utilProgress() ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#17 0x0000000001983d5a in ag::gui_list_add_cmd(void*, cci_interp_s*, ll_list_s*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#18 0x0000000002728ec8 in cci_check_command ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#19 0x00000000028e8d2f in TclInvokeStringCommand ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#20 0x00000000028ea352 in TclEvalObjvInternal ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#21 0x00000000028ea69f in Tcl_EvalEx ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#22 0x00000000028eb323 in Tcl_EvalObjEx ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#23 0x00000000028f13ee in Tcl_EvalObjCmd ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#24 0x00000000028ea352 in TclEvalObjvInternal ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#25 0x000000000290edd9 in ?? ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#26 0x0000000002913836 in TclCompEvalObj ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#27 0x0000000002937a60 in TclObjInterpProc ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#28 0x00000000028ea352 in TclEvalObjvInternal ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#29 0x00000000028eb19b in Tcl_EvalObjv ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#30 0x00000000028eb2fe in Tcl_EvalObjEx ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#31 0x0000000002938057 in Tcl_UplevelObjCmd ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#32 0x00000000028ea352 in TclEvalObjvInternal ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#33 0x000000000290edd9 in ?? ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#34 0x0000000002913836 in TclCompEvalObj ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#35 0x00000000028eb354 in Tcl_EvalObjEx ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#36 0x00000000028f18eb in Tcl_CatchObjCmd ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#37 0x00000000028ea352 in TclEvalObjvInternal ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#38 0x000000000290edd9 in ?? ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#39 0x0000000002913836 in TclCompEvalObj ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#40 0x0000000002937a60 in TclObjInterpProc ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#41 0x00000000028ea352 in TclEvalObjvInternal ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#42 0x00000000028eb19b in Tcl_EvalObjv ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#43 0x00000000029273b9 in ?? ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#44 0x00000000028ea352 in TclEvalObjvInternal ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#45 0x000000000290edd9 in ?? ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#46 0x0000000002913836 in TclCompEvalObj ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#47 0x0000000002937a60 in TclObjInterpProc ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#48 0x00000000028ea352 in TclEvalObjvInternal ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#49 0x00000000028eb19b in Tcl_EvalObjv ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#50 0x00000000028eb2fe in Tcl_EvalObjEx ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#51 0x0000000002938057 in Tcl_UplevelObjCmd ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#52 0x00000000028ea352 in TclEvalObjvInternal ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#53 0x000000000290edd9 in ?? ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#54 0x0000000002913836 in TclCompEvalObj ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#55 0x00000000028eb354 in Tcl_EvalObjEx ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#56 0x00000000028f18eb in Tcl_CatchObjCmd ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#57 0x00000000028ea352 in TclEvalObjvInternal ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#58 0x000000000290edd9 in ?? ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#59 0x0000000002913836 in TclCompEvalObj ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#60 0x0000000002937a60 in TclObjInterpProc ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#61 0x00000000028ea352 in TclEvalObjvInternal ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#62 0x00000000028eb19b in Tcl_EvalObjv ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#63 0x00000000029273b9 in ?? ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#64 0x00000000028ea352 in TclEvalObjvInternal ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#65 0x000000000290edd9 in ?? ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#66 0x0000000002913836 in TclCompEvalObj ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#67 0x00000000028eb354 in Tcl_EvalObjEx ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#68 0x00000000028f8859 in Tcl_SwitchObjCmd ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#69 0x00000000028ea352 in TclEvalObjvInternal ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#70 0x000000000290edd9 in ?? ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#71 0x0000000002913836 in TclCompEvalObj ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#72 0x0000000002937a60 in TclObjInterpProc ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#73 0x00000000028ea352 in TclEvalObjvInternal ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#74 0x00000000028eb19b in Tcl_EvalObjv ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#75 0x00000000028eb2fe in Tcl_EvalObjEx ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#76 0x0000000002938057 in Tcl_UplevelObjCmd ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#77 0x00000000028ea352 in TclEvalObjvInternal ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#78 0x000000000290edd9 in ?? ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#79 0x0000000002913836 in TclCompEvalObj ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#80 0x00000000028eb354 in Tcl_EvalObjEx ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#81 0x00000000028f18eb in Tcl_CatchObjCmd ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#82 0x00000000028ea352 in TclEvalObjvInternal ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#83 0x000000000290edd9 in ?? ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#84 0x0000000002913836 in TclCompEvalObj ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#85 0x0000000002937a60 in TclObjInterpProc ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#86 0x00000000028ea352 in TclEvalObjvInternal ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#87 0x00000000028eb19b in Tcl_EvalObjv ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#88 0x00000000029273b9 in ?? ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#89 0x00000000028ea352 in TclEvalObjvInternal ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#90 0x00000000028ea69f in Tcl_EvalEx ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#91 0x000000000272841c in cci_eval ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#92 0x00000000022dc7e9 in ek_exec_cci_command_2(EkTclObjHandle&, cci_interp_s*, char const*, int, int, int, int, int, int, int) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#93 0x00000000022d6ca0 in EkTclShellExecImpl::TExecCommandIF::runCommand(QString&) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#94 0x00000000022e0178 in EkShellExecutionImpl::TExecCommand::run() ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#95 0x00000000022de2fe in EkShellExecutionImpl::startRun(EkShellExecutionImpl::TExecCommand*, EkTriState, EkTriState) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#96 0x00000000022de571 in EkShellExecutionImpl::executeSync(QString const&, bool, bool, bool, QString*, EkShellDefs::TCmdSrc, bool, EkTriState, EkTriState, bool) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#97 0x000000000204c7e0 in utilEkShellImpl::executeSync(QString const&, bool, bool, bool, QString*, EkShellDefs::TCmdSrc, bool, EkTriState, EkTriState, bool) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#98 0x0000000002277cf1 in EkTclAction::slotExecTcl() ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#99 0x000000000228ccba in EkTclAction::qt_invoke(int, QUObject*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#100 0x0000000002a10d6a in QObject::activate_signal(QConnectionList*, QUObject*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#101 0x0000000002a10e62 in QObject::activate_signal(int) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#102 0x0000000002c99c25 in QAction::qt_invoke(int, QUObject*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#103 0x000000000228cc7d in EkAction::qt_invoke(int, QUObject*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#104 0x000000000228ccdd in EkTclAction::qt_invoke(int, QUObject*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#105 0x0000000002a10d6a in QObject::activate_signal(QConnectionList*, QUObject*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#106 0x0000000002c7dc44 in QSignal::signal(QVariant const&) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#107 0x0000000002a22a6a in QSignal::activate() ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#108 0x0000000002ae22a5 in QPopupMenu::mouseReleaseEvent(QMouseEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#109 0x0000000002a3c67f in QWidget::event(QEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#110 0x00000000029c33c5 in QApplication::internalNotify(QObject*, QEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#111 0x00000000029c3776 in QApplication::notify(QObject*, QEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#112 0x00000000020be5a2 in EkExtQtApp::notify(QObject*, QEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#113 0x000000000208e55c in ag::baseQtApp::notify(QObject*, QEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#114 0x0000000002979a12 in QETWidget::translateMouseEvent(_XEvent const*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#115 0x0000000002978450 in QApplication::x11ProcessEvent(_XEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#116 0x0000000002986842 in QEventLoop::processEvents(unsigned int) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#117 0x000000000115aa52 in ag::ovaEventLoop::processEvents(unsigned int) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#118 0x00000000029d3d39 in QEventLoop::enterLoop() ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#119 0x00000000029d3cba in QEventLoop::exec() ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#120 0x000000000115a3f9 in run_cci_event_loop ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#121 0x000000000111860c in ag::ovaAppInst::enterEventLoop(int, char**) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#122 0x0000000000dd06c5 in main ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+Completed context dump data
+==========================================================================

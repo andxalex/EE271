@@ -270,33 +270,33 @@ if(MOD_FSM == 0) begin // Using baseline FSM
 
     always_comb begin
         // START CODE HERE
-	at_right_edg_R14H= 1'b0;
-	at_end_box_R14H= 1'b0;
-	at_top_edg_R14H= 1'b0;
-	next_rt_samp_R14S[1] = sample_R14S[1];
-	next_rt_samp_R14S[0] = sample_R14S[0];
+        at_right_edg_R14H= 1'b0;
+        at_end_box_R14H= 1'b0;
+        at_top_edg_R14H= 1'b0;
+        next_rt_samp_R14S[1] = sample_R14S[1];
+        next_rt_samp_R14S[0] = sample_R14S[0];
 
-	// ************************
-	// minus 1 maybe
-	// ************************
+        // ************************
+        // minus 1 maybe
+        // ************************
 
-    // At last row of last col
-	if(sample_R14S[0] == box_R14S[1][0] && sample_R14S[1] == box_R14S[1][1])
-		at_end_box_R14H = 1'b1;
-    // At last col
-	else if(sample_R14S[0]== box_R14S[1][0]) begin
-		at_right_edg_R14H= 1'b1;
-		next_up_samp_R14S[0]= box_R14S[0][0];
-        next_up_samp_R14S[1]= sample_R14S[1]+ step;	
-	end
-    // At last row
-	else if(sample_R14S[1]== box_R14S[1][1]) begin 
-		at_top_edg_R14H= 1'b1;
-		next_rt_samp_R14S[0]= sample_R14S[0]+ step;
-	end
-	else begin
-        next_rt_samp_R14S[0]= sample_R14S[0]+ step; // END CODE HERE
-    end
+        // At last row of last col
+        if(sample_R14S[0] == box_R14S[1][0] && sample_R14S[1] == box_R14S[1][1])
+            at_end_box_R14H = 1'b1;
+        // At last col
+        else if(sample_R14S[0]== box_R14S[1][0]) begin
+            at_right_edg_R14H= 1'b1;
+            next_up_samp_R14S[0]= box_R14S[0][0];
+            next_up_samp_R14S[1]= sample_R14S[1]+ step;	
+        end
+        // At last row
+        else if(sample_R14S[1]== box_R14S[1][1]) begin 
+            at_top_edg_R14H= 1'b1;
+            next_rt_samp_R14S[0]= sample_R14S[0]+ step;
+        end
+        else begin
+            next_rt_samp_R14S[0]= sample_R14S[0]+ step; // END CODE HERE
+        end
     end
     //////
     ////// Then complete the following combinational logic defining the
@@ -317,6 +317,7 @@ if(MOD_FSM == 0) begin // Using baseline FSM
 
         case(state_R14H)
             WAIT_STATE: begin
+                next_halt_RnnnnL = 1'b1;
                 if (validTri_R13H) begin
                     next_state_R14H = TEST_STATE;
 
@@ -324,6 +325,10 @@ if(MOD_FSM == 0) begin // Using baseline FSM
                     next_tri_R14S = tri_R13S;
                     next_color_R14U = color_R13U;
                     next_halt_RnnnnL = 1'b0;
+                    next_box_R14S = box_R13S;
+
+                    next_sample_R14S[0] = box_R13S[0][0];
+                    next_sample_R14S[1] = box_R13S[0][1];
                 end
             end
             TEST_STATE:

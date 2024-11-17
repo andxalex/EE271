@@ -1,0 +1,58 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : rast
+Version: M-2016.12-SP2
+Date   : Sun Nov 17 15:29:13 2024
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: test_iterator/d304/genblk1.dff_pipe/data_pipe_a_reg[1][0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: bbox/d_bbx_f1/genblk1[0].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][8]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  rast               1K_hvratio_1_4        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                 0.0000     0.0000
+  clock network delay (ideal)                           0.0000     0.0000
+  test_iterator/d304/genblk1.dff_pipe/data_pipe_a_reg[1][0]/CK (DFFR_X2)
+                                                        0.0000 #   0.0000 r
+  test_iterator/d304/genblk1.dff_pipe/data_pipe_a_reg[1][0]/QN (DFFR_X2)
+                                                        0.1620     0.1620 f
+  U1206/ZN (INV_X4)                                     0.2171     0.3791 r
+  U12320/Z (BUF_X1)                                     0.2099     0.5890 r
+  U10923/Z (BUF_X2)                                     0.2247     0.8138 r
+  U1195/ZN (INV_X4)                                     0.2204     1.0341 f
+  U13000/Z (MUX2_X1)                                    0.1172     1.1514 f
+  bbox/d_bbx_f1/genblk1[0].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][8]/D (DFFR_X1)
+                                                        0.0069     1.1582 f
+  data arrival time                                                1.1582
+
+  clock clk (rise edge)                                 1.2000     1.2000
+  clock network delay (ideal)                           0.0000     1.2000
+  bbox/d_bbx_f1/genblk1[0].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][8]/CK (DFFR_X1)
+                                                        0.0000     1.2000 r
+  library setup time                                   -0.0415     1.1585
+  data required time                                               1.1585
+  --------------------------------------------------------------------------
+  data required time                                               1.1585
+  data arrival time                                               -1.1582
+  --------------------------------------------------------------------------
+  slack (MET)                                                      0.0003
+
+
+1

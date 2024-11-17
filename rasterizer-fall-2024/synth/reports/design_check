@@ -1,0 +1,66 @@
+ 
+****************************************
+check_design summary:
+Version:     M-2016.12-SP2
+Date:        Sun Nov 17 15:29:08 2024
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     48
+    Unconnected ports (LINT-28)                                    48
+
+Cells                                                               1
+    Cells do not drive (LINT-1)                                     1
+--------------------------------------------------------------------------------
+
+Warning: In design 'rast', cell 'U13872' does not drive any nets. (LINT-1)
+Warning: In design 'rast', port 'tri_R10S[2][2][23]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][22]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][21]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][16]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][15]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][14]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][13]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][12]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][11]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][10]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][9]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][8]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][7]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][6]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][5]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][4]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][3]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][2]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][1]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][0]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][23]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][22]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][21]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][16]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][15]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][14]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][13]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][12]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][11]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][10]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][9]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][8]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][7]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][6]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][5]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][4]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][3]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][2]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][1]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][0]' is not connected to any nets. (LINT-28)
+1

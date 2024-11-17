@@ -117,7 +117,7 @@ module rast_driver
         count = $fscanf(fh, "%6x %6x %d", screen_RnnnnS[0], screen_RnnnnS[1], msaa);
         line_num = line_num+1;
         assert (count==3) else $fatal(2, "ERROR: Cannot find screen params");
-        $display ("Setting screen params: w=%0d h=%0d msaa=%0d", screen_RnnnnS[0]>>10, screen_RnnnnS[1]>>10, msaa);
+        $display ("Setting screen params: w=%0d h=%0d msaa=%0d RADIX = %0d", screen_RnnnnS[0]>>10, screen_RnnnnS[1]>>10, msaa, RADIX);
         case (msaa)
             1: begin
                 subSample_RnnnnU = 4'b1000;

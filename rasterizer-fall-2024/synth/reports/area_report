@@ -1,0 +1,30 @@
+ 
+****************************************
+Report : area
+Design : rast
+Version: M-2016.12-SP2
+Date   : Sun Nov 17 15:29:08 2024
+****************************************
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/lib/NangateOpenCellLibrary.db)
+
+Number of ports:                          489
+Number of nets:                         24291
+Number of cells:                        19844
+Number of combinational cells:          16097
+Number of sequential cells:              3747
+Number of macros/black boxes:               0
+Number of buf/inv:                       4397
+Number of references:                      43
+
+Combinational area:              24965.430114
+Buf/Inv area:                     2445.072019
+Noncombinational area:           19488.224629
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                 44453.654742
+Total area:                 undefined
+1
