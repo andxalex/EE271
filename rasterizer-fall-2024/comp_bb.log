@@ -1,0 +1,201 @@
+
+Warning-[LNX_OS_VERUN] Unsupported Linux version
+  Linux version 'Rocky Linux release 8.10 (Green Obsidian)' is not supported 
+  on 'x86_64' officially, assuming linux compatibility by default. Set 
+  VCS_ARCH_OVERRIDE to linux or suse32 to override.
+  Please refer to release notes for information on supported platforms.
+
+
+Warning-[LINX_KRNL] Unsupported Linux kernel
+  Linux kernel '4.18.0-553.16.1.el8_10.x86_64' is not supported.
+  Supported versions are 2.4* or 2.6*.
+
+
+Warning-[DBGACC_DBG] Multiple debug options being used
+  The debug switches '-debug_access' and '-debug_pp' are being used together. 
+  For better performance, consider using only '-debug_access'.
+
+*** Using c compiler gcc instead of cc ...
+*** Using loader gcc instead of cc ...
+(standard_in) 1: syntax error
+(standard_in) 1: syntax error
+(standard_in) 1: syntax error
+                         Chronologic VCS (TM)
+         Version M-2017.03_Full64 -- Sat Nov 16 19:43:03 2024
+               Copyright (c) 1991-2017 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+Parsing design file 'params/rast_params.sv'
+Parsing design file 'rtl/bbox.sv'
+Parsing design file 'rtl/dff2.sv'
+Parsing design file 'rtl/dff3.sv'
+Parsing design file 'rtl/dff.sv'
+Parsing design file 'rtl/dff_retime.sv'
+Parsing design file 'rtl/hash_jtree.sv'
+Parsing design file 'rtl/rast.sv'
+Parsing design file 'rtl/sampletest.sv'
+Parsing design file 'rtl/test_iterator.sv'
+Parsing design file 'rtl/tree_hash.sv'
+Parsing design file 'rtl/DW_pl_reg.v'
+Parsing design file 'verif/bbx_sb.sv'
+Parsing design file 'verif/clocker.sv'
+Parsing design file 'verif/perf_monitor.sv'
+Parsing design file 'verif/rast_driver.sv'
+Parsing design file 'verif/smpl_cnt_sb.sv'
+Parsing design file 'verif/smpl_sb.sv'
+Parsing design file 'verif/testbench.sv'
+Parsing design file 'verif/top_rast.sv'
+
+Note-[SV-LCM-PPWI] Package previously wildcard imported
+verif/top_rast.sv, 15
+$unit
+  Package 'rast_params' already wildcard imported. 
+  Ignoring rast_params::*
+  See the System Verilog LRM(1800-2005), section 19.2.1.
+
+Parsing design file 'verif/zbuff.sv'
+Top Level Modules:
+       top_rast
+TimeScale is 1 ns / 1 ns
+
+Warning-[TFIPC] Too few instance port connections
+verif/testbench.sv, 146
+"bbx_sb #(.SIGFIG(SIGFIG), .RADIX(RADIX), .VERTS(VERTS), .AXIS(AXIS), .COLORS(COLORS), .PIPE_DEPTH(PIPES_BOX)) bbx_sb( .tri_R10S (tri_R10S),  .validTri_R10H (validTri_R10H),  .tri_R13S (top_rast.rast.tri_R13S),  .box_R13S (top_rast.rast.box_R13S),  .validTri_R13H (top_rast.rast.validTri_R13H),  .clk (clk),  .rst (rst),  .halt_RnnnnL (top_rast.rast.halt_RnnnnL),  .screen_RnnnnS (screen_RnnnnS),  .subSample_RnnnnU (subSample_RnnnnU));"
+  The above instance has fewer port connections than the module definition.
+  Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
+  ports.
+
+
+Error-[IUDA] Incompatible dimensions
+rtl/sampletest.sv, 117
+  Incompatible unpacked dimensions in assignment
+  Arrays with incompatible unpacked dimensions  cannot be used in assignments,
+  initializations and instantiations.
+
+
+Error-[ICTA] Incompatible complex type
+rtl/sampletest.sv, 117
+  Incompatible complex type assignment
+  Type of source expression is incompatible with type of target expression. 
+  Mismatching types cannot be used in assignments, initializations and 
+  instantiations. The type of the target is 'logic signed[23:0]$[1:0]', while 
+  the type of the source is 'logic signed[23:0]'.
+  Source Expression: (tri_shift_R16S[1][0] - tri_shift_R16S[0][0])
+  Instance stack trace:
+      sampletest#(SIGFIG, RADIX, VERTS, AXIS, COLORS, PIPES_SAMP, , , )   
+  rtl/rast.sv, 443
+      rast#(SIGFIG, RADIX, VERTS, AXIS, COLORS, PIPES_BOX, PIPES_ITER, 
+  PIPES_HASH, PIPES_SAMP)   verif/top_rast.sv, 80
+      top_rast  verif/top_rast.sv, 17
+  
+
+
+Error-[IUDA] Incompatible dimensions
+rtl/sampletest.sv, 118
+  Incompatible unpacked dimensions in assignment
+  Arrays with incompatible unpacked dimensions  cannot be used in assignments,
+  initializations and instantiations.
+
+
+Error-[ICTA] Incompatible complex type
+rtl/sampletest.sv, 118
+  Incompatible complex type assignment
+  Type of source expression is incompatible with type of target expression. 
+  Mismatching types cannot be used in assignments, initializations and 
+  instantiations. The type of the target is 'logic signed[23:0]$[1:0]', while 
+  the type of the source is 'logic signed[23:0]'.
+  Source Expression: (tri_shift_R16S[1][1] - tri_shift_R16S[0][1])
+  Instance stack trace:
+      sampletest#(SIGFIG, RADIX, VERTS, AXIS, COLORS, PIPES_SAMP, , , )   
+  rtl/rast.sv, 443
+      rast#(SIGFIG, RADIX, VERTS, AXIS, COLORS, PIPES_BOX, PIPES_ITER, 
+  PIPES_HASH, PIPES_SAMP)   verif/top_rast.sv, 80
+      top_rast  verif/top_rast.sv, 17
+  
+
+
+Error-[IUDA] Incompatible dimensions
+rtl/sampletest.sv, 119
+  Incompatible unpacked dimensions in assignment
+  Arrays with incompatible unpacked dimensions  cannot be used in assignments,
+  initializations and instantiations.
+
+
+Error-[ICTA] Incompatible complex type
+rtl/sampletest.sv, 119
+  Incompatible complex type assignment
+  Type of source expression is incompatible with type of target expression. 
+  Mismatching types cannot be used in assignments, initializations and 
+  instantiations. The type of the target is 'logic signed[23:0]$[1:0]', while 
+  the type of the source is 'logic signed[23:0]'.
+  Source Expression: (tri_shift_R16S[2][0] - tri_shift_R16S[1][0])
+  Instance stack trace:
+      sampletest#(SIGFIG, RADIX, VERTS, AXIS, COLORS, PIPES_SAMP, , , )   
+  rtl/rast.sv, 443
+      rast#(SIGFIG, RADIX, VERTS, AXIS, COLORS, PIPES_BOX, PIPES_ITER, 
+  PIPES_HASH, PIPES_SAMP)   verif/top_rast.sv, 80
+      top_rast  verif/top_rast.sv, 17
+  
+
+
+Error-[IUDA] Incompatible dimensions
+rtl/sampletest.sv, 120
+  Incompatible unpacked dimensions in assignment
+  Arrays with incompatible unpacked dimensions  cannot be used in assignments,
+  initializations and instantiations.
+
+
+Error-[ICTA] Incompatible complex type
+rtl/sampletest.sv, 120
+  Incompatible complex type assignment
+  Type of source expression is incompatible with type of target expression. 
+  Mismatching types cannot be used in assignments, initializations and 
+  instantiations. The type of the target is 'logic signed[23:0]$[1:0]', while 
+  the type of the source is 'logic signed[23:0]'.
+  Source Expression: (tri_shift_R16S[2][1] - tri_shift_R16S[1][1])
+  Instance stack trace:
+      sampletest#(SIGFIG, RADIX, VERTS, AXIS, COLORS, PIPES_SAMP, , , )   
+  rtl/rast.sv, 443
+      rast#(SIGFIG, RADIX, VERTS, AXIS, COLORS, PIPES_BOX, PIPES_ITER, 
+  PIPES_HASH, PIPES_SAMP)   verif/top_rast.sv, 80
+      top_rast  verif/top_rast.sv, 17
+  
+
+
+Error-[IUDA] Incompatible dimensions
+rtl/sampletest.sv, 121
+  Incompatible unpacked dimensions in assignment
+  Arrays with incompatible unpacked dimensions  cannot be used in assignments,
+  initializations and instantiations.
+
+
+Error-[ICTA] Incompatible complex type
+rtl/sampletest.sv, 121
+  Incompatible complex type assignment
+  Type of source expression is incompatible with type of target expression. 
+  Mismatching types cannot be used in assignments, initializations and 
+  instantiations. The type of the target is 'logic signed[23:0]$[1:0]', while 
+  the type of the source is 'logic signed[23:0]'.
+  Source Expression: (tri_shift_R16S[0][0] - tri_shift_R16S[2][0])
+  Instance stack trace:
+      sampletest#(SIGFIG, RADIX, VERTS, AXIS, COLORS, PIPES_SAMP, , , )   
+  rtl/rast.sv, 443
+      rast#(SIGFIG, RADIX, VERTS, AXIS, COLORS, PIPES_BOX, PIPES_ITER, 
+  PIPES_HASH, PIPES_SAMP)   verif/top_rast.sv, 80
+      top_rast  verif/top_rast.sv, 17
+  
+
+
+Note-[MAX_ERROR_COUNT] Maximum error count reached
+  Current number of errors has reached the default maximum error count (10).
+  Please use +error+<count> to increase the limit.
+
+1 warning
+10 errors
+(standard_in) 1: syntax error
+(standard_in) 1: syntax error
+(standard_in) 1: syntax error

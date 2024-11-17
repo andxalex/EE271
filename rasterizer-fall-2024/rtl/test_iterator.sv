@@ -81,6 +81,12 @@
  *
  */
 
+/*
+* 8 -> 0
+* 4 -> 1
+* 2 -> 2
+* 1 -> 3
+*/
 module test_iterator
 #(
     parameter SIGFIG = 24, // Bits in color and position.
@@ -96,7 +102,7 @@ module test_iterator
     input logic signed [SIGFIG-1:0]     tri_R13S[VERTS-1:0][AXIS-1:0], //triangle to Iterate Over
     input logic unsigned [SIGFIG-1:0]   color_R13U[COLORS-1:0] , //Color of triangle
     input logic signed [SIGFIG-1:0]     box_R13S[1:0][1:0], //Box to iterate for subsamples
-    input logic                             validTri_R13H, //triangle is valid
+    input logic                         validTri_R13H, //triangle is valid
 
     //Control Signals
     input logic [3:0]   subSample_RnnnnU , //Subsample width
@@ -110,10 +116,10 @@ module test_iterator
     output logic signed [SIGFIG-1:0]    tri_R14S[VERTS-1:0][AXIS-1:0], //triangle to Sample Test
     output logic unsigned [SIGFIG-1:0]  color_R14U[COLORS-1:0] , //Color of triangle
     output logic signed [SIGFIG-1:0]    sample_R14S[1:0], //Sample Location to Be Tested
-    output logic                            validSamp_R14H //Sample and triangle are Valid
+    output logic                        validSamp_R14H //Sample and triangle are Valid
 );
 
-    // This module implement a Moore machine to iterarte sample points in bbox
+    // This module implement a Moore machine to iterate sample points in bbox
     // Recall: a Moore machine is an FSM whose output values are determined
     // solely by its current state.
     // A simple way to build a Moore machine is to make states for every output
@@ -122,10 +128,10 @@ module test_iterator
     // Now we create the signals for the next states of each outputs and
     // then instantiate registers for storing these states
     logic signed [SIGFIG-1:0]       next_tri_R14S[VERTS-1:0][AXIS-1:0];
-    logic unsigned  [SIGFIG-1:0]    next_color_R14U[COLORS-1:0] ;
+    logic unsigned  [SIGFIG-1:0]    next_color_R14U[COLORS-1:0];
     logic signed [SIGFIG-1:0]       next_sample_R14S[1:0];
-    logic                               next_validSamp_R14H;
-    logic                               next_halt_RnnnnL;
+    logic                           next_validSamp_R14H;
+    logic                           next_halt_RnnnnL;
 
     // Instantiate registers for storing these states
     dff3 #(
@@ -250,6 +256,18 @@ if(MOD_FSM == 0) begin // Using baseline FSM
     // at the begining of the module for the help on
     // understanding the signals here
 
+    // get MSAA step
+    logic [SIGFIG-1:0] step;
+    always_comb begin
+        case(subSample_RnnnnU)
+            4'b1000: step = (1 << RADIX);
+            4'b0100: step = (1 << (RADIX - 1));
+            4'b0010: step = (1 << (RADIX - 2));
+            4'b0001: step = (1 << (RADIX - 3));
+            default: step = (1 << RADIX);
+        endcase
+    end
+
     always_comb begin
         // START CODE HERE
 	at_right_edg_R14H= 1'b0;
@@ -261,26 +279,25 @@ if(MOD_FSM == 0) begin // Using baseline FSM
 	// ************************
 	// minus 1 maybe
 	// ************************
-	if(sample_R14S[0]== box_R14S[1][0] && sample_R14S[1] == box_R14S[1][1])
-	begin
+
+    // At last row of last col
+	if(sample_R14S[0] == box_R14S[1][0] && sample_R14S[1] == box_R14S[1][1])
 		at_end_box_R14H = 1'b1;
-	end
-	else if(sample_R14S[0]== box_R14S[1][0])
-	begin
+    // At last col
+	else if(sample_R14S[0]== box_R14S[1][0]) begin
 		at_right_edg_R14H= 1'b1;
 		next_up_samp_R14S[0]= box_R14S[0][0];
-	        next_up_samp_R14S[1]= sample_R14S[1]+ 1;	
+        next_up_samp_R14S[1]= sample_R14S[1]+ step;	
 	end
-	else if(sample_R14S[1]== box_R14S[1][1])
-	begin 
+    // At last row
+	else if(sample_R14S[1]== box_R14S[1][1]) begin 
 		at_top_edg_R14H= 1'b1;
-		next_rt_samp_R14S[0]= sample_R14S[0]+ 1;
+		next_rt_samp_R14S[0]= sample_R14S[0]+ step;
 	end
-	else
-	begin
-		next_rt_samp_R14S[0]= sample_R14S[0]+ 1; // END CODE HERE
-        end
-end
+	else begin
+        next_rt_samp_R14S[0]= sample_R14S[0]+ step; // END CODE HERE
+    end
+    end
     //////
     ////// Then complete the following combinational logic defining the
     ////// next states
@@ -290,6 +307,53 @@ end
 
     // Combinational logic for state transitions
     always_comb begin
+        next_state_R14H = state_R14H;
+        next_validSamp_R14H = 1'b1;
+
+        // ?
+        next_tri_R14S = tri_R14S;
+        next_color_R14U = color_R14U;
+        next_halt_RnnnnL = halt_RnnnnL;
+
+        case(state_R14H)
+            WAIT_STATE: begin
+                if (validTri_R13H) begin
+                    next_state_R14H = TEST_STATE;
+
+                    // ?
+                    next_tri_R14S = tri_R13S;
+                    next_color_R14U = color_R13U;
+                    next_halt_RnnnnL = 1'b0;
+                end
+            end
+            TEST_STATE:
+
+                // Box is over, set invalid positions and wait
+                if (at_end_box_R14H) begin
+                    next_state_R14H = WAIT_STATE;
+                    
+                    // set invalid position
+                    next_sample_R14S[0] = box_R14S[0][0];
+                    next_sample_R14S[1] = box_R14S[0][1];
+                    next_validSamp_R14H = 1'b0;
+
+                    // stop  halting
+                    next_halt_RnnnnL = 1'b1;
+                end
+
+                // At edge jump up
+                else if (at_right_edg_R14H) begin
+                    next_sample_R14S[0] = next_up_samp_R14S[0];
+                    next_sample_R14S[1] = next_up_samp_R14S[1];
+                end
+
+                else begin
+                    next_sample_R14S[0] = next_rt_samp_R14S[0];
+                    next_sample_R14S[1] = next_rt_samp_R14S[1];
+                end
+        endcase
+
+
         // START CODE HERE
         // Try using a case statement on state_R14H
         // END CODE HERE

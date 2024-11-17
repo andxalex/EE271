@@ -122,11 +122,11 @@ module bbox
     //Input Signals
     input logic signed [SIGFIG-1:0]     tri_R10S[VERTS-1:0][AXIS-1:0] , // Sets X,Y Fixed Point Values
     input logic unsigned [SIGFIG-1:0]   color_R10U[COLORS-1:0] , // Color of Tri
-    input logic                             validTri_R10H , // Valid Data for Operation
+    input logic                         validTri_R10H , // Valid Data for Operation
 
     //Control Signals
     input logic                         halt_RnnnnL , // Indicates No Work Should Be Done
-    input logic signed [SIGFIG-1:0] screen_RnnnnS[1:0] , // Screen Dimensions
+    input logic signed [SIGFIG-1:0]     screen_RnnnnS[1:0] , // Screen Dimensions
     input logic [3:0]                   subSample_RnnnnU , // SubSample_Interval
 
     //Global Signals
@@ -137,7 +137,7 @@ module bbox
     output logic signed [SIGFIG-1:0]    tri_R13S[VERTS-1:0][AXIS-1:0], // 4 Sets X,Y Fixed Point Values
     output logic unsigned [SIGFIG-1:0]  color_R13U[COLORS-1:0] , // Color of Tri
     output logic signed [SIGFIG-1:0]    box_R13S[1:0][1:0], // 2 Sets X,Y Fixed Point Values
-    output logic                            validTri_R13H                  // Valid Data for Operation
+    output logic                        validTri_R13H                  // Valid Data for Operation
 );
 
     //Signals In Clocking Order
@@ -190,28 +190,28 @@ module bbox
 		    3'b001:box_R10S[0][0]= tri_R10S[0][0]; // The X coordinate of the 0th Vertex
 		    3'b010:box_R10S[0][0]= tri_R10S[1][0]; // The X coordinate of the 1st Vertex
 		    3'b100:box_R10S[0][0]= tri_R10S[2][0]; // The X coordinate of the 2nd Vertex
-		    default:box_R10S[0][0]= Z;
+		    // default:box_R10S[0][0]= 1'bZ;
 	    endcase
 	    // UR X Coordinate of Bounding Box
 	    case(bbox_sel_R10H[1][0])
 		    3'b001:box_R10S[1][0]= tri_R10S[0][0]; // The X coordinate of the 0th Vertex
 		    3'b010:box_R10S[1][0]= tri_R10S[1][0]; // The X coordinate of the 1st Vertex
 		    3'b100:box_R10S[1][0]= tri_R10S[2][0]; // The X coordinate of the 2nd Vertex
-		    default:box_R10S[1][0]= Z;
+		    // default:box_R10S[1][0]= Z;
 	    endcase
 	    // LL Y Coordinate of Bounding Box
 	    case(bbox_sel_R10H[0][1])
 		    3'b001:box_R10S[0][1]= tri_R10S[0][1]; // The Y coordinate of the 0th Vertex
 		    3'b010:box_R10S[0][1]= tri_R10S[1][1]; // The Y coordinate of the 1st Vertex
 		    3'b100:box_R10S[0][1]= tri_R10S[2][1]; // The Y coordinate of the 2nd Vertex
-		    default:box_R10S[0][1]= Z;
+		    // default:box_R10S[0][1]= Z;
 	    endcase
             // UR Y Coordinate of Bounding Box
 	    case(bbox_sel_R10H[1][1])
 		    3'b001:box_R10S[1][1]= tri_R10S[0][1]; // The Y coordinate of the 0th Vertex
 		    3'b010:box_R10S[1][1]= tri_R10S[1][1]; // The Y coordinate of the 1st Vertex
 		    3'b100:box_R10S[1][1]= tri_R10S[2][1]; // The Y coordinate of the 2nd Vertex
-		    default:box_R10S[1][1]= Z;
+		    // default:box_R10S[1][1]= Z;
 	    endcase
     end
 
@@ -255,26 +255,27 @@ module bbox
     //       to a mask would allow you to do this operation
     //       as a bitwise and operation.
 
-//Round LowerLeft and UpperRight for X and Y
-generate
-for(genvar i = 0; i < 2; i = i + 1) begin
-    for(genvar j = 0; j < 2; j = j + 1) begin
+    //Round LowerLeft and UpperRight for X and Y
+    generate
+    for(genvar i = 0; i < 2; i = i + 1) begin
+        for(genvar j = 0; j < 2; j = j + 1) begin
 
-        always_comb begin
-            //Integer Portion of LL and UR Remains the Same
-            rounded_box_R10S[i][j][SIGFIG-1:RADIX]
-                = box_R10S[i][j][SIGFIG-1:RADIX];
+            always_comb begin
+                //Integer Portion of LL and UR Remains the Same
+                rounded_box_R10S[i][j][SIGFIG-1:RADIX]
+                    = box_R10S[i][j][SIGFIG-1:RADIX];
 
-            //////// ASSIGN FRACTIONAL PORTION
-            // START CODE HERE
-	    rounded_box_R10S[i][j][RADIX-1:0]= {subsample_RnnnnU,6'b0};
-            // END CODE HERE
+                //////// ASSIGN FRACTIONAL PORTION
+                // START CODE HERE
 
-        end // always_comb
+                rounded_box_R10S[i][j][RADIX-1:0]= {subSample_RnnnnU,6'b0};
+                // END CODE HERE
 
+            end // always_comb
+
+        end
     end
-end
-endgenerate
+    endgenerate
 
     //Assertion to help you debug errors in rounding
     assert property( @(posedge clk) (box_R10S[0][0] - rounded_box_R10S[0][0]) <= {subSample_RnnnnU,7'b0});
@@ -295,66 +296,58 @@ endgenerate
     logic bbox_valid[1:0]; 
     always_comb begin
 
-        //////// ASSIGN "out_box_R10S" and "outvalid_R10H"
-        // START CODE HERE
-	out_box_R10S= box_R10S;
-	outvalid_R10H= 1'b0; // Initialized as invalid
-        
-	// Clamping the LL X Coordinate if necessary
-	if(box_R10S[0][0]< 0)
-	begin
-		out_box_R10S[0][0]= 0;
-	end
-	else 
-	begin
-		out_box_R10S[0][0]= box_R10S[0][0];
-	end
-        
-	// Clamping the LL Y Coordinate if necessary
-	if(box_R10S[0][1]< 0)
-	begin
-		out_box_R10S[0][1]= 0;
-	end
-	else 
-	begin
-		out_box_R10S[0][1]= box_R10S[0][1];
-	end
+            //////// ASSIGN "out_box_R10S" and "outvalid_R10H"
+            // START CODE HERE
+        out_box_R10S= box_R10S;
+        outvalid_R10H= 1'b0; // Initialized as invalid
+            
+        // Clamping the LL X Coordinate if necessary
+        if(box_R10S[0][0]< 0)
+            begin
+                out_box_R10S[0][0]= 0;
+            end
+        else 
+            begin
+                out_box_R10S[0][0]= box_R10S[0][0];
+            end
+            
+        // Clamping the LL Y Coordinate if necessary
+        if(box_R10S[0][1]< 0)
+            begin
+                out_box_R10S[0][1]= 0;
+            end
+        else 
+            begin
+                out_box_R10S[0][1]= box_R10S[0][1];
+            end
 
-	// Clamping the UR X Coordinate if necessary
-	if(box_R10S[1][0]> screen_Rnnnns[0])
-	begin
-		out_box_R10S[1][0]= screen_Rnnnns[0];
-	end
-	else 
-	begin
-		out_box_R10S[1][0]= box_R10S[1][0];
-	end
-	// Clamping the UR Y Coordinate if necessary
-	if(box_R10S[1][1]> screen_Rnnnns[1])
-	begin
-		out_box_R10S[1][1]= screen_Rnnnns[1];
-	end
-	else 
-	begin
-		out_box_R10S[1][1]= box_R10S[1][1];
-	end
+        // Clamping the UR X Coordinate if necessary
+        if(box_R10S[1][0]> screen_RnnnnS[0])
+            begin
+                out_box_R10S[1][0]= screen_RnnnnS[0];
+            end
+        else 
+            begin
+                out_box_R10S[1][0]= box_R10S[1][0];
+            end
+        
+        // Clamping the UR Y Coordinate if necessary
+        if(box_R10S[1][1]> screen_RnnnnS[1])
+            begin
+                out_box_R10S[1][1]= screen_RnnnnS[1];
+            end
+        else 
+            begin
+                out_box_R10S[1][1]= box_R10S[1][1];
+            end
 
-    end
- 
-    if(validTri_R10H)
-    begin
-	 if(out_box_R10S[0][0]<= screen_Rnnnns[0] && out_box_R10S[1][0]>= 0 && out_box_R10S[0][1]<= screen_Rnnnns[1] && out_box_R10S[1][1]>=0)
-	 begin
-		 outvalid_R10H= 1'b1; // Bounding box is valid
-	 end
-	 else
-	 begin
-		 outvalid_R10H= 1'b0; // Bounding box is invalid
-	 end	 
-    end
-    else
-    begin 
-	outvalid_R10H= 1'b0; // Output is invalid as validTri_R10H is low (invalid data for operation)
+        if(validTri_R10H) begin
+            if((out_box_R10S[0][0]<= screen_RnnnnS[0]) && (out_box_R10S[1][0]>= 0) && (out_box_R10S[0][1]<= screen_RnnnnS[1]) && (out_box_R10S[1][1]>=0))
+                outvalid_R10H= 1'b1; // Bounding box is valid
+            else
+                outvalid_R10H= 1'b0; // Bounding box is invalid
+        end else 
+            outvalid_R10H= 1'b0; // Output is invalid as validTri_R10H is low (invalid data for operation)
     end
 
     //Assertion for checking if outvalid_R10H has been assigned properly

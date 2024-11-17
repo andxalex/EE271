@@ -1,0 +1,16 @@
+
+Making /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv because of params/rast_params.sv rtl/bbox.sv rtl/dff2.sv rtl/dff3.sv rtl/dff.sv rtl/dff_retime.sv rtl/hash_jtree.sv rtl/rast.sv rtl/sampletest.sv rtl/test_iterator.sv rtl/tree_hash.sv rtl/DW_pl_reg.v verif/bbx_sb.sv verif/clocker.sv verif/perf_monitor.sv verif/rast_driver.sv verif/smpl_cnt_sb.sv verif/smpl_sb.sv verif/testbench.sv verif/top_rast.sv verif/zbuff.sv /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/gold/sv_gold.o
+==================================================
+vcs  -sverilog +cli -debug_access+all +lint=PCWM +libext+.v -notice -full64 +v2k -debug_pp -timescale=1ns/1ns +noportcoerce -ld gcc -debug_pp -top top_rast -f rtl/vlog.vf -f verif/verif_vlog.vf -y /home/users/andalex/Desktop/EE271/rasterizer-fall-2024 +incdir+/home/users/andalex/Desktop/EE271/rasterizer-fall-2024 -y /afs/ir.stanford.edu/class/ee/synopsys/syn/M-2016.12-SP2/dw/sim_ver/ +incdir+/afs/ir.stanford.edu/class/ee/synopsys/syn/M-2016.12-SP2/dw/sim_ver/ -y /packages/gtech/src_ver/ +incdir+/packages/gtech/src_ver/  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/gold/sv_gold.o  2>&1 | tee comp_bb.log 
+
+Warning-[LNX_OS_VERUN] Unsupported Linux version
+  Linux version 'Rocky Linux release 8.10 (Green Obsidian)' is not supported 
+  on 'x86_64' officially, assuming linux compatibility by default. Set 
+  VCS_ARCH_OVERRIDE to linux or suse32 to override.
+  Please refer to release notes for information on supported platforms.
+
+
+Warning-[LINX_KRNL] Unsupported Linux kernel
+  Linux kernel '4.18.0-553.16.1.el8_10.x86_64' is not supported.
+  Supported versions are 2.4* or 2.6*.
+
