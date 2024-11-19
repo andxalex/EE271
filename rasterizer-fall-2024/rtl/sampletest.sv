@@ -93,7 +93,7 @@ module sampletest
 
     // Signals in Access Order
     logic signed [SIGFIG-1:0]       tri_shift_R16S[VERTS-1:0][1:0]; // triangle after coordinate shift
-    logic signed [SIGFIG-1:0]       edge_R16S[EDGES-1:0][1:0][1:0]; // Edges
+    // logic signed [SIGFIG-1:0]       edge_R16S[EDGES-1:0][1:0][1:0]; // Edges
     logic signed [(2*SHORTSF)-1:0]  dist_lg_R16S[EDGES-1:0]; // Result of x_1 * y_2 - x_2 * y_1
     logic                           hit_valid_R16H ; // Output (YOUR JOB!)
     logic signed [SIGFIG-1:0]       hit_R16S[AXIS-1:0]; // Sample position
@@ -106,38 +106,20 @@ module sampletest
     // START CODE HERE
     // (1) Shift X, Y coordinates such that the fragment resides on the (0,0) position.
     always_comb begin
+
+        // Shift vertices
         for(int i= 0; i< VERTS; i++) begin
             tri_shift_R16S[i][0]= tri_R16S[i][0]- sample_R16S[0];
             tri_shift_R16S[i][1]= tri_R16S[i][1]- sample_R16S[1];
         end	
     
-        // // (2) Organize edges (form three edges for triangles)
-        // edge_R16S[0][0][0] = tri_shift_R16S[0][0];
-        // edge_R16S[0][0][1] = tri_shift_R16S[0][1];
-        // edge_R16S[0][1][0] = tri_shift_R16S[1][]
-
-
-        // edge_R16S[0][0]= tri_shift_R16S[1][0] - tri_shift_R16S[0][0]; 
-        // edge_R16S[0][1]= tri_shift_R16S[1][1] - tri_shift_R16S[0][1]; 
-        // edge_R16S[1][0]= tri_shift_R16S[2][0] - tri_shift_R16S[1][0]; 
-        // edge_R16S[1][1]= tri_shift_R16S[2][1] - tri_shift_R16S[1][1]; 
-        // edge_R16S[2][0]= tri_shift_R16S[0][0] - tri_shift_R16S[2][0]; 
-        // edge_R16S[2][1]= tri_shift_R16S[0][1] - tri_shift_R16S[2][1]; 
-
-        // (3) Calculate distance x_1 * y_2 - x_2 * y_1
-
-        // dist_lg_R16S[0]= edge_R16S[0][0] * edge_R16S[1][1] - edge_R16S[1][0] * edge_R16S[0][1];
-        // dist_lg_R16S[1]= edge_R16S[1][0] * edge_R16S[2][1] - edge_R16S[1][1] * edge_R16S[2][0];
-        // dist_lg_R16S[2]= edge_R16S[2][0] * edge_R16S[0][1] - edge_R16S[2][1] * edge_R16S[0][0];
-
-        // Calculate distances right away, dont need edges?
+        // Calculate distances on vertices, don't bother with edges
         dist_lg_R16S[0] = tri_shift_R16S[0][0]*tri_shift_R16S[1][1] - tri_shift_R16S[1][0] * tri_shift_R16S[0][1];
         dist_lg_R16S[1] = tri_shift_R16S[1][0]*tri_shift_R16S[2][1] - tri_shift_R16S[2][0] * tri_shift_R16S[1][1];
         dist_lg_R16S[2] = tri_shift_R16S[2][0]*tri_shift_R16S[0][1] - tri_shift_R16S[0][0] * tri_shift_R16S[2][1];
 
-        // (4) Check distance and assign hit_valid_R16H.
+        // Check distance and assign hit_valid_R16H.
         hit_valid_R16H= (dist_lg_R16S[0] <= 0) && (dist_lg_R16S[1] < 0) && (dist_lg_R16S[2] <= 0) && validSamp_R16H;
-        
     end
     // END CODE HERE
 

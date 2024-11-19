@@ -57,7 +57,7 @@
 /home/users/andalex/Desktop/EE271/rasterizer-fall-2024
 /packages/gtech/src_ver/
 top_rast
-103
+108
 which_declare=declare -f
 sysc_uni_pwd=/home/users/andalex/Desktop/EE271/rasterizer-fall-2024
 _LMFILES__modshare=/etc/modulefiles/jaspergold/latest:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/syn/latest:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/hercules/B-2008.09-SP4:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/vcs/latest:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/base/1.0:1:/etc/modulefiles/matlab/caddy:1:/etc/modulefiles/incisive/latest:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/synopsys_edk/2011:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/starrc/F-2011.12-SP2:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/synopsys_pdk/2011:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/cx/F-2011.09-SP2:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/cdesigner/F-2011.09-SP2:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/genesis2/latest:1
@@ -66,7 +66,11 @@ YOSYSHQ_LICENSE=/cad/tabby/license/tabbycad-Stanford.lic
 XDG_SESSION_ID=23707
 XDG_RUNTIME_DIR=/run/user/452147
 XDG_DATA_DIRS=/home/users/andalex/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
-VSCODE_IPC_HOOK_CLI=/run/user/452147/vscode-ipc-5ec8980b-bccd-43d5-8454-6fbb7d162ec9.sock
+VSCODE_IPC_HOOK_CLI=/run/user/452147/vscode-ipc-30eeff48-28a5-4e0c-89c3-310d443d1504.sock
+VSCODE_GIT_IPC_HANDLE=/run/user/452147/vscode-git-6ac7123a2f.sock
+VSCODE_GIT_ASKPASS_NODE=/home/users/andalex/.vscode-server/cli/servers/Stable-f1a4fb101478ce6ec82fe9627c43efbf9e98c813/server/node
+VSCODE_GIT_ASKPASS_MAIN=/home/users/andalex/.vscode-server/cli/servers/Stable-f1a4fb101478ce6ec82fe9627c43efbf9e98c813/server/extensions/git/dist/askpass-main.js
+VSCODE_GIT_ASKPASS_EXTRA_ARGS=
 VRST_HOME=/cad/cadence/INCISIVE15.20.022
 VMR_MODE_FLAG=64
 VIRTUAL_ENV=/cad/aha/venv
@@ -122,14 +126,14 @@ MODULES_LMALTNAME=genesis2/latest&genesis2/default&genesis2:syn/latest&syn/defau
 MODULES_CMD=/usr/share/Modules/libexec/modulecmd.tcl
 MODULESHOME=/usr/share/Modules
 MODULEPATH_modshare=/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools:1:/etc/scl/modulefiles:1:/usr/share/Modules/modulefiles:2:/etc/modulefiles:2:/usr/share/modulefiles:2
-MODULEPATH=/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools:/etc/scl/modulefiles:/etc/scl/modulefiles:/usr/share/Modules/modulefiles:/etc/modulefiles:/usr/share/modulefiles
+MODULEPATH=/etc/scl/modulefiles:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools:/etc/scl/modulefiles:/etc/scl/modulefiles:/usr/share/Modules/modulefiles:/etc/modulefiles:/usr/share/modulefiles
 MGLS_LICENSE_FILE=1717@cadlic0.stanford.edu
 MFLAGS=
 MATLAB_HOME=/cad/mathworks/caddy/MATLAB-R2018b
 MANPATH_modshare=/afs/ir.stanford.edu/class/ee/synopsys/syn/M-2016.12-SP2/doc/snps_gui/man:1::1:/afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/doc/man:1:/afs/ir.stanford.edu/class/ee/synopsys/syn/M-2016.12-SP2/doc/snps_tcl/man:1:/afs/ir.stanford.edu/class/ee/synopsys/syn/M-2016.12-SP2/doc/syn/man:1:/usr/share/man:1
 MAKEOVERRIDES=${-*-command-variables-*-}
 MAKELEVEL=1
-MAKEFLAGS=RUN=+testname=/afs/ir.stanford.edu/class/ee271/project/vect/vec_271_01_sv_short.dat
+MAKEFLAGS=RUN=+testname=/afs/ir.stanford.edu/class/ee271/project/vect/vec_271_00_sv.dat
 LOADEDMODULES_modshare=starrc/F-2011.12-SP2:1:cx/F-2011.09-SP2:1:matlab/caddy:1:syn/latest:1:synopsys_edk/2011:1:hercules/B-2008.09-SP4:1:incisive/latest:1:vcs/latest:1:base/1.0:1:synopsys_pdk/2011:1:cdesigner/F-2011.09-SP2:1:genesis2/latest:1:jaspergold/latest:1
 LOADEDMODULES=base/1.0:genesis2/latest:syn/latest:vcs/latest:synopsys_edk/2011:cdesigner/F-2011.09-SP2:hercules/B-2008.09-SP4:starrc/F-2011.12-SP2:cx/F-2011.09-SP2:synopsys_pdk/2011:matlab/caddy:incisive/latest:jaspergold/latest
 LM_LICENSE_FILE_modshare=27000@cadlic0.stanford.edu:2
@@ -143,6 +147,7 @@ HOSTTYPE=x86_64-linux
 HISTCONTROL=ignoreboth
 HERCULES_HOME_DIR=/usr/class/ee/synopsys/hercules/B-2008.09-SP4
 GROUP=operator
+GIT_ASKPASS=/home/users/andalex/.vscode-server/cli/servers/Stable-f1a4fb101478ce6ec82fe9627c43efbf9e98c813/server/extensions/git/dist/askpass.sh
 GENESIS_LIBS=/afs/ir/class/ee/genesis2/r11012/PerlLibs
 GENESIS_HOME=/afs/ir/class/ee/genesis2/r11012
 EE271_VECT=/afs/ir.stanford.edu/class/ee271/project/vect
@@ -176,23 +181,23 @@ AMSHOME=/cad/cadence/INCISIVE15.20.022
 1731289453 verif/bbx_sb.sv
 1731289453 rtl/DW_pl_reg.v
 1731289453 rtl/tree_hash.sv
-1731837724 rtl/test_iterator.sv
-1731825113 rtl/sampletest.sv
+1731890245 rtl/test_iterator.sv
+1731887843 rtl/sampletest.sv
 1731289453 rtl/rast.sv
 1731289453 rtl/hash_jtree.sv
 1731289453 rtl/dff_retime.sv
 1731289453 rtl/dff.sv
 1731289453 rtl/dff3.sv
 1731289453 rtl/dff2.sv
-1731887442 rtl/bbox.sv
-1731289453 params/rast_params.sv
+1731889253 rtl/bbox.sv
+1731890764 params/rast_params.sv
 1731289454 verif/verif_vlog.vf
 1731289453 rtl/vlog.vf
 1474973531 /cad/synopsys/verdi/L-2016.06-SP1-1//share/PLI/VCS/LINUX64/verdi.tab
 1487217861 /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/vcsdp_lite.tab
 4
-1731797422 /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/gold/sv_gold.o
+1731891580 /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/gold/sv_gold.o
 1487220396 /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libvirsim.so
 1487219634 /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/liberrorinf.so
 1487219608 /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libsnpsmalloc.so
-1731887475 simv.daidir
+1731891590 simv.daidir

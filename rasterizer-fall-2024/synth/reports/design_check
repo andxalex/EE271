@@ -2,7 +2,7 @@
 ****************************************
 check_design summary:
 Version:     M-2016.12-SP2
-Date:        Sun Nov 17 15:29:08 2024
+Date:        Sun Nov 17 16:57:33 2024
 ****************************************
 
                    Name                                            Total
@@ -10,11 +10,27 @@ Date:        Sun Nov 17 15:29:08 2024
 Inputs/Outputs                                                     48
     Unconnected ports (LINT-28)                                    48
 
-Cells                                                               1
-    Cells do not drive (LINT-1)                                     1
+Cells                                                              17
+    Cells do not drive (LINT-1)                                    17
 --------------------------------------------------------------------------------
 
-Warning: In design 'rast', cell 'U13872' does not drive any nets. (LINT-1)
+Warning: In design 'rast', cell 'U13203' does not drive any nets. (LINT-1)
+Warning: In design 'rast', cell 'U13546' does not drive any nets. (LINT-1)
+Warning: In design 'rast', cell 'U14087' does not drive any nets. (LINT-1)
+Warning: In design 'rast', cell 'U15096' does not drive any nets. (LINT-1)
+Warning: In design 'rast', cell 'U15097' does not drive any nets. (LINT-1)
+Warning: In design 'rast', cell 'U15098' does not drive any nets. (LINT-1)
+Warning: In design 'rast', cell 'U15099' does not drive any nets. (LINT-1)
+Warning: In design 'rast', cell 'U15100' does not drive any nets. (LINT-1)
+Warning: In design 'rast', cell 'U15101' does not drive any nets. (LINT-1)
+Warning: In design 'rast', cell 'U15102' does not drive any nets. (LINT-1)
+Warning: In design 'rast', cell 'U16024' does not drive any nets. (LINT-1)
+Warning: In design 'rast', cell 'U16025' does not drive any nets. (LINT-1)
+Warning: In design 'rast', cell 'U16026' does not drive any nets. (LINT-1)
+Warning: In design 'rast', cell 'U16027' does not drive any nets. (LINT-1)
+Warning: In design 'rast', cell 'U16028' does not drive any nets. (LINT-1)
+Warning: In design 'rast', cell 'U16029' does not drive any nets. (LINT-1)
+Warning: In design 'rast', cell 'U16030' does not drive any nets. (LINT-1)
 Warning: In design 'rast', port 'tri_R10S[2][2][23]' is not connected to any nets. (LINT-28)
 Warning: In design 'rast', port 'tri_R10S[2][2][22]' is not connected to any nets. (LINT-28)
 Warning: In design 'rast', port 'tri_R10S[2][2][21]' is not connected to any nets. (LINT-28)
