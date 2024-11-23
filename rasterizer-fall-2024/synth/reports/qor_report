@@ -3,7 +3,7 @@
 Report : qor
 Design : rast
 Version: M-2016.12-SP2
-Date   : Fri Nov 22 21:11:14 2024
+Date   : Fri Nov 22 23:13:59 2024
 ****************************************
 
 
@@ -64,12 +64,12 @@ Date   : Fri Nov 22 21:11:14 2024
 
   Compile CPU Statistics
   -----------------------------------------
-  Resource Sharing:                   54.94
-  Logic Optimization:                 70.90
-  Mapping Optimization:               48.59
+  Resource Sharing:                   57.71
+  Logic Optimization:                 75.38
+  Mapping Optimization:               50.16
   -----------------------------------------
-  Overall Compile Time:              229.66
-  Overall Compile Wall Clock Time:   234.72
+  Overall Compile Time:              240.74
+  Overall Compile Wall Clock Time:   245.93
 
   --------------------------------------------------------------------
 
