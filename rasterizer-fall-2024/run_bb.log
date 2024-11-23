@@ -1,6 +1,6 @@
 Chronologic VCS simulator copyright 1991-2017
 Contains Synopsys proprietary information.
-Compiler version M-2017.03_Full64; Runtime version M-2017.03_Full64;  Nov 17 17:18 2024
+Compiler version M-2017.03_Full64; Runtime version M-2017.03_Full64;  Nov 22 21:00 2024
 time=         0 ************** Driver Is Initializing Input Signals *****************
 time=         0 ************** Loading Arguments *****************
 Simulation run with default random seed=12345
@@ -28,5 +28,5 @@ $finish called from file "verif/testbench.sv", line 306.
 $finish at simulation time            244827040
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 244827040 ns
-CPU Time:      8.770 seconds;       Data structure size:   0.2Mb
-Sun Nov 17 17:18:38 2024
+CPU Time:      9.560 seconds;       Data structure size:   0.2Mb
+Fri Nov 22 21:00:12 2024

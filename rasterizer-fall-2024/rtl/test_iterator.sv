@@ -95,7 +95,7 @@ module test_iterator
     parameter AXIS = 3, // Number of axis foreach vertex 3 is (x,y,z).
     parameter COLORS = 3, // Number of color channels
     parameter PIPE_DEPTH = 1, // How many pipe stages are in this block
-    parameter MOD_FSM = 1 // Use Modified FSM to eliminate a wait state
+    parameter MOD_FSM = 0 // Use Modified FSM to eliminate a wait state
 )
 (
     //Input Signals
@@ -256,29 +256,13 @@ if(MOD_FSM == 0) begin // Using baseline FSM
     // at the begining of the module for the help on
     // understanding the signals here
 
-    // get MSAA step
-    logic [SIGFIG-1:0] step;
     always_comb begin
-        case(subSample_RnnnnU)
-            4'b1000: step = (1 << RADIX);
-            4'b0100: step = (1 << (RADIX - 1));
-            4'b0010: step = (1 << (RADIX - 2));
-            4'b0001: step = (1 << (RADIX - 3));
-            default: step = (1 << RADIX);
-        endcase
-    end
-
-    always_comb begin
-        // START CODE HERE
+        // Set defaults
         at_right_edg_R14H= 1'b0;
         at_end_box_R14H= 1'b0;
         at_top_edg_R14H= 1'b0;
-        next_rt_samp_R14S[1] = sample_R14S[1];
-        next_rt_samp_R14S[0] = sample_R14S[0];
-
-        // ************************
-        // minus 1 maybe
-        // ************************
+        next_rt_samp_R14S = sample_R14S;
+        next_up_samp_R14S = sample_R14S;
 
         // At last row of last col
         if(sample_R14S[0] == box_R14S[1][0] && sample_R14S[1] == box_R14S[1][1])
@@ -287,17 +271,17 @@ if(MOD_FSM == 0) begin // Using baseline FSM
         else if(sample_R14S[0]== box_R14S[1][0]) begin
             at_right_edg_R14H= 1'b1;
             next_up_samp_R14S[0]= box_R14S[0][0];
-            next_up_samp_R14S[1]= sample_R14S[1]+ step;	
+            next_up_samp_R14S[1]= sample_R14S[1]+ {subSample_RnnnnU,7'd0};	
         end
         // At last row
         else if(sample_R14S[1]== box_R14S[1][1]) begin 
             at_top_edg_R14H= 1'b1;
-            next_rt_samp_R14S[0]= sample_R14S[0]+ step;
+            next_rt_samp_R14S[0]= sample_R14S[0]+ {subSample_RnnnnU,7'd0};
         end
-        else begin
-            next_rt_samp_R14S[0]= sample_R14S[0]+ step; // END CODE HERE
-        end
+        else
+            next_rt_samp_R14S[0]= sample_R14S[0]+ {subSample_RnnnnU,7'd0};
     end
+
     //////
     ////// Then complete the following combinational logic defining the
     ////// next states
@@ -310,10 +294,12 @@ if(MOD_FSM == 0) begin // Using baseline FSM
         next_state_R14H = state_R14H;
         next_validSamp_R14H = 1'b1;
 
-        // ?
+        // Set defaults to current
         next_tri_R14S = tri_R14S;
         next_color_R14U = color_R14U;
         next_halt_RnnnnL = halt_RnnnnL;
+        next_sample_R14S = sample_R14S;
+        next_box_R14S = box_R14S; 
 
         case(state_R14H)
             WAIT_STATE: begin
@@ -321,12 +307,11 @@ if(MOD_FSM == 0) begin // Using baseline FSM
                 if (validTri_R13H) begin
                     next_state_R14H = TEST_STATE;
 
-                    // ?
+                    // Sample R13 inputs
                     next_tri_R14S = tri_R13S;
                     next_color_R14U = color_R13U;
                     next_halt_RnnnnL = 1'b0;
                     next_box_R14S = box_R13S;
-
                     next_sample_R14S[0] = box_R13S[0][0];
                     next_sample_R14S[1] = box_R13S[0][1];
                 end
@@ -347,15 +332,11 @@ if(MOD_FSM == 0) begin // Using baseline FSM
                 end
 
                 // At edge jump up
-                else if (at_right_edg_R14H) begin
-                    next_sample_R14S[0] = next_up_samp_R14S[0];
-                    next_sample_R14S[1] = next_up_samp_R14S[1];
-                end
+                else if (at_right_edg_R14H)
+                    next_sample_R14S = next_up_samp_R14S;
 
-                else begin
-                    next_sample_R14S[0] = next_rt_samp_R14S[0];
-                    next_sample_R14S[1] = next_rt_samp_R14S[1];
-                end
+                else
+                    next_sample_R14S = next_rt_samp_R14S;
         endcase
 
 
@@ -368,11 +349,11 @@ if(MOD_FSM == 0) begin // Using baseline FSM
     // 1) A validTri_R13H signal causes a transition from WAIT state to TEST state
     // 2) An end_box_R14H signal causes a transition from TEST state to WAIT state
     // 3) What are you missing?
-
-    //Your assertions goes here
-    // START CODE HERE
-    // END CODE HERE
-    // Assertion ends
+    assert property ( @(posedge clk) (validTri_R13H && (state_R14H == WAIT_STATE))  |-> next_state_R14H == TEST_STATE);
+    assert property ( @(posedge clk) (at_end_box_R14H && (state_R14H == TEST_STATE))|-> next_state_R14H == WAIT_STATE);
+    assert property ( @(posedge clk) ((at_right_edg_R14H^at_top_edg_R14H) &&  (state_R14H == TEST_STATE))|-> next_state_R14H == TEST_STATE);
+    assert property ( @(posedge clk) (!validTri_R13H && (state_R14H == WAIT_STATE))  |-> next_state_R14H == WAIT_STATE);
+    assert property ( @(posedge clk) (!at_end_box_R14H && (state_R14H == TEST_STATE))|-> next_state_R14H == TEST_STATE);
 
     //////
     //////  RTL code for original FSM Finishes
@@ -388,12 +369,12 @@ if(MOD_FSM == 0) begin // Using baseline FSM
     endproperty
 
     //Check that Proposed Sample is in BBox
-    // START CODE HERE
-    // END CODE HERE
-    //Check that Proposed Sample is in BBox
-
-    //Error Checking Assertions
+    assert property( rb_lt( rst, sample_R14S[0], box_R14S[1][0], validTri_R13H ));
+    assert property( rb_lt( rst, sample_R14S[1], box_R14S[1][1], validTri_R13H ));
+    assert property( rb_lt( rst, box_R14S[0][0], sample_R14S[0], validTri_R13H ));
+    assert property( rb_lt( rst, box_R14S[0][1], sample_R14S[1], validTri_R13H ));
 end 
+
 else begin // Use modified FSM
 
 //////
@@ -451,64 +432,17 @@ else begin // Use modified FSM
     // at the begining of the module for the help on
     // understanding the signals here
 
-    // get MSAA step
-    // logic [SIGFIG-1:0] step;
-    // always_comb begin
-    //     case(subSample_RnnnnU)
-    //         4'b1000: step = (1 << RADIX);
-    //         4'b0100: step = (1 << (RADIX - 1));
-    //         4'b0010: step = (1 << (RADIX - 2));
-    //         4'b0001: step = (1 << (RADIX - 3));
-    //         default: step = (1 << RADIX);
-    //     endcase
-    // end
-
-    // always_comb begin
-    //     // START CODE HERE
-    //     at_right_edg_R14H= 1'b0;
-    //     at_end_box_R14H= 1'b0;
-    //     at_top_edg_R14H= 1'b0;
-    //     next_rt_samp_R14S[1] = sample_R14S[1];
-    //     next_rt_samp_R14S[0] = sample_R14S[0];
-
-    //     // ************************
-    //     // minus 1 maybe
-    //     // ************************
-
-    //     // At last row of last col
-    //     if(sample_R14S[0] == box_R14S[1][0] && sample_R14S[1] == box_R14S[1][1])
-    //         at_end_box_R14H = 1'b1;
-    //     // At last col
-    //     else if(sample_R14S[0]== box_R14S[1][0]) begin
-    //         at_right_edg_R14H= 1'b1;
-    //         next_up_samp_R14S[0]= box_R14S[0][0];
-    //         next_up_samp_R14S[1]= sample_R14S[1]+ step;	
-    //     end
-    //     // At last row
-    //     else if(sample_R14S[1]== box_R14S[1][1]) begin 
-    //         at_top_edg_R14H= 1'b1;
-    //         next_rt_samp_R14S[0]= sample_R14S[0]+ step;
-    //     end
-    //     else begin
-    //         next_rt_samp_R14S[0]= sample_R14S[0]+ step; // END CODE HERE
-    //     end
-    // end
-    //////
-    ////// Then complete the following combinational logic defining the
-    ////// next states
-    //////
-
-    ////// COMPLETE THE FOLLOW ALWAYS_COMB BLOCK
-
     // Combinational logic for state transitions
     always_comb begin
         next_state_R14H = state_R14H;
         next_validSamp_R14H = 1'b1;
 
-        // ?
+        // Set Defaults
         next_tri_R14S = tri_R14S;
         next_color_R14U = color_R14U;
         next_halt_RnnnnL = halt_RnnnnL;
+        next_box_R14S = box_R14S;
+        next_sample_R14S = sample_R14S;
 
         case(state_R14H)
             WAIT_STATE: begin
@@ -516,12 +450,11 @@ else begin // Use modified FSM
                 if (validTri_R13H) begin
                     next_state_R14H = TEST_STATE;
 
-                    // ?
+                    // Sample R13 signals
                     next_tri_R14S = tri_R13S;
                     next_color_R14U = color_R13U;
                     next_halt_RnnnnL = 1'b0;
                     next_box_R14S = box_R13S;
-
                     next_sample_R14S[0] = box_R13S[0][0];
                     next_sample_R14S[1] = box_R13S[0][1];
                 end
@@ -529,8 +462,6 @@ else begin // Use modified FSM
             TEST_STATE:
 
                 // Box is over, set invalid positions and wait
-
-                // get current position
                 if(sample_R14S[0] == box_R14S[1][0] && sample_R14S[1] == box_R14S[1][1]) begin
                     next_state_R14H = WAIT_STATE;
                     
@@ -548,48 +479,14 @@ else begin // Use modified FSM
                     next_sample_R14S[0] = box_R14S[0][0];
                     next_sample_R14S[1]= sample_R14S[1] + {subSample_RnnnnU,7'd0};	
                 end
-
+                
+                // else move right
                 else begin
                     next_sample_R14S[0] = sample_R14S[0] + {subSample_RnnnnU,7'd0};
                     next_sample_R14S[1] = sample_R14S[1];
                 end
         endcase
-
-
     end 
-    
-    //Assertions for testing FSM logic
-
-    // Write assertions to verify your FSM transition sequence
-    // Can you verify that:
-    // 1) A validTri_R13H signal causes a transition from WAIT state to TEST state
-    // 2) An end_box_R14H signal causes a transition from TEST state to WAIT state
-    // 3) What are you missing?
-
-    //Your assertions goes here
-    // START CODE HERE
-    // END CODE HERE
-    // Assertion ends
-
-    //////
-    //////  RTL code for original FSM Finishes
-    //////
-
-    //Some Error Checking Assertions
-
-    //Define a Less Than Property
-    //
-    //  a should be less than b
-    property rb_lt( rst, a , b , c );
-        @(posedge clk) rst | ((a<=b) | !c);
-    endproperty
-
-    //Check that Proposed Sample is in BBox
-    // START CODE HERE
-    // END CODE HERE
-    //Check that Proposed Sample is in BBox
-
-    //Error Checking Assertions 
 end
 endgenerate
 
