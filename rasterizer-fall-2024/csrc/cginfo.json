@@ -1,0 +1,352 @@
+{
+    "CompileStatus": "Successful",
+    "LVLData": [
+        "SIM"
+    ],
+    "MlibObjs": {},
+    "PrevCompiledModules": {},
+    "CurCompileModules": [
+        "...MASTER...",
+        "...MASTER...",
+        "_vcs_unit__4140305405",
+        "_vcs_unit__4140305405",
+        "std",
+        "std",
+        "rast_params",
+        "rast_params",
+        "bbox_0000",
+        "bbox_0000",
+        "dff2_0000",
+        "dff2_0000",
+        "dff2_0001",
+        "dff2_0001",
+        "dff2_0002",
+        "dff2_0002",
+        "dff2_0003",
+        "dff2_0003",
+        "dff2_0001_0000",
+        "dff2_0001_0000",
+        "dff2_0001_0001",
+        "dff2_0001_0001",
+        "dff2_0002_0000",
+        "dff2_0002_0000",
+        "dff2_0002_0001",
+        "dff2_0002_0001",
+        "dff3_0000",
+        "dff3_0000",
+        "dff3_0001",
+        "dff3_0001",
+        "dff3_0000_0000",
+        "dff3_0000_0000",
+        "dff3_0000_0001",
+        "dff3_0000_0001",
+        "dff3_0000_0002",
+        "dff3_0000_0002",
+        "dff3_0001_0000",
+        "dff3_0001_0000",
+        "dff_0000_0002",
+        "dff_0000_0002",
+        "dff_0000_0003",
+        "dff_0000_0003",
+        "dff_0000_0006",
+        "dff_0000_0006",
+        "hash_jtree",
+        "hash_jtree",
+        "rast",
+        "rast",
+        "sampletest",
+        "sampletest",
+        "test_iterator_0000",
+        "test_iterator_0000",
+        "bbx_sb",
+        "bbx_sb",
+        "perf_monitor",
+        "perf_monitor",
+        "rast_driver",
+        "rast_driver",
+        "smpl_cnt_sb",
+        "smpl_cnt_sb",
+        "smpl_sb",
+        "smpl_sb",
+        "testbench",
+        "testbench",
+        "top_rast",
+        "top_rast",
+        "zbuff",
+        "zbuff"
+    ],
+    "CompileStrategy": "fullobj",
+    "NameTable": {
+        "bbox_0000": [
+            "bbox_0000",
+            "d5BPu",
+            "module",
+            4
+        ],
+        "dff3_0000_0001": [
+            "dff3_0000_0001",
+            "RmIf7",
+            "module",
+            16
+        ],
+        "_vcs_unit__4140305405": [
+            "_vcs_unit__4140305405",
+            "INiNY",
+            "module",
+            1
+        ],
+        "dff_0000_0006": [
+            "dff_0000_0006",
+            "KE3qb",
+            "module",
+            21
+        ],
+        "std": [
+            "std",
+            "reYIK",
+            "module",
+            2
+        ],
+        "rast_params": [
+            "rast_params",
+            "mT84W",
+            "module",
+            3
+        ],
+        "dff2_0002_0001": [
+            "dff2_0002_0001",
+            "mv96h",
+            "module",
+            12
+        ],
+        "dff2_0000": [
+            "dff2_0000",
+            "HpNpL",
+            "module",
+            5
+        ],
+        "dff3_0000_0002": [
+            "dff3_0000_0002",
+            "gG0sx",
+            "module",
+            17
+        ],
+        "dff2_0002_0000": [
+            "dff2_0002_0000",
+            "KUIDG",
+            "module",
+            11
+        ],
+        "dff2_0001": [
+            "dff2_0001",
+            "YYTYE",
+            "module",
+            6
+        ],
+        "dff_0000_0002": [
+            "dff_0000_0002",
+            "xKfGv",
+            "module",
+            19
+        ],
+        "dff2_0001_0001": [
+            "dff2_0001_0001",
+            "UfTMx",
+            "module",
+            10
+        ],
+        "dff_0000_0003": [
+            "dff_0000_0003",
+            "ACtd6",
+            "module",
+            20
+        ],
+        "dff2_0002": [
+            "dff2_0002",
+            "yW5CM",
+            "module",
+            7
+        ],
+        "dff2_0003": [
+            "dff2_0003",
+            "FMRfU",
+            "module",
+            8
+        ],
+        "dff2_0001_0000": [
+            "dff2_0001_0000",
+            "tpBAT",
+            "module",
+            9
+        ],
+        "rast_driver": [
+            "rast_driver",
+            "ZD3VR",
+            "module",
+            28
+        ],
+        "dff3_0000": [
+            "dff3_0000",
+            "Fgck4",
+            "module",
+            13
+        ],
+        "top_rast": [
+            "top_rast",
+            "xFwH6",
+            "module",
+            32
+        ],
+        "perf_monitor": [
+            "perf_monitor",
+            "wiPAj",
+            "module",
+            27
+        ],
+        "dff3_0001": [
+            "dff3_0001",
+            "wrGcc",
+            "module",
+            14
+        ],
+        "smpl_cnt_sb": [
+            "smpl_cnt_sb",
+            "hVvAG",
+            "module",
+            29
+        ],
+        "dff3_0000_0000": [
+            "dff3_0000_0000",
+            "EJn6A",
+            "module",
+            15
+        ],
+        "dff3_0001_0000": [
+            "dff3_0001_0000",
+            "aWGfp",
+            "module",
+            18
+        ],
+        "hash_jtree": [
+            "hash_jtree",
+            "sE4tC",
+            "module",
+            22
+        ],
+        "zbuff": [
+            "zbuff",
+            "K6ha2",
+            "module",
+            33
+        ],
+        "sampletest": [
+            "sampletest",
+            "gPJxK",
+            "module",
+            24
+        ],
+        "rast": [
+            "rast",
+            "NNwFS",
+            "module",
+            23
+        ],
+        "test_iterator_0000": [
+            "test_iterator_0000",
+            "adgUT",
+            "module",
+            25
+        ],
+        "bbx_sb": [
+            "bbx_sb",
+            "a8g0Z",
+            "module",
+            26
+        ],
+        "smpl_sb": [
+            "smpl_sb",
+            "xTIPv",
+            "module",
+            30
+        ],
+        "testbench": [
+            "testbench",
+            "iAVhC",
+            "module",
+            31
+        ],
+        "...MASTER...": [
+            "SIM",
+            "amcQw",
+            "module",
+            34
+        ]
+    },
+    "stat": {
+        "ru_self_cgstart": {
+            "ru_utime_sec": 0.48837799999999998,
+            "ru_nivcsw": 16,
+            "ru_stime_sec": 0.093696000000000002,
+            "ru_nvcsw": 391,
+            "ru_maxrss_kb": 94212,
+            "ru_majflt": 0,
+            "ru_minflt": 7812
+        },
+        "ru_self_end": {
+            "ru_utime_sec": 1.115955,
+            "ru_nivcsw": 29,
+            "ru_stime_sec": 0.14877699999999999,
+            "ru_nvcsw": 557,
+            "ru_maxrss_kb": 102176,
+            "ru_majflt": 0,
+            "ru_minflt": 9064
+        },
+        "ru_childs_cgstart": {
+            "ru_utime_sec": 0.01455,
+            "ru_nivcsw": 1,
+            "ru_stime_sec": 0.047433999999999997,
+            "ru_nvcsw": 33,
+            "ru_maxrss_kb": 93080,
+            "ru_majflt": 0,
+            "ru_minflt": 1836
+        },
+        "nMops": 43758,
+        "quadSpeed": 29889.559368810518,
+        "nQuads": 18758,
+        "mopSpeed": 69725.308607549348,
+        "Frontend(%)": 43.76323418058972,
+        "ru_childs_end": {
+            "ru_utime_sec": 0.01455,
+            "ru_nivcsw": 1,
+            "ru_stime_sec": 0.047433999999999997,
+            "ru_nvcsw": 33,
+            "ru_maxrss_kb": 93080,
+            "ru_majflt": 0,
+            "ru_minflt": 1836
+        },
+        "totalObjSize": 1204588,
+        "peak_mem_kb": 217216,
+        "mop/quad": 2.3327646870668515,
+        "outputSizePerQuad": 64.217293954579375,
+        "CodeGen(%)": 56.236765819410287
+    },
+    "CurCompileUdps": {},
+    "SIMBData": {
+        "out": "amcQwB.o",
+        "bytes": 143171,
+        "archive": "archive.0/_2396933_archive_1.a"
+    },
+    "PEModules": [],
+    "CompileProcesses": [
+        "cgproc.2396933.json"
+    ],
+    "Misc": {
+        "daidir_abs": "/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir",
+        "cwd": "/home/users/andalex/Desktop/EE271/rasterizer-fall-2024",
+        "archive_dir": "archive.0",
+        "csrc": "csrc",
+        "csrc_abs": "/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/csrc",
+        "daidir": "simv.daidir",
+        "default_output_dir": "csrc"
+    }
+}

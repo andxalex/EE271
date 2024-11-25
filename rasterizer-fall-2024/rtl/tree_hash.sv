@@ -84,7 +84,7 @@ module tree_hash
     assign arr16_RnnH[7:0] = arr32_RnnH[7:0] ^ arr32_RnnH[23:16] ; // 0 = 0 ^ 2
     assign arr16_RnnH[15:8] = arr32_RnnH[15:8] ^ arr32_RnnH[31:24] ; // 1 ^ 3
 
-    assign out_RnnH[OUT_WIDTH-1:0] = ( arr16_RnnH[7:0] ^ arr16_RnnH[15:8] ) & mask_RnnH[7:0] ;
+    assign out_RnnH[OUT_WIDTH-1:0] = ( arr16_RnnH[7:0] ^ arr16_RnnH[15:8] ) & mask_RnnH[OUT_WIDTH-1:0] ;
 
 endmodule
 

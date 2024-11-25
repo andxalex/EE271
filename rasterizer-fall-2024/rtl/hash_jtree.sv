@@ -98,10 +98,10 @@ module hash_jtree
     always_comb begin
         assert( $onehot(subSample_RnnnnU) ) ;
         unique case ( 1'b1 )
-            (subSample_RnnnnU[3]): hash_mask_R14H = 8'b11111111 ; //MSAA = 1
-            (subSample_RnnnnU[2]): hash_mask_R14H = 8'b01111111 ; //MSAA = 4
-            (subSample_RnnnnU[1]): hash_mask_R14H = 8'b00111111 ; //MSAA = 16
-            (subSample_RnnnnU[0]): hash_mask_R14H = 8'b00011111 ; //MSAA = 64
+            (subSample_RnnnnU[3]): hash_mask_R14H = 8'b11111111; //MSAA = 1
+            (subSample_RnnnnU[2]): hash_mask_R14H = 8'b01111111; //MSAA = 4
+            (subSample_RnnnnU[1]): hash_mask_R14H = 8'b00111111; //MSAA = 16
+            (subSample_RnnnnU[0]): hash_mask_R14H = 8'b00011111; //MSAA = 64
         endcase // case ( 1'b1 )
     end
 
@@ -113,7 +113,7 @@ module hash_jtree
     (
         .in_RnnH    ({sample_R14S[1][SIGFIG-1:4],
                       sample_R14S[0][SIGFIG-1:4]}   ),
-        .mask_RnnH  (hash_mask_R14H                 ),
+        .mask_RnnH  (hash_mask_R14H>>1                 ),
         .out_RnnH   (jitt_val_R14H[0]               )
     );
 
@@ -125,7 +125,7 @@ module hash_jtree
     (
         .in_RnnH    ({sample_R14S[0][SIGFIG-1:4],
                       sample_R14S[1][SIGFIG-1:4]}   ),
-        .mask_RnnH  (hash_mask_R14H                     ),
+        .mask_RnnH  (hash_mask_R14H>>1                    ),
         .out_RnnH   (jitt_val_R14H[1]                   )
     );
 
@@ -134,6 +134,14 @@ module hash_jtree
                                     | { {(SIGFIG - RADIX){1'b0}},                 //23:10 = 14 bits
                                         jitt_val_R14H[0][HASH_OUT_WIDTH-1:0], //7:0 = 8 bits
                                         {(RADIX - HASH_OUT_WIDTH){1'b0}} };     //1:0 = 2 bits  ==> 24 bits total
+
+    // always @(sample_jitted_R14S[0]) begin
+    //     $display("-------------------------------------------------------");
+    //     $display("Original -> %b", sample_R14S[0]);
+    //     $display("Jittered -> %b", sample_jitted_R14S[0]);
+    //     $display("Jitter   -> %b", jitt_val_R14H[0]);
+    //     $display("GOLD     -> %b", sample_R14S[0] + (jitt_val_R14H[0]<<2));
+    // end
 
     //Jitter the sample coordinates
     assign sample_jitted_R14S[1] =   { sample_R14S[1][SIGFIG-1:0] }

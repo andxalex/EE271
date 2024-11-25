@@ -256,6 +256,8 @@ if(MOD_FSM == 0) begin // Using baseline FSM
     // at the begining of the module for the help on
     // understanding the signals here
 
+    logic [SIGFIG:0] A  = 'b0;
+
     always_comb begin
         // Set defaults
         at_right_edg_R14H= 1'b0;
@@ -271,15 +273,15 @@ if(MOD_FSM == 0) begin // Using baseline FSM
         else if(sample_R14S[0]== box_R14S[1][0]) begin
             at_right_edg_R14H= 1'b1;
             next_up_samp_R14S[0]= box_R14S[0][0];
-            next_up_samp_R14S[1]= sample_R14S[1]+ {subSample_RnnnnU,7'd0};	
+            next_up_samp_R14S[1]= sample_R14S[1]+ {subSample_RnnnnU, A[(RADIX - 4):0]};	
         end
         // At last row
         else if(sample_R14S[1]== box_R14S[1][1]) begin 
             at_top_edg_R14H= 1'b1;
-            next_rt_samp_R14S[0]= sample_R14S[0]+ {subSample_RnnnnU,7'd0};
+            next_rt_samp_R14S[0]= sample_R14S[0]+ {subSample_RnnnnU, A[(RADIX - 4):0]};
         end
         else
-            next_rt_samp_R14S[0]= sample_R14S[0]+ {subSample_RnnnnU,7'd0};
+            next_rt_samp_R14S[0]= sample_R14S[0]+ {subSample_RnnnnU, A[(RADIX - 4):0]};
     end
 
     //////

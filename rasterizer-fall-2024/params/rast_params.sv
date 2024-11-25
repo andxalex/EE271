@@ -1,7 +1,7 @@
 package rast_params;
 
     localparam SIGFIG = 24; // Bits in color and position.
-    localparam RADIX = 10; // Fraction bits in color and position
+    localparam RADIX = 9; // Fraction bits in color and position
     localparam VERTS = 3; // Maximum Vertices in micropolygon
     localparam AXIS = 3; // Number of axis foreach vertex 3 is (x,y,z).
     localparam COLORS = 3; // Number of color channels

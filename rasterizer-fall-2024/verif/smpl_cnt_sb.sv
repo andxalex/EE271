@@ -77,8 +77,8 @@ module smpl_cnt_sb
 
     input logic signed [SIGFIG-1:0]     s_x_RnnS,
     input logic signed [SIGFIG-1:0]     s_y_RnnS,
-    input logic signed [7:0]            jitter_x_RnnS,
-    input logic signed [7:0]            jitter_y_RnnS,
+    input logic signed [RADIX-3:0]      jitter_x_RnnS,
+    input logic signed [RADIX-3:0]      jitter_y_RnnS,
     input logic signed [SIGFIG-1:0]     s_j_x_RnnS,
     input logic signed [SIGFIG-1:0]     s_j_y_RnnS
  );

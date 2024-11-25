@@ -253,22 +253,25 @@ module bbox
     for(genvar i = 0; i < 2; i = i + 1) begin
         for(genvar j = 0; j < 2; j = j + 1) begin
 
+            logic [SIGFIG:0] A  = 'b0;
+
             always_comb begin
+
                 //Integer Portion of LL and UR Remains the same
                 rounded_box_R10S[i][j][SIGFIG-1:RADIX] = box_R10S[i][j][SIGFIG-1:RADIX];
 
                 // Fraction is rounded
-                rounded_box_R10S[i][j][RADIX-1:0] = box_R10S[i][j][RADIX-1:0] & ~({subSample_RnnnnU, 7'b0} - 1);
+                rounded_box_R10S[i][j][RADIX-1:0] = box_R10S[i][j][RADIX-1:0] & ~({subSample_RnnnnU, A[(RADIX - 4):0]} - 1);
             end
         end
     end
     endgenerate
 
     //Assertion to help you debug errors in rounding
-    assert property( @(posedge clk) (box_R10S[0][0] - rounded_box_R10S[0][0]) <= {subSample_RnnnnU,7'b0});
-    assert property( @(posedge clk) (box_R10S[0][1] - rounded_box_R10S[0][1]) <= {subSample_RnnnnU,7'b0});
-    assert property( @(posedge clk) (box_R10S[1][0] - rounded_box_R10S[1][0]) <= {subSample_RnnnnU,7'b0});
-    assert property( @(posedge clk) (box_R10S[1][1] - rounded_box_R10S[1][1]) <= {subSample_RnnnnU,7'b0});
+    assert property( @(posedge clk) (box_R10S[0][0] - rounded_box_R10S[0][0]) <= {subSample_RnnnnU,6'b0});
+    assert property( @(posedge clk) (box_R10S[0][1] - rounded_box_R10S[0][1]) <= {subSample_RnnnnU,6'b0});
+    assert property( @(posedge clk) (box_R10S[1][0] - rounded_box_R10S[1][0]) <= {subSample_RnnnnU,6'b0});
+    assert property( @(posedge clk) (box_R10S[1][1] - rounded_box_R10S[1][1]) <= {subSample_RnnnnU,6'b0});
 
     // ***************** End of Step 2 *********************
 

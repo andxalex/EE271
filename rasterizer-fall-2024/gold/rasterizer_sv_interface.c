@@ -181,6 +181,18 @@ int check_hash(
         Sample jittered_sample;
         jittered_sample.x = sample.x + (jitter.x << 2);
         jittered_sample.y = sample.y + (jitter.y << 2);
+
+        Sample unjittered_sample;
+        unjittered_sample.x = s_j_x - (jitter.x << 2);
+        unjittered_sample.y = s_j_y - (jitter.y << 2);
+
+        if (sample.x != unjittered_sample.x)
+            printf("Unjittered x = %d, expected %d \n", sample.x, unjittered_sample.x);
+
+        // printf("s_j_x  = %d, gold = %d \n", s_j_x, jittered_sample.x);    
+        if (sample.y != unjittered_sample.y)
+            printf("Unjittered y = %d, expected %d \n", sample.y, unjittered_sample.y);
+
         if(s_j_x != jittered_sample.x){
             PRINT_ERROR("s_j_x", s_j_x, jittered_sample.x);
             isCorrect = false;

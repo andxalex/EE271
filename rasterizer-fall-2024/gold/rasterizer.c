@@ -1,5 +1,6 @@
 #include "rasterizer.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include "assert.h"
 #ifdef __cplusplus
 #include <vector>
@@ -160,7 +161,9 @@ void hash_40to8(uchar *arr40, ushort *val, int shift)
   uchar arr16[2];
   uchar arr8;
 
-  ushort mask = 0x00ff;
+  // ushort mask = 0x00ff;
+  ushort mask = 0x007f;
+
   mask = mask >> shift;
 
   arr32[0] = arr40[0] ^ arr40[1];
@@ -175,6 +178,8 @@ void hash_40to8(uchar *arr40, ushort *val, int shift)
 
   mask = arr8 & mask;
   val[0] = mask;
+
+  // printf("Jitter x/y? %d mask =%d \n", val[0], mask);
 }
 
 Sample jitter_sample(const Sample sample, const int ss_w_lg2)
