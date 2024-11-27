@@ -134,10 +134,10 @@ module bbox
     input logic rst, // Reset
 
     //Outout Signals
-    output logic signed [SIGFIG-1:0]    tri_R13S[VERTS-1:0][AXIS-1:0], // 4 Sets X,Y Fixed Point Values
-    output logic unsigned [SIGFIG-1:0]  color_R13U[COLORS-1:0] , // Color of Tri
-    output logic signed [SIGFIG-1:0]    box_R13S[1:0][1:0], // 2 Sets X,Y Fixed Point Values
-    output logic                        validTri_R13H                  // Valid Data for Operation
+    output logic signed [SIGFIG-1:0]    tri_R13S[VERTS-1:0][AXIS-1:0],  // 4 Sets X,Y Fixed Point Values
+    output logic unsigned [SIGFIG-1:0]  color_R13U[COLORS-1:0] ,        // Color of Tri
+    output logic signed [SIGFIG-1:0]    box_R13S[1:0][1:0],             // 2 Sets X,Y Fixed Point Values
+    output logic                        validTri_R13H                   // Valid Data for Operation
 );
 
     //Signals In Clocking Order
@@ -268,10 +268,10 @@ module bbox
     endgenerate
 
     //Assertion to help you debug errors in rounding
-    assert property( @(posedge clk) (box_R10S[0][0] - rounded_box_R10S[0][0]) <= {subSample_RnnnnU,6'b0});
-    assert property( @(posedge clk) (box_R10S[0][1] - rounded_box_R10S[0][1]) <= {subSample_RnnnnU,6'b0});
-    assert property( @(posedge clk) (box_R10S[1][0] - rounded_box_R10S[1][0]) <= {subSample_RnnnnU,6'b0});
-    assert property( @(posedge clk) (box_R10S[1][1] - rounded_box_R10S[1][1]) <= {subSample_RnnnnU,6'b0});
+    assert property( @(posedge clk) (box_R10S[0][0] - rounded_box_R10S[0][0]) <= {subSample_RnnnnU,8'b0});
+    assert property( @(posedge clk) (box_R10S[0][1] - rounded_box_R10S[0][1]) <= {subSample_RnnnnU,8'b0});
+    assert property( @(posedge clk) (box_R10S[1][0] - rounded_box_R10S[1][0]) <= {subSample_RnnnnU,8'b0});
+    assert property( @(posedge clk) (box_R10S[1][1] - rounded_box_R10S[1][1]) <= {subSample_RnnnnU,8'b0});
 
     // ***************** End of Step 2 *********************
 
@@ -297,6 +297,8 @@ module bbox
         outvalid_R10H = (out_box_R10S[0][0]<= screen_RnnnnS[0]) && 
                         (out_box_R10S[1][0]>= 0) && (out_box_R10S[0][1]<= screen_RnnnnS[1]) && 
                         (out_box_R10S[1][1]>=0) && validTri_R10H;
+
+        // $display("LL X = %d, LL Y = %d, UR X = %d, UR Y = %d",out_box_R10S[0][0],out_box_R10S[0][1],out_box_R10S[1][0],out_box_R10S[1][1]);
     end
 
     //Assertion for checking if outvalid_R10H has been assigned properly

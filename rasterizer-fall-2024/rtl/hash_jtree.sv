@@ -103,6 +103,8 @@ module hash_jtree
             (subSample_RnnnnU[1]): hash_mask_R14H = 8'b00111111; //MSAA = 16
             (subSample_RnnnnU[0]): hash_mask_R14H = 8'b00011111; //MSAA = 64
         endcase // case ( 1'b1 )
+
+        // hash_mask_R14H = hash_mask_R14H >> (8 - HASH_OUT_WIDTH);
     end
 
     tree_hash #(
@@ -113,7 +115,7 @@ module hash_jtree
     (
         .in_RnnH    ({sample_R14S[1][SIGFIG-1:4],
                       sample_R14S[0][SIGFIG-1:4]}   ),
-        .mask_RnnH  (hash_mask_R14H>>1                 ),
+        .mask_RnnH  (hash_mask_R14H                 ),
         .out_RnnH   (jitt_val_R14H[0]               )
     );
 
@@ -125,7 +127,7 @@ module hash_jtree
     (
         .in_RnnH    ({sample_R14S[0][SIGFIG-1:4],
                       sample_R14S[1][SIGFIG-1:4]}   ),
-        .mask_RnnH  (hash_mask_R14H>>1                    ),
+        .mask_RnnH  (hash_mask_R14H                    ),
         .out_RnnH   (jitt_val_R14H[1]                   )
     );
 
@@ -137,10 +139,10 @@ module hash_jtree
 
     // always @(sample_jitted_R14S[0]) begin
     //     $display("-------------------------------------------------------");
-    //     $display("Original -> %b", sample_R14S[0]);
+    //     $display("Original -> %b = %d", sample_R14S[0][SIGFIG-1:RADIX], sample_R14S[0][SIGFIG-1:RADIX]);
     //     $display("Jittered -> %b", sample_jitted_R14S[0]);
     //     $display("Jitter   -> %b", jitt_val_R14H[0]);
-    //     $display("GOLD     -> %b", sample_R14S[0] + (jitt_val_R14H[0]<<2));
+    //     $display("GOLD     -> %b", sample_R14S[0] + (jitt_val_R14H[0]<<3));
     // end
 
     //Jitter the sample coordinates

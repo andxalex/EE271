@@ -63,10 +63,10 @@ sysc_uni_pwd=/home/users/andalex/Desktop/EE271/rasterizer-fall-2024
 _LMFILES__modshare=/etc/modulefiles/jaspergold/latest:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/syn/latest:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/hercules/B-2008.09-SP4:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/vcs/latest:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/base/1.0:1:/etc/modulefiles/matlab/caddy:1:/etc/modulefiles/incisive/latest:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/synopsys_edk/2011:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/starrc/F-2011.12-SP2:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/synopsys_pdk/2011:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/cx/F-2011.09-SP2:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/cdesigner/F-2011.09-SP2:1:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/genesis2/latest:1
 _LMFILES_=/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/base/1.0:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/genesis2/latest:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/syn/latest:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/vcs/latest:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/synopsys_edk/2011:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/cdesigner/F-2011.09-SP2:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/hercules/B-2008.09-SP4:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/starrc/F-2011.12-SP2:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/cx/F-2011.09-SP2:/afs/ir.stanford.edu/class/ee/modules/modulefiles/tools/synopsys_pdk/2011:/etc/modulefiles/matlab/caddy:/etc/modulefiles/incisive/latest:/etc/modulefiles/jaspergold/latest
 YOSYSHQ_LICENSE=/cad/tabby/license/tabbycad-Stanford.lic
-XDG_SESSION_ID=29719
+XDG_SESSION_ID=30908
 XDG_RUNTIME_DIR=/run/user/452147
 XDG_DATA_DIRS=/home/users/andalex/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
-VSCODE_IPC_HOOK_CLI=/run/user/452147/vscode-ipc-e962690c-fcb4-4fb5-bc4c-fb1970425bb9.sock
+VSCODE_IPC_HOOK_CLI=/run/user/452147/vscode-ipc-ec0669cc-24c3-47d3-ab21-5ffcc2d0d856.sock
 VSCODE_GIT_IPC_HANDLE=/run/user/452147/vscode-git-6ac7123a2f.sock
 VSCODE_GIT_ASKPASS_NODE=/home/users/andalex/.vscode-server/cli/servers/Stable-f1a4fb101478ce6ec82fe9627c43efbf9e98c813/server/node
 VSCODE_GIT_ASKPASS_MAIN=/home/users/andalex/.vscode-server/cli/servers/Stable-f1a4fb101478ce6ec82fe9627c43efbf9e98c813/server/extensions/git/dist/askpass-main.js
@@ -96,8 +96,8 @@ SYNOPSYS_STARRC=/usr/class/ee/synopsys/starrc/F-2011.12-SP2
 SYNOPSYS_LICENSE=27000@cadlic0.stanford.edu
 SSL_CERT_FILE=/etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem
 SSL_CERT_DIR=/etc/pki/tls/certs
-SSH_CONNECTION=10.30.173.29 56607 172.24.94.111 22
-SSH_CLIENT=10.30.173.29 56607 22
+SSH_CONNECTION=10.34.178.154 52103 172.24.94.110 22
+SSH_CLIENT=10.34.178.154 52103 22
 SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
 SPRINGSOFT_LICENSE=5219@cadlic0.stanford.edu
 SNPS_VCS_CLANG_PATH=/fs/src/interfaces/LLVM_Project/QSCM/opt/llvm-3.9.1/linux64
@@ -174,30 +174,30 @@ AMSHOME=/cad/cadence/INCISIVE15.20.022
 1731289454 verif/top_rast.sv
 1731289454 verif/testbench.sv
 1731289454 verif/smpl_sb.sv
-1732523213 verif/smpl_cnt_sb.sv
-1731834460 verif/rast_driver.sv
+1732524830 verif/smpl_cnt_sb.sv
+1732665862 verif/rast_driver.sv
 1731289453 verif/perf_monitor.sv
 1731289453 verif/clocker.sv
 1732518788 verif/bbx_sb.sv
 1731289453 rtl/DW_pl_reg.v
-1732522984 rtl/tree_hash.sv
-1732522310 rtl/test_iterator.sv
-1732321751 rtl/sampletest.sv
+1732666987 rtl/tree_hash.sv
+1732524829 rtl/test_iterator.sv
+1732689509 rtl/sampletest.sv
 1731289453 rtl/rast.sv
-1732524125 rtl/hash_jtree.sv
+1732663845 rtl/hash_jtree.sv
 1731289453 rtl/dff_retime.sv
 1731289453 rtl/dff.sv
 1731289453 rtl/dff3.sv
 1731289453 rtl/dff2.sv
-1732522335 rtl/bbox.sv
-1732520432 params/rast_params.sv
+1732667997 rtl/bbox.sv
+1732666127 params/rast_params.sv
 1731289454 verif/verif_vlog.vf
 1731289453 rtl/vlog.vf
 1474973531 /cad/synopsys/verdi/L-2016.06-SP1-1//share/PLI/VCS/LINUX64/verdi.tab
 1487217861 /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/vcsdp_lite.tab
 4
-1732524131 /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/gold/sv_gold.o
+1732689516 /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/gold/sv_gold.o
 1487220396 /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libvirsim.so
 1487219634 /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/liberrorinf.so
 1487219608 /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libsnpsmalloc.so
-1732524141 simv.daidir
+1732689528 simv.daidir

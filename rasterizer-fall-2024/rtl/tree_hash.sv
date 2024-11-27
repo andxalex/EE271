@@ -72,14 +72,18 @@ module tree_hash
     output logic unsigned [OUT_WIDTH-1:0]    out_RnnH   //Output signal that has been hashed and masked
 );
 
-    logic unsigned [31:0]   arr32_RnnH ;
-    logic unsigned [15:0]   arr16_RnnH ;
+    logic unsigned [31:0]       arr32_RnnH;
+    logic unsigned [15:0]       arr16_RnnH;
+
+    // Zero pad up to 40 digits.
+    logic unsigned [40 - 1:0]   arr40_RnnH;    
 
     // IN_WIDTH that this is brittle and will break for any config that isn't 40:8
-    assign arr32_RnnH[7:0]   = in_RnnH[7:0]   ^ in_RnnH[15:8]  ; // 0 = 0 ^ 1
-    assign arr32_RnnH[15:8]  = in_RnnH[15:8]  ^ in_RnnH[23:16] ; // 1 = 1 ^ 2
-    assign arr32_RnnH[23:16] = in_RnnH[23:16] ^ in_RnnH[31:24] ; // 2 = 2 ^ 3
-    assign arr32_RnnH[31:24] = in_RnnH[31:24] ^ in_RnnH[39:32] ; // 3 = 3 ^ 4
+    assign arr40_RnnH = {3'b0, in_RnnH[33:17], 3'b0, in_RnnH[16:0]};
+    assign arr32_RnnH[7:0]   = arr40_RnnH[7:0]   ^ arr40_RnnH[15:8]  ; // 0 = 0 ^ 1
+    assign arr32_RnnH[15:8]  = arr40_RnnH[15:8]  ^ arr40_RnnH[23:16] ; // 1 = 1 ^ 2
+    assign arr32_RnnH[23:16] = arr40_RnnH[23:16] ^ arr40_RnnH[31:24] ; // 2 = 2 ^ 3
+    assign arr32_RnnH[31:24] = arr40_RnnH[31:24] ^ arr40_RnnH[39:32] ; // 3 = 3 ^ 4
 
     assign arr16_RnnH[7:0] = arr32_RnnH[7:0] ^ arr32_RnnH[23:16] ; // 0 = 0 ^ 2
     assign arr16_RnnH[15:8] = arr32_RnnH[15:8] ^ arr32_RnnH[31:24] ; // 1 ^ 3

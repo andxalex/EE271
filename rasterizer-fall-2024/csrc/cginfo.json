@@ -1,10 +1,8 @@
 {
-    "CompileStatus": "Successful",
-    "LVLData": [
-        "SIM"
-    ],
+    "CurCompileUdps": {},
     "MlibObjs": {},
     "PrevCompiledModules": {},
+    "CompileStrategy": "fullobj",
     "CurCompileModules": [
         "...MASTER...",
         "...MASTER...",
@@ -75,19 +73,12 @@
         "zbuff",
         "zbuff"
     ],
-    "CompileStrategy": "fullobj",
     "NameTable": {
-        "bbox_0000": [
-            "bbox_0000",
-            "d5BPu",
+        "rast_driver": [
+            "rast_driver",
+            "ZD3VR",
             "module",
-            4
-        ],
-        "dff3_0000_0001": [
-            "dff3_0000_0001",
-            "RmIf7",
-            "module",
-            16
+            28
         ],
         "_vcs_unit__4140305405": [
             "_vcs_unit__4140305405",
@@ -95,11 +86,17 @@
             "module",
             1
         ],
-        "dff_0000_0006": [
-            "dff_0000_0006",
-            "KE3qb",
+        "dff_0000_0002": [
+            "dff_0000_0002",
+            "xKfGv",
             "module",
-            21
+            19
+        ],
+        "...MASTER...": [
+            "SIM",
+            "amcQw",
+            "module",
+            34
         ],
         "std": [
             "std",
@@ -107,35 +104,17 @@
             "module",
             2
         ],
+        "dff2_0003": [
+            "dff2_0003",
+            "FMRfU",
+            "module",
+            8
+        ],
         "rast_params": [
             "rast_params",
             "mT84W",
             "module",
             3
-        ],
-        "dff2_0002_0001": [
-            "dff2_0002_0001",
-            "mv96h",
-            "module",
-            12
-        ],
-        "dff2_0000": [
-            "dff2_0000",
-            "HpNpL",
-            "module",
-            5
-        ],
-        "dff3_0000_0002": [
-            "dff3_0000_0002",
-            "gG0sx",
-            "module",
-            17
-        ],
-        "dff2_0002_0000": [
-            "dff2_0002_0000",
-            "KUIDG",
-            "module",
-            11
         ],
         "dff2_0001": [
             "dff2_0001",
@@ -143,53 +122,11 @@
             "module",
             6
         ],
-        "dff_0000_0002": [
-            "dff_0000_0002",
-            "xKfGv",
-            "module",
-            19
-        ],
         "dff2_0001_0001": [
             "dff2_0001_0001",
             "UfTMx",
             "module",
             10
-        ],
-        "dff_0000_0003": [
-            "dff_0000_0003",
-            "ACtd6",
-            "module",
-            20
-        ],
-        "dff2_0002": [
-            "dff2_0002",
-            "yW5CM",
-            "module",
-            7
-        ],
-        "dff2_0003": [
-            "dff2_0003",
-            "FMRfU",
-            "module",
-            8
-        ],
-        "dff2_0001_0000": [
-            "dff2_0001_0000",
-            "tpBAT",
-            "module",
-            9
-        ],
-        "rast_driver": [
-            "rast_driver",
-            "ZD3VR",
-            "module",
-            28
-        ],
-        "dff3_0000": [
-            "dff3_0000",
-            "Fgck4",
-            "module",
-            13
         ],
         "top_rast": [
             "top_rast",
@@ -197,59 +134,53 @@
             "module",
             32
         ],
-        "perf_monitor": [
-            "perf_monitor",
-            "wiPAj",
+        "dff2_0002": [
+            "dff2_0002",
+            "yW5CM",
             "module",
-            27
+            7
         ],
-        "dff3_0001": [
-            "dff3_0001",
-            "wrGcc",
+        "dff_0000_0003": [
+            "dff_0000_0003",
+            "ACtd6",
             "module",
-            14
+            20
         ],
-        "smpl_cnt_sb": [
-            "smpl_cnt_sb",
-            "hVvAG",
+        "dff2_0000": [
+            "dff2_0000",
+            "HpNpL",
             "module",
-            29
+            5
         ],
-        "dff3_0000_0000": [
-            "dff3_0000_0000",
-            "EJn6A",
+        "dff3_0000_0001": [
+            "dff3_0000_0001",
+            "RmIf7",
             "module",
-            15
+            16
         ],
-        "dff3_0001_0000": [
-            "dff3_0001_0000",
-            "aWGfp",
+        "bbox_0000": [
+            "bbox_0000",
+            "d5BPu",
             "module",
-            18
+            4
         ],
-        "hash_jtree": [
-            "hash_jtree",
-            "sE4tC",
+        "dff2_0001_0000": [
+            "dff2_0001_0000",
+            "tpBAT",
             "module",
-            22
+            9
         ],
-        "zbuff": [
-            "zbuff",
-            "K6ha2",
+        "dff2_0002_0001": [
+            "dff2_0002_0001",
+            "mv96h",
             "module",
-            33
+            12
         ],
-        "sampletest": [
-            "sampletest",
-            "gPJxK",
+        "dff2_0002_0000": [
+            "dff2_0002_0000",
+            "KUIDG",
             "module",
-            24
-        ],
-        "rast": [
-            "rast",
-            "NNwFS",
-            "module",
-            23
+            11
         ],
         "test_iterator_0000": [
             "test_iterator_0000",
@@ -257,11 +188,47 @@
             "module",
             25
         ],
-        "bbx_sb": [
-            "bbx_sb",
-            "a8g0Z",
+        "dff3_0000": [
+            "dff3_0000",
+            "Fgck4",
             "module",
-            26
+            13
+        ],
+        "dff3_0001": [
+            "dff3_0001",
+            "wrGcc",
+            "module",
+            14
+        ],
+        "dff3_0000_0000": [
+            "dff3_0000_0000",
+            "EJn6A",
+            "module",
+            15
+        ],
+        "dff3_0000_0002": [
+            "dff3_0000_0002",
+            "gG0sx",
+            "module",
+            17
+        ],
+        "sampletest": [
+            "sampletest",
+            "gPJxK",
+            "module",
+            24
+        ],
+        "dff3_0001_0000": [
+            "dff3_0001_0000",
+            "aWGfp",
+            "module",
+            18
+        ],
+        "dff_0000_0006": [
+            "dff_0000_0006",
+            "KE3qb",
+            "module",
+            21
         ],
         "smpl_sb": [
             "smpl_sb",
@@ -269,84 +236,117 @@
             "module",
             30
         ],
+        "zbuff": [
+            "zbuff",
+            "K6ha2",
+            "module",
+            33
+        ],
+        "hash_jtree": [
+            "hash_jtree",
+            "sE4tC",
+            "module",
+            22
+        ],
         "testbench": [
             "testbench",
             "iAVhC",
             "module",
             31
         ],
-        "...MASTER...": [
-            "SIM",
-            "amcQw",
+        "rast": [
+            "rast",
+            "NNwFS",
             "module",
-            34
+            23
+        ],
+        "bbx_sb": [
+            "bbx_sb",
+            "a8g0Z",
+            "module",
+            26
+        ],
+        "perf_monitor": [
+            "perf_monitor",
+            "wiPAj",
+            "module",
+            27
+        ],
+        "smpl_cnt_sb": [
+            "smpl_cnt_sb",
+            "hVvAG",
+            "module",
+            29
         ]
     },
     "stat": {
         "ru_self_cgstart": {
-            "ru_utime_sec": 0.48837799999999998,
-            "ru_nivcsw": 16,
-            "ru_stime_sec": 0.093696000000000002,
-            "ru_nvcsw": 391,
-            "ru_maxrss_kb": 94212,
+            "ru_maxrss_kb": 94096,
+            "ru_utime_sec": 0.52121899999999999,
+            "ru_minflt": 7720,
+            "ru_stime_sec": 0.11687699999999999,
             "ru_majflt": 0,
-            "ru_minflt": 7812
+            "ru_nvcsw": 392,
+            "ru_nivcsw": 18
         },
-        "ru_self_end": {
-            "ru_utime_sec": 1.115955,
-            "ru_nivcsw": 29,
-            "ru_stime_sec": 0.14877699999999999,
-            "ru_nvcsw": 557,
-            "ru_maxrss_kb": 102176,
-            "ru_majflt": 0,
-            "ru_minflt": 9064
-        },
-        "ru_childs_cgstart": {
-            "ru_utime_sec": 0.01455,
-            "ru_nivcsw": 1,
-            "ru_stime_sec": 0.047433999999999997,
-            "ru_nvcsw": 33,
-            "ru_maxrss_kb": 93080,
-            "ru_majflt": 0,
-            "ru_minflt": 1836
-        },
-        "nMops": 43758,
-        "quadSpeed": 29889.559368810518,
-        "nQuads": 18758,
-        "mopSpeed": 69725.308607549348,
-        "Frontend(%)": 43.76323418058972,
         "ru_childs_end": {
-            "ru_utime_sec": 0.01455,
-            "ru_nivcsw": 1,
-            "ru_stime_sec": 0.047433999999999997,
-            "ru_nvcsw": 33,
-            "ru_maxrss_kb": 93080,
+            "ru_maxrss_kb": 92852,
+            "ru_utime_sec": 0.021531999999999999,
+            "ru_minflt": 1836,
+            "ru_stime_sec": 0.044399000000000001,
             "ru_majflt": 0,
-            "ru_minflt": 1836
+            "ru_nvcsw": 33,
+            "ru_nivcsw": 1
         },
-        "totalObjSize": 1204588,
+        "mopSpeed": 67020.863068126186,
+        "outputSizePerQuad": 63.741517903747784,
+        "ru_childs_cgstart": {
+            "ru_maxrss_kb": 92852,
+            "ru_utime_sec": 0.021531999999999999,
+            "ru_minflt": 1836,
+            "ru_stime_sec": 0.044399000000000001,
+            "ru_majflt": 0,
+            "ru_nvcsw": 33,
+            "ru_nivcsw": 1
+        },
+        "totalObjSize": 1221160,
         "peak_mem_kb": 217216,
-        "mop/quad": 2.3327646870668515,
-        "outputSizePerQuad": 64.217293954579375,
-        "CodeGen(%)": 56.236765819410287
+        "CodeGen(%)": 56.391849957288656,
+        "nMops": 45173,
+        "nQuads": 19158,
+        "quadSpeed": 28423.741940078395,
+        "ru_self_end": {
+            "ru_maxrss_kb": 102336,
+            "ru_utime_sec": 1.195233,
+            "ru_minflt": 9051,
+            "ru_stime_sec": 0.17296400000000001,
+            "ru_majflt": 0,
+            "ru_nvcsw": 567,
+            "ru_nivcsw": 23
+        },
+        "mop/quad": 2.3579183630859171,
+        "Frontend(%)": 43.608150042711337
     },
-    "CurCompileUdps": {},
     "SIMBData": {
         "out": "amcQwB.o",
-        "bytes": 143171,
-        "archive": "archive.0/_2396933_archive_1.a"
+        "archive": "archive.0/_3215761_archive_1.a",
+        "bytes": 144564
     },
-    "PEModules": [],
     "CompileProcesses": [
-        "cgproc.2396933.json"
+        "cgproc.3215761.json"
     ],
+    "LVLData": [
+        "SIM"
+    ],
+    "PEModules": [],
     "Misc": {
-        "daidir_abs": "/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir",
         "cwd": "/home/users/andalex/Desktop/EE271/rasterizer-fall-2024",
-        "archive_dir": "archive.0",
+        "default_output_dir": "csrc",
         "csrc": "csrc",
         "csrc_abs": "/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/csrc",
         "daidir": "simv.daidir",
-        "default_output_dir": "csrc"
-    }
+        "daidir_abs": "/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir",
+        "archive_dir": "archive.0"
+    },
+    "CompileStatus": "Successful"
 }

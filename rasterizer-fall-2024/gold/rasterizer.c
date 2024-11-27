@@ -161,8 +161,8 @@ void hash_40to8(uchar *arr40, ushort *val, int shift)
   uchar arr16[2];
   uchar arr8;
 
-  // ushort mask = 0x00ff;
-  ushort mask = 0x007f;
+  ushort mask = 0x00ff;
+  // ushort mask = 0x007f;
 
   mask = mask >> shift;
 
@@ -186,6 +186,7 @@ Sample jitter_sample(const Sample sample, const int ss_w_lg2)
 {
   long x = sample.x >> 4;
   long y = sample.y >> 4;
+  // printf("Size of long = %d, bits = %d", sizeof(x), x);
   uchar arr40_1[5];
   uchar arr40_2[5];
 

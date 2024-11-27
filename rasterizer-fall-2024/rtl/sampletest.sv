@@ -105,21 +105,159 @@ module sampletest
 
     // START CODE HERE
     // (1) Shift X, Y coordinates such that the fragment resides on the (0,0) position.
+
+
+    logic                           tri_shift_signs [VERTS-1:0][1:0];
+    logic                           dist_sign[EDGES-1:0];
+    logic                           sign_prod_a;
+    logic                           sign_prod_b;
+    logic                           sign_prod_c;
+    logic                           sign_prod_d;
+    logic                           sign_prod_e;
+    logic                           sign_prod_f;
+    logic signed [(2*SHORTSF)-1:0]       abs_prod_a;
+    logic signed [(2*SHORTSF)-1:0]       abs_prod_b;
+    logic signed [(2*SHORTSF)-1:0]       abs_prod_c;
+    logic signed [(2*SHORTSF)-1:0]       abs_prod_d;
+    logic signed [(2*SHORTSF)-1:0]       abs_prod_e;
+    logic signed [(2*SHORTSF)-1:0]       abs_prod_f;                         
+
+    logic unsigned [16:0]     abs_tri_shift_R16S[VERTS-1:0][1:0];
+    logic signed [16:0]       temp_tri_shift_R16S[VERTS-1:0][1:0];
+    logic signed [16:0]       log2_abs_tri_shift_R16S[VERTS-1:0][1:0];
+
+    // Log 2 LUT to avoid multiplication
+    logic [21:0] log2rom [511:0];
+    integer out;
+    integer out1;
+    initial begin
+        $readmemb("/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/log2_rom.mem", log2rom);
+
+        for (int i = 0; i<512; i++) begin
+            out = log2rom[i];
+            $display("addr %d (%f) = %b = %f", i, $itor(i)*(2**-10.0), log2rom[i], $itor(out)*(2**-17.0));
+        end
+        // $display("HERE HERE HERE %b", log2rom[0]);
+    end
+
     always_comb begin
 
         // Shift vertices
         for(int i= 0; i< VERTS; i++) begin
-            tri_shift_R16S[i][0]= tri_R16S[i][0]- sample_R16S[0];
-            tri_shift_R16S[i][1]= tri_R16S[i][1]- sample_R16S[1];
-        end	
-    
-        // Calculate distances on vertices, don't bother with edges
-        dist_lg_R16S[0] = tri_shift_R16S[0][0]*tri_shift_R16S[1][1] - tri_shift_R16S[1][0] * tri_shift_R16S[0][1];
-        dist_lg_R16S[1] = tri_shift_R16S[1][0]*tri_shift_R16S[2][1] - tri_shift_R16S[2][0] * tri_shift_R16S[1][1];
-        dist_lg_R16S[2] = tri_shift_R16S[2][0]*tri_shift_R16S[0][1] - tri_shift_R16S[0][0] * tri_shift_R16S[2][1];
 
-        // Check distance and assign hit_valid_R16H.
-        hit_valid_R16H= (dist_lg_R16S[0] <= 0) && (dist_lg_R16S[1] < 0) && (dist_lg_R16S[2] <= 0) && validSamp_R16H;
+            // Get shifted values
+            temp_tri_shift_R16S[i][0]= (tri_R16S[i][0] - sample_R16S[0])& 17'h1FFFF;
+            temp_tri_shift_R16S[i][1]= (tri_R16S[i][1] - sample_R16S[1])& 17'h1FFFF;
+
+            // Get signs
+            tri_shift_signs[i][0] = temp_tri_shift_R16S[i][0][17 - 1];
+            tri_shift_signs[i][1] = temp_tri_shift_R16S[i][1][17 - 1];
+
+            // Get absolutes
+            abs_tri_shift_R16S[i][0] = tri_shift_signs[i][0]? ~temp_tri_shift_R16S[i][0]+1: temp_tri_shift_R16S[i][0];
+            abs_tri_shift_R16S[i][1] = tri_shift_signs[i][1]? ~temp_tri_shift_R16S[i][1]+1: temp_tri_shift_R16S[i][1];
+            // $display("  x = %d, x_sign = %d, x_abs = %d, y = %d, y_sign = %d, y_abs = %d",temp_tri_shift_R16S[i][0], tri_shift_signs[i][0], abs_tri_shift_R16S[i][0], temp_tri_shift_R16S[i][1], tri_shift_signs[i][1], abs_tri_shift_R16S[i][1]);
+        end	
+
+
+        // Because we only actually need 17 bits to pass the vectors, implement multiplication as a
+        // lookup table.
+        sign_prod_a = tri_shift_signs[0][0] ^ tri_shift_signs[1][1];
+        sign_prod_b = tri_shift_signs[1][0] ^ tri_shift_signs[0][1];
+        sign_prod_c = tri_shift_signs[1][0] ^ tri_shift_signs[2][1];
+        sign_prod_d = tri_shift_signs[2][0] ^ tri_shift_signs[1][1];
+        sign_prod_e = tri_shift_signs[2][0] ^ tri_shift_signs[0][1];
+        sign_prod_f = tri_shift_signs[0][0] ^ tri_shift_signs[2][1];
+
+        // Calculate distances on vertices, don't bother with edges
+        dist_lg_R16S[0] = (temp_tri_shift_R16S[0][0]*temp_tri_shift_R16S[1][1]) - (temp_tri_shift_R16S[1][0] * temp_tri_shift_R16S[0][1]);
+        dist_lg_R16S[1] = (temp_tri_shift_R16S[1][0]*temp_tri_shift_R16S[2][1]) - (temp_tri_shift_R16S[2][0] * temp_tri_shift_R16S[1][1]);
+        dist_lg_R16S[2] = (temp_tri_shift_R16S[2][0]*temp_tri_shift_R16S[0][1]) - (temp_tri_shift_R16S[0][0] * temp_tri_shift_R16S[2][1]);
+
+        // $display("Sample x = %d, sample y = %d", sample_R16S[0]>>>RADIX, sample_R16S[1]>>>RADIX);
+        // $display("%b = %d and %b = %d",tri_shift_R16S[0][0], tri_shift_R16S[0][0]>>>RADIX,tri_shift_R16S[1][1], tri_shift_R16S[1][1]>>>RADIX);
+
+        // $display("tri_shift_R16S[0][0] = %b", tri_shift_R16S[0][0]);
+        
+        // $display("Distance = %d = %d - %d", (tri_shift_R16S[0][0]*tri_shift_R16S[1][1] - tri_shift_R16S[1][0] * tri_shift_R16S[0][1]), (tri_shift_R16S[0][0]*tri_shift_R16S[1][1]), (tri_shift_R16S[1][0] * tri_shift_R16S[0][1]));
+        if (sign_prod_a^sign_prod_b)
+            dist_sign[0] = sign_prod_a;
+        else begin
+            // Fetch from ROM
+            log2_abs_tri_shift_R16S[0][0] = log2rom[abs_tri_shift_R16S[0][0]];
+            log2_abs_tri_shift_R16S[1][1] = log2rom[abs_tri_shift_R16S[1][1]];
+            log2_abs_tri_shift_R16S[1][0] = log2rom[abs_tri_shift_R16S[1][0]];
+            log2_abs_tri_shift_R16S[0][1] = log2rom[abs_tri_shift_R16S[0][1]];
+
+            // $display("0,0 addr = %d, val = %b",abs_tri_shift_R16S[0][0],log2_abs_tri_shift_R16S[0][0]);
+
+            // Calculate Distance sign in log domain
+            dist_sign[0] = ((log2_abs_tri_shift_R16S[0][0]+log2_abs_tri_shift_R16S[1][1])>
+                            (log2_abs_tri_shift_R16S[1][0]+log2_abs_tri_shift_R16S[0][1]))?
+                            sign_prod_a:((log2_abs_tri_shift_R16S[0][0]+log2_abs_tri_shift_R16S[1][1])==
+                            (log2_abs_tri_shift_R16S[1][0]+log2_abs_tri_shift_R16S[0][1]))?1:!sign_prod_b;
+
+
+            // abs_prod_a = (tri_shift_R16S[0][0]*tri_shift_R16S[1][1]);
+            // abs_prod_a = abs_prod_a[(2*SHORTSF)-1]?(~abs_prod_a+1):abs_prod_a;
+            // abs_prod_b = (tri_shift_R16S[1][0] * tri_shift_R16S[0][1]);
+            // abs_prod_b = abs_prod_b[(2*SHORTSF)-1]?(~abs_prod_b+1):abs_prod_b;
+            // dist_sign[0] = abs_prod_a>abs_prod_b?sign_prod_a:((abs_prod_a==abs_prod_b)?1:!sign_prod_b);
+            
+            // $display("prod1: %d = %d * %d, sign_1 = %b, prod2: %d = %d * %d, sign_2 = %b", ((tri_shift_R16S[0][0]*tri_shift_R16S[1][1])&0'h800000)>>23,tri_shift_R16S[0][0],tri_shift_R16S[1][1], sign_prod_a, (tri_shift_R16S[1][0] * tri_shift_R16S[0][1]), tri_shift_R16S[1][0],tri_shift_R16S[0][1], sign_prod_b);
+            // $display("Distance %d, sign = %b, prod1 = %d, prod2 = %d, abs1 = %d, abs2 = %d", (tri_shift_R16S[0][0]*tri_shift_R16S[1][1] - tri_shift_R16S[1][0] * tri_shift_R16S[0][1]), dist_sign[0], (tri_shift_R16S[0][0]*tri_shift_R16S[1][1]),(tri_shift_R16S[1][0] * tri_shift_R16S[0][1]), abs_prod_a, abs_prod_b);
+            // $display("Sign prod1 = %b = %d * %d, sign prod2 = %b = %d * %d", sign_prod_a, tri_shift_R16S[0][0], tri_shift_R16S[1][1], sign_prod_b, tri_shift_R16S[1][0], tri_shift_R16S[0][1]);
+        end 
+        if (sign_prod_c^sign_prod_d)
+            dist_sign[1] = sign_prod_c;
+        else begin
+            // Fetch from ROM
+            log2_abs_tri_shift_R16S[1][0] = log2rom[abs_tri_shift_R16S[1][0]];
+            log2_abs_tri_shift_R16S[2][1] = log2rom[abs_tri_shift_R16S[2][1]];
+            log2_abs_tri_shift_R16S[2][0] = log2rom[abs_tri_shift_R16S[2][0]];
+            log2_abs_tri_shift_R16S[1][1] = log2rom[abs_tri_shift_R16S[1][1]];
+
+            // Calculate distance sign in log domain
+            dist_sign[1] = ((log2_abs_tri_shift_R16S[1][0]+log2_abs_tri_shift_R16S[2][1])>
+                            (log2_abs_tri_shift_R16S[2][0]+log2_abs_tri_shift_R16S[1][1]))?
+                            sign_prod_c:((log2_abs_tri_shift_R16S[1][0]+log2_abs_tri_shift_R16S[2][1])==
+                            (log2_abs_tri_shift_R16S[2][0]+log2_abs_tri_shift_R16S[1][1]))?0:!sign_prod_d;
+            // abs_prod_c = (tri_shift_R16S[1][0]*tri_shift_R16S[2][1]);
+            // abs_prod_c = abs_prod_c[(2*SHORTSF)-1]?(~abs_prod_c+1):abs_prod_c;
+            // abs_prod_d = (tri_shift_R16S[2][0] * tri_shift_R16S[1][1]);
+            // abs_prod_d = abs_prod_d[(2*SHORTSF)-1]?(~abs_prod_d+1):abs_prod_d;
+            // dist_sign[1] = abs_prod_c>abs_prod_d?sign_prod_c:((abs_prod_c==abs_prod_d)?0:!sign_prod_d);
+        end
+        if (sign_prod_e^sign_prod_f)
+            dist_sign[2] = sign_prod_e; 
+        else begin
+            // Fetch from ROM
+            log2_abs_tri_shift_R16S[2][0] = log2rom[abs_tri_shift_R16S[2][0]];
+            log2_abs_tri_shift_R16S[0][1] = log2rom[abs_tri_shift_R16S[0][1]];
+            log2_abs_tri_shift_R16S[0][0] = log2rom[abs_tri_shift_R16S[0][0]];
+            log2_abs_tri_shift_R16S[2][1] = log2rom[abs_tri_shift_R16S[2][1]];
+
+            // Calculate Distance sign in log domain
+            dist_sign[2] = ((log2_abs_tri_shift_R16S[2][0] + log2_abs_tri_shift_R16S[0][1])>
+                            (log2_abs_tri_shift_R16S[0][0] + log2_abs_tri_shift_R16S[2][1]))?
+                        sign_prod_e :((log2_abs_tri_shift_R16S[2][0] + log2_abs_tri_shift_R16S[0][1]) ==
+                        (log2_abs_tri_shift_R16S[0][0] + log2_abs_tri_shift_R16S[2][1])) ?1:!sign_prod_f;
+
+            // abs_prod_e = (tri_shift_R16S[2][0]*tri_shift_R16S[0][1]);
+            // abs_prod_e = abs_prod_e[(2*SHORTSF)-1]?(~abs_prod_e+1):abs_prod_e;
+            // abs_prod_f = (tri_shift_R16S[0][0] * tri_shift_R16S[2][1]);
+            // abs_prod_f = abs_prod_f[(2*SHORTSF)-1]?(~abs_prod_f+1):abs_prod_f;
+            // dist_sign[2] = abs_prod_e>abs_prod_f?sign_prod_e:((abs_prod_e==abs_prod_f)?1:!sign_prod_f);
+        end
+
+        // // Check distance and assign hit_valid_R16H.
+        // hit_valid_R16H= !(dist_lg_R16S[0] > 0) && (dist_lg_R16S[1] < 0) && !(dist_lg_R16S[2] > 0) && validSamp_R16H;
+
+        hit_valid_R16H= dist_sign[0] & dist_sign[1] & dist_sign[2] & validSamp_R16H;
+
+        // $display("gold = %b, maybe = %b", hit_valid_R16H, dist_sign[0] & dist_sign[1] & dist_sign[2] & validSamp_R16H);
+        
+        // hit_valid_R16H= (dist_lg_R16S[0] <= 0) && (dist_lg_R16S[1] < 0) && (dist_lg_R16S[2] <= 0) && validSamp_R16H;
     end
     // END CODE HERE
 

@@ -1,6 +1,6 @@
 Chronologic VCS simulator copyright 1991-2017
 Contains Synopsys proprietary information.
-Compiler version M-2017.03_Full64; Runtime version M-2017.03_Full64;  Nov 25 00:42 2024
+Compiler version M-2017.03_Full64; Runtime version M-2017.03_Full64;  Nov 26 22:38 2024
 time=         0 ************** Driver Is Initializing Input Signals *****************
 time=         0 ************** Loading Arguments *****************
 Simulation run with default random seed=12345
@@ -8,26 +8,11 @@ Simulation will timout after 50000000 cycles
 Simulation will use test file /afs/ir.stanford.edu/class/ee271/project/vect/vec_271_01_sv.dat
 Seed=      12345 
 time=     15000 ************** Driver Is Initializing Test from File *****************
-Setting screen params: w=800 h=600 msaa=16 RADIX = 9
+Setting screen params: w=800 h=600 msaa=16 RADIX = 10
 time=     30000 ************** Initializing FB and ZB *****************
 time=     30010 ************** Finished Init FB and ZB *****************
 time=     45000 ************** Runnning Test *****************
 time=     45000 ************** Driver Is Runnning Test -->/afs/ir.stanford.edu/class/ee271/project/vect/vec_271_01_sv.dat<-- *****************
 time=     49000 	         0 samples processed,          0 of them hit
-time= 101305000 	    100000 samples processed,      26025 of them hit
-time= 202666000 	    200000 samples processed,      63747 of them hit
-time= 304030000 	    300000 samples processed,      99828 of them hit
-time= 405345000 	    400000 samples processed,     135260 of them hit
-time= 506819000 	    500000 samples processed,     172823 of them hit
-time= 608244000 	    600000 samples processed,     209761 of them hit
-time= 709739000 	    700000 samples processed,     244619 of them hit
-time= 811131000 	    800000 samples processed,     278337 of them hit
-time= 912504000 	    900000 samples processed,     313230 of them hit
-time=1013524000 	   1000000 samples processed,     340002 of them hit
-time=1114721000 	   1100000 samples processed,     369699 of them hit
-time=1216040000 	   1200000 samples processed,     403224 of them hit
-time=1317469000 	   1300000 samples processed,     413353 of them hit
-time=1418850000 	   1400000 samples processed,     437205 of them hit
-time=1520038000 	   1500000 samples processed,     444272 of them hit
-time=1621150000 	   1600000 samples processed,     446637 of them hit
-time=1722272000 	   1700000 samples processed,     447587 of them hit
+time= 104270000 	    100000 samples processed,      26659 of them hit
+time= 208846000 	    200000 samples processed,      56010 of them hit

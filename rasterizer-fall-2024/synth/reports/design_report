@@ -5,7 +5,7 @@ Warning: Design 'rast' contains 2 high-fanout nets. A fanout number of 1000 will
 Report : design
 Design : rast
 Version: M-2016.12-SP2
-Date   : Fri Nov 22 23:13:54 2024
+Date   : Tue Nov 26 20:34:58 2024
 ****************************************
 
 Design allows ideal nets on clock nets.

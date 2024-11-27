@@ -46,8 +46,8 @@ module rast_driver
     output int                          ss_w_lg2_RnnnnS
 );
 
-    logic   signed   [SIGFIG-1:0]  tmp_tri_R10S[VERTS-1:0][AXIS-1:0] ; // Output: 4 Sets X,Y Fixed Point Values
-    logic   unsigned [SIGFIG-1:0]  tmp_color_R10U[COLORS-1:0];
+    logic   signed   [24-1:0]  tmp_tri_R10S[VERTS-1:0][AXIS-1:0] ; // Output: 4 Sets X,Y Fixed Point Values
+    logic   unsigned [24-1:0]  tmp_color_R10U[COLORS-1:0];
 
 
     int signed      mini = -1024;
@@ -173,14 +173,15 @@ module rast_driver
                     tmp_color_R10U[0],   tmp_color_R10U[1], tmp_color_R10U[2] );
 
                 for( eachVertsA = 0 ; eachVertsA < VERTS ; eachVertsA++ ) begin
-                    tri_R10S[eachVertsA][0] = tmp_tri_R10S[eachVertsA][0] ;
-                    tri_R10S[eachVertsA][1] = tmp_tri_R10S[eachVertsA][1] ;
-                    tri_R10S[eachVertsA][2] = tmp_tri_R10S[eachVertsA][2] ;
+                    tri_R10S[eachVertsA][0] = tmp_tri_R10S[eachVertsA][0] & 24'h1FFFFF;
+                    tri_R10S[eachVertsA][1] = tmp_tri_R10S[eachVertsA][1] & 24'h1FFFFF;
+                    tri_R10S[eachVertsA][2] = tmp_tri_R10S[eachVertsA][2] & 24'h1FFFFF;
+                    // $display("Truncated %b to %b", tmp_tri_R10S[eachVertsA][0], tri_R10S[eachVertsA][0]);
                 end
 
-                color_R10U[0] = tmp_color_R10U[0];
-                color_R10U[1] = tmp_color_R10U[1];
-                color_R10U[2] = tmp_color_R10U[2];
+                color_R10U[0] = tmp_color_R10U[0] & 24'h1FFFFF;
+                color_R10U[1] = tmp_color_R10U[1] & 24'h1FFFFF;
+                color_R10U[2] = tmp_color_R10U[2] & 24'h1FFFFF;
 
                 // make sure we read a triangle with either 3 or 4 vertices
                 assert (num_vertices==3 || num_vertices==4)
