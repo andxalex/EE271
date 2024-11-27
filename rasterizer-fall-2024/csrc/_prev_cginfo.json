@@ -1,0 +1,352 @@
+{
+    "Misc": {
+        "default_output_dir": "csrc",
+        "cwd": "/home/users/andalex/Desktop/EE271/rasterizer-fall-2024",
+        "csrc": "csrc",
+        "csrc_abs": "/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/csrc",
+        "archive_dir": "archive.0",
+        "daidir_abs": "/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir",
+        "daidir": "simv.daidir"
+    },
+    "PEModules": [],
+    "MlibObjs": {},
+    "stat": {
+        "quadSpeed": 27903.731130731983,
+        "nMops": 47812,
+        "ru_self_cgstart": {
+            "ru_nvcsw": 458,
+            "ru_stime_sec": 0.11640300000000001,
+            "ru_utime_sec": 0.57930899999999996,
+            "ru_maxrss_kb": 94432,
+            "ru_minflt": 7758,
+            "ru_majflt": 0,
+            "ru_nivcsw": 21
+        },
+        "ru_childs_cgstart": {
+            "ru_nvcsw": 28,
+            "ru_stime_sec": 0.043931999999999999,
+            "ru_utime_sec": 0.017021999999999999,
+            "ru_maxrss_kb": 78664,
+            "ru_minflt": 1617,
+            "ru_majflt": 0,
+            "ru_nivcsw": 0
+        },
+        "ru_self_end": {
+            "ru_nvcsw": 693,
+            "ru_stime_sec": 0.21204000000000001,
+            "ru_utime_sec": 1.281509,
+            "ru_maxrss_kb": 102488,
+            "ru_minflt": 9083,
+            "ru_majflt": 0,
+            "ru_nivcsw": 28
+        },
+        "peak_mem_kb": 217364,
+        "nQuads": 19594,
+        "totalObjSize": 1243750,
+        "ru_childs_end": {
+            "ru_nvcsw": 33,
+            "ru_stime_sec": 0.053067999999999997,
+            "ru_utime_sec": 0.019073,
+            "ru_maxrss_kb": 94432,
+            "ru_minflt": 1851,
+            "ru_majflt": 0,
+            "ru_nivcsw": 0
+        },
+        "mopSpeed": 68088.863571632013,
+        "mop/quad": 2.4401347351229967,
+        "outputSizePerQuad": 63.476064101255488,
+        "Frontend(%)": 45.205222905184428,
+        "CodeGen(%)": 54.794777094815565
+    },
+    "PrevCompiledModules": {},
+    "NameTable": {
+        "_vcs_unit__4140305405": [
+            "_vcs_unit__4140305405",
+            "INiNY",
+            "module",
+            1
+        ],
+        "std": [
+            "std",
+            "reYIK",
+            "module",
+            2
+        ],
+        "sampletest": [
+            "sampletest",
+            "gPJxK",
+            "module",
+            24
+        ],
+        "rast_params": [
+            "rast_params",
+            "mT84W",
+            "module",
+            3
+        ],
+        "dff3_0000_0001": [
+            "dff3_0000_0001",
+            "RmIf7",
+            "module",
+            16
+        ],
+        "dff3_0001": [
+            "dff3_0001",
+            "wrGcc",
+            "module",
+            14
+        ],
+        "dff2_0000": [
+            "dff2_0000",
+            "HpNpL",
+            "module",
+            5
+        ],
+        "bbox_0000": [
+            "bbox_0000",
+            "d5BPu",
+            "module",
+            4
+        ],
+        "dff3_0000_0000": [
+            "dff3_0000_0000",
+            "EJn6A",
+            "module",
+            15
+        ],
+        "dff2_0001": [
+            "dff2_0001",
+            "YYTYE",
+            "module",
+            6
+        ],
+        "dff3_0000": [
+            "dff3_0000",
+            "Fgck4",
+            "module",
+            13
+        ],
+        "dff2_0002": [
+            "dff2_0002",
+            "yW5CM",
+            "module",
+            7
+        ],
+        "dff2_0003": [
+            "dff2_0003",
+            "FMRfU",
+            "module",
+            8
+        ],
+        "smpl_sb": [
+            "smpl_sb",
+            "xTIPv",
+            "module",
+            30
+        ],
+        "test_iterator_0000": [
+            "test_iterator_0000",
+            "adgUT",
+            "module",
+            25
+        ],
+        "dff2_0001_0000": [
+            "dff2_0001_0000",
+            "tpBAT",
+            "module",
+            9
+        ],
+        "dff2_0002_0000": [
+            "dff2_0002_0000",
+            "KUIDG",
+            "module",
+            11
+        ],
+        "dff2_0001_0001": [
+            "dff2_0001_0001",
+            "UfTMx",
+            "module",
+            10
+        ],
+        "dff2_0002_0001": [
+            "dff2_0002_0001",
+            "mv96h",
+            "module",
+            12
+        ],
+        "testbench": [
+            "testbench",
+            "iAVhC",
+            "module",
+            31
+        ],
+        "dff3_0000_0002": [
+            "dff3_0000_0002",
+            "gG0sx",
+            "module",
+            17
+        ],
+        "dff3_0001_0000": [
+            "dff3_0001_0000",
+            "aWGfp",
+            "module",
+            18
+        ],
+        "dff_0000_0003": [
+            "dff_0000_0003",
+            "ACtd6",
+            "module",
+            20
+        ],
+        "top_rast": [
+            "top_rast",
+            "xFwH6",
+            "module",
+            32
+        ],
+        "rast_driver": [
+            "rast_driver",
+            "ZD3VR",
+            "module",
+            28
+        ],
+        "dff_0000_0002": [
+            "dff_0000_0002",
+            "xKfGv",
+            "module",
+            19
+        ],
+        "dff_0000_0006": [
+            "dff_0000_0006",
+            "KE3qb",
+            "module",
+            21
+        ],
+        "hash_jtree": [
+            "hash_jtree",
+            "sE4tC",
+            "module",
+            22
+        ],
+        "rast": [
+            "rast",
+            "NNwFS",
+            "module",
+            23
+        ],
+        "bbx_sb": [
+            "bbx_sb",
+            "a8g0Z",
+            "module",
+            26
+        ],
+        "perf_monitor": [
+            "perf_monitor",
+            "wiPAj",
+            "module",
+            27
+        ],
+        "smpl_cnt_sb": [
+            "smpl_cnt_sb",
+            "hVvAG",
+            "module",
+            29
+        ],
+        "zbuff": [
+            "zbuff",
+            "K6ha2",
+            "module",
+            33
+        ],
+        "...MASTER...": [
+            "SIM",
+            "amcQw",
+            "module",
+            34
+        ]
+    },
+    "CompileStrategy": "fullobj",
+    "CurCompileUdps": {},
+    "SIMBData": {
+        "out": "amcQwB.o",
+        "bytes": 145877,
+        "archive": "archive.0/_3317707_archive_1.a"
+    },
+    "CurCompileModules": [
+        "...MASTER...",
+        "...MASTER...",
+        "_vcs_unit__4140305405",
+        "_vcs_unit__4140305405",
+        "std",
+        "std",
+        "rast_params",
+        "rast_params",
+        "bbox_0000",
+        "bbox_0000",
+        "dff2_0000",
+        "dff2_0000",
+        "dff2_0001",
+        "dff2_0001",
+        "dff2_0002",
+        "dff2_0002",
+        "dff2_0003",
+        "dff2_0003",
+        "dff2_0001_0000",
+        "dff2_0001_0000",
+        "dff2_0001_0001",
+        "dff2_0001_0001",
+        "dff2_0002_0000",
+        "dff2_0002_0000",
+        "dff2_0002_0001",
+        "dff2_0002_0001",
+        "dff3_0000",
+        "dff3_0000",
+        "dff3_0001",
+        "dff3_0001",
+        "dff3_0000_0000",
+        "dff3_0000_0000",
+        "dff3_0000_0001",
+        "dff3_0000_0001",
+        "dff3_0000_0002",
+        "dff3_0000_0002",
+        "dff3_0001_0000",
+        "dff3_0001_0000",
+        "dff_0000_0002",
+        "dff_0000_0002",
+        "dff_0000_0003",
+        "dff_0000_0003",
+        "dff_0000_0006",
+        "dff_0000_0006",
+        "hash_jtree",
+        "hash_jtree",
+        "rast",
+        "rast",
+        "sampletest",
+        "sampletest",
+        "test_iterator_0000",
+        "test_iterator_0000",
+        "bbx_sb",
+        "bbx_sb",
+        "perf_monitor",
+        "perf_monitor",
+        "rast_driver",
+        "rast_driver",
+        "smpl_cnt_sb",
+        "smpl_cnt_sb",
+        "smpl_sb",
+        "smpl_sb",
+        "testbench",
+        "testbench",
+        "top_rast",
+        "top_rast",
+        "zbuff",
+        "zbuff"
+    ],
+    "LVLData": [
+        "SIM"
+    ],
+    "CompileProcesses": [
+        "cgproc.3317707.json"
+    ],
+    "CompileStatus": "Successful"
+}

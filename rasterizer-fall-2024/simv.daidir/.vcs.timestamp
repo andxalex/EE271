@@ -133,7 +133,7 @@ MATLAB_HOME=/cad/mathworks/caddy/MATLAB-R2018b
 MANPATH_modshare=/afs/ir.stanford.edu/class/ee/synopsys/syn/M-2016.12-SP2/doc/snps_gui/man:1::1:/afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/doc/man:1:/afs/ir.stanford.edu/class/ee/synopsys/syn/M-2016.12-SP2/doc/snps_tcl/man:1:/afs/ir.stanford.edu/class/ee/synopsys/syn/M-2016.12-SP2/doc/syn/man:1:/usr/share/man:1
 MAKEOVERRIDES=${-*-command-variables-*-}
 MAKELEVEL=1
-MAKEFLAGS=RUN=+testname=/afs/ir.stanford.edu/class/ee271/project/vect/vec_271_00_sv.dat
+MAKEFLAGS=RUN=+testname=/afs/ir.stanford.edu/class/ee271/project/vect/vec_271_01_sv.dat
 LOADEDMODULES_modshare=starrc/F-2011.12-SP2:1:cx/F-2011.09-SP2:1:matlab/caddy:1:syn/latest:1:synopsys_edk/2011:1:hercules/B-2008.09-SP4:1:incisive/latest:1:vcs/latest:1:base/1.0:1:synopsys_pdk/2011:1:cdesigner/F-2011.09-SP2:1:genesis2/latest:1:jaspergold/latest:1
 LOADEDMODULES=base/1.0:genesis2/latest:syn/latest:vcs/latest:synopsys_edk/2011:cdesigner/F-2011.09-SP2:hercules/B-2008.09-SP4:starrc/F-2011.12-SP2:cx/F-2011.09-SP2:synopsys_pdk/2011:matlab/caddy:incisive/latest:jaspergold/latest
 LM_LICENSE_FILE_modshare=27000@cadlic0.stanford.edu:2
@@ -182,7 +182,7 @@ AMSHOME=/cad/cadence/INCISIVE15.20.022
 1731289453 rtl/DW_pl_reg.v
 1732666987 rtl/tree_hash.sv
 1732524829 rtl/test_iterator.sv
-1732689509 rtl/sampletest.sv
+1732702517 rtl/sampletest.sv
 1731289453 rtl/rast.sv
 1732663845 rtl/hash_jtree.sv
 1731289453 rtl/dff_retime.sv
@@ -200,4 +200,4 @@ AMSHOME=/cad/cadence/INCISIVE15.20.022
 1487220396 /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libvirsim.so
 1487219634 /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/liberrorinf.so
 1487219608 /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libsnpsmalloc.so
-1732689528 simv.daidir
+1732702533 simv.daidir

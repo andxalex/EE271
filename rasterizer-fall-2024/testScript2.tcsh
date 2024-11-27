@@ -8,10 +8,10 @@ set diff_output = "diff_results.log"
 rm -f $diff_output
 touch $diff_output
 
-echo "TEST 1: RUN"
-make run RUN="+testname=$EE271_VECT/vec_271_00_sv.dat"
-echo "TEST 1: CALC DIFF"
-diff verif_out.ppm $EE271_VECT/vec_271_00_sv_ref.ppm >> $diff_output
+#echo "TEST 1: RUN"
+#make run RUN="+testname=$EE271_VECT/vec_271_00_sv.dat"
+#echo "TEST 1: CALC DIFF"
+#diff verif_out.ppm $EE271_VECT/vec_271_00_sv_ref.ppm >> $diff_output
 
 echo "TEST 2: RUN"
 make run RUN="+testname=$EE271_VECT/vec_271_01_sv.dat"

@@ -1,7 +1,7 @@
 Command: /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv -l /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.log +testname=/afs/ir.stanford.edu/class/ee271/project/vect/vec_271_01_sv.dat
 Chronologic VCS simulator copyright 1991-2017
 Contains Synopsys proprietary information.
-Compiler version M-2017.03_Full64; Runtime version M-2017.03_Full64;  Nov 26 22:38 2024
+Compiler version M-2017.03_Full64; Runtime version M-2017.03_Full64;  Nov 27 02:15 2024
 time=         0 ************** Driver Is Initializing Input Signals *****************
 time=         0 ************** Loading Arguments *****************
 Simulation run with default random seed=12345
@@ -17,4 +17,106 @@ time=     45000 ************** Driver Is Runnning Test -->/afs/ir.stanford.edu/c
 time=     49000 	         0 samples processed,          0 of them hit
 time= 104270000 	    100000 samples processed,      26659 of them hit
 time= 208846000 	    200000 samples processed,      56010 of them hit
-Interrupt at time 291883000
+time= 313126000 	    300000 samples processed,      82345 of them hit
+time= 417195000 	    400000 samples processed,     102714 of them hit
+time= 521161000 	    500000 samples processed,     111640 of them hit
+"rtl/sampletest.sv", 299: top_rast.rast.sampletest.unnamed$$_9: started at 550002000ns failed at 550002000ns
+	Offending '(!hit_valid_R16H)'
+"verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: started at 550003100ns failed at 550003100ns
+	Offending '0'
+Error: "verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: at time 550003100 ns
+time= 550003100 ERROR: Sample Test Check Failed
+"verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: started at 551385100ns failed at 551385100ns
+	Offending '0'
+Error: "verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: at time 551385100 ns
+time= 551385100 ERROR: Sample Test Check Failed
+time= 625045000 	    600000 samples processed,     112701 of them hit
+time= 727814000 	    700000 samples processed,     121067 of them hit
+time= 830971000 	    800000 samples processed,     127992 of them hit
+time= 934189000 	    900000 samples processed,     130396 of them hit
+time=1037387000 	   1000000 samples processed,     130396 of them hit
+time=1141203000 	   1100000 samples processed,     130396 of them hit
+time=1141204000 	   1100000 samples processed,     130396 of them hit
+time=1245421000 	   1200000 samples processed,     147827 of them hit
+time=1349773000 	   1300000 samples processed,     176202 of them hit
+time=1454106000 	   1400000 samples processed,     203506 of them hit
+time=1558158000 	   1500000 samples processed,     230170 of them hit
+time=1661279000 	   1600000 samples processed,     245230 of them hit
+time=1763686000 	   1700000 samples processed,     257387 of them hit
+time=1866610000 	   1800000 samples processed,     263448 of them hit
+time=1969795000 	   1900000 samples processed,     268579 of them hit
+time=2071649000 	   2000000 samples processed,     273454 of them hit
+time=2175118000 	   2100000 samples processed,     273605 of them hit
+time=2279055000 	   2200000 samples processed,     273605 of them hit
+time=2382924000 	   2300000 samples processed,     273605 of them hit
+time=2486499000 	   2400000 samples processed,     273605 of them hit
+time=2590085000 	   2500000 samples processed,     283642 of them hit
+time=2692279000 	   2600000 samples processed,     287869 of them hit
+time=2795986000 	   2700000 samples processed,     297904 of them hit
+time=2899825000 	   2800000 samples processed,     309532 of them hit
+time=3004049000 	   2900000 samples processed,     331127 of them hit
+time=3108080000 	   3000000 samples processed,     357667 of them hit
+time=3212329000 	   3100000 samples processed,     384221 of them hit
+time=3316207000 	   3200000 samples processed,     395831 of them hit
+time=3420411000 	   3300000 samples processed,     396201 of them hit
+time=3524636000 	   3400000 samples processed,     401920 of them hit
+time=3628997000 	   3500000 samples processed,     430361 of them hit
+"rtl/sampletest.sv", 299: top_rast.rast.sampletest.unnamed$$_9: started at 3719370000ns failed at 3719370000ns
+	Offending '(!hit_valid_R16H)'
+"verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: started at 3719371100ns failed at 3719371100ns
+	Offending '0'
+Error: "verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: at time 3719371100 ns
+time=3719371100 ERROR: Sample Test Check Failed
+"verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: started at 3719390100ns failed at 3719390100ns
+	Offending '0'
+Error: "verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: at time 3719390100 ns
+time=3719390100 ERROR: Sample Test Check Failed
+time=3733373000 	   3600000 samples processed,     452513 of them hit
+"verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: started at 3790027100ns failed at 3790027100ns
+	Offending '0'
+Error: "verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: at time 3790027100 ns
+time=3790027100 ERROR: Sample Test Check Failed
+"rtl/sampletest.sv", 299: top_rast.rast.sampletest.unnamed$$_9: started at 3790538000ns failed at 3790538000ns
+	Offending '(!hit_valid_R16H)'
+"verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: started at 3790539100ns failed at 3790539100ns
+	Offending '0'
+Error: "verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: at time 3790539100 ns
+time=3790539100 ERROR: Sample Test Check Failed
+"verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: started at 3790592100ns failed at 3790592100ns
+	Offending '0'
+Error: "verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: at time 3790592100 ns
+time=3790592100 ERROR: Sample Test Check Failed
+"verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: started at 3824948100ns failed at 3824948100ns
+	Offending '0'
+Error: "verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: at time 3824948100 ns
+time=3824948100 ERROR: Sample Test Check Failed
+"verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: started at 3824979100ns failed at 3824979100ns
+	Offending '0'
+Error: "verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: at time 3824979100 ns
+time=3824979100 ERROR: Sample Test Check Failed
+time=3837294000 	   3700000 samples processed,     477148 of them hit
+time=3940780000 	   3800000 samples processed,     498854 of them hit
+time=4043372000 	   3900000 samples processed,     515251 of them hit
+time=4147046000 	   4000000 samples processed,     538032 of them hit
+"rtl/sampletest.sv", 299: top_rast.rast.sampletest.unnamed$$_9: started at 4197773000ns failed at 4197773000ns
+	Offending '(!hit_valid_R16H)'
+"verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: started at 4197774100ns failed at 4197774100ns
+	Offending '0'
+Error: "verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: at time 4197774100 ns
+time=4197774100 ERROR: Sample Test Check Failed
+"verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: started at 4199156100ns failed at 4199156100ns
+	Offending '0'
+Error: "verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: at time 4199156100 ns
+time=4199156100 ERROR: Sample Test Check Failed
+time=4250839000 	   4100000 samples processed,     561945 of them hit
+"verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: started at 4302595100ns failed at 4302595100ns
+	Offending '0'
+Error: "verif/smpl_sb.sv", 112: top_rast.testbench.smpl_sb.unnamed$$_0: at time 4302595100 ns
+time=4302595100 ERROR: Sample Test Check Failed
+time=4354811000 	   4200000 samples processed,     585202 of them hit
+time=4458794000 	   4300000 samples processed,     609492 of them hit
+time=4562253000 	   4400000 samples processed,     629186 of them hit
+time=4665962000 	   4500000 samples processed,     647804 of them hit
+time=4769830000 	   4600000 samples processed,     661239 of them hit
+time=4873367000 	   4700000 samples processed,     663068 of them hit
+Interrupt at time 4927654000
