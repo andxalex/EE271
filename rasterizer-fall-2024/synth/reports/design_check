@@ -2,19 +2,19 @@
 ****************************************
 check_design summary:
 Version:     M-2016.12-SP2
-Date:        Wed Nov 27 22:40:31 2024
+Date:        Thu Nov 28 00:04:08 2024
 ****************************************
 
                    Name                                            Total
 --------------------------------------------------------------------------------
-Inputs/Outputs                                                    131
-    Unconnected ports (LINT-28)                                   118
+Inputs/Outputs                                                    129
+    Unconnected ports (LINT-28)                                   116
     Shorted outputs (LINT-31)                                       9
     Constant outputs (LINT-52)                                      4
 
-Cells                                                              76
-    Connected to power or ground (LINT-32)                         72
-    Nets connected to multiple pins on same cell (LINT-33)          4
+Cells                                                              77
+    Connected to power or ground (LINT-32)                         70
+    Nets connected to multiple pins on same cell (LINT-33)          7
 --------------------------------------------------------------------------------
 
 Warning: In design 'rast', port 'tri_R10S[2][2][20]' is not connected to any nets. (LINT-28)
@@ -125,10 +125,8 @@ Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2
 Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[0][0][19]' is not connected to any nets. (LINT-28)
 Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[0][0][18]' is not connected to any nets. (LINT-28)
 Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[0][0][17]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'sample_R16S[1][16]' is not connected to any nets. (LINT-28)
 Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'sample_R16S[1][1]' is not connected to any nets. (LINT-28)
 Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'sample_R16S[1][0]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'sample_R16S[0][3]' is not connected to any nets. (LINT-28)
 Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'sample_R16S[0][1]' is not connected to any nets. (LINT-28)
 Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'sample_R16S[0][0]' is not connected to any nets. (LINT-28)
 Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'hit_R18S[1][1]' is not connected to any nets. (LINT-28)
@@ -277,13 +275,9 @@ Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic
 Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'tri_R16S[0][0][17]' is connected to logic 0. 
 Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'sample_R16S[1][16]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'sample_R16S[1][1]' is connected to logic 0. 
 Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'sample_R16S[1][0]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'sample_R16S[0][3]' is connected to logic 0. 
 Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'sample_R16S[0][1]' is connected to logic 0. 
 Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
@@ -293,9 +287,15 @@ Warning: In design 'rast', the same net is connected to more than one pin on sub
 Warning: In design 'rast', the same net is connected to more than one pin on submodule 'sampletest'. (LINT-33)
    Net 'sample_R16S[1][18]' is connected to pins 'sample_R16S[1][18]', 'sample_R16S[0][4]''.
 Warning: In design 'rast', the same net is connected to more than one pin on submodule 'sampletest'. (LINT-33)
+   Net 'sample_R16S[1][17]' is connected to pins 'sample_R16S[1][17]', 'sample_R16S[0][3]''.
+Warning: In design 'rast', the same net is connected to more than one pin on submodule 'sampletest'. (LINT-33)
+   Net 'sample_R16S[1][16]' is connected to pins 'sample_R16S[1][16]', 'sample_R16S[0][2]''.
+Warning: In design 'rast', the same net is connected to more than one pin on submodule 'sampletest'. (LINT-33)
    Net 'sample_R16S[0][18]' is connected to pins 'sample_R16S[1][4]', 'sample_R16S[0][18]''.
 Warning: In design 'rast', the same net is connected to more than one pin on submodule 'sampletest'. (LINT-33)
    Net 'sample_R16S[0][17]' is connected to pins 'sample_R16S[1][3]', 'sample_R16S[0][17]''.
+Warning: In design 'rast', the same net is connected to more than one pin on submodule 'sampletest'. (LINT-33)
+   Net 'sample_R16S[0][16]' is connected to pins 'sample_R16S[1][2]', 'sample_R16S[0][16]''.
 Warning: In design 'rast', output port 'hit_R18S[1][1]' is connected directly to 'logic 0'. (LINT-52)
 Warning: In design 'rast', output port 'hit_R18S[1][0]' is connected directly to 'logic 0'. (LINT-52)
 Warning: In design 'rast', output port 'hit_R18S[0][1]' is connected directly to 'logic 0'. (LINT-52)

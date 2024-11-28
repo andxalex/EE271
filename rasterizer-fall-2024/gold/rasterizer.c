@@ -43,6 +43,19 @@ int floor_ss(int val, int r_shift, int ss_w_lg2)
 	return val & mask;
 }
 
+
+bool is_backface(Triangle triangle){
+	int ax = triangle.v[1].x - triangle.v[0].x;
+	int ay = triangle.v[1].y - triangle.v[0].y;
+	int bx = triangle.v[2].x - triangle.v[0].x;
+	int by = triangle.v[2].y - triangle.v[0].y;
+
+	float tri_check = ax * by - ay * bx;
+
+	return tri_check > 0;
+}
+
+
 /*
  *  Function: rastBBox_bbox_fix
  *  Function Description: Determine a bounding box for the triangle.
@@ -64,8 +77,14 @@ BoundingBox get_bounding_box(Triangle triangle, Screen screen, Config config)
   bbox.upper_right.x = bbox.upper_right.x > screen.width? screen.width:bbox.upper_right.x;
   bbox.upper_right.y = bbox.upper_right.y > screen.height? screen.height:bbox.upper_right.y;
   
+  if (!is_backface(triangle)){
   // check that the bbox is valid
-  bbox.valid = (bbox.lower_left.x <= bbox.upper_right.x)&&(bbox.lower_left.y <= bbox.upper_right.y);
+      bbox.valid = (bbox.lower_left.x <= bbox.upper_right.x)&&(bbox.lower_left.y <= bbox.upper_right.y);
+  }else{
+      bbox.valid = false;
+  }
+
+  // bbox.valid = (bbox.lower_left.x <= bbox.upper_right.x)&&(bbox.lower_left.y <= bbox.upper_right.y);
  
   return bbox;
 }

@@ -1,0 +1,183 @@
+The design has assertions or cover properties.
+The assertion browser can be used to view them. Click on the assertion toolbar button or use the menu 'Window->Panes->Assertion' to open it.
+The file 'wave.vpd' was opened successfully.
+Error: [FHDB-ERR_FILE_READ] File I/O read failed.
+  A file I/O error occurred when attempting to read data from the VPD/FSDB 
+  file causing this application to abort. Errno condition: "Stale file 
+  handle".
+  This may indicate the application writing the VPD/FSDB file failed 
+  unexpectedly resulting in a corrupted VPD/FSDB file or there may be OS 
+  issues that caused the file read to fail. Please try regenerating the 
+  VPD/FSDB file.
+---------------------------------------------
+
+The tool has just exited abnormally:
+
+
+Release = 'M-2017.03_Full64'  Architecture = 'linux64'  Program = 'DVE'
+
+'33816655 33853625 33855488 22379938987273'
+
+---------------------------------------------
+=======================DVE Context and Call Stack=========================
+
+An unexpected termination has occurred in /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/gui/dve/linux64/bin/dve.exeHostname caddy18.stanford.edu
+
+VPD API Function hfGetReadObj Handle1="top_rast.validTri_R10H" 
+Command line: /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/gui/dve/linux64/bin/dve.exe -full64 -vpd wave.vpd
+
+--- Stack trace follows:
+Could not find platform independent libraries <prefix>
+Could not find platform dependent libraries <exec_prefix>
+Consider setting $PYTHONHOME to <prefix>[:<exec_prefix>]
+'import site' failed; use -v for traceback
+Python Exception <type 'exceptions.ImportError'> No module named traceback: 
+/afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/bin/cbug-gdb-64/bin/gdb: warning: 
+Could not load the Python gdb module from `/afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/bin/cbug-gdb-64/share/gdb/python'.
+Limited Python support is available from the _gdb module.
+Suggest passing --data-directory=/path/to/gdb/data-directory.
+
+[New LWP 2960693]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+
+warning: Cannot parse .gnu_debugdata section; LZMA support was disabled at compile time
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+0x0000145abc5bae42 in waitpid () from /lib64/libc.so.6
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+Python Exception <type 'exceptions.ImportError'> No module named traceback: 
+
+Thread 2 (Thread 0x145abafdf700 (LWP 2960693)):
+#0  0x0000145abdccb7da in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x00000000029bd15b in ?? ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#2  0x00000000029bd5ee in QThread::msleep(unsigned long) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#3  0x00000000011167ce in ag::dveXThread::run() ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#4  0x00000000029bd2ea in QThreadInstance::start(void*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#5  0x0000145abdcc51ca in start_thread () from /lib64/libpthread.so.0
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#6  0x0000145abc4ec8d3 in clone () from /lib64/libc.so.6
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+Python Exception <type 'exceptions.ImportError'> No module named traceback: 
+
+Thread 1 (Thread 0x145abfd55640 (LWP 2960434)):
+#0  0x0000145abc5bae42 in waitpid () from /lib64/libc.so.6
+#1  0x0000145abc50e747 in do_system () from /lib64/libc.so.6
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#2  0x0000145abf2c371b in SNPSle_10ee25eff68cd8461c9146fa1d0b35e87067f3c8015b313e639d2928478c79b3f673f99203bcf8be64600612100082236bffb2007f1e0ef9 () from /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/liberrorinf.so
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#3  0x0000145abf2c3c6b in SNPSle_10ee25eff68cd8461c9146fa1d0b35e87067f3c8015b313e81c34e9ac4c8988ef4a6e067b3aa9271e9f15440f9e8f69ebc77e2fd65860faa () from /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/liberrorinf.so
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#4  0x0000145abf2c4f45 in SNPSle_10ee25eff68cd8461c9146fa1d0b35e87067f3c8015b313efba706aab251478fa49e66610e453774633a6c152e7ef778f2202cda681f3d4e () from /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/liberrorinf.so
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#5  0x0000145abf2be1f5 in SNPSle_d35ca1ff70d465c2b9b1a72eee90a506fdd009d3de3db1de () from /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/liberrorinf.so
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#6  0x0000000002049063 in ag::logErrorMessage(ag::errorType, QString const&, bool) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#7  0x0000000002049800 in ?? ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#8  0x0000145abc503d09 in __run_exit_handlers () from /lib64/libc.so.6
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#9  0x0000145abc503e00 in exit () from /lib64/libc.so.6
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#10 0x0000145abf77a769 in SNPSle_bf0d61c3fadaba80b566e58f5c04bc30b1a36076e47d8d8a () from /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libhflib.so
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#11 0x0000145abf6bb5fa in SNPSle_662c7e7a22f6d13850f26275cec7b125ece3b8b6337f921fb79f646628eace47e266ce75555b7103 () from /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libhflib.so
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#12 0x0000145abf66110c in SNPSle_f64e727fde53c50cf32854cefa806c2785264c20efc6f3aa () from /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libhflib.so
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#13 0x0000145abf648b8f in SNPSle_2d2fd458016b40091440d223d498268aa254c09b6b8ebd2cf912400b1132a79bb90a4be0cb7daa3853985190f978f29643a67e40e24fcb4e0721764f705ee38a () from /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libhflib.so
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#14 0x0000145abf64c71b in SNPSle_2d2fd458016b40091440d223d498268aa254c09b6b8ebd2c85f663914c00ec949387b982aa59f5ddeee03769aa003a27 () from /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libhflib.so
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#15 0x0000145abf64171a in SNPSle_2d2fd458016b4009011b4e28906103fefb0bf8c59f9eac831695bab6bbd4fc7469a06e026c65e15b192fa0f4252c87c0 () from /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libhflib.so
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#16 0x0000145abf62cd7b in SNPSle_2d2fd458016b4009cc77f49b0e43bc98da027ad471f98d879130cc234e82f2e2a790519a38a3163a () from /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libhflib.so
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#17 0x0000145abf65ed55 in SNPSle_8d1b2179acedd1750d9ea76e91c880e6697d0235e2188a318e4307e320e143a0 () from /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libhflib.so
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#18 0x0000145abf675815 in SNPSle_e67072563947ded775fb6688f9bb34d7 () from /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libhflib.so
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#19 0x0000000001c98f0f in ag::metaDesign::getVCOHandleOfSignal(ag::metaDbObj*, bool, bool&, bool&) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#20 0x0000000001ca5135 in ag::metaDesign::getPackageSignal(ag::metaDbObj*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#21 0x0000000001ad5c89 in ag::valueItem::setObj(ag::metaBaseObj*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#22 0x0000000001ad7d12 in ag::valueItem::loadMetaObj() ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#23 0x0000000001adab1a in ag::valueItem::activate() ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#24 0x0000000002acb43c in QListView::contentsMousePressEventEx(QMouseEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#25 0x00000000019222ab in ag::baseListView::contentsMousePressEvent(QMouseEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#26 0x0000000002af0a5c in QScrollView::viewportMousePressEvent(QMouseEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#27 0x0000000002af14e8 in QScrollView::eventFilter(QObject*, QEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#28 0x0000000002ad0db6 in QListView::eventFilter(QObject*, QEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#29 0x000000000192239c in ag::baseListView::eventFilter(QObject*, QEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#30 0x0000000001adf329 in ag::valueListView::eventFilter(QObject*, QEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#31 0x0000000002a0f8e4 in QObject::activate_filters(QEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#32 0x0000000002a0f959 in QObject::event(QEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#33 0x0000000002a3c21a in QWidget::event(QEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#34 0x00000000029c33c5 in QApplication::internalNotify(QObject*, QEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#35 0x00000000029c3776 in QApplication::notify(QObject*, QEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#36 0x00000000020be5a2 in EkExtQtApp::notify(QObject*, QEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#37 0x000000000208e55c in ag::baseQtApp::notify(QObject*, QEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#38 0x0000000002979b11 in QETWidget::translateMouseEvent(_XEvent const*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#39 0x0000000002978450 in QApplication::x11ProcessEvent(_XEvent*) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#40 0x0000000002986842 in QEventLoop::processEvents(unsigned int) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#41 0x000000000115aa52 in ag::ovaEventLoop::processEvents(unsigned int) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#42 0x00000000029d3d39 in QEventLoop::enterLoop() ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#43 0x00000000029d3cba in QEventLoop::exec() ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#44 0x000000000115a3f9 in run_cci_event_loop ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#45 0x000000000111860c in ag::ovaAppInst::enterEventLoop(int, char**) ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+#46 0x0000000000dd06c5 in main ()
+Python Exception <type 'exceptions.NameError'> Installation error: gdb.execute_unwinders function is missing: 
+Completed context dump data 'VPD API Function'
+==========================================================================

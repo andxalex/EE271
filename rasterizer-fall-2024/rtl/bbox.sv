@@ -166,6 +166,26 @@ module bbox
     logic                       validTri_R13H_retime ;                  // Valid Data for Operation
     // End output for retiming registers
 
+
+    // Check if backfacing
+    logic signed [(2*SIGFIG)-1:0]     tri_check;
+    logic                       valid_triangle;
+    
+    always_comb begin
+	    valid_triangle = 1'b0;
+	    tri_check = 0;
+
+	    tri_check = ((tri_R10S[1][0] - tri_R10S[0][0]) * (tri_R10S[2][1] - tri_R10S[0][1])) - ((tri_R10S[1][1] - tri_R10S[0][1]) * (tri_R10S[2][0] - tri_R10S[0][0]));
+
+	    if(tri_check > 0) begin
+		    valid_triangle = 1'b0;
+            // $display("Tried to skip %b",halt_RnnnnL);
+        end else
+		    valid_triangle = 1'b1;
+    end
+
+
+
     // ********** Step 1:  Determining a Bounding Box **********
     // Here you need to determine the bounding box by comparing the vertices
     // and assigning box_R10S to be the proper coordinates
@@ -296,7 +316,7 @@ module bbox
         
         outvalid_R10H = (out_box_R10S[0][0]<= screen_RnnnnS[0]) && 
                         (out_box_R10S[1][0]>= 0) && (out_box_R10S[0][1]<= screen_RnnnnS[1]) && 
-                        (out_box_R10S[1][1]>=0) && validTri_R10H;
+                        (out_box_R10S[1][1]>=0) && validTri_R10H && valid_triangle;
 
         // $display("LL X = %d, LL Y = %d, UR X = %d, UR Y = %d",out_box_R10S[0][0],out_box_R10S[0][1],out_box_R10S[1][0],out_box_R10S[1][1]);
     end
