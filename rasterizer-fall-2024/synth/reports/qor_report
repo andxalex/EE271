@@ -3,7 +3,7 @@
 Report : qor
 Design : rast
 Version: M-2016.12-SP2
-Date   : Tue Nov 26 20:35:00 2024
+Date   : Wed Nov 27 22:40:33 2024
 ****************************************
 
 
@@ -25,34 +25,34 @@ Date   : Tue Nov 26 20:35:00 2024
   -----------------------------------
   Hierarchical Cell Count:          1
   Hierarchical Port Count:        424
-  Leaf Cell Count:               5497
-  Buf/Inv Cell Count:            1681
-  Buf Cell Count:                  20
-  Inv Cell Count:                1661
+  Leaf Cell Count:               4919
+  Buf/Inv Cell Count:             613
+  Buf Cell Count:                 177
+  Inv Cell Count:                 436
   CT Buf/Inv Cell Count:            0
-  Combinational Cell Count:      4023
-  Sequential Cell Count:         1474
+  Combinational Cell Count:      3405
+  Sequential Cell Count:         1514
   Macro Count:                      0
   -----------------------------------
 
 
   Area
   -----------------------------------
-  Combinational Area:     3969.518005
-  Noncombinational Area:  7841.680253
-  Buf/Inv Area:            903.868008
-  Total Buffer Area:            16.76
-  Total Inverter Area:         887.11
+  Combinational Area:     3761.239984
+  Noncombinational Area:  8052.352260
+  Buf/Inv Area:            374.527999
+  Total Buffer Area:           142.31
+  Total Inverter Area:         232.22
   Macro/Black Box Area:      0.000000
   Net Area:                  0.000000
   -----------------------------------
-  Cell Area:             11811.198258
-  Design Area:           11811.198258
+  Cell Area:             11813.592244
+  Design Area:           11813.592244
 
 
   Design Rules
   -----------------------------------
-  Total Number of Nets:          6384
+  Total Number of Nets:          5819
   Nets With Violations:             1
   Max Trans Violations:             0
   Max Cap Violations:               0
@@ -60,16 +60,16 @@ Date   : Tue Nov 26 20:35:00 2024
   -----------------------------------
 
 
-  Hostname: caddy18.stanford.edu
+  Hostname: caddy01.stanford.edu
 
   Compile CPU Statistics
   -----------------------------------------
-  Resource Sharing:                   14.20
-  Logic Optimization:                 38.12
-  Mapping Optimization:               14.28
+  Resource Sharing:                   17.18
+  Logic Optimization:                 39.00
+  Mapping Optimization:               13.84
   -----------------------------------------
-  Overall Compile Time:               87.61
-  Overall Compile Wall Clock Time:    90.79
+  Overall Compile Time:               92.14
+  Overall Compile Wall Clock Time:    95.79
 
   --------------------------------------------------------------------
 

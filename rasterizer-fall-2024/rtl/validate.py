@@ -3,9 +3,9 @@ import math
 # Configuration (must match the generation script)
 INPUT_BITS = 17         # Total bits in input fixed-point number
 INPUT_FRAC_BITS = 10    # Number of fractional bits in input
-OUTPUT_BITS = 22        # Total bits in output fixed-point number
-OUTPUT_FRAC_BITS = 17   # Number of fractional bits in output
-FILENAME = "log2_rom.mem"  # ROM file to validate
+OUTPUT_BITS = 28        # Total bits in output fixed-point number
+OUTPUT_FRAC_BITS = 23   # Number of fractional bits in output
+FILENAME = "log2_rom2.mem"  # ROM file to validate
 
 def validate_log2_rom():
     """
@@ -47,7 +47,7 @@ def validate_log2_rom():
             recomputed_fixed_point_value = (1 << OUTPUT_BITS) + recomputed_fixed_point_value
 
         # Compare the ROM and recomputed values
-        if abs(rom_log2_value - recomputed_log2_value) > 1e-6:
+        if abs(rom_log2_value - recomputed_log2_value) >= 1e-7:
             errors += 1
             print(f"Mismatch at address {i}:")
             # print(f"  ROM Binary: {binary_str}")

@@ -7,7 +7,7 @@ Report : power
         -analysis_effort high
 Design : rast
 Version: M-2016.12-SP2
-Date   : Tue Nov 26 20:35:00 2024
+Date   : Wed Nov 27 22:40:33 2024
 ****************************************
 
 
@@ -33,12 +33,12 @@ Power-specific unit information :
     Leakage Power Units = 1nW
 
 
-  Cell Internal Power  =   8.8138 mW   (93%)
-  Net Switching Power  = 636.1792 uW    (7%)
+  Cell Internal Power  =   8.9726 mW   (93%)
+  Net Switching Power  = 684.6656 uW    (7%)
                          ---------
-Total Dynamic Power    =   9.4500 mW  (100%)
+Total Dynamic Power    =   9.6572 mW  (100%)
 
-Cell Leakage Power     = 211.9868 uW
+Cell Leakage Power     = 207.6147 uW
 
 
                  Internal         Switching           Leakage            Total
@@ -48,9 +48,9 @@ io_pad             0.0000            0.0000            0.0000            0.0000 
 memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
 black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
 clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
-register       8.4139e+03          160.4150        1.2048e+05        8.6948e+03  (  89.99%)
-sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
-combinational    399.8596          475.7483        9.1510e+04          967.1172  (  10.01%)
+register       8.6442e+03          168.1805        1.2369e+05        8.9361e+03  (  90.59%)
+sequential     2.6235e-02        2.6490e-03           37.1752        6.6059e-02  (   0.00%)
+combinational    328.3314          516.4794        8.3892e+04          928.7034  (   9.41%)
 --------------------------------------------------------------------------------------------------
-Total          8.8138e+03 uW       636.1633 uW     2.1199e+05 nW     9.6620e+03 uW
+Total          8.9726e+03 uW       684.6626 uW     2.0761e+05 nW     9.8648e+03 uW
 1

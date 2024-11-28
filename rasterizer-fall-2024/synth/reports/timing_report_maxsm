@@ -6,7 +6,7 @@ Report : timing
         -max_paths 1
 Design : rast
 Version: M-2016.12-SP2
-Date   : Tue Nov 26 20:35:00 2024
+Date   : Wed Nov 27 22:40:33 2024
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.
@@ -14,9 +14,9 @@ Date   : Tue Nov 26 20:35:00 2024
 Operating Conditions: typical   Library: NangateOpenCellLibrary
 Wire Load Model Mode: top
 
-  Startpoint: clk_r_REG433_S1
+  Startpoint: clk_r_REG437_S1
               (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: bbox/d_bbx_f3/genblk1[1].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][8]
+  Endpoint: bbox/d_bbx_f3/genblk1[1].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][9]
             (rising edge-triggered flip-flop clocked by clk)
   Path Group: clk
   Path Type: max
@@ -29,41 +29,41 @@ Wire Load Model Mode: top
   --------------------------------------------------------------------------
   clock clk (rise edge)                                 0.0000     0.0000
   clock network delay (ideal)                           0.0000     0.0000
-  clk_r_REG433_S1/CK (DFFR_X1)                          0.0000 #   0.0000 r
-  clk_r_REG433_S1/Q (DFFR_X1)                           0.1368     0.1368 r
-  U2078/ZN (NAND2_X1)                                   0.0592     0.1961 f
-  U2090/ZN (NAND4_X1)                                   0.0448     0.2409 r
-  U2092/ZN (OAI211_X1)                                  0.0403     0.2812 f
-  U2096/ZN (NAND3_X1)                                   0.0333     0.3145 r
-  U2111/ZN (NAND4_X1)                                   0.0609     0.3754 f
-  U2112/ZN (AOI21_X2)                                   0.1379     0.5133 r
-  U1009/ZN (INV_X1)                                     0.0892     0.6025 f
-  U2222/ZN (NAND3_X1)                                   0.0534     0.6559 r
-  U2224/ZN (OAI211_X1)                                  0.0442     0.7001 f
-  U2225/ZN (NAND2_X1)                                   0.0533     0.7534 r
-  U2226/ZN (INV_X1)                                     0.0275     0.7809 f
-  U2265/ZN (NOR3_X1)                                    0.0588     0.8397 r
-  U2266/ZN (NAND3_X1)                                   0.0358     0.8755 f
-  U2273/ZN (NAND4_X1)                                   0.0435     0.9189 r
-  U2303/Z (BUF_X1)                                      0.0753     0.9943 r
-  U2304/Z (MUX2_X1)                                     0.0868     1.0810 f
-  U2305/ZN (NAND2_X1)                                   0.0283     1.1093 r
-  U2306/ZN (OAI21_X1)                                   0.0318     1.1411 f
-  bbox/d_bbx_f3/genblk1[1].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][8]/D (DFFR_X1)
-                                                        0.0069     1.1480 f
-  data arrival time                                                1.1480
+  clk_r_REG437_S1/CK (DFFR_X1)                          0.0000 #   0.0000 r
+  clk_r_REG437_S1/Q (DFFR_X1)                           0.1439     0.1439 r
+  U2117/ZN (NAND2_X1)                                   0.0575     0.2014 f
+  U2129/ZN (NAND4_X1)                                   0.0417     0.2431 r
+  U2131/ZN (OAI211_X1)                                  0.0402     0.2833 f
+  U2135/ZN (NAND3_X1)                                   0.0338     0.3171 r
+  U1016/ZN (NAND4_X1)                                   0.0555     0.3725 f
+  U1038/ZN (AOI21_X2)                                   0.1402     0.5128 r
+  U2248/ZN (INV_X1)                                     0.0822     0.5950 f
+  U2267/ZN (OAI211_X1)                                  0.0794     0.6744 r
+  U2268/ZN (NAND3_X1)                                   0.0400     0.7144 f
+  U2269/ZN (AOI22_X1)                                   0.0569     0.7713 r
+  U2275/ZN (NAND2_X1)                                   0.0274     0.7988 f
+  U2276/ZN (OAI21_X1)                                   0.0317     0.8304 r
+  U2289/ZN (NAND4_X1)                                   0.0439     0.8744 f
+  U2304/ZN (NAND4_X1)                                   0.0444     0.9187 r
+  U2334/Z (BUF_X1)                                      0.0753     0.9941 r
+  U2339/Z (MUX2_X1)                                     0.0868     1.0808 f
+  U2340/ZN (NAND2_X1)                                   0.0283     1.1091 r
+  U2341/ZN (OAI21_X1)                                   0.0339     1.1430 f
+  bbox/d_bbx_f3/genblk1[1].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][9]/D (DFFR_X1)
+                                                        0.0069     1.1499 f
+  data arrival time                                                1.1499
 
   clock clk (rise edge)                                 1.2000     1.2000
   clock network delay (ideal)                           0.0000     1.2000
-  bbox/d_bbx_f3/genblk1[1].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][8]/CK (DFFR_X1)
+  bbox/d_bbx_f3/genblk1[1].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][9]/CK (DFFR_X1)
                                                         0.0000     1.2000 r
-  library setup time                                   -0.0493     1.1507
-  data required time                                               1.1507
+  library setup time                                   -0.0498     1.1502
+  data required time                                               1.1502
   --------------------------------------------------------------------------
-  data required time                                               1.1507
-  data arrival time                                               -1.1480
+  data required time                                               1.1502
+  data arrival time                                               -1.1499
   --------------------------------------------------------------------------
-  slack (MET)                                                      0.0027
+  slack (MET)                                                      0.0003
 
 
 1

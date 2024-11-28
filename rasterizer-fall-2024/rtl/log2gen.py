@@ -3,9 +3,9 @@ import math
 # Configuration
 INPUT_BITS = 17         # Total bits in input fixed-point number
 INPUT_FRAC_BITS = 10    # Number of fractional bits in input
-OUTPUT_BITS = 22        # Total bits in output fixed-point number
-OUTPUT_FRAC_BITS = 17   # Number of fractional bits in output
-FILENAME = "log2_rom.mem"
+OUTPUT_BITS = 26        # Total bits in output fixed-point number
+OUTPUT_FRAC_BITS = 21   # Number of fractional bits in output
+FILENAME = "log2_rom2.mem"
 
 # Number of entries in the ROM
 RANGE = 2 ** INPUT_BITS  # 131,072 entries
