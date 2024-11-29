@@ -1,31 +1,32 @@
 Chronologic VCS simulator copyright 1991-2017
 Contains Synopsys proprietary information.
-Compiler version M-2017.03_Full64; Runtime version M-2017.03_Full64;  Nov 28 00:51 2024
+Compiler version M-2017.03_Full64; Runtime version M-2017.03_Full64;  Nov 28 16:35 2024
 time=         0 ************** Driver Is Initializing Input Signals *****************
 time=         0 ************** Loading Arguments *****************
 Simulation run with default random seed=12345
 Simulation will timout after 50000000 cycles
-Simulation will use test file /afs/ir.stanford.edu/class/ee271/project/vect/vec_271_02_sv_short.dat
+Simulation will use test file /afs/ir.stanford.edu/class/ee271/project/vect/vec_271_03_sv_short.dat
 Seed=      12345 
 time=     15000 ************** Driver Is Initializing Test from File *****************
 Setting screen params: w=800 h=600 msaa=16 RADIX = 10
 time=     30000 ************** Initializing FB and ZB *****************
 time=     30010 ************** Finished Init FB and ZB *****************
 time=     45000 ************** Runnning Test *****************
-time=     45000 ************** Driver Is Runnning Test -->/afs/ir.stanford.edu/class/ee271/project/vect/vec_271_02_sv_short.dat<-- *****************
+time=     45000 ************** Driver Is Runnning Test -->/afs/ir.stanford.edu/class/ee271/project/vect/vec_271_03_sv_short.dat<-- *****************
 time=     49000 	         0 samples processed,          0 of them hit
-time= 104026000 	    100000 samples processed,      21405 of them hit
-time= 134118000 ************** Driver Is Done *****************
-time= 134133010 ************** Writing Final Image to File *****************
-time= 134133030 ************** Finished Final Image to File *****************
-time= 134133040 ********************FINISH***********************
-Cycles:      134085 triangle:        5012 sampleTests:      129072 sampleHits:       27261 
+time= 104096000 	    100000 samples processed,      23162 of them hit
+time= 168239000 ************** Driver Is Done *****************
+time= 168254010 ************** Writing Final Image to File *****************
+time= 168254030 ************** Finished Final Image to File *****************
+time= 168254040 ********************FINISH***********************
+Cycles:      168206 triangle:       10000 sampleTests:      161754 sampleHits:       37756 
 
-JJ: triangle / cycle : 0.037379 
-JJ: cycle / triangle : 26.752793 
-$finish called from file "verif/testbench.sv", line 306.
-$finish at simulation time            134133040
+JJ: triangle / cycle : 0.059451 
+JJ: cycle / triangle : 16.820600 
+Total Triangles =       10000, valid triangles =        6451, culled  =        3549
+$finish called from file "verif/testbench.sv", line 312.
+$finish at simulation time            168254040
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 134133040 ns
-CPU Time:      6.580 seconds;       Data structure size:   2.2Mb
-Thu Nov 28 00:51:33 2024
+Time: 168254040 ns
+CPU Time:      8.230 seconds;       Data structure size:   2.2Mb
+Thu Nov 28 16:35:25 2024

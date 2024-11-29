@@ -224,6 +224,7 @@ module testbench
     *
     *****************************************/
 
+    // FEED TRI_R10S INSTEAD OF R16S TO ACCOUNT FOR ALL VALID TRIANGLES.
     perf_monitor #(
         .SIGFIG     (SIGFIG     ),
         .RADIX      (RADIX      ),
@@ -234,6 +235,7 @@ module testbench
     )
     perf_mon
     (
+        .tri_R10S       (top_rast.rast.tri_R10S       ),
         .tri_R16S       (top_rast.rast.tri_R16S       ), // 4 Sets X,Y Fixed Point Values
         .color_R16U     (top_rast.rast.color_R16U     ), // triangle Color
         .validSamp_R16H (top_rast.rast.validSamp_R16H ),
@@ -301,6 +303,10 @@ module testbench
         $display("JJ: cycle / triangle : %f " ,
             (1.0* perf_mon.cycle_count)/
             (1.0* perf_mon.triangle_count) );
+        $display("Total Triangles = %d, valid triangles = %d, culled  = %d",
+            perf_mon.triangle_count, 
+            perf_mon.valid_triangle_count, 
+            perf_mon.triangle_count-perf_mon.valid_triangle_count);
 
         //Call Function for Zbuff write out.
         $finish(2);

@@ -6,7 +6,7 @@ Report : timing
         -max_paths 1
 Design : rast
 Version: M-2016.12-SP2
-Date   : Thu Nov 28 00:04:10 2024
+Date   : Thu Nov 28 15:55:27 2024
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.
@@ -14,9 +14,9 @@ Date   : Thu Nov 28 00:04:10 2024
 Operating Conditions: typical   Library: NangateOpenCellLibrary
 Wire Load Model Mode: top
 
-  Startpoint: clk_r_REG433_S1
+  Startpoint: bbox/clk_r_REG1007_S1
               (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: bbox/d_bbx_f4/genblk1.dff_pipe/data_pipe_a_reg[1][0]
+  Endpoint: bbox/R_30_clk_r_REG462_S2
             (rising edge-triggered flip-flop clocked by clk)
   Path Group: clk
   Path Type: max
@@ -29,48 +29,44 @@ Wire Load Model Mode: top
   --------------------------------------------------------------------------
   clock clk (rise edge)                                 0.0000     0.0000
   clock network delay (ideal)                           0.0000     0.0000
-  clk_r_REG433_S1/CK (DFFR_X1)                          0.0000 #   0.0000 r
-  clk_r_REG433_S1/Q (DFFR_X1)                           0.1114     0.1114 r
-  U3449/ZN (XNOR2_X1)                                   0.0703     0.1817 r
-  U3451/ZN (XNOR2_X1)                                   0.0658     0.2475 r
-  U3452/ZN (XNOR2_X1)                                   0.0692     0.3167 r
-  U3526/ZN (INV_X1)                                     0.0555     0.3722 f
-  U3534/ZN (OAI22_X1)                                   0.0722     0.4444 r
-  U3535/ZN (INV_X1)                                     0.0266     0.4710 f
-  U1860/ZN (XNOR2_X1)                                   0.0794     0.5504 r
-  U3538/ZN (XNOR2_X1)                                   0.0707     0.6210 r
-  U3539/ZN (XNOR2_X1)                                   0.0734     0.6945 r
-  U1646/ZN (XNOR2_X1)                                   0.0705     0.7650 r
-  U1645/ZN (XNOR2_X1)                                   0.0734     0.8384 r
-  U1391/ZN (XNOR2_X1)                                   0.0702     0.9086 r
-  U1168/ZN (XNOR2_X1)                                   0.0650     0.9736 r
-  U1028/ZN (AND2_X2)                                    0.0547     1.0282 r
-  U4098/ZN (AOI21_X1)                                   0.0307     1.0589 f
-  U4099/ZN (OAI21_X1)                                   0.0381     1.0971 r
-  U1409/ZN (AOI21_X1)                                   0.0322     1.1292 f
-  U4323/ZN (OAI21_X1)                                   0.0488     1.1780 r
-  U4325/ZN (XNOR2_X1)                                   0.0644     1.2424 r
-  U4326/ZN (INV_X1)                                     0.0230     1.2653 f
-  U1794/ZN (NAND2_X1)                                   0.0342     1.2995 r
-  U1414/ZN (AND3_X1)                                    0.0558     1.3553 r
-  U1412/ZN (NAND3_X1)                                   0.0319     1.3872 f
-  U1370/ZN (NAND3_X1)                                   0.0325     1.4197 r
-  U1411/ZN (NAND2_X1)                                   0.0230     1.4426 f
-  bbox/d_bbx_f4/genblk1.dff_pipe/data_pipe_a_reg[1][0]/D (DFFR_X1)
-                                                        0.0069     1.4495 f
-  data arrival time                                                1.4495
+  bbox/clk_r_REG1007_S1/CK (DFFR_X1)                    0.0000 #   0.0000 r
+  bbox/clk_r_REG1007_S1/Q (DFFR_X1)                     0.1022     0.1022 r
+  bbox/U375/ZN (AND2_X1)                                0.0537     0.1559 r
+  bbox/U416/ZN (OAI21_X1)                               0.0318     0.1877 f
+  bbox/U1191/ZN (AOI21_X1)                              0.0656     0.2533 r
+  bbox/U1220/ZN (INV_X1)                                0.0340     0.2873 f
+  bbox/U956/ZN (AOI21_X1)                               0.0582     0.3455 r
+  bbox/U1221/ZN (OAI21_X1)                              0.0537     0.3992 f
+  bbox/U107/ZN (XNOR2_X2)                               0.0869     0.4861 f
+  bbox/U1227/ZN (XNOR2_X1)                              0.0757     0.5618 f
+  bbox/U1240/ZN (OAI22_X1)                              0.0724     0.6342 r
+  bbox/U1241/ZN (XNOR2_X1)                              0.0800     0.7142 r
+  bbox/U1242/ZN (XNOR2_X1)                              0.0669     0.7811 r
+  bbox/U827/ZN (XNOR2_X1)                               0.0612     0.8423 r
+  bbox/U767/ZN (XNOR2_X1)                               0.0709     0.9132 r
+  bbox/U1447/ZN (NAND2_X1)                              0.0407     0.9539 f
+  bbox/U1448/ZN (OAI21_X1)                              0.0352     0.9892 r
+  bbox/U1449/ZN (AOI21_X1)                              0.0289     1.0181 f
+  bbox/U1542/ZN (OAI21_X1)                              0.0527     1.0708 r
+  bbox/U3651/ZN (INV_X1)                                0.0260     1.0968 f
+  bbox/U3652/ZN (OAI21_X1)                              0.0441     1.1409 r
+  bbox/U3655/ZN (XNOR2_X1)                              0.0642     1.2051 r
+  bbox/U643/ZN (NAND2_X1)                               0.0361     1.2412 f
+  bbox/U982/ZN (NAND2_X1)                               0.0414     1.2826 r
+  bbox/U5446/ZN (OAI211_X1)                             0.0350     1.3176 f
+  bbox/R_30_clk_r_REG462_S2/D (DFFS_X1)                 0.0071     1.3247 f
+  data arrival time                                                1.3247
 
   clock clk (rise edge)                                 1.2000     1.2000
   clock network delay (ideal)                           0.0000     1.2000
-  bbox/d_bbx_f4/genblk1.dff_pipe/data_pipe_a_reg[1][0]/CK (DFFR_X1)
-                                                        0.0000     1.2000 r
-  library setup time                                   -0.0400     1.1600
-  data required time                                               1.1600
+  bbox/R_30_clk_r_REG462_S2/CK (DFFS_X1)                0.0000     1.2000 r
+  library setup time                                   -0.0428     1.1572
+  data required time                                               1.1572
   --------------------------------------------------------------------------
-  data required time                                               1.1600
-  data arrival time                                               -1.4495
+  data required time                                               1.1572
+  data arrival time                                               -1.3247
   --------------------------------------------------------------------------
-  slack (VIOLATED)                                                -0.2896
+  slack (VIOLATED)                                                -0.1675
 
 
 1

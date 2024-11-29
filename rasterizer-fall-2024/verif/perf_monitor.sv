@@ -28,7 +28,8 @@ module perf_monitor
     parameter COLORS = 3, // Number of color channels
     parameter PIPE_DEPTH = 3 // Number of Pipe Stages in bbox module
 )
-(
+(   
+    input logic signed   [SIGFIG-1:0]     tri_R10S[VERTS-1:0][AXIS-1:0],
     input logic signed   [SIGFIG-1:0]     tri_R16S[VERTS-1:0][AXIS-1:0],  // 4 Sets X,Y Fixed Point Values
     input logic unsigned [SIGFIG-1:0]     color_R16U[COLORS-1:0],          // 4 Sets X,Y Fixed Point Values
     input logic                           validSamp_R16H,
@@ -45,6 +46,8 @@ module perf_monitor
     //Pipe Signals for Later Evaluation
     logic signed   [SIGFIG-1:0]  tri_RnnS[VERTS-1:0][AXIS-1:0];    // 4 Sets X,Y Fixed Point Values
     logic signed   [SIGFIG-1:0]  tri_Rn1S[VERTS-1:0][AXIS-1:0];    // 4 Sets X,Y Fixed Point Values
+    logic signed   [SIGFIG-1:0]  tri_R16nnS[VERTS-1:0][AXIS-1:0];    // 4 Sets X,Y Fixed Point Values
+    logic signed   [SIGFIG-1:0]  tri_R16n1S[VERTS-1:0][AXIS-1:0]; 
     logic                        validSamp_RnnH;
     //Pipe Signals for Later Evaluation
 
@@ -60,7 +63,7 @@ module perf_monitor
         .clk    (clk        ),
         .reset  (rst        ),
         .en     (1'b1       ),
-        .in     (tri_R16S   ),
+        .in     (tri_R10S   ),
         .out    (tri_RnnS   )
     );
 
@@ -76,8 +79,40 @@ module perf_monitor
         .clk    (clk        ),
         .reset  (rst        ),
         .en     (1'b1       ),
-        .in     (tri_R16S   ),
+        .in     (tri_R10S   ),
         .out    (tri_Rn1S   )
+    );
+
+    dff3 #(
+        .WIDTH          (SIGFIG     ),
+        .ARRAY_SIZE1    (VERTS      ),
+        .ARRAY_SIZE2    (AXIS       ),
+        .PIPE_DEPTH     (PIPE_DEPTH ),
+        .RETIME_STATUS  (0          )
+    )
+    d_1601
+    (
+        .clk    (clk        ),
+        .reset  (rst        ),
+        .en     (1'b1       ),
+        .in     (tri_R16S   ),
+        .out    (tri_R16nnS   )
+    );
+
+    dff3 #(
+        .WIDTH          (SIGFIG         ),
+        .ARRAY_SIZE1    (VERTS          ),
+        .ARRAY_SIZE2    (AXIS           ),
+        .PIPE_DEPTH     (PIPE_DEPTH-1   ),
+        .RETIME_STATUS  (0              )
+    )
+    d_16011
+    (
+        .clk    (clk        ),
+        .reset  (rst        ),
+        .en     (1'b1       ),
+        .in     (tri_R16S   ),
+        .out    (tri_R16n1S   )
     );
 
     dff #(
@@ -98,6 +133,7 @@ module perf_monitor
     int sample_hit_count;
     int triangle_count;
     int cycle_count;
+    int valid_triangle_count;
 
     //Count the total Number of Valid Samples
     initial begin
@@ -122,6 +158,9 @@ module perf_monitor
 
             triangle_count = ( tri_Rn1S != tri_RnnS ) ?
                         ( triangle_count + 1 ) : triangle_count;
+
+            valid_triangle_count = ( tri_R16n1S != tri_R16nnS ) ?
+                        ( valid_triangle_count + 1 ) : valid_triangle_count;
 
             cycle_count++ ;
 

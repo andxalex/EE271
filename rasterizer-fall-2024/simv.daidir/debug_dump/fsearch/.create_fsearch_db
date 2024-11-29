@@ -5,5 +5,5 @@ PYTHONPATH=/afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/pyli
 export PYTHONPATH
 LD_LIBRARY_PATH=/afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib:/afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/pylib27
 export LD_LIBRARY_PATH
-/afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/bin/vcsfind_create_index.exe  -z  "/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/debug_dump/fsearch/./idents_rLGFNt.xml.gz" -o "/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/debug_dump/fsearch/fsearch.db_tmp"
+/afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/bin/vcsfind_create_index.exe  -z  "/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/debug_dump/fsearch/./idents_o4K5g3.xml.gz" -o "/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/debug_dump/fsearch/fsearch.db_tmp"
 \mv "/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/debug_dump/fsearch/fsearch.db_tmp" "/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/debug_dump/fsearch/fsearch.db"

@@ -3,18 +3,18 @@
 Report : qor
 Design : rast
 Version: M-2016.12-SP2
-Date   : Thu Nov 28 00:04:10 2024
+Date   : Thu Nov 28 15:55:27 2024
 ****************************************
 
 
   Timing Path Group 'clk'
   -----------------------------------
-  Levels of Logic:              25.00
-  Critical Path Length:          1.45
-  Critical Path Slack:          -0.29
+  Levels of Logic:              23.00
+  Critical Path Length:          1.32
+  Critical Path Slack:          -0.17
   Critical Path Clk Period:      1.20
-  Total Negative Slack:        -12.81
-  No. of Violating Paths:       48.00
+  Total Negative Slack:        -15.61
+  No. of Violating Paths:      130.00
   Worst Hold Violation:          0.00
   Total Hold Violation:          0.00
   No. of Hold Violations:        0.00
@@ -23,57 +23,57 @@ Date   : Thu Nov 28 00:04:10 2024
 
   Cell Count
   -----------------------------------
-  Hierarchical Cell Count:          1
-  Hierarchical Port Count:        424
-  Leaf Cell Count:               7415
-  Buf/Inv Cell Count:            1114
-  Buf Cell Count:                 334
-  Inv Cell Count:                 780
+  Hierarchical Cell Count:          2
+  Hierarchical Port Count:       1063
+  Leaf Cell Count:              11367
+  Buf/Inv Cell Count:            2435
+  Buf Cell Count:                 338
+  Inv Cell Count:                2097
   CT Buf/Inv Cell Count:            0
-  Combinational Cell Count:      5873
-  Sequential Cell Count:         1542
+  Combinational Cell Count:      9147
+  Sequential Cell Count:         2220
   Macro Count:                      0
   -----------------------------------
 
 
   Area
   -----------------------------------
-  Combinational Area:     6848.169963
-  Noncombinational Area:  8203.972265
-  Buf/Inv Area:            704.633998
-  Total Buffer Area:           285.95
-  Total Inverter Area:         418.68
+  Combinational Area:    10781.511972
+  Noncombinational Area: 11810.932380
+  Buf/Inv Area:           1446.242005
+  Total Buffer Area:           305.63
+  Total Inverter Area:        1140.61
   Macro/Black Box Area:      0.000000
   Net Area:                  0.000000
   -----------------------------------
-  Cell Area:             15052.142227
-  Design Area:           15052.142227
+  Cell Area:             22592.444352
+  Design Area:           22592.444352
 
 
   Design Rules
   -----------------------------------
-  Total Number of Nets:          8449
-  Nets With Violations:             1
+  Total Number of Nets:         12727
+  Nets With Violations:             2
   Max Trans Violations:             0
-  Max Cap Violations:               0
+  Max Cap Violations:               1
   Max Fanout Violations:            1
   -----------------------------------
 
 
-  Hostname: caddy01.stanford.edu
+  Hostname: caddy02.stanford.edu
 
   Compile CPU Statistics
   -----------------------------------------
-  Resource Sharing:                   32.71
-  Logic Optimization:                 19.29
-  Mapping Optimization:               65.29
+  Resource Sharing:                   44.58
+  Logic Optimization:                 22.07
+  Mapping Optimization:              141.28
   -----------------------------------------
-  Overall Compile Time:              158.24
-  Overall Compile Wall Clock Time:   162.96
+  Overall Compile Time:              246.40
+  Overall Compile Wall Clock Time:   252.43
 
   --------------------------------------------------------------------
 
-  Design  WNS: 0.29  TNS: 12.81  Number of Violating Paths: 48
+  Design  WNS: 0.17  TNS: 15.61  Number of Violating Paths: 130
 
 
   Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0

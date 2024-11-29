@@ -172,16 +172,8 @@ module bbox
     logic                       valid_triangle;
     
     always_comb begin
-	    valid_triangle = 1'b0;
-	    tri_check = 0;
-
 	    tri_check = ((tri_R10S[1][0] - tri_R10S[0][0]) * (tri_R10S[2][1] - tri_R10S[0][1])) - ((tri_R10S[1][1] - tri_R10S[0][1]) * (tri_R10S[2][0] - tri_R10S[0][0]));
-
-	    if(tri_check > 0) begin
-		    valid_triangle = 1'b0;
-            // $display("Tried to skip %b",halt_RnnnnL);
-        end else
-		    valid_triangle = 1'b1;
+        valid_triangle = tri_check>0?0:1;
     end
 
 
