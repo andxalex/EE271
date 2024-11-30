@@ -166,7 +166,6 @@ module bbox
     logic                       validTri_R13H_retime ;                  // Valid Data for Operation
     // End output for retiming registers
 
-
     // Check if backfacing
     logic signed [(2*SIGFIG)-1:0]     tri_check;
     logic                       valid_triangle;
@@ -319,6 +318,8 @@ module bbox
 
     // ***************** End of Step 3 *********************
 
+    logic bubble_burst_en;
+    assign bubble_burst_en = !(halt_RnnnnL||validTri_R13H);
     dff3 #(
         .WIDTH(SIGFIG),
         .ARRAY_SIZE1(VERTS),
@@ -330,7 +331,7 @@ module bbox
     (
         .clk    (clk                ),
         .reset  (rst                ),
-        .en     (halt_RnnnnL        ),
+        .en     (halt_RnnnnL  || bubble_burst_en),
         .in     (tri_R10S          ),
         .out    (tri_R13S_retime   )
     );
@@ -345,7 +346,7 @@ module bbox
     (
         .clk    (clk                ),
         .reset  (rst                ),
-        .en     (halt_RnnnnL        ),
+        .en     (halt_RnnnnL  || bubble_burst_en      ),
         .in     (color_R10U         ),
         .out    (color_R13U_retime  )
     );
@@ -361,7 +362,7 @@ module bbox
     (
         .clk    (clk            ),
         .reset  (rst            ),
-        .en     (halt_RnnnnL    ),
+        .en     (halt_RnnnnL || bubble_burst_en),
         .in     (out_box_R10S   ),
         .out    (box_R13S_retime)
     );
@@ -375,13 +376,13 @@ module bbox
     (
         .clk    (clk                    ),
         .reset  (rst                    ),
-        .en     (halt_RnnnnL            ),
+        .en     (halt_RnnnnL  || bubble_burst_en),
         .in     (outvalid_R10H          ),
         .out    (validTri_R13H_retime   )
     );
     //Flop Clamped Box to R13_retime with retiming registers
 
-    //Flop R13_retime to R13 with fixed registers
+    //Flop the retimed to fixed registers
     dff3 #(
         .WIDTH(SIGFIG),
         .ARRAY_SIZE1(VERTS),
@@ -393,7 +394,7 @@ module bbox
     (
         .clk    (clk                ),
         .reset  (rst                ),
-        .en     (halt_RnnnnL        ),
+        .en     (halt_RnnnnL || bubble_burst_en        ),
         .in     (tri_R13S_retime    ),
         .out    (tri_R13S           )
     );
@@ -408,7 +409,7 @@ module bbox
     (
         .clk    (clk                ),
         .reset  (rst                ),
-        .en     (halt_RnnnnL        ),
+        .en     (halt_RnnnnL || bubble_burst_en        ),
         .in     (color_R13U_retime  ),
         .out    (color_R13U         )
     );
@@ -424,7 +425,7 @@ module bbox
     (
         .clk    (clk            ),
         .reset  (rst            ),
-        .en     (halt_RnnnnL    ),
+        .en     (halt_RnnnnL || bubble_burst_en    ),
         .in     (box_R13S_retime),
         .out    (box_R13S       )
     );
@@ -438,7 +439,7 @@ module bbox
     (
         .clk    (clk                    ),
         .reset  (rst                    ),
-        .en     (halt_RnnnnL            ),
+        .en     (halt_RnnnnL || bubble_burst_en            ),
         .in     (validTri_R13H_retime   ),
         .out    (validTri_R13H          )
     );
@@ -456,6 +457,14 @@ module bbox
     //Check that Lower Left of Bounding Box is less than equal Upper Right
     assert property( rb_lt( rst, box_R13S[0][0], box_R13S[1][0], validTri_R13H ));
     assert property( rb_lt( rst, box_R13S[0][1], box_R13S[1][1], validTri_R13H ));
+
+    // integer k = 0;
+    // always_ff @(posedge clk) begin
+    //     if (!rst&(bubble_burst_en)) begin
+    //         $display("Shifted %d times",k);
+    //         k = k + 1;
+    //     end
+    // end
 
 endmodule
 

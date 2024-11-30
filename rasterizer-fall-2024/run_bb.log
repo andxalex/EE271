@@ -1,32 +1,35 @@
 Chronologic VCS simulator copyright 1991-2017
 Contains Synopsys proprietary information.
-Compiler version M-2017.03_Full64; Runtime version M-2017.03_Full64;  Nov 28 16:35 2024
+Compiler version M-2017.03_Full64; Runtime version M-2017.03_Full64;  Nov 30 02:20 2024
 time=         0 ************** Driver Is Initializing Input Signals *****************
 time=         0 ************** Loading Arguments *****************
+time=         0 Starting Wave Capture
+VCD+ Writer M-2017.03_Full64 Copyright (c) 1991-2017 by Synopsys Inc.
 Simulation run with default random seed=12345
 Simulation will timout after 50000000 cycles
-Simulation will use test file /afs/ir.stanford.edu/class/ee271/project/vect/vec_271_03_sv_short.dat
+Simulation will use test file /afs/ir.stanford.edu/class/ee271/project/vect/vec_271_02_sv_short.dat
 Seed=      12345 
 time=     15000 ************** Driver Is Initializing Test from File *****************
 Setting screen params: w=800 h=600 msaa=16 RADIX = 10
 time=     30000 ************** Initializing FB and ZB *****************
 time=     30010 ************** Finished Init FB and ZB *****************
 time=     45000 ************** Runnning Test *****************
-time=     45000 ************** Driver Is Runnning Test -->/afs/ir.stanford.edu/class/ee271/project/vect/vec_271_03_sv_short.dat<-- *****************
+time=     45000 ************** Driver Is Runnning Test -->/afs/ir.stanford.edu/class/ee271/project/vect/vec_271_02_sv_short.dat<-- *****************
 time=     49000 	         0 samples processed,          0 of them hit
-time= 104096000 	    100000 samples processed,      23162 of them hit
-time= 168239000 ************** Driver Is Done *****************
-time= 168254010 ************** Writing Final Image to File *****************
-time= 168254030 ************** Finished Final Image to File *****************
-time= 168254040 ********************FINISH***********************
-Cycles:      168206 triangle:       10000 sampleTests:      161754 sampleHits:       37756 
+time= 104035000 	    100000 samples processed,      21413 of them hit
+time= 133363000 ************** Driver Is Done *****************
+time= 133378010 ************** Writing Final Image to File *****************
+time= 133378030 ************** Finished Final Image to File *****************
+time= 133378040 ********************FINISH***********************
+Cycles:      133330 triangle:       10000 sampleTests:      128317 sampleHits:       27197 
 
-JJ: triangle / cycle : 0.059451 
-JJ: cycle / triangle : 16.820600 
-Total Triangles =       10000, valid triangles =        6451, culled  =        3549
-$finish called from file "verif/testbench.sv", line 312.
-$finish at simulation time            168254040
+JJ: triangle / cycle : 0.075002 
+JJ: cycle / triangle : 13.333000 
+Total Triangles =       10000, valid triangles =        5012, culled  =        4988
+Triangles removed to burst =        5749
+$finish called from file "verif/testbench.sv", line 314.
+$finish at simulation time            133378040
            V C S   S i m u l a t i o n   R e p o r t 
-Time: 168254040 ns
-CPU Time:      8.230 seconds;       Data structure size:   2.2Mb
-Thu Nov 28 16:35:25 2024
+Time: 133378040 ns
+CPU Time:     22.660 seconds;       Data structure size:   2.3Mb
+Sat Nov 30 02:21:17 2024

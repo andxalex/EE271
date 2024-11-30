@@ -46,10 +46,10 @@ module rast
     // Input Signals
     input logic signed [SIGFIG-1:0]     tri_R10S[VERTS-1:0][AXIS-1:0], // Tri Position
     input logic unsigned [SIGFIG-1:0]   color_R10U[COLORS-1:0], // Color of Tri
-    input logic                             validTri_R10H, // Valid Data for Operation
+    input logic                         validTri_R10H, // Valid Data for Operation
 
     // Input Control Signals ( ala CSR )
-    input logic signed [SIGFIG-1:0] screen_RnnnnS[1:0], // Screen Dimensions
+    input logic signed [SIGFIG-1:0]     screen_RnnnnS[1:0], // Screen Dimensions
     input logic [3:0]                   subSample_RnnnnU, // SubSample_Interval
 
     // Global Signals
@@ -62,7 +62,7 @@ module rast
     // Output Signals
     output logic signed [SIGFIG-1:0]    hit_R18S[AXIS-1:0], // Hit Location
     output logic unsigned [SIGFIG-1:0]  color_R18U[COLORS-1:0], // Color of Tri
-    output logic                            hit_valid_R18H            // Is this a hit?
+    output logic                        hit_valid_R18H            // Is this a hit?
 );
     `ifdef GENERATE_JSON
     integer bbox_file;

@@ -1,3 +1,125 @@
 The design has assertions or cover properties.
 The assertion browser can be used to view them. Click on the assertion toolbar button or use the menu 'Window->Panes->Assertion' to open it.
 The file 'wave.vpd' was opened successfully.
+With selected criteria, DVE has found 'results at time 6258000
+    top_rast.rast.bbox.bubble_burst_en'.
+Error: [VPD-ERR_FILE_IO] File I/O error.
+  Libhf entered at hfGetAllValueChanges; diagnostic issued from 
+  "hfpriv.hh":1165.  Errno condition was "Stale file handle".
+Error: [DVDB062] 
+A read error was received while loading values from the database.
+This can occur when the '.vpd' has been rebuilt on a separate machine.
+Please click OK to reload the database and recover.
+The file '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/wave.vpd' was opened successfully.
+With selected criteria, DVE has found 'results at time 6267000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 8873000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 8874000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 14049000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 14079000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 14204000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 14079000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 14049000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 8874000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 8873000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 6267000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 6258000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 6267000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 8873000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 8874000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 14049000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 14079000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 14204000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 14204000
+    top_rast.rast.bbox.bubble_burst_en'.
+Error: [VPD-ERR_FILE_IO] File I/O error.
+  Libhf entered at hfGetAllValueChanges; diagnostic issued from 
+  "hfpriv.hh":1165.  Errno condition was "Stale file handle".
+Error: [DVDB062] 
+A read error was received while loading values from the database.
+This can occur when the '.vpd' has been rebuilt on a separate machine.
+Please click OK to reload the database and recover.
+The file '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/wave.vpd' was opened successfully.
+With selected criteria, DVE has found 'results at time 45000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 6258000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 6267000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 8873000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 6267000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 8873000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 8874000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 14049000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 14079000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 14049000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 8874000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 14049000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 14079000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 14204000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 14222000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 14381000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 14416000
+    top_rast.rast.bbox.halt_RnnnnL'.
+With selected criteria, DVE has found 'results at time 14417000
+    top_rast.rast.bbox.halt_RnnnnL'.
+With selected criteria, DVE has found 'results at time 14452000
+    top_rast.rast.bbox.halt_RnnnnL'.
+With selected criteria, DVE has found 'results at time 14453000
+    top_rast.rast.bbox.halt_RnnnnL'.
+With selected criteria, DVE has found 'results at time 14468000
+    top_rast.rast.bbox.halt_RnnnnL'.
+With selected criteria, DVE has found 'results at time 14469000
+    top_rast.rast.bbox.halt_RnnnnL'.
+With selected criteria, DVE has found 'results at time 14509000
+    top_rast.rast.bbox.halt_RnnnnL'.
+With selected criteria, DVE has found 'results at time 14510000
+    top_rast.rast.bbox.halt_RnnnnL'.
+With selected criteria, DVE has found 'results at time 14530000
+    top_rast.rast.bbox.halt_RnnnnL'.
+With selected criteria, DVE has found 'results at time 14531000
+    top_rast.rast.bbox.halt_RnnnnL'.
+With selected criteria, DVE has found 'results at time 14585000
+    top_rast.rast.bbox.halt_RnnnnL'.
+With selected criteria, DVE has found 'results at time 14586000
+    top_rast.rast.bbox.halt_RnnnnL'.
+With selected criteria, DVE has found 'results at time 14604000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 14717000
+    top_rast.rast.bbox.halt_RnnnnL'.
+With selected criteria, DVE has found 'results at time 61649000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 61672000
+    top_rast.rast.bbox.bubble_burst_en'.
+With selected criteria, DVE has found 'results at time 62732000
+    top_rast.rast.bbox.bubble_burst_en'.

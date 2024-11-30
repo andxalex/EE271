@@ -236,6 +236,7 @@ module testbench
     perf_mon
     (
         .tri_R10S       (top_rast.rast.tri_R10S       ),
+        .tri_R13S       (top_rast.rast.tri_R13S       ),
         .tri_R16S       (top_rast.rast.tri_R16S       ), // 4 Sets X,Y Fixed Point Values
         .color_R16U     (top_rast.rast.color_R16U     ), // triangle Color
         .validSamp_R16H (top_rast.rast.validSamp_R16H ),
@@ -307,7 +308,8 @@ module testbench
             perf_mon.triangle_count, 
             perf_mon.valid_triangle_count, 
             perf_mon.triangle_count-perf_mon.valid_triangle_count);
-
+        $display("Triangles removed to burst = %d",
+            perf_mon.bubble_burst);
         //Call Function for Zbuff write out.
         $finish(2);
     end // initial begin

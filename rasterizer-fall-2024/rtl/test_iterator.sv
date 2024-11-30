@@ -191,8 +191,12 @@ module test_iterator
         .reset  (rst                                    ),
         .en     (1'b1                                   ),
         .in     ({next_validSamp_R14H, next_halt_RnnnnL}),
+        // .in     ({next_validSamp_R14H, next_halt_RnnnnL || !(next_halt_RnnnnL||validTri_R13H)}),
         .out    ({validSamp_R14H, halt_RnnnnL}          )
     );
+
+
+
     // Instantiate registers for storing these states
 
     typedef enum logic {

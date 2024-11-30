@@ -157,7 +157,7 @@ module rast_driver
         // Now start driving the signals
         while (!$feof(fh)) begin
             // Wait until the design is ready (unhalted)
-            while( ! halt_RnnnnL ) @(posedge clk);
+            while( ! (halt_RnnnnL || !(halt_RnnnnL || top_rast.rast.validTri_R13H)) ) @(posedge clk);
 
                 // read a triangle from the file\
                 // Need to fix conversion tool to include depth
