@@ -7,13 +7,13 @@ DOTLIBS=/afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libzero
 # will be overwritten the next time VCS is run
 VCS_LIBEXT=
 
-XTRN_OBJS0=/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/gold/sv_gold.o 
+XTRN_OBJS0=/home/users/nihar30/EE271/rasterizer-fall-2024/gold/sv_gold.o 
 
 # create a dummy rule for external '.o' file to avoid side effect of 'gmake' implicit rule.
 $(XTRN_OBJS0) : 
 	
 
-XTRN_OBJS=/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/gold/sv_gold.o 
+XTRN_OBJS=/home/users/nihar30/EE271/rasterizer-fall-2024/gold/sv_gold.o 
 
 DPI_WRAPPER_OBJS = 
 DPI_STUB_OBJS = 

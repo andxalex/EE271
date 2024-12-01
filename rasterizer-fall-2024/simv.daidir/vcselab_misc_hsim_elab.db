@@ -1,6 +1,6 @@
 psSimBaseName                      	simv
 psLogFileName                      	NULL
-pDaiDir                            	/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir
+pDaiDir                            	/home/users/nihar30/EE271/rasterizer-fall-2024/simv.daidir
 destPath                           	csrc/
 fSharedMaster                      	0
 hsMainFileCount                    	0

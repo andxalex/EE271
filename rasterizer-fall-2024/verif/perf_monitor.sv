@@ -41,7 +41,8 @@ module perf_monitor
 
     input logic signed [SIGFIG-1:0]   hit_R18S[AXIS-1:0],
     input logic signed [SIGFIG-1:0]   color_R18U[COLORS-1:0],
-    input                             hit_valid_R18H
+    input                             hit_valid_R18H,
+    input logic                       hit_valid_iterator_final
 );
 
     //Pipe Signals for Later Evaluation
@@ -171,7 +172,7 @@ module perf_monitor
     int cycle_count;
     int valid_triangle_count;
     int bubble_burst;
-
+    int valid_identification_fail_count;
     //Count the total Number of Valid Samples
     initial begin
 
@@ -180,6 +181,7 @@ module perf_monitor
         triangle_count = 0;
         cycle_count = 0 ;
         bubble_burst = 0;
+	valid_identification_fail_count = 0;
 
         @(negedge rst);
         @(posedge clk);
@@ -203,7 +205,9 @@ module perf_monitor
             bubble_burst = ((!top_rast.rast.halt_RnnnnL)&(tri_R13n1S != tri_R13nnS)) ?
                         ( bubble_burst + 1): bubble_burst;
 
-            cycle_count++ ;
+            valid_identification_fail_count = (hit_valid_R18H ^ hit_valid_iterator_final)? (valid_identification_fail_count + 1) : (valid_identification_fail_count);
+	    
+	    cycle_count++ ;
 
             if (sample_count % 100000 == 0) begin
                 $display("time=%10t \t%10d samples processed, %10d of them hit", $time, sample_count, sample_hit_count);

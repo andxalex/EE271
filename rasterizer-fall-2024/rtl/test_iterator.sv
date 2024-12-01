@@ -116,6 +116,7 @@ module test_iterator
     output logic signed [SIGFIG-1:0]    tri_R14S[VERTS-1:0][AXIS-1:0], //triangle to Sample Test
     output logic unsigned [SIGFIG-1:0]  color_R14U[COLORS-1:0] , //Color of triangle
     output logic signed [SIGFIG-1:0]    sample_R14S[1:0], //Sample Location to Be Tested
+    output logic                        hit_valid_iterator_final,
     output logic                        validSamp_R14H //Sample and triangle are Valid
 );
 
@@ -261,7 +262,6 @@ if(MOD_FSM == 0) begin // Using baseline FSM
     // understanding the signals here
 
     logic [SIGFIG:0] A  = 'b0;
-
     always_comb begin
         // Set defaults
         at_right_edg_R14H= 1'b0;
@@ -292,10 +292,89 @@ if(MOD_FSM == 0) begin // Using baseline FSM
     ////// Then complete the following combinational logic defining the
     ////// next states
     //////
+    
+    logic     hit_valid_iterator;
+    logic     hit_valid_iterator_retime1;
+    logic     hit_valid_iterator_retime2;
+    logic     hit_valid_iterator_retime3;
+    logic signed [SIGFIG-1:0]  tri_shift_R16S[2:0][1:0];
+    logic signed [(2*SIGFIG)-1:0] dist_lg_R16S[2:0];
 
+    always_comb begin
+    for(int i= 0; i< VERTS; i++) begin
+
+            // Get shifted values
+
+            // We only actually need 17 bits of precision to pass all vectors.
+            tri_shift_R16S[i][0]= tri_R14S[i][0] - sample_R14S[0];
+            tri_shift_R16S[i][1]= tri_R14S[i][1] - sample_R14S[1];
+    end
+
+
+    // Calculate distances on vertices, don't bother with edges
+    dist_lg_R16S[0] = ((tri_shift_R16S[0][0]*tri_shift_R16S[1][1]))- ((tri_shift_R16S[1][0] * tri_shift_R16S[0][1]));
+    dist_lg_R16S[1] = ((tri_shift_R16S[1][0]*tri_shift_R16S[2][1]))- ((tri_shift_R16S[2][0] * tri_shift_R16S[1][1]));
+    dist_lg_R16S[2] = ((tri_shift_R16S[2][0]*tri_shift_R16S[0][1]))- ((tri_shift_R16S[0][0] * tri_shift_R16S[2][1]));
+
+    hit_valid_iterator = (dist_lg_R16S[0] <= 0) && (dist_lg_R16S[1] < 0) && (dist_lg_R16S[2] <= 0) && validSamp_R14H;
+    
+end
+    dff #(
+	    .WIDTH(1),
+	    .PIPE_DEPTH(1),
+	    .RETIME_STATUS(0)
+    )
+    d306
+    (
+	    .clk  (clk                        ),
+	    .reset(rst                        ),
+	    .en   (1'b1                       ),
+	    .in   (hit_valid_iterator         ),
+	    .out  (hit_valid_iterator_retime1 )
+    );
     ////// COMPLETE THE FOLLOW ALWAYS_COMB BLOCK
+    dff #(
+	    .WIDTH(1),
+	    .PIPE_DEPTH(1),
+	    .RETIME_STATUS(0)
+    )
+    d307
+    (
+	    .clk  (clk                        ),
+	    .reset(rst                        ),
+	    .en   (1'b1                       ),
+	    .in   (hit_valid_iterator_retime1 ),
+	    .out  (hit_valid_iterator_retime2 )
+    );
 
-    // Combinational logic for state transitions
+    dff #(
+	    .WIDTH(1),
+	    .PIPE_DEPTH(1),
+	    .RETIME_STATUS(0)
+    )
+    d308
+    (
+	    .clk  (clk                        ),
+	    .reset(rst                        ),
+	    .en   (1'b1                       ),
+	    .in   (hit_valid_iterator_retime2 ),
+	    .out  (hit_valid_iterator_retime3 )
+    );
+    dff #(
+	    .WIDTH(1),
+	    .PIPE_DEPTH(1),
+	    .RETIME_STATUS(0)
+    )
+    d309
+    (
+	    .clk  (clk                        ),
+	    .reset(rst                        ),
+	    .en   (1'b1                       ),
+	    .in   (hit_valid_iterator_retime3 ),
+	    .out  (hit_valid_iterator_final   )
+    );
+    
+    //Combinational logic for state transitions
     always_comb begin
         next_state_R14H = state_R14H;
         next_validSamp_R14H = 1'b1;

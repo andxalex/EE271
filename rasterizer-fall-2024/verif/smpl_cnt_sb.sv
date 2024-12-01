@@ -60,10 +60,10 @@ module smpl_cnt_sb
     parameter FILENAME = "sb_log/smpl_cnt_sb.log" // Log file name
 )
 (
-    input logic signed   [SIGFIG-1:0]   tri_R16S[VERTS-1:0][AXIS-1:0],  // 4 Sets X,Y Fixed Point Values
-    input logic unsigned [SIGFIG-1:0]   color_R16U[COLORS-1:0],          // 4 Sets X,Y Fixed Point Values
-    input logic                         validSamp_R16H,
-    input logic signed   [SIGFIG-1:0]   sample_R16S[1:0],
+    input logic signed   [SIGFIG-1:0]   tri_R14S[VERTS-1:0][AXIS-1:0],  // 4 Sets X,Y Fixed Point Values
+    input logic unsigned [SIGFIG-1:0]   color_R14U[COLORS-1:0],          // 4 Sets X,Y Fixed Point Values
+    input logic                         validSamp_R14H,
+    input logic signed   [SIGFIG-1:0]   sample_R14S[1:0],
 
     input logic                             clk,                // Clock
     input logic                             rst,                // Reset
@@ -225,7 +225,7 @@ module smpl_cnt_sb
         .clk    (clk        ),
         .reset  (rst        ),
         .en     (1'b1       ),
-        .in     (tri_R16S   ),
+        .in     (tri_R14S   ),
         .out    (tri_RnnS   )
     );
 
@@ -241,7 +241,7 @@ module smpl_cnt_sb
         .clk    (clk        ),
         .reset  (rst        ),
         .en     (1'b1       ),
-        .in     (tri_R16S   ),
+        .in     (tri_R14S   ),
         .out    (tri_Rn1S   )
     );
 
@@ -256,7 +256,7 @@ module smpl_cnt_sb
         .clk    (clk        ),
         .reset  (rst        ),
         .en     (1'b1       ),
-        .in     (color_R16U ),
+        .in     (color_R14U ),
         .out    (color_RnnU )
     );
 
@@ -271,7 +271,7 @@ module smpl_cnt_sb
         .clk    (clk        ),
         .reset  (rst        ),
         .en     (1'b1       ),
-        .in     (sample_R16S),
+        .in     (sample_R14S),
         .out    (sample_RnnS)
     );
 
@@ -285,7 +285,7 @@ module smpl_cnt_sb
         .clk    (clk            ),
         .reset  (rst            ),
         .en     (1'b1           ),
-        .in     (validSamp_R16H ),
+        .in     (validSamp_R14H ),
         .out    (validSamp_RnnH )
     );
 

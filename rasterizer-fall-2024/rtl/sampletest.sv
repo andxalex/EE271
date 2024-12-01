@@ -68,10 +68,10 @@ module sampletest
     parameter PIPE_DEPTH    = 2 // How many pipe stages are in this block
 )
 (
-    input logic signed [SIGFIG-1:0]     tri_R16S[VERTS-1:0][AXIS-1:0], // triangle to Iterate Over
-    input logic unsigned [SIGFIG-1:0]   color_R16U[COLORS-1:0] , // Color of triangle
-    input logic signed [SIGFIG-1:0]     sample_R16S[1:0], // Sample Location
-    input logic                         validSamp_R16H, // A valid sample location
+    input logic signed [SIGFIG-1:0]     tri_R14S[VERTS-1:0][AXIS-1:0], // triangle to Iterate Over
+    input logic unsigned [SIGFIG-1:0]   color_R14U[COLORS-1:0] , // Color of triangle
+    input logic signed [SIGFIG-1:0]     sample_R14S[1:0], // Sample Location
+    input logic                         validSamp_R14H, // A valid sample location
 
     input logic clk, // Clock
     input logic rst, // Reset
@@ -143,8 +143,8 @@ module sampletest
             // Get shifted values
 
             // We only actually need 17 bits of precision to pass all vectors.
-            temp_tri_shift_R16S[i][0]= (tri_R16S[i][0] - sample_R16S[0])& 17'h1FFFF;
-            temp_tri_shift_R16S[i][1]= (tri_R16S[i][1] - sample_R16S[1])& 17'h1FFFF;
+            temp_tri_shift_R16S[i][0]= (tri_R14S[i][0] - sample_R14S[0])& 17'h1FFFF;
+            temp_tri_shift_R16S[i][1]= (tri_R14S[i][1] - sample_R14S[1])& 17'h1FFFF;
 
             // Get signs
             tri_shift_signs[i][0] = temp_tri_shift_R16S[i][0][17 - 1];
@@ -267,7 +267,7 @@ module sampletest
 
         // hit_valid_R16H= !(dist_lg_R16S[0] > 0) && (dist_lg_R16S[1] < 0) && !(dist_lg_R16S[2] > 0) && validSamp_R16H;
 
-        hit_valid_R16H= dist_sign[0] & dist_sign[1] & dist_sign[2] & validSamp_R16H;
+        hit_valid_R16H= dist_sign[0] & dist_sign[1] & dist_sign[2] & validSamp_R14H;
 
         // $display("gold = %b, maybe = %b", hit_valid_R16H, dist_sign[0] & dist_sign[1] & dist_sign[2] & validSamp_R16H);
         
@@ -284,8 +284,8 @@ module sampletest
     // Note that a barrycentric interpolation would
     // be more accurate
     always_comb begin
-        hit_R16S[1:0] = sample_R16S[1:0]; //Make sure you use unjittered sample
-        hit_R16S[2] = tri_R16S[0][2]; // z value equals the z value of the first vertex
+        hit_R16S[1:0] = sample_R14S[1:0]; //Make sure you use unjittered sample
+        hit_R16S[2] = tri_R14S[0][2]; // z value equals the z value of the first vertex
     end
 
     /* Flop R16 to R18_retime with retiming registers*/
@@ -315,7 +315,7 @@ module sampletest
         .clk    (clk                ),
         .reset  (rst                ),
         .en     (1'b1               ),
-        .in     (color_R16U         ),
+        .in     (color_R14U         ),
         .out    (color_R18U_retime  )
     );
 

@@ -1,7 +1,7 @@
 rc file Version 1.0
 
 [Design]
-COMPILE_PATH=/home/users/andalex/Desktop/EE271/rasterizer-fall-2024
+COMPILE_PATH=/home/users/nihar30/EE271/rasterizer-fall-2024
 SystemC=FALSE
 UUM=FALSE
 KDB=FALSE

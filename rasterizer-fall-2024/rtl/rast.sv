@@ -280,6 +280,7 @@ module rast
         .tri_R14S           (tri_R14S           ),
         .color_R14U         (color_R14U         ),
         .sample_R14S        (sample_R14S        ),
+	.hit_valid_iterator_final (hit_valid_iterator_final),
         .validSamp_R14H     (validSamp_R14H     )
     );
 
@@ -340,8 +341,9 @@ module rast
         sample_R14S[1],
         ",");
 
-        $fdisplay(iterator_file, "\"valid_sample\": \"%b\"},", validSamp_R14H);
-
+        $fdisplay(iterator_file, "\"valid_sample\": \"%b\",", validSamp_R14H);
+        
+	$fdisplay(iterator_file, "\"hit_valid\": \"%b\"},", hit_valid_iterator_final);
         //$fdisplay(iterator_file, ",");
     end 
     `endif
@@ -427,7 +429,7 @@ module rast
         ",");
 
         $fdisplay(hash_file, "\"valid_sample_out\": \"%b\"},", validSamp_R16H);
-
+       
        // $fdisplay(hash_file, ",");
     end 
     `endif
@@ -442,10 +444,10 @@ module rast
     )
     sampletest
     (
-        .tri_R16S       (tri_R16S       ),
-        .color_R16U     (color_R16U     ),
-        .sample_R16S    (sample_R16S    ),
-        .validSamp_R16H (validSamp_R16H ),
+        .tri_R14S       (tri_R14S       ),
+        .color_R14U     (color_R14U     ),
+        .sample_R14S    (sample_R14S    ),
+        .validSamp_R14H (validSamp_R14H ),
 
         .clk            (clk            ),
         .rst            (rst            ),
@@ -462,29 +464,29 @@ module rast
         $fdisplay(sample_file, "{\"RESET\": \"%b\",", rst);
 
         $fdisplay(sample_file, "\"tri\": [[\"%h\", \"%h\", \"%h\"], [\"%h\", \"%h\", \"%h\"], [\"%h\", \"%h\", \"%h\"]]",
-        tri_R16S[0][0],
-        tri_R16S[0][1],
-        tri_R16S[0][2],
-        tri_R16S[1][0],
-        tri_R16S[1][1],
-        tri_R16S[1][2],
-        tri_R16S[2][0],
-        tri_R16S[2][1],
-        tri_R16S[2][2], 
+        tri_R14S[0][0],
+        tri_R14S[0][1],
+        tri_R14S[0][2],
+        tri_R14S[1][0],
+        tri_R14S[1][1],
+        tri_R14S[1][2],
+        tri_R14S[2][0],
+        tri_R14S[2][1],
+        tri_R14S[2][2], 
         ",");
 
         $fdisplay(sample_file, "\"color_in\": [\"%h\", \"%h\", \"%h\"]",
-        color_R16U[0],
-        color_R16U[1],
-        color_R16U[2],
+        color_R14U[0],
+        color_R14U[1],
+        color_R14U[2],
         ",");
 
         $fdisplay(sample_file, "\"sample\": [\"%b\", \"%b\"]",
-        sample_R16S[0],
-        sample_R16S[1],
+        sample_R14S[0],
+        sample_R14S[1],
         ",");
 
-        $fdisplay(sample_file, "\"valid_sample\": \"%b\",", validSamp_R16H);
+        $fdisplay(sample_file, "\"valid_sample\": \"%b\",", validSamp_R14H);
 
         $fdisplay(sample_file, "\"hit\": [\"%h\", \"%h\", \"%h\"]",
         hit_R18S[0],

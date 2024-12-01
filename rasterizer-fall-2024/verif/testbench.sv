@@ -57,7 +57,8 @@ module testbench
     // Input Signals (from DUT outputs)
     input logic signed   [SIGFIG-1:0]   hit_R18S[AXIS-1:0],       // Hit Location
     input logic unsigned [SIGFIG-1:0]   color_R18U[COLORS-1:0],  // Color of triangle
-    input logic                         hit_valid_R18H            // Is this a hit?
+    input logic                         hit_valid_R18H,          // Is this a hit?
+    input logic                         hit_valid_iterator_final
 );
 
     localparam DETAILED_LOGGING = 0; // Turn this to 1 for detailed logging
@@ -171,10 +172,10 @@ module testbench
     )
     smpl_sb
     (
-        .tri_R16S       (top_rast.rast.tri_R16S         ), // 4 Sets X,Y Fixed Point Values
-        .color_R16U     (top_rast.rast.color_R16U       ), // triangle Color
-        .validSamp_R16H (top_rast.rast.validSamp_R16H   ),
-        .sample_R16S    (top_rast.rast.sample_R16S      ), // Will change for JIT -todo
+        .tri_R14S       (top_rast.rast.tri_R14S         ), // 4 Sets X,Y Fixed Point Values
+        .color_R14U     (top_rast.rast.color_R14U       ), // triangle Color
+        .validSamp_R14H (top_rast.rast.validSamp_R14H   ),
+        .sample_R14S    (top_rast.rast.sample_R14S      ), // Will change for JIT -todo
 
         .clk            (clk                            ), // Clock
         .rst            (rst                            ), // Reset
@@ -194,10 +195,10 @@ module testbench
     )
     smpl_cnt_sb
     (
-        .tri_R16S           (top_rast.rast.tri_R16S         ), // 4 Sets X,Y Fixed Point Values
-        .color_R16U         (top_rast.rast.color_R16U       ), // triangle Color
-        .validSamp_R16H     (top_rast.rast.validSamp_R16H   ),
-        .sample_R16S        (top_rast.rast.sample_R16S      ), // Will change for JIT -todo
+        .tri_R14S           (top_rast.rast.tri_R14S         ), // 4 Sets X,Y Fixed Point Values
+        .color_R14U         (top_rast.rast.color_R14U       ), // triangle Color
+        .validSamp_R14H     (top_rast.rast.validSamp_R14H   ),
+        .sample_R14S        (top_rast.rast.sample_R14S      ), // Will change for JIT -todo
 
         .clk                (clk                            ), // Clock
         .rst                (rst                            ), // Reset
@@ -247,7 +248,8 @@ module testbench
 
         .hit_R18S       (hit_R18S                     ),
         .color_R18U     (top_rast.rast.color_R18U     ), // triangle Color
-        .hit_valid_R18H (hit_valid_R18H               )
+        .hit_valid_R18H (hit_valid_R18H               ),
+        .hit_valid_iterator_final (hit_valid_iterator_final)
     );
 
    /*****************************************
@@ -310,10 +312,12 @@ module testbench
             perf_mon.triangle_count-perf_mon.valid_triangle_count);
         $display("Triangles removed to burst = %d",
             perf_mon.bubble_burst);
+        $display("The number of times hit_valid and iterator_hit_valid don't match = %d",
+	    perf_mon.valid_identification_fail_count);
         //Call Function for Zbuff write out.
         $finish(2);
     end // initial begin
-
+    
     // Timeout mechanism
     initial begin
         repeat(timeout) @(posedge clk);

@@ -63,13 +63,14 @@ module top_rast;
     logic signed   [SIGFIG-1:0] hit_R18S[AXIS-1:0]; //Sample hit Location
     logic unsigned [SIGFIG-1:0] color_R18U[COLORS-1:0]; //Sample hit Location
     logic                       hit_valid_R18H ;  //Did Sample Hit?
+    logic                       hit_valid_iterator_final;
     //DUT OUTPUTS
 
     // instantiate the DUT
     rast #(
         .SIGFIG     (SIGFIG     ),
         .RADIX      (RADIX      ),
-        .VERTS      (VERTS      ),
+      	.VERTS      (VERTS      ),
         .AXIS       (AXIS       ),
         .COLORS     (COLORS     ),
         .PIPES_BOX  (PIPES_BOX  ),
@@ -132,7 +133,8 @@ module top_rast;
         // Input Signals (from DUT outputs)
         .hit_R18S           (hit_R18S           ),
         .color_R18U         (color_R18U         ),
-        .hit_valid_R18H     (hit_valid_R18H     )
+        .hit_valid_R18H     (hit_valid_R18H     ),
+	.hit_valid_iterator_final (hit_valid_iterator_final)
     );
 
 endmodule //
