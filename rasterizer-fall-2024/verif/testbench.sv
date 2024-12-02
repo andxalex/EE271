@@ -308,8 +308,6 @@ module testbench
             perf_mon.triangle_count, 
             perf_mon.valid_triangle_count, 
             perf_mon.triangle_count-perf_mon.valid_triangle_count);
-        $display("Triangles removed to burst = %d",
-            perf_mon.bubble_burst);
         //Call Function for Zbuff write out.
         $finish(2);
     end // initial begin

@@ -81,8 +81,10 @@ input logic [3:0]               subSample_RnnnnU // SubSample_Interval
     end
 
     //Check that Bounding Box is Correct
+    // This isn't a valid assertion with bubble bursting, so 
+    // check R10 signals to R13.
     always @(posedge clk) begin
-        if( validTri_RnnH ) begin //check only when the triangle is valid
+        if( validTri_R13H ) begin //check only when the triangle is valid
             if(one != check_bounding_box(
                             int'(tri_R13S[0][0]), //triangle
                             int'(tri_R13S[0][1]), //triangle
@@ -90,7 +92,7 @@ input logic [3:0]               subSample_RnnnnU // SubSample_Interval
                             int'(tri_R13S[1][1]), //triangle
                             int'(tri_R13S[2][0]), //triangle
                             int'(tri_R13S[2][1]), //triangle
-                            int'(validTri_RnnH)    , //triangle
+                            int'(validTri_R13H)    , //triangle
                             int'(box_R13S[0][0] ), //BBOX
                             int'(box_R13S[0][1] ), //BBOX
                             int'(box_R13S[1][0] ), //BBOX
@@ -156,6 +158,7 @@ input logic [3:0]               subSample_RnnnnU // SubSample_Interval
     endproperty
 
     //Check that signals should match
+    // These assertions are not valid with bubble bursting.
     // assert property( sig_eq_con( rst, tri_RnnS[0][0] , tri_R13S[0][0]  , validTri_RnnH ));
     // assert property( sig_eq_con( rst, tri_RnnS[0][1] , tri_R13S[0][1]  , validTri_RnnH ));
     // assert property( sig_eq_con( rst, tri_RnnS[1][0] , tri_R13S[1][0]  , validTri_RnnH ));

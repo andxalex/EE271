@@ -7,7 +7,7 @@ Warning-[LNX_OS_VERUN] Unsupported Linux version
 
 
 Warning-[LINX_KRNL] Unsupported Linux kernel
-  Linux kernel '4.18.0-553.27.1.el8_10.x86_64' is not supported.
+  Linux kernel '4.18.0-553.16.1.el8_10.x86_64' is not supported.
   Supported versions are 2.4* or 2.6*.
 
 
@@ -21,7 +21,7 @@ Warning-[DBGACC_DBG] Multiple debug options being used
 (standard_in) 1: syntax error
 (standard_in) 1: syntax error
                          Chronologic VCS (TM)
-         Version M-2017.03_Full64 -- Sat Nov 30 02:20:46 2024
+         Version M-2017.03_Full64 -- Sun Dec  1 19:57:34 2024
                Copyright (c) 1991-2017 by Synopsys Inc.
                          ALL RIGHTS RESERVED
 
@@ -69,13 +69,138 @@ verif/testbench.sv, 146
   Please use '+lint=TFIPC-L' to print out detailed information of unconnected 
   ports.
 
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/pcc.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/pcc.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/prof.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/prof.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/debug_dump/vir.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/debug_dump/vir.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
 Starting vcs inline pass...
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/csrc/cgincr.sdb' is 
+  in use of another process and current process cannot be synchronized with it
+  due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/binmap.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/csrc/pre.cgincr.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
 17 unique modules to generate
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/prof.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/prof.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
 Generating code for _VCSgd_INiNY
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/csrc/hsim/hsim.sdb' 
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/ttIncr.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/tt.sdb' 
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
 Generating code for _VCSgd_reYIK
 Generating code for _VCSgd_mT84W
 Generating code for _VCSgd_d5BPu
-recompiling module bbox
 Generating code for _VCSgd_HpNpL
 Generating code for _VCSgd_YYTYE
 Generating code for _VCSgd_yW5CM
@@ -98,24 +223,140 @@ Generating code for _VCSgd_NNwFS
 Generating code for _VCSgd_gPJxK
 Generating code for _VCSgd_adgUT
 Generating code for _VCSgd_a8g0Z
+recompiling module bbx_sb
 Generating code for _VCSgd_wiPAj
 Generating code for _VCSgd_ZD3VR
-recompiling module rast_driver
 Generating code for _VCSgd_hVvAG
 Generating code for _VCSgd_xTIPv
 Generating code for _VCSgd_iAVhC
 Generating code for _VCSgd_xFwH6
 Generating code for _VCSgd_K6ha2
-Both modules done.
-	However, due to incremental compilation, only 2 modules need to be compiled. 
+	However, due to incremental compilation, only 1 module needs to be compiled. 
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/csrc/hsim/hsim.sdb' 
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/tt.sdb' 
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/binmap.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
 (standard_in) 1: syntax error
 (standard_in) 1: syntax error
 (standard_in) 1: syntax error
 (standard_in) 1: syntax error
 (standard_in) 1: syntax error
 (standard_in) 1: syntax error
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/pcc.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/elabmoddb.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/hslevel_callgraph.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/debug_dump/HsimSigOptDb.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/hslevel_level.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/hslevel_rtime_level.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
 make[1]: Entering directory `/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/csrc'
 make[1]: Leaving directory `/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/csrc'
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/debug_dump/HsimSigOptDb.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/hslevel_rtime_level.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/hslevel_level.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
+
+Warning-[VFS_SDB_SYNC_FAIL] VCS database file synchronization fail
+  VCS database file 
+  '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/simv.daidir/hslevel_callgraph.sdb'
+  is in use of another process and current process cannot be synchronized with
+  it due to 'I/O error : Remote I/O error'.
+  Current process will ignore it and continue to run, but it is unsafe and my 
+  incur unexpected result.
+
 (standard_in) 1: syntax error
 (standard_in) 1: syntax error
 (standard_in) 1: syntax error
@@ -127,10 +368,10 @@ rm -f _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
 ld -shared  -o .//../simv.daidir//_csrc0.so objs/amcQw_d.o 
 rm -f _csrc0.so
 if [ -x ../simv ]; then chmod -x ../simv; fi
-gcc  -o ../simv   -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ -Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir   /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/gold/sv_gold.o     _1931961_archive_1.so _prev_archive_1.so _csrc0.so  SIM_l.o  _csrc0.so    rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o          /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libzerosoft_rt_stubs.so /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libvirsim.so /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/liberrorinf.so /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libsnpsmalloc.so    /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libvcsnew.so /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libsimprofile.so /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libuclinative.so /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/vcs_tls.o   -Wl,-whole-archive /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libvcsucli.so -Wl,-no-whole-archive       ./../simv.daidir/vc_hdrs.o  _vcs_pli_stub_.o   /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/vcs_save_restore_new.o /cad/synopsys/verdi/L-2016.06-SP1-1//share/PLI/VCS/LINUX64/pli.a -ldl  -lc -lm -lpthread -ldl 
+gcc  -o ../simv   -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ -Wl,-rpath=./simv.daidir/ -Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir   /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/gold/sv_gold.o     _3130123_archive_1.so _prev_archive_1.so _csrc0.so  SIM_l.o  _csrc0.so    rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o          /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libzerosoft_rt_stubs.so /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libvirsim.so /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/liberrorinf.so /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libsnpsmalloc.so    /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libvcsnew.so /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libsimprofile.so /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libuclinative.so /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/vcs_tls.o   -Wl,-whole-archive /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/libvcsucli.so -Wl,-no-whole-archive       ./../simv.daidir/vc_hdrs.o  _vcs_pli_stub_.o   /afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/linux64/lib/vcs_save_restore_new.o /cad/synopsys/verdi/L-2016.06-SP1-1//share/PLI/VCS/LINUX64/pli.a -ldl  -lc -lm -lpthread -ldl 
+/afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/bin/vcs: line 28756: 3130383 Segmentation fault      (core dumped) ${TOOL_HOME}/bin/cfs_ident_exec -f ${XML_INPUT_EXE} -o "${fsearchDir}/idents_tapi.xml" -o_SrcFile "${dirSrcFiles}/src_files_c" > tapi_xml_writer.log
 ../simv up to date
 make[1]: Leaving directory `/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/csrc'
-/afs/ir.stanford.edu/class/ee/synopsys/vcs/M-2017.03/bin/vcs: line 28756: 1932212 Segmentation fault      (core dumped) ${TOOL_HOME}/bin/cfs_ident_exec -f ${XML_INPUT_EXE} -o "${fsearchDir}/idents_tapi.xml" -o_SrcFile "${dirSrcFiles}/src_files_c" > tapi_xml_writer.log
 (standard_in) 1: syntax error
 (standard_in) 1: syntax error
 (standard_in) 1: syntax error

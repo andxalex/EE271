@@ -6,7 +6,7 @@ Report : timing
         -max_paths 1
 Design : rast
 Version: M-2016.12-SP2
-Date   : Thu Nov 28 15:55:27 2024
+Date   : Sat Nov 30 02:30:39 2024
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.
@@ -14,9 +14,9 @@ Date   : Thu Nov 28 15:55:27 2024
 Operating Conditions: typical   Library: NangateOpenCellLibrary
 Wire Load Model Mode: top
 
-  Startpoint: bbox/clk_r_REG1007_S1
-              (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: bbox/R_30_clk_r_REG462_S2
+  Startpoint: tri_R10S[1][1][3]
+              (input port clocked by clk)
+  Endpoint: bbox/clk_r_REG357_S1
             (rising edge-triggered flip-flop clocked by clk)
   Path Group: clk
   Path Type: max
@@ -29,44 +29,36 @@ Wire Load Model Mode: top
   --------------------------------------------------------------------------
   clock clk (rise edge)                                 0.0000     0.0000
   clock network delay (ideal)                           0.0000     0.0000
-  bbox/clk_r_REG1007_S1/CK (DFFR_X1)                    0.0000 #   0.0000 r
-  bbox/clk_r_REG1007_S1/Q (DFFR_X1)                     0.1022     0.1022 r
-  bbox/U375/ZN (AND2_X1)                                0.0537     0.1559 r
-  bbox/U416/ZN (OAI21_X1)                               0.0318     0.1877 f
-  bbox/U1191/ZN (AOI21_X1)                              0.0656     0.2533 r
-  bbox/U1220/ZN (INV_X1)                                0.0340     0.2873 f
-  bbox/U956/ZN (AOI21_X1)                               0.0582     0.3455 r
-  bbox/U1221/ZN (OAI21_X1)                              0.0537     0.3992 f
-  bbox/U107/ZN (XNOR2_X2)                               0.0869     0.4861 f
-  bbox/U1227/ZN (XNOR2_X1)                              0.0757     0.5618 f
-  bbox/U1240/ZN (OAI22_X1)                              0.0724     0.6342 r
-  bbox/U1241/ZN (XNOR2_X1)                              0.0800     0.7142 r
-  bbox/U1242/ZN (XNOR2_X1)                              0.0669     0.7811 r
-  bbox/U827/ZN (XNOR2_X1)                               0.0612     0.8423 r
-  bbox/U767/ZN (XNOR2_X1)                               0.0709     0.9132 r
-  bbox/U1447/ZN (NAND2_X1)                              0.0407     0.9539 f
-  bbox/U1448/ZN (OAI21_X1)                              0.0352     0.9892 r
-  bbox/U1449/ZN (AOI21_X1)                              0.0289     1.0181 f
-  bbox/U1542/ZN (OAI21_X1)                              0.0527     1.0708 r
-  bbox/U3651/ZN (INV_X1)                                0.0260     1.0968 f
-  bbox/U3652/ZN (OAI21_X1)                              0.0441     1.1409 r
-  bbox/U3655/ZN (XNOR2_X1)                              0.0642     1.2051 r
-  bbox/U643/ZN (NAND2_X1)                               0.0361     1.2412 f
-  bbox/U982/ZN (NAND2_X1)                               0.0414     1.2826 r
-  bbox/U5446/ZN (OAI211_X1)                             0.0350     1.3176 f
-  bbox/R_30_clk_r_REG462_S2/D (DFFS_X1)                 0.0071     1.3247 f
-  data arrival time                                                1.3247
+  input external delay                                  0.9000     0.9000 r
+  tri_R10S[1][1][3] (in)                                0.0119     0.9119 r
+  U692/Z (BUF_X4)                                       0.0568     0.9687 r
+  bbox/tri_R10S[1][1][3] (bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2)
+                                                        0.0000     0.9687 r
+  bbox/U4901/ZN (INV_X1)                                0.0432     1.0120 f
+  bbox/U5258/ZN (OAI21_X1)                              0.0413     1.0533 r
+  bbox/U5259/ZN (OR2_X1)                                0.0348     1.0881 r
+  bbox/U5260/ZN (NAND3_X1)                              0.0298     1.1178 f
+  bbox/U1145/ZN (AND2_X1)                               0.0379     1.1557 f
+  bbox/U5263/ZN (AOI221_X1)                             0.0568     1.2125 r
+  bbox/U5273/ZN (OAI21_X1)                              0.0318     1.2444 f
+  bbox/U5276/ZN (NAND2_X1)                              0.0341     1.2784 r
+  bbox/U402/ZN (NAND2_X1)                               0.0269     1.3053 f
+  bbox/U401/ZN (NAND3_X1)                               0.0357     1.3410 r
+  bbox/U5334/ZN (NAND2_X1)                              0.0370     1.3780 f
+  bbox/U5360/ZN (NAND3_X1)                              0.0424     1.4204 r
+  bbox/clk_r_REG357_S1/D (DFFS_X1)                      0.0074     1.4278 r
+  data arrival time                                                1.4278
 
   clock clk (rise edge)                                 1.2000     1.2000
   clock network delay (ideal)                           0.0000     1.2000
-  bbox/R_30_clk_r_REG462_S2/CK (DFFS_X1)                0.0000     1.2000 r
-  library setup time                                   -0.0428     1.1572
-  data required time                                               1.1572
+  bbox/clk_r_REG357_S1/CK (DFFS_X1)                     0.0000     1.2000 r
+  library setup time                                   -0.0328     1.1672
+  data required time                                               1.1672
   --------------------------------------------------------------------------
-  data required time                                               1.1572
-  data arrival time                                               -1.3247
+  data required time                                               1.1672
+  data arrival time                                               -1.4278
   --------------------------------------------------------------------------
-  slack (VIOLATED)                                                -0.1675
+  slack (VIOLATED)                                                -0.2606
 
 
 1

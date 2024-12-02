@@ -47,217 +47,54 @@ gui_state_default_create -off
 # Begin command logging
 gui_open_db -file wave.vpd
 gui_list_select -id Hier.1 -current_item_name rast_params -current_item_type Scope  -selected  { rast_params   }
-gui_list_select -id Hier.1 -current_item_name top_rast -current_item_type Scope  -selected  { top_rast   }
 gui_list_expand -id  Hier.1   top_rast
+gui_list_select -id Hier.1 -current_item_name top_rast.rast -current_item_type Scope  -selected  { top_rast.rast   }
 gui_list_expand -id  Hier.1   top_rast.rast
 gui_list_select -id Hier.1 -current_item_name top_rast.rast.bbox -current_item_type Scope  -selected  { top_rast.rast.bbox   }
-gui_list_select -id Data.1 -selected  { {top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]}   }
+gui_list_select -id Data.1 -selected  { top_rast.rast.bbox.rst   }
 gui_open_window Wave
-gui_list_add -id Wave.1 -from Data.1 { {top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]} } -insertionbar
+gui_list_add -id Wave.1 -from Data.1 { top_rast.rast.bbox.rst } -insertionbar
 gui_list_select -id Hier.1 -current_item_name top_rast.rast.bbox -current_item_type Scope  -selected  {  }
 gui_list_select -id Hier.1 -current_item_name top_rast.rast.bbox -current_item_type Scope  -selected  { top_rast.rast.bbox   }
-gui_list_select -id Data.1 -selected  { {top_rast.rast.bbox.box_R13S_retime[1:0][1:0][20:0]}   }
-gui_list_add -id Wave.1 -from Data.1 { {top_rast.rast.bbox.box_R13S_retime[1:0][1:0][20:0]} } -insertionbar
 gui_list_select -id Data.1 -selected  { {top_rast.rast.bbox.box_R13S[1:0][1:0][20:0]}   }
 gui_list_add -id Wave.1 -from Data.1 { {top_rast.rast.bbox.box_R13S[1:0][1:0][20:0]} } -insertionbar
+gui_list_select -id Data.1 -selected  { {top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]}   }
+gui_list_add -id Wave.1 -from Data.1 { {top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]} } -insertionbar
+gui_list_select -id Data.1 -selected  { {top_rast.rast.bbox.box_R13S_retime[1:0][1:0][20:0]}   }
+gui_list_add -id Wave.1 -from Data.1 { {top_rast.rast.bbox.box_R13S_retime[1:0][1:0][20:0]} } -insertionbar
 gui_list_select -id Data.1 -selected  { top_rast.rast.bbox.bubble_burst_en   }
 gui_list_add -id Wave.1 -from Data.1 { top_rast.rast.bbox.bubble_burst_en } -insertionbar
-gui_list_select -id Data.1 -selected  { top_rast.rast.bbox.halt_RnnnnL   }
-gui_list_add -id Wave.1 -from Data.1 { top_rast.rast.bbox.halt_RnnnnL } -insertionbar
-gui_list_select -id Data.1 -selected  { top_rast.rast.bbox.clk   }
-gui_list_add -id Wave.1 -from Data.1 { top_rast.rast.bbox.clk } -insertionbar
-gui_zoom -window Wave.1 -full
-gui_list_select -id Wave.1 -selected  { {top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]}   }
-gui_list_move  -id  Wave.1    -sid  Wave.1   -after top_rast.rast.bbox.clk {{top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]}} 
-gui_list_select -id Wave.1 -selected  { {top_rast.rast.bbox.box_R13S_retime[1:0][1:0][20:0]}   }
-gui_list_move  -id  Wave.1    -sid  Wave.1   -after {top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]} {{top_rast.rast.bbox.box_R13S_retime[1:0][1:0][20:0]}} 
-gui_list_select -id Wave.1 -selected  { {top_rast.rast.bbox.box_R13S[1:0][1:0][20:0]}   }
-gui_sg_create  Group2 
-gui_list_add_group -id  Wave.1   {Group2} 
-gui_list_move  -id  Wave.1    -sid  Wave.1   -after Group2 {{top_rast.rast.bbox.box_R13S[1:0][1:0][20:0]}}
-gui_list_move  -id  Wave.1    -sid  Wave.1   -after {top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]} {{top_rast.rast.bbox.box_R13S[1:0][1:0][20:0]}} 
-gui_list_move  -id  Wave.1    -sid  Wave.1   -after {top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]} {{top_rast.rast.bbox.box_R13S[1:0][1:0][20:0]}} 
-gui_list_select -id Wave.1 -selected  { {top_rast.rast.bbox.box_R13S_retime[1:0][1:0][20:0]}   }
-gui_list_move  -id  Wave.1    -sid  Wave.1   -after {top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]} {{top_rast.rast.bbox.box_R13S_retime[1:0][1:0][20:0]}} 
-gui_list_select -id Wave.1 -selected  { {top_rast.rast.bbox.box_R13S[1:0][1:0][20:0]}   }
-gui_list_move  -id  Wave.1    -sid  Wave.1   -after top_rast.rast.bbox.clk {{top_rast.rast.bbox.box_R13S[1:0][1:0][20:0]}} 
-gui_list_select -id Wave.1 -selected  { {top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]}   }
-gui_list_move  -id  Wave.1    -sid  Wave.1   -after {top_rast.rast.bbox.box_R13S_retime[1:0][1:0][20:0]} {{top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]}} 
-gui_list_select -id Wave.1 -selected  {  }
-gui_list_select -id Wave.1 -selected  { {top_rast.rast.bbox.box_R13S_retime[1:0][1:0][20:0]}   }
-gui_list_select -id Wave.1 -selected  { {top_rast.rast.bbox.box_R13S[1:0][1:0][20:0]}   }
-gui_list_select -id Wave.1 -selected  { top_rast.rast.bbox.clk   }
-gui_list_move  -id  Wave.1    -sid  Wave.1   -after Group1 {{top_rast.rast.bbox.clk}}
-gui_list_select -id Wave.1 -selected  { top_rast.rast.bbox.bubble_burst_en   }
-gui_list_select -id Wave.1 -selected  { top_rast.rast.bbox.halt_RnnnnL   }
-gui_zoom -window Wave.1 -factor 0.5
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_marker_move -id  Wave.1 C1 734820
-gui_list_select -id Wave.1 -selected  { top_rast.rast.bbox.bubble_burst_en   }
-gui_seek_next -id Wave.1 -number 1 
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_list_select -id Hier.1 -current_item_name top_rast.rast.bbox -current_item_type Scope  -selected  {  }
-gui_list_select -id Hier.1 -current_item_name top_rast.rast.bbox -current_item_type Scope  -selected  { top_rast.rast.bbox   }
-gui_list_select -id Data.1 -selected  { top_rast.rast.bbox.validTri_R13H   }
-gui_list_add -id Wave.1 -from Data.1 { top_rast.rast.bbox.validTri_R13H } -insertionbar
-gui_list_select -id Wave.1 -selected  { top_rast.rast.bbox.validTri_R13H   }
-gui_wv_scrollright -id  Wave.1  line
-gui_wv_scrollright -id  Wave.1  line
-gui_wv_scrollright -id  Wave.1  line
-gui_wv_scrollright -id  Wave.1  line
-gui_wv_scrollright -id  Wave.1  line
-gui_list_select -id Wave.1 -selected  { {top_rast.rast.bbox.box_R13S_retime[1:0][1:0][20:0]}   }
-gui_list_select -id Hier.1 -current_item_name top_rast.rast.bbox -current_item_type Scope  -selected  {  }
-gui_list_select -id Hier.1 -current_item_name top_rast.rast.bbox -current_item_type Scope  -selected  { top_rast.rast.bbox   }
-gui_list_select -id Data.1 -selected  { {top_rast.rast.bbox.out_box_R10S[1:0][1:0][20:0]}   }
-gui_list_add -id Wave.1 -from Data.1 { {top_rast.rast.bbox.out_box_R10S[1:0][1:0][20:0]} } -insertionbar
-gui_save_session -reload -default_file
 gui_list_select -id Data.1 -selected  { {top_rast.rast.bbox.k[31:0]}   }
 gui_list_add -id Wave.1 -from Data.1 { {top_rast.rast.bbox.k[31:0]} } -insertionbar
+gui_list_select -id Data.1 -selected  { top_rast.rast.bbox.clk   }
+gui_list_add -id Wave.1 -from Data.1 { top_rast.rast.bbox.clk } -insertionbar
+gui_list_select -id Data.1 -selected  { top_rast.rast.bbox.halt_RnnnnL   }
+gui_list_add -id Wave.1 -from Data.1 { top_rast.rast.bbox.halt_RnnnnL } -insertionbar
+gui_list_select -id Data.1 -selected  { top_rast.rast.bbox.validTri_R13H   }
+gui_list_add -id Wave.1 -from Data.1 { top_rast.rast.bbox.validTri_R13H } -insertionbar
+gui_zoom -window Wave.1 -full
+gui_list_select -id Hier.1 -current_item_name top_rast.rast.bbox -current_item_type Scope  -selected  {  }
+gui_list_select -id Hier.1 -current_item_name top_rast.rast.bbox -current_item_type Scope  -selected  { top_rast.rast.bbox   }
+gui_list_select -id Data.1 -selected  { {top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]}   }
+gui_list_add -id Wave.1 -from Data.1 { {top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]} } -insertionbar
+gui_list_select -id Wave.1 -selected  { {top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]}   }
+gui_list_move  -id  Wave.1    -sid  Wave.1   -after {top_rast.rast.bbox.box_R13S_retime[1:0][1:0][20:0]} {{top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]}} 
+gui_list_select -id Wave.1 -selected  { {top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]}   }
+gui_list_select -id Wave.1 -selected  { {top_rast.rast.bbox.box_R13S[1:0][1:0][20:0]}   }
+gui_list_select -id Wave.1 -selected  { {top_rast.rast.bbox.box_R13S[1:0][1:0][20:0]}  {top_rast.rast.bbox.box_R13S_retime[1:0][1:0][20:0]}  {top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]}   }
+gui_list_move  -id  Wave.1    -sid  Wave.1   -after top_rast.rast.bbox.halt_RnnnnL {{top_rast.rast.bbox.box_R13S[1:0][1:0][20:0]} {top_rast.rast.bbox.box_R13S_retime[1:0][1:0][20:0]} {top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]}} 
+gui_list_select -id Wave.1 -selected  { top_rast.rast.bbox.clk   }
+gui_list_move  -id  Wave.1    -sid  Wave.1   -after Group1 {{top_rast.rast.bbox.clk}}
 gui_list_select -id Wave.1 -selected  { {top_rast.rast.bbox.k[31:0]}   }
 gui_list_move  -id  Wave.1    -sid  Wave.1   -after {top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]} {{top_rast.rast.bbox.k[31:0]}} 
-gui_list_select -id Wave.1 -selected  { top_rast.rast.bbox.bubble_burst_en   }
-gui_list_select -id Wave.1 -selected  { {top_rast.rast.bbox.out_box_R10S[1:0][1:0][20:0]}   }
+gui_list_select -id Wave.1 -selected  { {top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]}   }
 gui_delete_selected -id  Wave.1
-gui_list_select -id Wave.1 -selected  { top_rast.rast.bbox.bubble_burst_en   }
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_previous -id Wave.1 -number 1 
-gui_seek_previous -id Wave.1 -number 1 
-gui_seek_previous -id Wave.1 -number 1 
-gui_seek_previous -id Wave.1 -number 1 
-gui_seek_previous -id Wave.1 -number 1 
-gui_seek_previous -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_list_select -id Hier.1 -current_item_name top_rast.rast.bbox -current_item_type Scope  -selected  {  }
-gui_list_select -id Hier.1 -current_item_name top_rast.rast.bbox -current_item_type Scope  -selected  { top_rast.rast.bbox   }
-gui_list_select -id Data.1 -selected  { {top_rast.rast.bbox.color_R10U[2:0][20:0]}   }
-gui_list_add -id Wave.1 -from Data.1 { {top_rast.rast.bbox.color_R10U[2:0][20:0]} } -insertionbar
-gui_list_select -id Wave.1 -selected  { {top_rast.rast.bbox.color_R10U[2:0][20:0]}   }
-gui_list_move  -id  Wave.1    -sid  Wave.1   -after {top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]} {{top_rast.rast.bbox.color_R10U[2:0][20:0]}} 
-gui_marker_move -id  Wave.1 C1 14209000
-gui_marker_move -id  Wave.1 C1 14210000
-gui_marker_move -id  Wave.1 C1 14210757
-gui_marker_move -id  Wave.1 C1 14213000
-gui_marker_move -id  Wave.1 C1 14212000
-gui_marker_move -id  Wave.1 C1 14213883
-gui_wv_scrollright -id  Wave.1  line
-gui_wv_scrollright -id  Wave.1  line
-gui_wv_scrollright -id  Wave.1  line
-gui_wv_scrollright -id  Wave.1  line
-gui_wv_scrollright -id  Wave.1  line
-gui_wv_scrollright -id  Wave.1  line
-gui_wv_scrollright -id  Wave.1  line
-gui_wv_scrollright -id  Wave.1  line
-gui_wv_scrollright -id  Wave.1  line
-gui_wv_scroll_hslidermove -id  Wave.1 226108
-gui_list_select -id Wave.1 -selected  { top_rast.rast.bbox.bubble_burst_en   }
-gui_seek_previous -id Wave.1 -number 1 
-gui_marker_move -id  Wave.1 C1 14205000
-gui_marker_move -id  Wave.1 C1 14205000
-gui_marker_move -id  Wave.1 C1 14204000
-gui_marker_move -id  Wave.1 C1 14204985
-gui_marker_move -id  Wave.1 C1 14206000
-gui_marker_move -id  Wave.1 C1 14204000
-gui_marker_move -id  Wave.1 C1 14206000
-gui_marker_move -id  Wave.1 C1 14204000
-gui_marker_move -id  Wave.1 C1 14206000
-gui_marker_move -id  Wave.1 C1 14204000
-gui_marker_move -id  Wave.1 C1 14206000
-gui_marker_move -id  Wave.1 C1 14207000
-gui_marker_move -id  Wave.1 C1 14206000
-gui_marker_move -id  Wave.1 C1 14207000
-gui_marker_move -id  Wave.1 C1 14206000
-gui_marker_move -id  Wave.1 C1 14207000
-gui_marker_move -id  Wave.1 C1 14205000
-gui_marker_move -id  Wave.1 C1 14205000
-gui_marker_move -id  Wave.1 C1 14214000
-gui_marker_move -id  Wave.1 C1 14205000
-gui_marker_move -id  Wave.1 C1 14206000
-gui_marker_move -id  Wave.1 C1 14207000
-gui_marker_select -id  Wave.1 { C1 }
-gui_marker_move -id  Wave.1 C1 14208000
 gui_list_select -id Wave.1 -selected  { {top_rast.rast.bbox.k[31:0]}   }
-gui_zoom -window Wave.1 -full
-gui_zoom -window Wave.1 -factor 0.5
+gui_list_select -id Wave.1 -selected  { top_rast.rast.bbox.validTri_R13H   }
+gui_list_move  -id  Wave.1    -sid  Wave.1   -after top_rast.rast.bbox.bubble_burst_en {{top_rast.rast.bbox.validTri_R13H}} 
 gui_list_select -id Hier.1 -current_item_name top_rast.rast.bbox -current_item_type Scope  -selected  {  }
 gui_list_select -id Hier.1 -current_item_name top_rast.rast.bbox -current_item_type Scope  -selected  { top_rast.rast.bbox   }
-gui_list_select -id Data.1 -selected  { {top_rast.rast.bbox.color_R13U[2:0][20:0]}   }
-gui_list_add -id Wave.1 -from Data.1 { {top_rast.rast.bbox.color_R13U[2:0][20:0]} } -insertionbar
-gui_save_session -reload -default_file
-gui_marker_move -id  Wave.1 C1 133333000
-gui_marker_move -id  Wave.1 C1 49000
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_list_select -id Wave.1 -selected  { top_rast.rast.bbox.bubble_burst_en   }
-gui_seek_previous -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_previous -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_zoom -window Wave.1 -factor 2
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_previous -id Wave.1 -number 1 
-gui_seek_previous -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_list_select -id Wave.1 -selected  { top_rast.rast.bbox.halt_RnnnnL   }
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_list_select -id Wave.1 -selected  { top_rast.rast.bbox.bubble_burst_en   }
-gui_seek_next -id Wave.1 -number 1 
-gui_list_select -id Wave.1 -selected  { top_rast.rast.bbox.halt_RnnnnL   }
-gui_seek_next -id Wave.1 -number 1 
-gui_marker_move -id  Wave.1 C1 14712103
-gui_list_select -id Wave.1 -selected  { top_rast.rast.bbox.bubble_burst_en   }
-gui_marker_move -id  Wave.1 C1 14718163
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
-gui_seek_next -id Wave.1 -number 1 
+gui_list_select -id Data.1 -selected  { {top_rast.rast.bbox.tri_R10S[2:0][2:0][20:0]}   }
+gui_list_add -id Wave.1 -from Data.1 { {top_rast.rast.bbox.tri_R10S[2:0][2:0][20:0]} } -insertionbar
+gui_list_select -id Wave.1 -selected  { {top_rast.rast.bbox.tri_R10S[2:0][2:0][20:0]}   }
+gui_list_move  -id  Wave.1    -sid  Wave.1   -after {top_rast.rast.bbox.box_R10S[1:0][1:0][20:0]} {{top_rast.rast.bbox.tri_R10S[2:0][2:0][20:0]}} 

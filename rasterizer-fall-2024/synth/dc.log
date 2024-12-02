@@ -1,0 +1,2378 @@
+Information: License queuing is enabled. (DCSH-18)
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version M-2016.12-SP2 for linux64 - Feb 23, 2017 
+
+                    Copyright (c) 1988 - 2017 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+# Simple syhthesis script to use FreePDK/45nm libraries
+#
+# 
+#
+file mkdir reports
+file mkdir netlist
+remove_design -all
+1
+define_design_lib RAST -path "RAST"
+1
+#####################
+# Config Variables
+#####################
+# The clock input signal name.
+set CLK  "clk"
+clk
+# The reset input signal name.
+set RST  "rst"
+rst
+set DRIVER_CELL "INV_X1"
+INV_X1
+set DR_CELL_OUT "ZN"
+ZN
+#####################
+# Path Variables
+#####################
+set SYN  /cad/synopsys/syn/M-2016.12-SP2/libraries/syn/
+/cad/synopsys/syn/M-2016.12-SP2/libraries/syn/
+set OPENCELL_45 ../lib/
+../lib/
+#####################
+# Set Design Library
+#####################
+# OpenCell 45nm Library
+set link_library [list NangateOpenCellLibrary.db dw_foundation.sldb]
+NangateOpenCellLibrary.db dw_foundation.sldb
+set target_library [list NangateOpenCellLibrary.db]
+NangateOpenCellLibrary.db
+#set link_library { * tcbn45gsbwphvtml.db dw_foundation.sldb}
+#set target_library "tcbn45gsbwphvtml.db"
+set synthetic_library [list  dw_foundation.sldb]
+dw_foundation.sldb
+set dw_lib     $SYN
+/cad/synopsys/syn/M-2016.12-SP2/libraries/syn/
+set sym_lib    $OPENCELL_45
+../lib/
+set target_lib $OPENCELL_45
+../lib/
+#set tech_file 
+#set mw_reference_library 
+#set mw_lib_name 
+#set max_tlu_file
+#set min_tlu_file
+#set prs_map_file
+set search_path [list ./ ../rtl/  $dw_lib $target_lib $sym_lib ../params/ ]
+./ ../rtl/ /cad/synopsys/syn/M-2016.12-SP2/libraries/syn/ ../lib/ ../lib/ ../params/
+#set mv_power_net VDD
+#set mw_ground_net VSS
+#set mw_logic1_net VDD
+#set mw_logic0_net VSS
+#set mw_power_port VDD
+#set mw_ground_port VSS
+#create_mw_lib -technology $tech_file #              -mw_reference_library $mw_reference_library #                                    $mw_lib_name
+#open_mw_lib $mw_lib_name 
+#report_mw_lib
+#set_check_library_options -logic_vs_physical
+#check_library
+#set_tlu_plus_files -max_tluplus  $max_tlu_file #                   -min_tluplus  $min_tlu_file #                   -tech2itf_map $prs_map_file
+#check_tlu_plus_files
+###################
+# Read Design
+###################
+analyze -library RAST -format sverilog [glob ${RUNDIR}/params/*.sv ${RUNDIR}/rtl/*.v ${RUNDIR}/rtl/*.sv]
+Running PRESTO HDLC
+Compiling source file /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/params/rast_params.sv
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/params/rast_params.sv:1: The package rast_params has already been analyzed. It is being replaced. (VER-26)
+Compiling source file /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/DW_pl_reg.v
+Compiling source file /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv:280: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv:281: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Compiling source file /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/dff_retime.sv
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv:128: The statements in initial blocks are ignored. (VER-281)
+Compiling source file /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/dff.sv
+Compiling source file /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/dff3.sv
+Compiling source file /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/rast.sv
+Compiling source file /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/tree_hash.sv
+Compiling source file /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv:230: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv:231: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv:232: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv:233: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv:236: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv:237: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv:267: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv:282: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv:283: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv:284: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv:285: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv:316: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv:317: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv:453: The construct 'property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv:458: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv:459: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Compiling source file /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/dff2.sv
+Compiling source file /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/test_iterator.sv
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/test_iterator.sv:263: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/test_iterator.sv:358: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/test_iterator.sv:359: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/test_iterator.sv:360: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/test_iterator.sv:361: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/test_iterator.sv:362: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/test_iterator.sv:373: The construct 'property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/test_iterator.sv:378: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/test_iterator.sv:379: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/test_iterator.sv:380: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/test_iterator.sv:381: The construct 'assert property' is not supported in synthesis; it is ignored. (VER-708)
+Compiling source file /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/hash_jtree.sv
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/hash_jtree.sv:99: The construct 'immediate assertion' is not supported in synthesis; it is ignored. (VER-708)
+Presto compilation completed successfully.
+Loading db file '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/lib/NangateOpenCellLibrary.db'
+Information: Using CCS timing libraries. (TIM-024)
+Loading db file '/afs/ir.stanford.edu/class/ee/synopsys/syn/M-2016.12-SP2/libraries/syn/dw_foundation.sldb'
+1
+#analyze -library RAST -format sverilog [glob ${RUNDIR}/genesis_synth/*.v]
+#
+elaborate ${DESIGN_TARGET} -architecture verilog -library RAST
+Loading db file '/afs/ir.stanford.edu/class/ee/synopsys/syn/M-2016.12-SP2/libraries/syn/gtech.db'
+Loading db file '/afs/ir.stanford.edu/class/ee/synopsys/syn/M-2016.12-SP2/libraries/syn/standard.sldb'
+  Loading link library 'NangateOpenCellLibrary'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'rast'.
+Information: Building the design 'bbox' instantiated from design 'rast' with
+	the parameters "SIGFIG=21,RADIX=10,VERTS=3,AXIS=3,COLORS=3,PIPE_DEPTH=2". (HDL-193)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv:175: signed to unsigned assignment occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv:272: signed to unsigned part selection occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv:275: signed to unsigned part selection occurs. (VER-318)
+
+Statistics for case statements in always block at line 198 in file
+	'/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/bbox.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           208            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'test_iterator' instantiated from design 'rast' with
+	the parameters "SIGFIG=21,RADIX=10,VERTS=3,AXIS=3,COLORS=3,PIPE_DEPTH=1". (HDL-193)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/test_iterator.sv:280: signed to unsigned conversion occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/test_iterator.sv:285: signed to unsigned conversion occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/test_iterator.sv:288: signed to unsigned conversion occurs. (VER-318)
+
+Statistics for case statements in always block at line 299 in file
+	'/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/test_iterator.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           310            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine test_iterator_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH1 line 239 in file
+		'/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/test_iterator.sv'.
+==================================================================================
+|     Register Name      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+==================================================================================
+| genblk1.state_R14H_reg | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+==================================================================================
+Presto compilation completed successfully.
+Information: Building the design 'hash_jtree' instantiated from design 'rast' with
+	the parameters "SIGFIG=21,RADIX=10,VERTS=3,AXIS=3,COLORS=3,PIPE_DEPTH=2". (HDL-193)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/hash_jtree.sv:115: signed to unsigned part selection occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/hash_jtree.sv:127: signed to unsigned part selection occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/hash_jtree.sv:135: signed to unsigned part selection occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/hash_jtree.sv:149: signed to unsigned part selection occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/hash_jtree.sv:100: Case statement marked unique does not cover all possible conditions. (VER-504)
+
+Statistics for case statements in always block at line 98 in file
+	'/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/hash_jtree.sv'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           100            |    user/user     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'sampletest' instantiated from design 'rast' with
+	the parameters "SIGFIG=21,RADIX=10,VERTS=3,AXIS=3,COLORS=3,PIPE_DEPTH=2". (HDL-193)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv:146: signed to unsigned conversion occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv:147: signed to unsigned conversion occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv:154: signed to unsigned assignment occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv:155: signed to unsigned assignment occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv:185: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv:186: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv:187: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv:188: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv:208: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv:209: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv:210: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv:211: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv:232: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv:233: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv:234: unsigned to signed assignment occurs. (VER-318)
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv:235: unsigned to signed assignment occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2 line 138 in file
+		'/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv'.
+===========================================================================
+|    Register Name    | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+===========================================================================
+|    dist_sign_reg    | Latch |   1   |  N  | N  | N  | N  | -  | -  | -  |
+===========================================================================
+Statistics for MUX_OPs
+======================================================================================================
+|                         block name/line                          | Inputs | Outputs | # sel inputs |
+======================================================================================================
+| sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2/185 | 131072 |    1    |      17      |
+| sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2/186 | 131072 |    1    |      17      |
+| sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2/187 | 131072 |    1    |      17      |
+| sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2/188 | 131072 |    1    |      17      |
+| sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2/209 | 131072 |    1    |      17      |
+| sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2/210 | 131072 |    1    |      17      |
+======================================================================================================
+Warning:  /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/sampletest.sv:138: Netlist for always_comb block contains a latch. (ELAB-974)
+Presto compilation completed successfully.
+Information: Building the design 'dff3' instantiated from design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2' with
+	the parameters "WIDTH=21,ARRAY_SIZE1=3,ARRAY_SIZE2=3,PIPE_DEPTH=1,RETIME_STATUS=1". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'dff2' instantiated from design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2' with
+	the parameters "WIDTH=21,ARRAY_SIZE=3,PIPE_DEPTH=1,RETIME_STATUS=1". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'dff3' instantiated from design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2' with
+	the parameters "WIDTH=21,ARRAY_SIZE1=2,ARRAY_SIZE2=2,PIPE_DEPTH=1,RETIME_STATUS=1". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'dff_retime' instantiated from design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2' with
+	the parameters "WIDTH=1,PIPE_DEPTH=1,RETIME_STATUS=1". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'dff3' instantiated from design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2' with
+	the parameters "WIDTH=21,ARRAY_SIZE1=3,ARRAY_SIZE2=3,PIPE_DEPTH=1,RETIME_STATUS=0". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'dff2' instantiated from design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2' with
+	the parameters "WIDTH=21,ARRAY_SIZE=3,PIPE_DEPTH=1,RETIME_STATUS=0". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'dff3' instantiated from design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2' with
+	the parameters "WIDTH=21,ARRAY_SIZE1=2,ARRAY_SIZE2=2,PIPE_DEPTH=1,RETIME_STATUS=0". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'dff' instantiated from design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2' with
+	the parameters "WIDTH=1,PIPE_DEPTH=1,RETIME_STATUS=0". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'dff2' instantiated from design 'test_iterator_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH1' with
+	the parameters "WIDTH=21,ARRAY_SIZE=2,PIPE_DEPTH=1,RETIME_STATUS=0". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'dff' instantiated from design 'test_iterator_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH1' with
+	the parameters "WIDTH=2,PIPE_DEPTH=1,RETIME_STATUS=0". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'tree_hash' instantiated from design 'hash_jtree_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2' with
+	the parameters "IN_WIDTH=34,OUT_WIDTH=8". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'dff2' instantiated from design 'hash_jtree_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2' with
+	the parameters "WIDTH=21,ARRAY_SIZE=2,PIPE_DEPTH=1,RETIME_STATUS=1". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'dff_retime' instantiated from design 'dff2_WIDTH21_ARRAY_SIZE3_PIPE_DEPTH1_RETIME_STATUS1' with
+	the parameters "WIDTH=21,PIPE_DEPTH=1,RETIME_STATUS=1". (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'dff' instantiated from design 'dff2_WIDTH21_ARRAY_SIZE3_PIPE_DEPTH1_RETIME_STATUS0' with
+	the parameters "WIDTH=21,PIPE_DEPTH=1,RETIME_STATUS=0". (HDL-193)
+Presto compilation completed successfully.
+1
+link
+
+  Linking design 'rast'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  NangateOpenCellLibrary (library) /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/lib/NangateOpenCellLibrary.db
+  dw_foundation.sldb (library) /afs/ir.stanford.edu/class/ee/synopsys/syn/M-2016.12-SP2/libraries/syn/dw_foundation.sldb
+
+1
+#################################
+# Define Design Environment 
+#################################
+# go here
+#################################
+# Design Rule Constraints
+#################################
+# go here
+##################################
+# Design Optimization Constraints
+##################################
+# create clock
+create_clock $CLK -period $CLK_PERIOD
+1
+# set output delay and load
+set_fanout_load 4 [get_ports "*" -filter {@port_direction == out} ]
+1
+set_output_delay [ expr $CLK_PERIOD*3/4 ] -clock $CLK  [get_ports "*" -filter {@port_direction == out} ]
+1
+#set_output_delay [ expr $CLK_PERIOD*1/2 ] -clock $CLK halt_RnnnnL
+set_wire_load_model -name 1K_hvratio_1_4
+1
+set_wire_load_mode top
+1
+set_max_fanout 4.0 [get_ports "*" -filter {@port_direction != out} ]
+1
+# set input delay on all input ports except 'clk' and 'rst'
+set all_inputs_wo_rst_clk [remove_from_collection [remove_from_collection [all_inputs] [get_port $CLK]] [get_port $RST]]
+{tri_R10S[2][2][20] tri_R10S[2][2][19] tri_R10S[2][2][18] tri_R10S[2][2][17] tri_R10S[2][2][16] tri_R10S[2][2][15] tri_R10S[2][2][14] tri_R10S[2][2][13] tri_R10S[2][2][12] tri_R10S[2][2][11] tri_R10S[2][2][10] tri_R10S[2][2][9] tri_R10S[2][2][8] tri_R10S[2][2][7] tri_R10S[2][2][6] tri_R10S[2][2][5] tri_R10S[2][2][4] tri_R10S[2][2][3] tri_R10S[2][2][2] tri_R10S[2][2][1] tri_R10S[2][2][0] tri_R10S[2][1][20] tri_R10S[2][1][19] tri_R10S[2][1][18] tri_R10S[2][1][17] tri_R10S[2][1][16] tri_R10S[2][1][15] tri_R10S[2][1][14] tri_R10S[2][1][13] tri_R10S[2][1][12] tri_R10S[2][1][11] tri_R10S[2][1][10] tri_R10S[2][1][9] tri_R10S[2][1][8] tri_R10S[2][1][7] tri_R10S[2][1][6] tri_R10S[2][1][5] tri_R10S[2][1][4] tri_R10S[2][1][3] tri_R10S[2][1][2] tri_R10S[2][1][1] tri_R10S[2][1][0] tri_R10S[2][0][20] tri_R10S[2][0][19] tri_R10S[2][0][18] tri_R10S[2][0][17] tri_R10S[2][0][16] tri_R10S[2][0][15] tri_R10S[2][0][14] tri_R10S[2][0][13] tri_R10S[2][0][12] tri_R10S[2][0][11] tri_R10S[2][0][10] tri_R10S[2][0][9] tri_R10S[2][0][8] tri_R10S[2][0][7] tri_R10S[2][0][6] tri_R10S[2][0][5] tri_R10S[2][0][4] tri_R10S[2][0][3] tri_R10S[2][0][2] tri_R10S[2][0][1] tri_R10S[2][0][0] tri_R10S[1][2][20] tri_R10S[1][2][19] tri_R10S[1][2][18] tri_R10S[1][2][17] tri_R10S[1][2][16] tri_R10S[1][2][15] tri_R10S[1][2][14] tri_R10S[1][2][13] tri_R10S[1][2][12] tri_R10S[1][2][11] tri_R10S[1][2][10] tri_R10S[1][2][9] tri_R10S[1][2][8] tri_R10S[1][2][7] tri_R10S[1][2][6] tri_R10S[1][2][5] tri_R10S[1][2][4] tri_R10S[1][2][3] tri_R10S[1][2][2] tri_R10S[1][2][1] tri_R10S[1][2][0] tri_R10S[1][1][20] tri_R10S[1][1][19] tri_R10S[1][1][18] tri_R10S[1][1][17] tri_R10S[1][1][16] tri_R10S[1][1][15] tri_R10S[1][1][14] tri_R10S[1][1][13] tri_R10S[1][1][12] tri_R10S[1][1][11] tri_R10S[1][1][10] tri_R10S[1][1][9] tri_R10S[1][1][8] tri_R10S[1][1][7] tri_R10S[1][1][6] tri_R10S[1][1][5] ...}
+set_input_delay -clock $CLK [ expr $CLK_PERIOD*3/4 ] $all_inputs_wo_rst_clk
+1
+set_driving_cell -lib_cell $DRIVER_CELL -pin $DR_CELL_OUT [ get_ports "*" -filter {@port_direction == in} ]
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+1
+# set no input delay on control ports
+set_input_delay -clock $CLK 0 screen_RnnnnS
+1
+set_input_delay -clock $CLK 0 subSample_RnnnnU
+1
+# set target die area
+set_max_area $TARGET_AREA
+1
+# set DC don't touch reset network
+remove_driving_cell $RST
+1
+set_drive 0 $RST
+1
+set_dont_touch_network $RST
+1
+##########################################
+# Synthesize Design (Optimize for Timing)
+##########################################
+#set power analysis
+#set_power_prediction
+set_optimize_registers true -design ${DESIGN_TARGET}
+1
+compile_ultra -retime -timing_high_effort_script
+Warning: The -timing_high_effort_script option is ignored.  (OPT-1342)
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | M-2016.12-DWBB_201612.2 |     *     |
+| Licensed DW Building Blocks        | M-2016.12-DWBB_201612.2 |     *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+Information: Retiming is enabled. SVF file must be used for formal verification. (OPT-1210)
+
+Information: There are 102 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+Information: Uniquified 2 instances of design 'dff3_WIDTH21_ARRAY_SIZE13_ARRAY_SIZE23_PIPE_DEPTH1_RETIME_STATUS1'. (OPT-1056)
+Information: Uniquified 10 instances of design 'dff2_WIDTH21_ARRAY_SIZE3_PIPE_DEPTH1_RETIME_STATUS1'. (OPT-1056)
+Information: Uniquified 3 instances of design 'dff_retime_WIDTH1_PIPE_DEPTH1_RETIME_STATUS1'. (OPT-1056)
+Information: Uniquified 3 instances of design 'dff3_WIDTH21_ARRAY_SIZE13_ARRAY_SIZE23_PIPE_DEPTH1_RETIME_STATUS0'. (OPT-1056)
+Information: Uniquified 14 instances of design 'dff2_WIDTH21_ARRAY_SIZE3_PIPE_DEPTH1_RETIME_STATUS0'. (OPT-1056)
+Information: Uniquified 2 instances of design 'dff3_WIDTH21_ARRAY_SIZE12_ARRAY_SIZE22_PIPE_DEPTH1_RETIME_STATUS0'. (OPT-1056)
+Information: Uniquified 3 instances of design 'dff_WIDTH1_PIPE_DEPTH1_RETIME_STATUS0'. (OPT-1056)
+Information: Uniquified 6 instances of design 'dff2_WIDTH21_ARRAY_SIZE2_PIPE_DEPTH1_RETIME_STATUS0'. (OPT-1056)
+Information: Uniquified 2 instances of design 'tree_hash_IN_WIDTH34_OUT_WIDTH8'. (OPT-1056)
+Information: Uniquified 3 instances of design 'dff2_WIDTH21_ARRAY_SIZE2_PIPE_DEPTH1_RETIME_STATUS1'. (OPT-1056)
+Information: Uniquified 36 instances of design 'dff_retime_WIDTH21_PIPE_DEPTH1_RETIME_STATUS1'. (OPT-1056)
+Information: Uniquified 54 instances of design 'dff_WIDTH21_PIPE_DEPTH1_RETIME_STATUS0'. (OPT-1056)
+  Simplifying Design 'rast'
+Information: Removing unused design 'dff_WIDTH21_PIPE_DEPTH1_RETIME_STATUS0_3'. (OPT-1055)
+Information: Removing unused design 'dff_WIDTH21_PIPE_DEPTH1_RETIME_STATUS0_0'. (OPT-1055)
+Information: Removing unused design 'dff_retime_WIDTH21_PIPE_DEPTH1_RETIME_STATUS1_3'. (OPT-1055)
+Information: Removing unused design 'dff_retime_WIDTH21_PIPE_DEPTH1_RETIME_STATUS1_0'. (OPT-1055)
+
+Loaded alib file './alib-52/NangateOpenCellLibrary.db.alib'
+  Building model 'DW01_NAND2'
+Information: Ungrouping hierarchy test_iterator before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy hash_jtree before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy bbox/d_bbx_r1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy bbox/d_bbx_r2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy bbox/d_bbx_r3 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy bbox/d_bbx_f1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy bbox/d_bbx_f2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy bbox/d_bbx_f3 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy test_iterator/d303 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy hash_jtree/xjit_hash before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy hash_jtree/d_hash_r3 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy hash_jtree/d_hash_r1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sampletest/d_samp_r2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sampletest/d_samp_r1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy hash_jtree/d_hash_r2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy hash_jtree/d_hash_f1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy test_iterator/d301 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sampletest/d_samp_f2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sampletest/d_samp_f1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy hash_jtree/d_hash_f2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy test_iterator/d302 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy test_iterator/genblk1.d305 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy hash_jtree/d_hash_f3 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy hash_jtree/yjit_hash before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy hash_jtree/d_hash_r1/genblk1[2].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy hash_jtree/d_hash_r1/genblk1[1].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy hash_jtree/d_hash_r1/genblk1[0].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy bbox/d_bbx_r1/genblk1[2].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy bbox/d_bbx_r1/genblk1[1].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy bbox/d_bbx_r1/genblk1[0].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy hash_jtree/d_hash_f1/genblk1[2].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy hash_jtree/d_hash_f1/genblk1[1].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy hash_jtree/d_hash_f1/genblk1[0].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy test_iterator/d301/genblk1[2].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy test_iterator/d301/genblk1[1].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy test_iterator/d301/genblk1[0].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy bbox/d_bbx_f1/genblk1[2].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy bbox/d_bbx_f1/genblk1[1].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy bbox/d_bbx_f1/genblk1[0].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy test_iterator/genblk1.d305/genblk1[1].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy test_iterator/genblk1.d305/genblk1[0].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy bbox/d_bbx_f3/genblk1[1].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy bbox/d_bbx_f3/genblk1[0].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy bbox/d_bbx_r3/genblk1[1].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy bbox/d_bbx_r3/genblk1[0].dff_arr before Pass 1 (OPT-776)
+Information: Ungrouping 45 of 141 hierarchies before Pass 1 (OPT-775)
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'rast'
+Information: Added key list 'DesignWare' to design 'rast'. (DDB-72)
+ Implement Synthetic for 'rast'.
+  Processing 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2'
+ Implement Synthetic for 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2'.
+Information: Added key list 'DesignWare' to design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2'. (DDB-72)
+  Processing 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2'
+Information: Added key list 'DesignWare' to design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2'. (DDB-72)
+ Implement Synthetic for 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2'.
+  Processing 'dff_WIDTH21_PIPE_DEPTH1_RETIME_STATUS0_35'
+ Implement Synthetic for 'dff_WIDTH21_PIPE_DEPTH1_RETIME_STATUS0_35'.
+  Processing 'DW_pl_reg_width21_in_reg0_stages2_out_reg0_rst_mode0'
+Information: Added key list 'DesignWare' to design 'dff_WIDTH21_PIPE_DEPTH1_RETIME_STATUS0_35'. (DDB-72)
+  Processing 'dff_retime_WIDTH21_PIPE_DEPTH1_RETIME_STATUS1_22'
+ Implement Synthetic for 'dff_retime_WIDTH21_PIPE_DEPTH1_RETIME_STATUS1_22'.
+  Processing 'DW_pl_reg_width21_in_reg0_stages2_out_reg0_rst_mode0'
+Information: Added key list 'DesignWare' to design 'dff_retime_WIDTH21_PIPE_DEPTH1_RETIME_STATUS1_22'. (DDB-72)
+  Processing 'dff_retime_WIDTH21_PIPE_DEPTH1_RETIME_STATUS1_9'
+ Implement Synthetic for 'dff_retime_WIDTH21_PIPE_DEPTH1_RETIME_STATUS1_9'.
+  Processing 'DW_pl_reg_width21_in_reg0_stages2_out_reg0_rst_mode0'
+Information: Added key list 'DesignWare' to design 'dff_retime_WIDTH21_PIPE_DEPTH1_RETIME_STATUS1_9'. (DDB-72)
+  Processing 'dff_WIDTH21_PIPE_DEPTH1_RETIME_STATUS0_22'
+ Implement Synthetic for 'dff_WIDTH21_PIPE_DEPTH1_RETIME_STATUS0_22'.
+  Processing 'DW_pl_reg_width21_in_reg0_stages2_out_reg0_rst_mode0'
+Information: Added key list 'DesignWare' to design 'dff_WIDTH21_PIPE_DEPTH1_RETIME_STATUS0_22'. (DDB-72)
+  Processing 'dff_WIDTH21_PIPE_DEPTH1_RETIME_STATUS0_1'
+ Implement Synthetic for 'dff_WIDTH21_PIPE_DEPTH1_RETIME_STATUS0_1'.
+  Processing 'DW_pl_reg_width21_in_reg0_stages2_out_reg0_rst_mode0'
+Information: Added key list 'DesignWare' to design 'dff_WIDTH21_PIPE_DEPTH1_RETIME_STATUS0_1'. (DDB-72)
+  Processing 'dff_WIDTH2_PIPE_DEPTH1_RETIME_STATUS0'
+ Implement Synthetic for 'dff_WIDTH2_PIPE_DEPTH1_RETIME_STATUS0'.
+  Processing 'DW_pl_reg_width2_in_reg0_stages2_out_reg0_rst_mode0'
+Information: Added key list 'DesignWare' to design 'dff_WIDTH2_PIPE_DEPTH1_RETIME_STATUS0'. (DDB-72)
+  Processing 'dff_WIDTH1_PIPE_DEPTH1_RETIME_STATUS0_2'
+ Implement Synthetic for 'dff_WIDTH1_PIPE_DEPTH1_RETIME_STATUS0_2'.
+  Processing 'DW_pl_reg_width1_in_reg0_stages2_out_reg0_rst_mode0'
+Information: Added key list 'DesignWare' to design 'dff_WIDTH1_PIPE_DEPTH1_RETIME_STATUS0_2'. (DDB-72)
+  Processing 'dff_retime_WIDTH1_PIPE_DEPTH1_RETIME_STATUS1_2'
+ Implement Synthetic for 'dff_retime_WIDTH1_PIPE_DEPTH1_RETIME_STATUS1_2'.
+  Processing 'DW_pl_reg_width1_in_reg0_stages2_out_reg0_rst_mode0'
+Information: Added key list 'DesignWare' to design 'dff_retime_WIDTH1_PIPE_DEPTH1_RETIME_STATUS1_2'. (DDB-72)
+  Processing 'dff_retime_WIDTH1_PIPE_DEPTH1_RETIME_STATUS1_0'
+ Implement Synthetic for 'dff_retime_WIDTH1_PIPE_DEPTH1_RETIME_STATUS1_0'.
+  Processing 'DW_pl_reg_width1_in_reg0_stages2_out_reg0_rst_mode0'
+Information: Added key list 'DesignWare' to design 'dff_retime_WIDTH1_PIPE_DEPTH1_RETIME_STATUS1_0'. (DDB-72)
+  Processing 'dff_WIDTH1_PIPE_DEPTH1_RETIME_STATUS0_0'
+ Implement Synthetic for 'dff_WIDTH1_PIPE_DEPTH1_RETIME_STATUS0_0'.
+  Processing 'DW_pl_reg_width1_in_reg0_stages2_out_reg0_rst_mode0'
+Information: Added key list 'DesignWare' to design 'dff_WIDTH1_PIPE_DEPTH1_RETIME_STATUS0_0'. (DDB-72)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Ungrouping hierarchy test_iterator/d304. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_f4. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_r4. (OPT-772)
+Information: Ungrouping hierarchy test_iterator/d303/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_r3/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_f1/genblk1[2].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_r4. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_f4. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_r2/genblk1[2].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_f2/genblk1[2].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy sampletest/d_samp_f1/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy sampletest/d_samp_f1/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy sampletest/d_samp_f1/genblk1[2].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy sampletest/d_samp_f2/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy sampletest/d_samp_f2/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy sampletest/d_samp_f2/genblk1[2].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy test_iterator/genblk1.d305/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy test_iterator/genblk1.d305/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy test_iterator/genblk1.d305/genblk1[1].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy test_iterator/genblk1.d305/genblk1[1].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy test_iterator/d301/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy test_iterator/d301/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy test_iterator/d301/genblk1[0].dff_arr/genblk1[2].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy test_iterator/d301/genblk1[1].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy test_iterator/d301/genblk1[1].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy test_iterator/d301/genblk1[2].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy test_iterator/d301/genblk1[2].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_f1/genblk1[0].dff_arr/genblk1[2].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_f3/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_f3/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy test_iterator/d302/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy test_iterator/d302/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy test_iterator/d302/genblk1[2].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_f2/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_f2/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_f2/genblk1[2].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy test_iterator/d303/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy sampletest/d_samp_r1/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy sampletest/d_samp_r1/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy sampletest/d_samp_r1/genblk1[2].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy sampletest/d_samp_r2/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy sampletest/d_samp_r2/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy sampletest/d_samp_r2/genblk1[2].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_r1/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_r1/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_r1/genblk1[0].dff_arr/genblk1[2].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_r1/genblk1[1].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_r1/genblk1[1].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_r1/genblk1[2].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_r1/genblk1[2].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_r2/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_r2/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_r2/genblk1[2].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_r3/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_r3/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_r3/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_r3/genblk1[1].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_r3/genblk1[1].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_r1/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_r1/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_r1/genblk1[0].dff_arr/genblk1[2].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_r1/genblk1[1].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_r1/genblk1[1].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_r1/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_r1/genblk1[2].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_r1/genblk1[2].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_r1/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_r2/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_r2/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_f3/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_f3/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_f3/genblk1[1].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_f3/genblk1[1].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_f1/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_f1/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_f1/genblk1[0].dff_arr/genblk1[2].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_f1/genblk1[1].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_f1/genblk1[1].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_f1/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_f1/genblk1[2].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_f1/genblk1[2].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_f1/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_f2/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy bbox/d_bbx_f2/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_f1/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_f1/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_f1/genblk1[1].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_f1/genblk1[1].dff_arr/genblk1[1].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy hash_jtree/d_hash_f1/genblk1[2].dff_arr/genblk1[0].genblk1.dff_pipe. (OPT-772)
+Information: Ungrouping hierarchy sampletest/d_samp_r3. (OPT-772)
+Information: Ungrouping hierarchy sampletest/d_samp_f3. (OPT-772)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][0]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][1]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][2]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][3]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][4]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][5]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][6]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][7]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][8]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][9]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][10]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][11]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][12]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][13]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][14]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][15]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][16]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][17]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][18]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][19]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][20]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][17]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][18]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][19]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][20]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][17]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][18]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][19]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[2].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][20]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][0]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][1]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][2]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][3]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][4]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][5]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][6]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][7]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][8]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][9]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][10]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][11]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][12]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][13]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][14]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][15]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][16]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][17]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][18]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][19]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[2].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][20]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][17]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][18]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][19]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][20]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][17]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][18]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][19]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[1].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][20]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][17]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][18]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][19]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][20]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][17]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][18]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][19]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d301/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][20]' will be removed. (OPT-1207)
+Information: The register 'test_iterator/d303/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'hash_jtree/d_hash_r3/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'hash_jtree/d_hash_f3/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sampletest/d_samp_r1/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sampletest/d_samp_f1/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_r3/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][20]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_f3/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][20]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_r3/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_f3/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_r3/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_f3/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_r3/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_f3/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_r3/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_f3/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_r3/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_f3/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_r3/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_f3/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_r3/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_f3/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_r3/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][20]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_f3/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][20]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_r3/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_f3/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_r3/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_f3/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_r3/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_f3/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_r3/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_f3/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_r3/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_f3/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_r3/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_f3/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_r3/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'bbox/d_bbx_f3/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/genblk1.d305/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][20]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/genblk1.d305/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/genblk1.d305/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/genblk1.d305/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/genblk1.d305/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/genblk1.d305/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/genblk1.d305/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/genblk1.d305/genblk1[0].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/d303/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/d303/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/d303/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/d303/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/d303/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/d303/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/d303/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'hash_jtree/d_hash_r3/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'hash_jtree/d_hash_f3/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sampletest/d_samp_r1/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sampletest/d_samp_f1/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'hash_jtree/d_hash_r3/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'hash_jtree/d_hash_f3/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sampletest/d_samp_r1/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sampletest/d_samp_f1/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/genblk1.d305/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][20]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/genblk1.d305/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/genblk1.d305/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/genblk1.d305/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/genblk1.d305/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/genblk1.d305/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/genblk1.d305/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/genblk1.d305/genblk1[0].dff_arr/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/d303/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/d303/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/d303/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/d303/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/d303/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'test_iterator/d303/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'hash_jtree/d_hash_r3/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'hash_jtree/d_hash_f3/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sampletest/d_samp_r1/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'sampletest/d_samp_f1/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][1]' is a constant and will be removed. (OPT-1206)
+Information: In design 'rast', the register 'hash_jtree/d_hash_r3/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][3]' is removed because it is merged to 'hash_jtree/d_hash_r3/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][17]'. (OPT-1215)
+Information: In design 'rast', the register 'hash_jtree/d_hash_f3/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][3]' is removed because it is merged to 'hash_jtree/d_hash_f3/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][17]'. (OPT-1215)
+Information: In design 'rast', the register 'sampletest/d_samp_r1/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][3]' is removed because it is merged to 'sampletest/d_samp_r1/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][17]'. (OPT-1215)
+Information: In design 'rast', the register 'sampletest/d_samp_f1/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][3]' is removed because it is merged to 'sampletest/d_samp_f1/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][17]'. (OPT-1215)
+Information: In design 'rast', the register 'hash_jtree/d_hash_r3/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][4]' is removed because it is merged to 'hash_jtree/d_hash_r3/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][18]'. (OPT-1215)
+Information: In design 'rast', the register 'hash_jtree/d_hash_f3/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][4]' is removed because it is merged to 'hash_jtree/d_hash_f3/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][18]'. (OPT-1215)
+Information: In design 'rast', the register 'sampletest/d_samp_r1/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][4]' is removed because it is merged to 'sampletest/d_samp_r1/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][18]'. (OPT-1215)
+Information: In design 'rast', the register 'sampletest/d_samp_f1/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][4]' is removed because it is merged to 'sampletest/d_samp_f1/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][18]'. (OPT-1215)
+Information: In design 'rast', the register 'hash_jtree/d_hash_r3/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][2]' is removed because it is merged to 'hash_jtree/d_hash_r3/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][16]'. (OPT-1215)
+Information: In design 'rast', the register 'hash_jtree/d_hash_f3/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][2]' is removed because it is merged to 'hash_jtree/d_hash_f3/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][16]'. (OPT-1215)
+Information: In design 'rast', the register 'sampletest/d_samp_r1/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][2]' is removed because it is merged to 'sampletest/d_samp_r1/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][16]'. (OPT-1215)
+Information: In design 'rast', the register 'sampletest/d_samp_f1/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][2]' is removed because it is merged to 'sampletest/d_samp_f1/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][16]'. (OPT-1215)
+Information: In design 'rast', the register 'hash_jtree/d_hash_r3/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][3]' is removed because it is merged to 'hash_jtree/d_hash_r3/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][17]'. (OPT-1215)
+Information: In design 'rast', the register 'hash_jtree/d_hash_f3/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][3]' is removed because it is merged to 'hash_jtree/d_hash_f3/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][17]'. (OPT-1215)
+Information: In design 'rast', the register 'sampletest/d_samp_r1/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][3]' is removed because it is merged to 'sampletest/d_samp_r1/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][17]'. (OPT-1215)
+Information: In design 'rast', the register 'sampletest/d_samp_f1/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][3]' is removed because it is merged to 'sampletest/d_samp_f1/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][17]'. (OPT-1215)
+Information: In design 'rast', the register 'hash_jtree/d_hash_r3/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][4]' is removed because it is merged to 'hash_jtree/d_hash_r3/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][18]'. (OPT-1215)
+Information: In design 'rast', the register 'hash_jtree/d_hash_f3/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][4]' is removed because it is merged to 'hash_jtree/d_hash_f3/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][18]'. (OPT-1215)
+Information: In design 'rast', the register 'sampletest/d_samp_r1/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][4]' is removed because it is merged to 'sampletest/d_samp_r1/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][18]'. (OPT-1215)
+Information: In design 'rast', the register 'sampletest/d_samp_f1/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][4]' is removed because it is merged to 'sampletest/d_samp_f1/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][18]'. (OPT-1215)
+Information: In design 'rast', the register 'hash_jtree/d_hash_r3/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][2]' is removed because it is merged to 'hash_jtree/d_hash_r3/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][16]'. (OPT-1215)
+Information: In design 'rast', the register 'hash_jtree/d_hash_f3/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][2]' is removed because it is merged to 'hash_jtree/d_hash_f3/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][16]'. (OPT-1215)
+Information: In design 'rast', the register 'sampletest/d_samp_r1/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][2]' is removed because it is merged to 'sampletest/d_samp_r1/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][16]'. (OPT-1215)
+Information: In design 'rast', the register 'sampletest/d_samp_f1/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][2]' is removed because it is merged to 'sampletest/d_samp_f1/genblk1[0].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][16]'. (OPT-1215)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+Information: Checking pipeline property of design rast. (RTDC-137)
+Information: Pipeline detection aborted. Reason: cell test_iterator/d303/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/data_pipe_a_reg[1][20] is on a feedback loop. (RTDC-138)
+Information: Aborted pipeline detection on design rast. (RTDC-140)
+  Mapping Optimization (Phase 1)
+  Mapping Optimization (Phase 2)
+Information: Checkpoint guidance is generated in the .svf file. (INFO-122)
+  Retiming rast (top)
+Warning: No clock net driving clock pin of cell 'sampletest/dist_sign_reg[1]'. (RTDC-5)
+  Preferred flip-flop is DFFS_X1 with setup = 0.04
+
+
+  Retiming base-clock clk, rising edge.
+  Beginning minimum period retiming ...
+  ... minimum period retiming done.
+  Beginning minimum area retiming step 1 ...
+  ... minimum area retiming step 1 done.
+  Beginning minimum area retiming step 2 ...
+  5% 10% 15% 20% 25% 30% 35% 40% 45% 50% 55% 60% 65% 70% 75% 80% 85% 90% 95% 100% 
+  ... minimum area retiming step 2 done.
+  Beginning minimum area retiming step 3 ...
+  10% 20% 30% 40% 50% 60% 70% ... 100% 
+  ... minimum area retiming step 3 done.
+  Beginning final register move ...
+  ... final register move done.
+  Lower bound estimate = 1.65
+  Critical path length = 1.65
+  Clock correction = 0.13 (clock-to-Q delay = 0.09, setup = 0.04, uncertainty = 0.00)
+  Mapping Optimization (Phase 3)
+  Mapping Optimization (Phase 4)
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:01:05   19479.2      0.58      50.6     983.0 bbox/d_bbx_f4/genblk1.dff_pipe/data_pipe_a_reg[1][0]/D 400192.8438
+    0:01:05   19479.2      0.58      50.6     983.0 bbox/d_bbx_f4/genblk1.dff_pipe/data_pipe_a_reg[1][0]/D 400192.8438
+    0:01:07   19447.8      0.54      50.2     983.0 bbox/d_bbx_f4/genblk1.dff_pipe/data_pipe_a_reg[1][0]/D 398591.8438
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+  Global Optimization (Phase 31)
+
+  Beginning Isolate Ports
+  -----------------------
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:01:17   17886.4      0.60      33.2     981.0                           342521.9688
+    0:01:33   18827.7      0.32      30.2     905.0                           377282.3125
+    0:01:33   18827.7      0.32      30.2     905.0                           377282.3125
+    0:01:34   18828.0      0.32      30.5     905.0                           377319.0312
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:02:18   18184.8      0.32      26.6     659.0                           357106.4375
+    0:02:19   18140.9      0.32      26.6     659.0                           353708.2812
+    0:02:19   18140.9      0.32      26.6     659.0                           353708.2812
+    0:02:21   18162.7      0.31      26.6     659.0                           354467.3438
+    0:02:21   18162.7      0.31      26.6     659.0                           354467.3438
+    0:02:21   18164.3      0.31      26.6     659.0                           354538.2812
+    0:02:21   18164.3      0.31      26.6     659.0                           354538.2812
+    0:02:22   18164.3      0.31      26.6     659.0                           354538.2812
+    0:02:22   18164.3      0.31      26.6     659.0                           354538.2812
+    0:02:25   18177.9      0.31      26.6     659.0                           355108.0938
+    0:02:25   18177.9      0.31      26.6     659.0                           355108.0938
+    0:02:26   18178.2      0.31      26.6     659.0                           355154.0312
+    0:02:26   18178.2      0.31      26.6     659.0                           355154.0312
+    0:02:28   18180.8      0.30      26.6     659.0                           355273.4062
+    0:02:28   18180.8      0.30      26.6     659.0                           355273.4062
+    0:02:29   18181.9      0.30      26.6     659.0                           355325.5000
+    0:02:29   18181.9      0.30      26.6     659.0                           355325.5000
+    0:02:29   18181.9      0.30      26.6     659.0                           355325.5000
+    0:02:29   18181.9      0.30      26.6     659.0                           355325.5000
+    0:02:30   18181.9      0.30      26.6     659.0                           355325.5000
+
+
+  Beginning Design Rule Fixing  (max_fanout)
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:02:30   18181.9      0.30      26.6     659.0                           355325.5000
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
+  Global Optimization (Phase 34)
+    0:02:32   18202.4      0.30      26.5     592.0 bbox/d_bbx_f4/genblk1.dff_pipe/data_pipe_a_reg[1][0]/D 356075.4375
+    0:02:34   18188.0      0.29      26.4     579.0 bbox/d_bbx_f4/genblk1.dff_pipe/data_pipe_a_reg[1][0]/D 355196.4688
+    0:02:35   18192.8      0.29      26.3     579.0 bbox/d_bbx_f4/genblk1.dff_pipe/data_pipe_a_reg[1][0]/D 355103.3750
+    0:02:37   18204.8      0.29      26.2     579.0 bbox/d_bbx_f4/genblk1.dff_pipe/data_pipe_a_reg[1][0]/D 355431.4062
+    0:02:38   18214.1      0.28      26.1     579.0 bbox/d_bbx_f4/genblk1.dff_pipe/data_pipe_a_reg[1][0]/D 355641.5938
+    0:02:39   18230.0      0.28      25.9     573.0 bbox/d_bbx_f4/genblk1.dff_pipe/data_pipe_a_reg[1][0]/D 355917.0000
+    0:02:41   18236.2      0.27      25.9     573.0 bbox/d_bbx_f4/genblk1.dff_pipe/data_pipe_a_reg[1][0]/D 356014.1250
+    0:02:42   18260.4      0.27      25.6     494.0 bbox/tri_R10S[0][1][16]   356750.2812
+    0:02:44   18333.0      0.27      24.3     357.0                           358963.2188
+    0:02:46   18355.1      0.27      24.3     357.0                           359713.0625
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:02:46   18355.1      0.27      24.3     357.0                           359713.0625
+  Global Optimization (Phase 35)
+  Global Optimization (Phase 36)
+  Global Optimization (Phase 37)
+  Global Optimization (Phase 38)
+  Global Optimization (Phase 39)
+  Global Optimization (Phase 40)
+  Global Optimization (Phase 41)
+  Global Optimization (Phase 42)
+  Global Optimization (Phase 43)
+  Global Optimization (Phase 44)
+  Global Optimization (Phase 45)
+  Global Optimization (Phase 46)
+  Global Optimization (Phase 47)
+  Global Optimization (Phase 48)
+  Global Optimization (Phase 49)
+Information: Complementing port 'halt_RnnnnL' in design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2'.
+	 The new name of the port is 'halt_RnnnnL_BAR'. (OPT-319)
+    0:02:51   18102.6      0.28      24.8     357.0 bbox/d_bbx_f4/genblk1.dff_pipe/data_pipe_a_reg[1][0]/D 350538.0938
+    0:02:52   18109.5      0.27      24.8     357.0                           350691.9375
+    0:02:54   18117.8      0.27      24.8     357.0                           350964.9062
+    0:02:54   18117.8      0.27      24.8     357.0                           350964.9062
+    0:02:55   18118.9      0.27      24.8     357.0                           351061.6250
+    0:02:55   18118.9      0.27      24.8     357.0                           351061.6250
+    0:02:56   18118.9      0.27      24.8     357.0                           351061.6250
+    0:02:56   18118.9      0.27      24.8     357.0                           351061.6250
+    0:02:56   18118.9      0.27      24.8     357.0                           351061.6250
+    0:02:56   18118.9      0.27      24.8     357.0                           351061.6250
+    0:02:57   18118.9      0.27      24.8     357.0                           351061.6250
+    0:02:57   18118.9      0.27      24.8     357.0                           351061.6250
+    0:03:01   18161.2      0.27      24.7     357.0                           352765.9375
+    0:03:01   18161.2      0.27      24.7     357.0                           352765.9375
+    0:03:02   18161.2      0.27      24.7     357.0                           352765.9375
+    0:03:02   18161.2      0.27      24.7     357.0                           352765.9375
+    0:03:02   18161.2      0.27      24.7     357.0                           352765.9375
+    0:03:02   18161.2      0.27      24.7     357.0                           352765.9375
+    0:03:03   18161.2      0.27      24.7     357.0                           352765.9375
+    0:03:03   18161.2      0.27      24.7     357.0                           352765.9375
+    0:03:03   18161.2      0.27      24.7     357.0                           352765.9375
+    0:03:03   18161.2      0.27      24.7     357.0                           352765.9375
+    0:03:04   18161.2      0.27      24.7     357.0                           352765.9375
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:03:04   18161.2      0.27      24.7     357.0                           352765.9375
+    0:03:06   18059.0      0.28      27.1     357.0                           346243.0938
+    0:03:06   18062.2      0.27      27.1     361.0                           346546.6562
+    0:03:06   18062.2      0.27      27.1     361.0                           346546.6562
+    0:03:07   18067.3      0.27      25.8     361.0                           347102.0000
+    0:03:09   18057.1      0.27      25.4     364.0 bbox/d_bbx_f4/genblk1.dff_pipe/data_pipe_a_reg[1][0]/D 346898.7500
+    0:03:11   18076.6      0.26      25.4     364.0 bbox/d_bbx_f4/genblk1.dff_pipe/data_pipe_a_reg[1][0]/D 347688.0312
+    0:03:12   18081.6      0.26      25.4     357.0                           347896.3438
+    0:03:15   18125.2      0.26      25.2     363.7                           349767.4375
+    0:03:15   18125.5      0.26      24.9     363.7                           349821.6562
+    0:03:15   18125.8      0.26      24.9     363.7                           349843.2812
+    0:03:16   18105.6      0.26      24.8     357.0                           348801.5625
+Loading db file '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/lib/NangateOpenCellLibrary.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'rast' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'sampletest/clk': 1652 load(s), 1 driver(s)
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+##########################
+# Analyze Design 
+##########################
+redirect "reports/design_report" { report_design }
+check_design
+ 
+****************************************
+check_design summary:
+Version:     M-2016.12-SP2
+Date:        Sat Nov 30 02:30:36 2024
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                    254
+    Unconnected ports (LINT-28)                                   241
+    Shorted outputs (LINT-31)                                       9
+    Constant outputs (LINT-52)                                      4
+
+Cells                                                             121
+    Connected to power or ground (LINT-32)                        113
+    Nets connected to multiple pins on same cell (LINT-33)          8
+--------------------------------------------------------------------------------
+
+Warning: In design 'rast', port 'tri_R10S[2][2][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][16]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][15]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][14]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][13]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][12]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][11]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][10]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][9]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][8]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][7]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][6]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][5]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][4]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][3]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][2]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][1]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[2][2][0]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][16]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][15]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][14]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][13]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][12]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][11]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][10]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][9]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][8]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][7]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][6]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][5]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][4]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][3]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][2]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][1]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', port 'tri_R10S[1][2][0]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][16]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][15]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][14]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][13]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][12]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][11]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][10]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][9]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][8]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][7]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][6]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][5]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][4]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][3]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][2]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][1]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[2][2][0]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][16]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][15]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][14]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][13]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][12]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][11]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][10]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][9]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][8]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][7]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][6]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][5]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][4]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][3]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][2]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][1]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R10S[1][2][0]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'subSample_RnnnnU[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][16]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][15]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][14]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][13]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][12]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][11]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][10]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][9]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][8]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][7]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][6]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][5]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][4]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][3]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][2]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][1]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][2][0]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][1][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][1][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][1][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][1][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][0][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][0][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][0][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[2][0][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][16]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][15]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][14]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][13]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][12]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][11]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][10]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][9]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][8]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][7]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][6]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][5]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][4]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][3]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][2]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][1]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][2][0]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][1][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][1][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][1][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][1][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][0][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][0][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][0][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[1][0][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[0][1][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[0][1][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[0][1][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[0][1][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[0][0][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[0][0][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[0][0][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R13S[0][0][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'box_R13S[0][1][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'box_R13S[0][1][6]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'box_R13S[0][1][5]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'box_R13S[0][1][4]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'box_R13S[0][1][3]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'box_R13S[0][1][2]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'box_R13S[0][1][1]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'box_R13S[0][1][0]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'box_R13S[0][0][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'box_R13S[0][0][6]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'box_R13S[0][0][5]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'box_R13S[0][0][4]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'box_R13S[0][0][3]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'box_R13S[0][0][2]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'box_R13S[0][0][1]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'box_R13S[0][0][0]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][16]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][15]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][14]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][13]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][12]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][11]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][10]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][9]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][8]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][7]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][6]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][5]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][4]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][3]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][2]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][1]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][0]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][1][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][1][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][1][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][1][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][0][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][0][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][0][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][0][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][16]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][15]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][14]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][13]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][12]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][11]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][10]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][9]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][8]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][7]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][6]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][5]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][4]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][3]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][2]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][1]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][0]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][1][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][1][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][1][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][1][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][0][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][0][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][0][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][0][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[0][1][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[0][1][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[0][1][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[0][1][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[0][0][20]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[0][0][19]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[0][0][18]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[0][0][17]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'sample_R16S[1][1]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'sample_R16S[1][0]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'sample_R16S[0][1]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'sample_R16S[0][0]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'hit_R18S[1][1]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'hit_R18S[1][0]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'hit_R18S[0][1]' is not connected to any nets. (LINT-28)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'hit_R18S[0][0]' is not connected to any nets. (LINT-28)
+Warning: In design 'rast', output port 'hit_R18S[1][1]' is connected directly to output port 'hit_R18S[0][0]'. (LINT-31)
+Warning: In design 'rast', output port 'hit_R18S[1][1]' is connected directly to output port 'hit_R18S[1][0]'. (LINT-31)
+Warning: In design 'rast', output port 'hit_R18S[1][1]' is connected directly to output port 'hit_R18S[0][1]'. (LINT-31)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', output port 'hit_R18S[1][18]' is connected directly to output port 'hit_R18S[0][4]'. (LINT-31)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', output port 'hit_R18S[1][17]' is connected directly to output port 'hit_R18S[0][3]'. (LINT-31)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', output port 'hit_R18S[1][16]' is connected directly to output port 'hit_R18S[0][2]'. (LINT-31)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', output port 'hit_R18S[1][4]' is connected directly to output port 'hit_R18S[0][18]'. (LINT-31)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', output port 'hit_R18S[1][3]' is connected directly to output port 'hit_R18S[0][17]'. (LINT-31)
+Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', output port 'hit_R18S[1][2]' is connected directly to output port 'hit_R18S[0][16]'. (LINT-31)
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][20]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][19]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][18]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][17]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][16]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][15]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][14]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][13]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][12]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][11]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][10]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][9]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][8]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][7]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][6]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][5]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][4]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][3]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][2]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][1]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[2][2][0]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][20]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][19]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][18]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][17]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][16]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][15]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][14]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][13]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][12]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][11]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][10]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][9]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][8]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][7]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][6]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][5]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][4]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][3]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][2]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][1]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R10S[1][2][0]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'subSample_RnnnnU[3]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][20]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][19]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][18]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][17]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][16]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][15]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][14]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][13]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][12]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][11]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][10]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][9]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][8]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][7]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][6]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][5]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][4]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][3]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][2]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][1]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][2][0]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][1][20]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][1][19]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][1][18]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][1][17]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][0][20]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][0][19]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][0][18]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[2][0][17]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][20]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][19]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][18]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][17]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][16]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][15]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][14]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][13]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][12]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][11]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][10]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][9]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][8]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][7]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][6]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][5]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][4]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][3]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][2]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][1]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][2][0]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][1][20]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][1][19]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][1][18]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][1][17]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][0][20]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][0][19]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][0][18]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[1][0][17]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[0][1][20]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[0][1][19]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[0][1][18]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[0][1][17]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[0][0][20]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[0][0][19]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[0][0][18]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'tri_R16S[0][0][17]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'sample_R16S[1][1]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'sample_R16S[1][0]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'sample_R16S[0][1]' is connected to logic 0. 
+Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'sample_R16S[0][0]' is connected to logic 0. 
+Warning: In design 'rast', the same net is connected to more than one pin on submodule 'bbox'. (LINT-33)
+   Net 'hit_R18S[0][1]' is connected to pins 'tri_R10S[2][2][20]', 'tri_R10S[2][2][19]'', 'tri_R10S[2][2][18]', 'tri_R10S[2][2][17]', 'tri_R10S[2][2][16]', 'tri_R10S[2][2][15]', 'tri_R10S[2][2][14]', 'tri_R10S[2][2][13]', 'tri_R10S[2][2][12]', 'tri_R10S[2][2][11]', 'tri_R10S[2][2][10]', 'tri_R10S[2][2][9]', 'tri_R10S[2][2][8]', 'tri_R10S[2][2][7]', 'tri_R10S[2][2][6]', 'tri_R10S[2][2][5]', 'tri_R10S[2][2][4]', 'tri_R10S[2][2][3]', 'tri_R10S[2][2][2]', 'tri_R10S[2][2][1]', 'tri_R10S[2][2][0]', 'tri_R10S[1][2][20]', 'tri_R10S[1][2][19]', 'tri_R10S[1][2][18]', 'tri_R10S[1][2][17]', 'tri_R10S[1][2][16]', 'tri_R10S[1][2][15]', 'tri_R10S[1][2][14]', 'tri_R10S[1][2][13]', 'tri_R10S[1][2][12]', 'tri_R10S[1][2][11]', 'tri_R10S[1][2][10]', 'tri_R10S[1][2][9]', 'tri_R10S[1][2][8]', 'tri_R10S[1][2][7]', 'tri_R10S[1][2][6]', 'tri_R10S[1][2][5]', 'tri_R10S[1][2][4]', 'tri_R10S[1][2][3]', 'tri_R10S[1][2][2]', 'tri_R10S[1][2][1]', 'tri_R10S[1][2][0]', 'subSample_RnnnnU[3]'.
+Warning: In design 'rast', the same net is connected to more than one pin on submodule 'sampletest'. (LINT-33)
+   Net 'hit_R18S[0][1]' is connected to pins 'tri_R16S[2][2][20]', 'tri_R16S[2][2][19]'', 'tri_R16S[2][2][18]', 'tri_R16S[2][2][17]', 'tri_R16S[2][2][16]', 'tri_R16S[2][2][15]', 'tri_R16S[2][2][14]', 'tri_R16S[2][2][13]', 'tri_R16S[2][2][12]', 'tri_R16S[2][2][11]', 'tri_R16S[2][2][10]', 'tri_R16S[2][2][9]', 'tri_R16S[2][2][8]', 'tri_R16S[2][2][7]', 'tri_R16S[2][2][6]', 'tri_R16S[2][2][5]', 'tri_R16S[2][2][4]', 'tri_R16S[2][2][3]', 'tri_R16S[2][2][2]', 'tri_R16S[2][2][1]', 'tri_R16S[2][2][0]', 'tri_R16S[2][1][20]', 'tri_R16S[2][1][19]', 'tri_R16S[2][1][18]', 'tri_R16S[2][1][17]', 'tri_R16S[2][0][20]', 'tri_R16S[2][0][19]', 'tri_R16S[2][0][18]', 'tri_R16S[2][0][17]', 'tri_R16S[1][2][20]', 'tri_R16S[1][2][19]', 'tri_R16S[1][2][18]', 'tri_R16S[1][2][17]', 'tri_R16S[1][2][16]', 'tri_R16S[1][2][15]', 'tri_R16S[1][2][14]', 'tri_R16S[1][2][13]', 'tri_R16S[1][2][12]', 'tri_R16S[1][2][11]', 'tri_R16S[1][2][10]', 'tri_R16S[1][2][9]', 'tri_R16S[1][2][8]', 'tri_R16S[1][2][7]', 'tri_R16S[1][2][6]', 'tri_R16S[1][2][5]', 'tri_R16S[1][2][4]', 'tri_R16S[1][2][3]', 'tri_R16S[1][2][2]', 'tri_R16S[1][2][1]', 'tri_R16S[1][2][0]', 'tri_R16S[1][1][20]', 'tri_R16S[1][1][19]', 'tri_R16S[1][1][18]', 'tri_R16S[1][1][17]', 'tri_R16S[1][0][20]', 'tri_R16S[1][0][19]', 'tri_R16S[1][0][18]', 'tri_R16S[1][0][17]', 'tri_R16S[0][1][20]', 'tri_R16S[0][1][19]', 'tri_R16S[0][1][18]', 'tri_R16S[0][1][17]', 'tri_R16S[0][0][20]', 'tri_R16S[0][0][19]', 'tri_R16S[0][0][18]', 'tri_R16S[0][0][17]', 'sample_R16S[1][1]', 'sample_R16S[1][0]', 'sample_R16S[0][1]', 'sample_R16S[0][0]'.
+Warning: In design 'rast', the same net is connected to more than one pin on submodule 'sampletest'. (LINT-33)
+   Net 'sample_R16S[1][18]' is connected to pins 'sample_R16S[1][18]', 'sample_R16S[0][4]''.
+Warning: In design 'rast', the same net is connected to more than one pin on submodule 'sampletest'. (LINT-33)
+   Net 'sample_R16S[1][17]' is connected to pins 'sample_R16S[1][17]', 'sample_R16S[0][3]''.
+Warning: In design 'rast', the same net is connected to more than one pin on submodule 'sampletest'. (LINT-33)
+   Net 'sample_R16S[1][16]' is connected to pins 'sample_R16S[1][16]', 'sample_R16S[0][2]''.
+Warning: In design 'rast', the same net is connected to more than one pin on submodule 'sampletest'. (LINT-33)
+   Net 'sample_R16S[0][18]' is connected to pins 'sample_R16S[1][4]', 'sample_R16S[0][18]''.
+Warning: In design 'rast', the same net is connected to more than one pin on submodule 'sampletest'. (LINT-33)
+   Net 'sample_R16S[0][17]' is connected to pins 'sample_R16S[1][3]', 'sample_R16S[0][17]''.
+Warning: In design 'rast', the same net is connected to more than one pin on submodule 'sampletest'. (LINT-33)
+   Net 'sample_R16S[0][16]' is connected to pins 'sample_R16S[1][2]', 'sample_R16S[0][16]''.
+Warning: In design 'rast', output port 'hit_R18S[1][1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'rast', output port 'hit_R18S[1][0]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'rast', output port 'hit_R18S[0][1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'rast', output port 'hit_R18S[0][0]' is connected directly to 'logic 0'. (LINT-52)
+1
+redirect "reports/design_check" {check_design }
+#report_constraint -all_violators
+#redirect "reports/constraint_report" {report_constraint -all_violators}
+report_area 
+ 
+****************************************
+Report : area
+Design : rast
+Version: M-2016.12-SP2
+Date   : Sat Nov 30 02:30:36 2024
+****************************************
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/lib/NangateOpenCellLibrary.db)
+
+Number of ports:                         1492
+Number of nets:                         11338
+Number of cells:                         9287
+Number of combinational cells:           7631
+Number of sequential cells:              1654
+Number of macros/black boxes:               0
+Number of buf/inv:                       1666
+Number of references:                      30
+
+Combinational area:               9304.679965
+Buf/Inv area:                     1050.167998
+Noncombinational area:            8800.876282
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                 18105.556248
+Total area:                 undefined
+1
+redirect "reports/area_report" { report_area }
+#redirect "reports/area_hier_report" { report_area -hier }
+report_power
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : rast
+Version: M-2016.12-SP2
+Date   : Sat Nov 30 02:30:36 2024
+****************************************
+
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/lib/NangateOpenCellLibrary.db)
+
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+Design        Wire Load Model            Library
+------------------------------------------------
+rast                   1K_hvratio_1_4    NangateOpenCellLibrary
+
+
+Global Operating Voltage = 1.1  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+  Cell Internal Power  =  11.9749 mW   (81%)
+  Net Switching Power  =   2.8836 mW   (19%)
+                         ---------
+Total Dynamic Power    =  14.8585 mW  (100%)
+
+Cell Leakage Power     = 350.7642 uW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register       9.8766e+03          343.4882        1.3642e+05        1.0357e+04  (  68.09%)
+sequential     2.1273e-02        1.8837e-03           37.4179        6.0575e-02  (   0.00%)
+combinational  2.0982e+03        2.5402e+03        2.1430e+05        4.8528e+03  (  31.91%)
+--------------------------------------------------------------------------------------------------
+Total          1.1975e+04 uW     2.8836e+03 uW     3.5076e+05 nW     1.5209e+04 uW
+1
+redirect "reports/power_report" { report_power -analysis_effort hi }
+#redirect "reports/power_hier_report" { report_power -hier }
+#report_timing -path full -delay max -max_paths 10
+#redirect "report/timing_report_max" { report_timing -path full -delay max -max_paths 200 }
+#report_timing -path full -delay min -max_paths 10
+report_timing
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : rast
+Version: M-2016.12-SP2
+Date   : Sat Nov 30 02:30:39 2024
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: tri_R10S[1][1][3]
+              (input port clocked by clk)
+  Endpoint: bbox/clk_r_REG357_S1
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  rast               1K_hvratio_1_4        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  input external delay                                    0.90       0.90 r
+  tri_R10S[1][1][3] (in)                                  0.01       0.91 r
+  U692/Z (BUF_X4)                                         0.06       0.97 r
+  bbox/tri_R10S[1][1][3] (bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2)
+                                                          0.00       0.97 r
+  bbox/U4901/ZN (INV_X1)                                  0.04       1.01 f
+  bbox/U5258/ZN (OAI21_X1)                                0.04       1.05 r
+  bbox/U5259/ZN (OR2_X1)                                  0.03       1.09 r
+  bbox/U5260/ZN (NAND3_X1)                                0.03       1.12 f
+  bbox/U1145/ZN (AND2_X1)                                 0.04       1.16 f
+  bbox/U5263/ZN (AOI221_X1)                               0.06       1.21 r
+  bbox/U5273/ZN (OAI21_X1)                                0.03       1.24 f
+  bbox/U5276/ZN (NAND2_X1)                                0.03       1.28 r
+  bbox/U402/ZN (NAND2_X1)                                 0.03       1.31 f
+  bbox/U401/ZN (NAND3_X1)                                 0.04       1.34 r
+  bbox/U5334/ZN (NAND2_X1)                                0.04       1.38 f
+  bbox/U5360/ZN (NAND3_X1)                                0.04       1.42 r
+  bbox/clk_r_REG357_S1/D (DFFS_X1)                        0.01       1.43 r
+  data arrival time                                                  1.43
+
+  clock clk (rise edge)                                   1.20       1.20
+  clock network delay (ideal)                             0.00       1.20
+  bbox/clk_r_REG357_S1/CK (DFFS_X1)                       0.00       1.20 r
+  library setup time                                     -0.03       1.17
+  data required time                                                 1.17
+  --------------------------------------------------------------------------
+  data required time                                                 1.17
+  data arrival time                                                 -1.43
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.26
+
+
+1
+redirect "reports/timing_report_maxsm" { report_timing -significant_digits 4 }
+#redirect "reports/timing_report_min" { report_timing -path full -delay min -max_paths 50 }
+#report_timing_requirements
+#redirect "reports/timing_requirements_report" { report_timing_requirements }
+report_qor
+ 
+****************************************
+Report : qor
+Design : rast
+Version: M-2016.12-SP2
+Date   : Sat Nov 30 02:30:39 2024
+****************************************
+
+
+  Timing Path Group 'clk'
+  -----------------------------------
+  Levels of Logic:              13.00
+  Critical Path Length:          0.53
+  Critical Path Slack:          -0.26
+  Critical Path Clk Period:      1.20
+  Total Negative Slack:        -24.83
+  No. of Violating Paths:      173.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          2
+  Hierarchical Port Count:       1063
+  Leaf Cell Count:               9284
+  Buf/Inv Cell Count:            1666
+  Buf Cell Count:                 463
+  Inv Cell Count:                1203
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:      7631
+  Sequential Cell Count:         1653
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:     9304.679965
+  Noncombinational Area:  8800.876282
+  Buf/Inv Area:           1050.167998
+  Total Buffer Area:           400.60
+  Total Inverter Area:         649.57
+  Macro/Black Box Area:      0.000000
+  Net Area:                  0.000000
+  -----------------------------------
+  Cell Area:             18105.556248
+  Design Area:           18105.556248
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:         10474
+  Nets With Violations:             1
+  Max Trans Violations:             0
+  Max Cap Violations:               0
+  Max Fanout Violations:            1
+  -----------------------------------
+
+
+  Hostname: caddy02.stanford.edu
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                   36.80
+  Logic Optimization:                 21.81
+  Mapping Optimization:               74.74
+  -----------------------------------------
+  Overall Compile Time:              199.89
+  Overall Compile Wall Clock Time:   205.07
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.26  TNS: 24.83  Number of Violating Paths: 173
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+  --------------------------------------------------------------------
+
+
+1
+redirect "reports/qor_report" { report_qor }
+check_error
+0
+redirect "reports/error_checking_report" { check_error }
+###################################
+# Save the Design DataBase
+###################################
+write_sdf -version 2.1 "netlist/sdf_rasterizer"
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/synth/netlist/sdf_rasterizer'. (WT-3)
+1
+write -hierarchy -format verilog -output "netlist/rast.gv"
+Writing verilog file '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/synth/netlist/rast.gv'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Warning: Verilog writer has added 86 nets to module rast using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+1
+write -format verilog -hier -o "netlist/rast.psv"
+Writing verilog file '/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/synth/netlist/rast.psv'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Warning: Verilog writer has added 86 nets to module rast using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+1
+write -format ddc -hierarchy -output "rast.mapped.ddc"
+Writing ddc file 'rast.mapped.ddc'.
+1
+#Concise Results in a singular file
+echo $CLK_PERIOD >> results.txt
+sh cat reports/error_checking_report >> results.txt
+sh grep -i slack reports/timing_report_maxsm >> results.txt
+sh cat reports/power_report | grep Total >> results.txt
+sh cat reports/power_report | grep Cell | grep Leakage >> results.txt
+sh cat reports/area_report | grep Total | grep cell >> results.txt
+exit 
+
+Thank you...

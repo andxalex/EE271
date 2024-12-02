@@ -50,6 +50,7 @@ int check_bounding_box(
         if(valid_bbox != bbox.valid){
             PRINT_ERROR("bbox_valid", valid_bbox, bbox.valid);
             isCorrect = false;
+            
         }
         else if(valid_bbox == true){
             if(ll_x != bbox.lower_left.x){
