@@ -169,13 +169,30 @@ module bbox
     // Check if backfacing
     logic signed [(2*SIGFIG)-1:0]     tri_check;
     logic                       valid_triangle;
-    
+    logic signed [SIGFIG-1:0]   ax;
+    logic signed [SIGFIG-1:0]   ay;
+    logic signed [SIGFIG-1:0]   bx;
+    logic signed [SIGFIG-1:0]   by;
+    logic signed [SIGFIG-1:0]   ax_retime;
+    logic signed [SIGFIG-1:0]   ay_retime;
+    logic signed [SIGFIG-1:0]   bx_retime;
+    logic signed [SIGFIG-1:0]   by_retime;
+    logic signed [(2*SIGFIG)-1:0]     left_tri_check;
+    logic signed [(2*SIGFIG)-1:0]     right_tri_check;
+    logic signed [(2*SIGFIG)-1:0]     left_tri_check_retime;
+    logic signed [(2*SIGFIG)-1:0]     right_tri_check_retime;
     always_comb begin
-	    tri_check = ((tri_R10S[1][0] - tri_R10S[0][0]) * (tri_R10S[2][1] - tri_R10S[0][1])) - ((tri_R10S[1][1] - tri_R10S[0][1]) * (tri_R10S[2][0] - tri_R10S[0][0]));
-        valid_triangle = tri_check>0?0:1;
+	    ax = tri_R10S[1][0] - tri_R10S[0][0];
+	    ay = tri_R10S[1][1] - tri_R10S[0][1];
+	    bx = tri_R10S[2][0] - tri_R10S[0][0];
+	    by = tri_R10S[2][1] - tri_R10S[0][1];
+
+	    left_tri_check = ((ax_retime) * (by_retime));
+            right_tri_check = ((ay_retime) * (bx_retime));
+	    tri_check = left_tri_check_retime - right_tri_check_retime;
+
+        valid_triangle = (tri_check > 0) ? 0 : 1;
     end
-
-
 
     // ********** Step 1:  Determining a Bounding Box **********
     // Here you need to determine the bounding box by comparing the vertices
@@ -295,26 +312,27 @@ module bbox
     // Invalid if BBox is down/left of Screen
     // outvalid_R10H high if validTri_R10H && BBox is valid
     logic bbox_valid[1:0]; 
+    logic validTri_R10H_retime;
+    logic validTri_R10H_retime2;
     always_comb begin
 
         out_box_R10S= box_R10S;
-        outvalid_R10H= 1'b0; // Initialized as invalid
 
         out_box_R10S[0][0] = (rounded_box_R10S[0][0]<0)?0:rounded_box_R10S[0][0];
         out_box_R10S[0][1] = (rounded_box_R10S[0][1]<0)?0:rounded_box_R10S[0][1];
         out_box_R10S[1][0] = (rounded_box_R10S[1][0]>screen_RnnnnS[0])?screen_RnnnnS[0]:rounded_box_R10S[1][0];
         out_box_R10S[1][1] = (rounded_box_R10S[1][1]>screen_RnnnnS[1])?screen_RnnnnS[1]:rounded_box_R10S[1][1];
         
-        outvalid_R10H = (out_box_R10S[0][0]<= screen_RnnnnS[0]) && 
-                        (out_box_R10S[1][0]>= 0) && (out_box_R10S[0][1]<= screen_RnnnnS[1]) && 
-                        (out_box_R10S[1][1]>=0) && validTri_R10H && valid_triangle;
+        validTri_R13H = (box_R13S[0][0]<= screen_RnnnnS[0]) && 
+                        (box_R13S[1][0]>= 0) && (box_R13S[0][1]<= screen_RnnnnS[1]) && 
+                        (box_R13S[1][1]>=0) && validTri_R10H_retime2 && valid_triangle;
 
         // $display("LL X = %d, LL Y = %d, UR X = %d, UR Y = %d",out_box_R10S[0][0],out_box_R10S[0][1],out_box_R10S[1][0],out_box_R10S[1][1]);
     end
 
     //Assertion for checking if outvalid_R10H has been assigned properly
-    assert property( @(posedge clk) (outvalid_R10H |-> out_box_R10S[1][0] <= screen_RnnnnS[0] ));
-    assert property( @(posedge clk) (outvalid_R10H |-> out_box_R10S[1][1] <= screen_RnnnnS[1] ));
+    assert property( @(posedge clk) (validTri_R13H |-> out_box_R10S[1][0] <= screen_RnnnnS[0] ));
+    assert property( @(posedge clk) (validTri_R13H |-> out_box_R10S[1][1] <= screen_RnnnnS[1] ));
 
     // ***************** End of Step 3 *********************
 
@@ -324,16 +342,16 @@ module bbox
         .WIDTH(SIGFIG),
         .ARRAY_SIZE1(VERTS),
         .ARRAY_SIZE2(AXIS),
-        .PIPE_DEPTH(PIPE_DEPTH - 1),
-        .RETIME_STATUS(1)
+        .PIPE_DEPTH(1),
+        .RETIME_STATUS(0)
     )
     d_bbx_r1
     (
         .clk    (clk                ),
         .reset  (rst                ),
-        .en     (halt_RnnnnL  || bubble_burst_en),
-        .in     (tri_R10S          ),
-        .out    (tri_R13S_retime   )
+        .en     (halt_RnnnnL || bubble_burst_en        ),
+        .in     (tri_R10S           ),
+        .out    (tri_R13S_retime    )
     );
 
     dff2 #(
@@ -366,19 +384,113 @@ module bbox
         .in     (out_box_R10S   ),
         .out    (box_R13S_retime)
     );
+    dff #(
+        .WIDTH(SIGFIG),
+        .PIPE_DEPTH(1),
+        .RETIME_STATUS(0)
+    )
+    d_bbx_r5
+    (
+        .clk    (clk                ),
+        .reset  (rst                ),
+        .en     (halt_RnnnnL || bubble_burst_en        ),
+        .in     (ax                 ),
+        .out    (ax_retime          )
+    );
+    dff #(
+        .WIDTH(SIGFIG),
+        .PIPE_DEPTH(1),
+        .RETIME_STATUS(0)
+    )
+    d_bbx_r6
+    (
+        .clk    (clk                ),
+        .reset  (rst                ),
+        .en     (halt_RnnnnL || bubble_burst_en        ),
+        .in     (ay                 ),
+        .out    (ay_retime          )
+    );
+    dff #(
+        .WIDTH(SIGFIG),
+        .PIPE_DEPTH(1),
+        .RETIME_STATUS(0)
+    )
+    d_bbx_r7
+    (
+        .clk    (clk                ),
+        .reset  (rst                ),
+        .en     (halt_RnnnnL || bubble_burst_en        ),
+        .in     (bx                 ),
+        .out    (bx_retime          )
+    );
 
-    dff_retime #(
-        .WIDTH(1),
-        .PIPE_DEPTH(PIPE_DEPTH - 1),
-        .RETIME_STATUS(1) // Retime
+    dff #(
+        .WIDTH(SIGFIG),
+        .PIPE_DEPTH(1),
+        .RETIME_STATUS(0)
+    )
+    d_bbx_r8
+    (
+        .clk    (clk                ),
+        .reset  (rst                ),
+        .en     (halt_RnnnnL || bubble_burst_en        ),
+        .in     (by                 ),
+        .out    (by_retime          )
+    );
+
+    dff #(
+        .WIDTH(2*SIGFIG),
+        .PIPE_DEPTH(1),
+        .RETIME_STATUS(0)
+    )
+    d_bbx_r9
+    (
+        .clk    (clk                ),
+        .reset  (rst                ),
+        .en     (halt_RnnnnL || bubble_burst_en        ),
+        .in     (left_tri_check                 ),
+        .out    (left_tri_check_retime          )
+    );
+
+    dff #(
+        .WIDTH(2*SIGFIG),
+        .PIPE_DEPTH(1),
+        .RETIME_STATUS(0)
+    )
+    d_bbx_r10
+    (
+        .clk    (clk                ),
+        .reset  (rst                ),
+        .en     (halt_RnnnnL || bubble_burst_en        ),
+        .in     (right_tri_check                 ),
+        .out    (right_tri_check_retime         )
+    );
+
+    dff #(
+	.WIDTH(1),
+	.PIPE_DEPTH(1),
+	.RETIME_STATUS(0)
     )
     d_bbx_r4
     (
-        .clk    (clk                    ),
-        .reset  (rst                    ),
-        .en     (halt_RnnnnL  || bubble_burst_en),
-        .in     (outvalid_R10H          ),
-        .out    (validTri_R13H_retime   )
+	.clk    (clk                            ),
+	.reset  (rst                            ),
+	.en     (halt_RnnnnL  || bubble_burst_en),
+	.in     (validTri_R10H                  ),
+	.out    (validTri_R10H_retime           )
+    );
+    dff #(
+	.WIDTH(1),
+	.PIPE_DEPTH(1),
+	.RETIME_STATUS(0)
+    )
+    d_bbx_r11
+    (
+	.clk    (clk                            ),
+	.reset  (rst                            ),
+	.en     (halt_RnnnnL  || bubble_burst_en),
+	.in     (validTri_R10H_retime           ),
+	.out    (validTri_R10H_retime2          )
     );
     //Flop Clamped Box to R13_retime with retiming registers
 
@@ -430,19 +542,6 @@ module bbox
         .out    (box_R13S       )
     );
 
-    dff #(
-        .WIDTH(1),
-        .PIPE_DEPTH(1),
-        .RETIME_STATUS(0) // No retime
-    )
-    d_bbx_f4
-    (
-        .clk    (clk                    ),
-        .reset  (rst                    ),
-        .en     (halt_RnnnnL || bubble_burst_en            ),
-        .in     (validTri_R13H_retime   ),
-        .out    (validTri_R13H          )
-    );
     //Flop R13_retime to R13 with fixed registers
 
     //Error Checking Assertions

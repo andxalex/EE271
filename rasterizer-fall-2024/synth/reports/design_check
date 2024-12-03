@@ -2,7 +2,7 @@
 ****************************************
 check_design summary:
 Version:     M-2016.12-SP2
-Date:        Sat Nov 30 02:30:36 2024
+Date:        Mon Dec  2 21:03:32 2024
 ****************************************
 
                    Name                                            Total
@@ -12,11 +12,18 @@ Inputs/Outputs                                                    254
     Shorted outputs (LINT-31)                                       9
     Constant outputs (LINT-52)                                      4
 
-Cells                                                             121
+Cells                                                             127
+    Cells do not drive (LINT-1)                                     6
     Connected to power or ground (LINT-32)                        113
     Nets connected to multiple pins on same cell (LINT-33)          8
 --------------------------------------------------------------------------------
 
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', cell 'U5472' does not drive any nets. (LINT-1)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', cell 'U5583' does not drive any nets. (LINT-1)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', cell 'U5661' does not drive any nets. (LINT-1)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', cell 'U5686' does not drive any nets. (LINT-1)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', cell 'U5968' does not drive any nets. (LINT-1)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', cell 'U6024' does not drive any nets. (LINT-1)
 Warning: In design 'rast', port 'tri_R10S[2][2][20]' is not connected to any nets. (LINT-28)
 Warning: In design 'rast', port 'tri_R10S[2][2][19]' is not connected to any nets. (LINT-28)
 Warning: In design 'rast', port 'tri_R10S[2][2][18]' is not connected to any nets. (LINT-28)

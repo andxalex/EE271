@@ -7,13 +7,13 @@ Report : power
         -analysis_effort high
 Design : rast
 Version: M-2016.12-SP2
-Date   : Sat Nov 30 02:30:39 2024
+Date   : Mon Dec  2 21:03:34 2024
 ****************************************
 
 
 Library(s) Used:
 
-    NangateOpenCellLibrary (File: /home/users/andalex/Desktop/EE271/rasterizer-fall-2024/lib/NangateOpenCellLibrary.db)
+    NangateOpenCellLibrary (File: /home/users/nihar30/EE271/rasterizer-fall-2024/lib/NangateOpenCellLibrary.db)
 
 
 Operating Conditions: typical   Library: NangateOpenCellLibrary
@@ -33,12 +33,12 @@ Power-specific unit information :
     Leakage Power Units = 1nW
 
 
-  Cell Internal Power  =  11.9453 mW   (81%)
-  Net Switching Power  =   2.8668 mW   (19%)
+  Cell Internal Power  =  12.4097 mW   (82%)
+  Net Switching Power  =   2.6566 mW   (18%)
                          ---------
-Total Dynamic Power    =  14.8121 mW  (100%)
+Total Dynamic Power    =  15.0663 mW  (100%)
 
-Cell Leakage Power     = 350.7889 uW
+Cell Leakage Power     = 353.0101 uW
 
 
                  Internal         Switching           Leakage            Total
@@ -48,9 +48,9 @@ io_pad             0.0000            0.0000            0.0000            0.0000 
 memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
 black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
 clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
-register       9.8592e+03          340.3331        1.3645e+05        1.0336e+04  (  68.17%)
-sequential     2.0223e-02        1.9308e-03           37.1108        5.9264e-02  (   0.00%)
-combinational  2.0860e+03        2.5265e+03        2.1430e+05        4.8269e+03  (  31.83%)
+register       1.0381e+04          387.1623        1.4197e+05        1.0910e+04  (  70.76%)
+sequential     1.3977e-02        1.1864e-03           36.8738        5.2038e-02  (   0.00%)
+combinational  2.0285e+03        2.2695e+03        2.1100e+05        4.5092e+03  (  29.24%)
 --------------------------------------------------------------------------------------------------
-Total          1.1945e+04 uW     2.8668e+03 uW     3.5079e+05 nW     1.5163e+04 uW
+Total          1.2410e+04 uW     2.6566e+03 uW     3.5301e+05 nW     1.5419e+04 uW
 1
