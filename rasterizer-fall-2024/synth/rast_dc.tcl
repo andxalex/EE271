@@ -104,6 +104,8 @@ link
 # create clock
 create_clock $CLK -period $CLK_PERIOD
 
+compile_ultra -gate_clock
+
 # set output delay and load
 set_fanout_load 4 [get_ports "*" -filter {@port_direction == out} ]
 set_output_delay [ expr $CLK_PERIOD*3/4 ] -clock $CLK  [get_ports "*" -filter {@port_direction == out} ]

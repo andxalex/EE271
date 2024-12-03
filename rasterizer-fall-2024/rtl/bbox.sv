@@ -170,9 +170,82 @@ module bbox
     logic signed [(2*SIGFIG)-1:0]     tri_check;
     logic                       valid_triangle;
     
+    // Log 2 LUT to avoid multiplication
+    logic [25:0] log2rom [131071:0];
+    initial begin
+        $readmemb("rtl/log2_rom2.mem", log2rom);
+    end
+
+    logic signed [16:0] sub1;
+    logic signed [16:0] sub2;
+    logic signed [16:0] sub3;
+    logic signed [16:0] sub4;
+    logic unsigned [17:0] abs1;
+    logic unsigned [17:0] abs2;
+    logic unsigned [17:0] abs3;
+    logic unsigned [17:0] abs4;   
+    logic signed [25:0] log1;
+    logic signed [25:0] log2;
+    logic signed [25:0] log3;
+    logic signed [25:0] log4;
+    logic signed [26:0] logsum1;
+    logic signed [26:0] logsum2;   
+    logic sign1;
+    logic sign2;
+    logic sign3;
+    logic sign4;
+    logic sign_prod_a;
+    logic sign_prod_b;
+    logic is_zero;
     always_comb begin
-	    tri_check = ((tri_R10S[1][0] - tri_R10S[0][0]) * (tri_R10S[2][1] - tri_R10S[0][1])) - ((tri_R10S[1][1] - tri_R10S[0][1]) * (tri_R10S[2][0] - tri_R10S[0][0]));
-        valid_triangle = tri_check>0?0:1;
+
+        // Do subs
+        sub1 = (tri_R10S[1][0] - tri_R10S[0][0])&17'h1FFFF;
+        sub2 = (tri_R10S[2][1] - tri_R10S[0][1])&17'h1FFFF;
+        sub3 = (tri_R10S[1][1] - tri_R10S[0][1])&17'h1FFFF;
+        sub4 = (tri_R10S[2][0] - tri_R10S[0][0])&17'h1FFFF;
+
+        // Get signs
+        sign1 = sub1[17-1];
+        sign2 = sub2[17-1];
+        sign3 = sub3[17-1];
+        sign4 = sub4[17-1];
+
+        // Get signs of products
+        sign_prod_a = sign1^sign2;
+        sign_prod_b = sign3^sign4;
+
+        // Check if 0
+        is_zero = (sub1 == 0 || sub2 == 0) && (sub3 == 0 || sub4 == 0);
+
+        // We don't need to compute if we already know the sign
+        if ((sign_prod_a^sign_prod_b) & (!is_zero))
+            valid_triangle = sign_prod_a;
+        else begin
+            // Get absolutes
+            abs1 = sign1? ~sub1 + 1 : sub1;
+            abs2 = sign2? ~sub2 + 1 : sub2;
+            abs3 = sign3? ~sub3 + 1 : sub3;
+            abs4 = sign4? ~sub4 + 1 : sub4;
+
+            // Get logs
+            log1 = log2rom[abs1];
+            log2 = log2rom[abs2];
+            log3 = log2rom[abs3];
+            log4 = log2rom[abs4];
+
+            // Sum in log domain  = mult
+            // The shift is absolutely necessary do not
+            // question it.
+            logsum1 = (log1+log2);
+            logsum2 = (log3+log4);
+
+            // Set flag by performing comparison in log domain.
+            if (logsum1 != logsum2)
+                valid_triangle =  is_zero?1:(logsum1<=logsum2)?!sign_prod_a:sign_prod_a;
+            else
+                valid_triangle = 1;
+        end
     end
 
 
@@ -195,27 +268,70 @@ module bbox
     //  DECLARE ANY OTHER SIGNALS YOU NEED
 
     // Try declaring an always_comb block to assign values to box_R10S
-    always_comb begin
-        // Nested ternary to find 3 input minima
-        bbox_sel_R10H[0][0] = (tri_R10S[0][0] < tri_R10S[1][0])? ((tri_R10S[0][0]<tri_R10S[2][0])?3'b001:3'b100):((tri_R10S[1][0]<tri_R10S[2][0])?3'b010:3'b100);
-        bbox_sel_R10H[0][1] = (tri_R10S[0][1] < tri_R10S[1][1])? ((tri_R10S[0][1]<tri_R10S[2][1])?3'b001:3'b100):((tri_R10S[1][1]<tri_R10S[2][1])?3'b010:3'b100);
-        bbox_sel_R10H[1][0] = (tri_R10S[0][0] > tri_R10S[1][0])? ((tri_R10S[0][0]>tri_R10S[2][0])?3'b001:3'b100):((tri_R10S[1][0]>tri_R10S[2][0])?3'b010:3'b100);
-        bbox_sel_R10H[1][1] = (tri_R10S[0][1] > tri_R10S[1][1])? ((tri_R10S[0][1]>tri_R10S[2][1])?3'b001:3'b100):((tri_R10S[1][1]>tri_R10S[2][1])?3'b010:3'b100);
+    // always_comb begin
+    //     // Nested ternary to find 3 input minima
+    //     bbox_sel_R10H[0][0] = (tri_R10S[0][0] < tri_R10S[1][0])? ((tri_R10S[0][0]<tri_R10S[2][0])?3'b001:3'b100):((tri_R10S[1][0]<tri_R10S[2][0])?3'b010:3'b100);
+    //     bbox_sel_R10H[0][1] = (tri_R10S[0][1] < tri_R10S[1][1])? ((tri_R10S[0][1]<tri_R10S[2][1])?3'b001:3'b100):((tri_R10S[1][1]<tri_R10S[2][1])?3'b010:3'b100);
+    //     bbox_sel_R10H[1][0] = (tri_R10S[0][0] > tri_R10S[1][0])? ((tri_R10S[0][0]>tri_R10S[2][0])?3'b001:3'b100):((tri_R10S[1][0]>tri_R10S[2][0])?3'b010:3'b100);
+    //     bbox_sel_R10H[1][1] = (tri_R10S[0][1] > tri_R10S[1][1])? ((tri_R10S[0][1]>tri_R10S[2][1])?3'b001:3'b100):((tri_R10S[1][1]>tri_R10S[2][1])?3'b010:3'b100);
     
-        // Iterate over assigned vertices and get x/y
-        for (int i=0; i< VERTS; i++) begin
-            for (int j=0; j<VERTS; j++) begin
-                case(bbox_sel_R10H[j][i])
-                    3'b001: box_R10S[j][i] = tri_R10S[0][i];
-                    3'b010: box_R10S[j][i] = tri_R10S[1][i];
-                    3'b100: box_R10S[j][i] = tri_R10S[2][i];
+        // // Iterate over assigned vertices and get x/y
+        // for (int i=0; i< VERTS; i++) begin
+        //     for (int j=0; j<VERTS; j++) begin
+        //         (* full_case, parallel_case *)
+        //         case(bbox_sel_R10H[j][i])
+        //             3'b001: box_R10S[j][i] = tri_R10S[0][i];
+        //             3'b010: box_R10S[j][i] = tri_R10S[1][i];
+        //             3'b100: box_R10S[j][i] = tri_R10S[2][i];
+        //         endcase
+        //     end
+        // end
+    // end
 
-                    // Default is never taken, but is necessary to prevent a latch.
-                    // Bound to vertex 0 arbitrarily - This doesn't matter as this is never taken
-                    default: box_R10S[j][i] = tri_R10S[0][i];
-                endcase
-            end
-        end
+    logic comp  [4:0][3:0];
+    logic signed [SIGFIG-1:0] intermediate_tri [4:0][1:0];
+    always_comb begin
+        comp[0][0] = (tri_R10S[0][0] < tri_R10S[1][0]);
+        comp[0][1] = (tri_R10S[0][0] < tri_R10S[2][0]);
+        comp[0][2] = (tri_R10S[1][0] < tri_R10S[2][0]);
+
+        intermediate_tri[0][0] = comp[0][1]? tri_R10S[0][0]:tri_R10S[2][0];
+        intermediate_tri[0][1] = comp[0][2]? tri_R10S[1][0]:tri_R10S[2][0];
+        
+        box_R10S[0][0] = comp[0][0]? intermediate_tri[0][0]:intermediate_tri[0][1];
+    end
+
+    always_comb begin
+        comp[1][0] = (tri_R10S[0][1] < tri_R10S[1][1]);
+        comp[1][1] = (tri_R10S[0][1] < tri_R10S[2][1]);
+        comp[1][2] = (tri_R10S[1][1] < tri_R10S[2][1]);
+
+        intermediate_tri[1][0] = comp[1][1]? tri_R10S[0][1]:tri_R10S[2][1];
+        intermediate_tri[1][1] = comp[1][2]? tri_R10S[1][1]:tri_R10S[2][1];
+
+        box_R10S[0][1] = comp[1][0]? intermediate_tri[1][0]:intermediate_tri[1][1];
+    end
+
+    always_comb begin
+        comp[2][0] = (tri_R10S[0][0] > tri_R10S[1][0]);
+        comp[2][1] = (tri_R10S[0][0] > tri_R10S[2][0]);
+        comp[2][2] = (tri_R10S[1][0] > tri_R10S[2][0]);
+
+        intermediate_tri[2][0] = comp[2][1]? tri_R10S[0][0]:tri_R10S[2][0];
+        intermediate_tri[2][1] = comp[2][2]? tri_R10S[1][0]:tri_R10S[2][0];
+
+        box_R10S[1][0] = comp[2][0]? intermediate_tri[2][0]:intermediate_tri[2][1];
+    end
+
+    always_comb begin
+        comp[3][0] = (tri_R10S[0][1] > tri_R10S[1][1]);
+        comp[3][1] = (tri_R10S[0][1] > tri_R10S[2][1]);
+        comp[3][2] = (tri_R10S[1][1] > tri_R10S[2][1]);
+
+        intermediate_tri[3][0] = comp[3][1]? tri_R10S[0][1]:tri_R10S[2][1];
+        intermediate_tri[3][1] = comp[3][2]? tri_R10S[1][1]:tri_R10S[2][1];
+
+        box_R10S[1][1] = comp[3][0]? intermediate_tri[3][0]:intermediate_tri[3][1];
     end
 
     // Assertions to check if box_R10S is assigned properly
@@ -227,10 +343,10 @@ module bbox
     
     //Assertions to check if all cases are covered and assignments are unique 
     // (already done for you if you use the bbox_sel_R10H select signal as declared)
-    assert property(@(posedge clk) $onehot(bbox_sel_R10H[0][0]));
-    assert property(@(posedge clk) $onehot(bbox_sel_R10H[0][1]));
-    assert property(@(posedge clk) $onehot(bbox_sel_R10H[1][0]));
-    assert property(@(posedge clk) $onehot(bbox_sel_R10H[1][1]));
+    // assert property(@(posedge clk) $onehot(bbox_sel_R10H[0][0]));
+    // assert property(@(posedge clk) $onehot(bbox_sel_R10H[0][1]));
+    // assert property(@(posedge clk) $onehot(bbox_sel_R10H[1][0]));
+    // assert property(@(posedge clk) $onehot(bbox_sel_R10H[1][1]));
 
     //Assertions to check UR is never less than LL
     assert property(@(posedge clk) !(box_R10S[1][1]<box_R10S[0][1]));

@@ -121,18 +121,11 @@ module sampletest
     logic signed [25:0]       log2_abs_tri_shift_R16S[VERTS-1:0][1:0];
     logic signed [26:0]       log2_sums[VERTS-1:0][1:0];
     logic                     is_zero[VERTS-1:0];
+
     // Log 2 LUT to avoid multiplication
     logic [25:0] log2rom [131071:0];
-    integer out;
-    integer out1;
     initial begin
-        $readmemb("/home/users/andalex/Desktop/EE271/rasterizer-fall-2024/rtl/log2_rom2.mem", log2rom);
-
-        for (int i = 0; i<131072; i++) begin
-            out = log2rom[i];
-            // $display("addr %d (%f) = %b = %f", i, $itor(i)*(2**-10.0), log2rom[i], $itor(out)*(2**-21.0));
-        end
-        // $display("HERE HERE HERE %b", log2rom[0]);
+        $readmemb("rtl/log2_rom2.mem", log2rom);
     end
 
     always_comb begin

@@ -2,21 +2,79 @@
 ****************************************
 check_design summary:
 Version:     M-2016.12-SP2
-Date:        Sat Nov 30 02:30:36 2024
+Date:        Tue Dec  3 00:35:02 2024
 ****************************************
 
                    Name                                            Total
 --------------------------------------------------------------------------------
-Inputs/Outputs                                                    254
-    Unconnected ports (LINT-28)                                   241
-    Shorted outputs (LINT-31)                                       9
+Inputs/Outputs                                                    260
+    Unconnected ports (LINT-28)                                   167
+    Feedthrough (LINT-29)                                          84
+    Shorted outputs (LINT-31)                                       5
     Constant outputs (LINT-52)                                      4
 
-Cells                                                             121
-    Connected to power or ground (LINT-32)                        113
-    Nets connected to multiple pins on same cell (LINT-33)          8
+Cells                                                              45
+    Connected to power or ground (LINT-32)                         44
+    Nets connected to multiple pins on same cell (LINT-33)          1
+
+Nets                                                               54
+    Unloaded nets (LINT-2)                                         54
 --------------------------------------------------------------------------------
 
+Warning: In design 'rast', net 'n1315' driven by pin 'U1248/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1314' driven by pin 'U1258/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1313' driven by pin 'U1249/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1312' driven by pin 'U1253/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1311' driven by pin 'U1250/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1310' driven by pin 'U1252/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1309' driven by pin 'U1256/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1308' driven by pin 'U1255/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1307' driven by pin 'U1246/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1306' driven by pin 'U1245/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1305' driven by pin 'U1243/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1304' driven by pin 'U1242/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1303' driven by pin 'U1241/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1302' driven by pin 'U1240/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1301' driven by pin 'U1257/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1300' driven by pin 'U1237/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1299' driven by pin 'U1236/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1298' driven by pin 'U1235/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1297' driven by pin 'U1234/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1296' driven by pin 'U1233/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1295' driven by pin 'U1230/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1294' driven by pin 'U1228/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1293' driven by pin 'U1238/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1292' driven by pin 'U1227/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1291' driven by pin 'U1226/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1290' driven by pin 'U1225/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1289' driven by pin 'U1224/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1288' driven by pin 'U1223/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1287' driven by pin 'U1222/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1286' driven by pin 'U1229/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1285' driven by pin 'U1219/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1284' driven by pin 'U1220/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1283' driven by pin 'U1221/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1282' driven by pin 'U1232/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1281' driven by pin 'U1231/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1280' driven by pin 'U1239/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1279' driven by pin 'U1251/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1278' driven by pin 'U1254/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1277' driven by pin 'U1247/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'n1276' driven by pin 'U1244/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'bbox/n946' driven by pin 'bbox/U21/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'bbox/n945' driven by pin 'bbox/U23/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'bbox/n944' driven by pin 'bbox/U19/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'bbox/n943' driven by pin 'bbox/U14/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'bbox/n942' driven by pin 'bbox/U15/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'bbox/n941' driven by pin 'bbox/U22/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'bbox/n940' driven by pin 'bbox/U16/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'bbox/n939' driven by pin 'bbox/U17/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'bbox/n938' driven by pin 'bbox/U18/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'bbox/n937' driven by pin 'bbox/U27/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'bbox/n936' driven by pin 'bbox/U25/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'bbox/n935' driven by pin 'bbox/U26/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'bbox/n13' driven by pin 'bbox/U5/Z' has no loads. (LINT-2)
+Warning: In design 'rast', net 'bbox/n1' driven by pin 'bbox/U4/Z' has no loads. (LINT-2)
 Warning: In design 'rast', port 'tri_R10S[2][2][20]' is not connected to any nets. (LINT-28)
 Warning: In design 'rast', port 'tri_R10S[2][2][19]' is not connected to any nets. (LINT-28)
 Warning: In design 'rast', port 'tri_R10S[2][2][18]' is not connected to any nets. (LINT-28)
@@ -184,89 +242,95 @@ Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', por
 Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'box_R13S[0][0][2]' is not connected to any nets. (LINT-28)
 Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'box_R13S[0][0][1]' is not connected to any nets. (LINT-28)
 Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'box_R13S[0][0][0]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][20]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][19]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][18]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][17]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][16]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][15]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][14]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][13]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][12]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][11]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][10]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][9]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][8]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][7]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][6]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][5]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][4]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][3]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][2]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][1]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][2][0]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][1][20]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][1][19]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][1][18]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][1][17]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][0][20]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][0][19]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][0][18]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[2][0][17]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][20]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][19]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][18]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][17]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][16]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][15]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][14]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][13]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][12]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][11]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][10]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][9]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][8]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][7]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][6]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][5]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][4]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][3]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][2]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][1]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][2][0]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][1][20]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][1][19]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][1][18]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][1][17]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][0][20]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][0][19]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][0][18]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[1][0][17]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[0][1][20]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[0][1][19]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[0][1][18]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[0][1][17]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[0][0][20]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[0][0][19]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[0][0][18]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'tri_R16S[0][0][17]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'sample_R16S[1][1]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'sample_R16S[1][0]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'sample_R16S[0][1]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'sample_R16S[0][0]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'hit_R18S[1][1]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'hit_R18S[1][0]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'hit_R18S[0][1]' is not connected to any nets. (LINT-28)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', port 'hit_R18S[0][0]' is not connected to any nets. (LINT-28)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][20]' is connected directly to output port 'tri_R13S[0][2][20]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][19]' is connected directly to output port 'tri_R13S[0][2][19]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][18]' is connected directly to output port 'tri_R13S[0][2][18]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][17]' is connected directly to output port 'tri_R13S[0][2][17]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][16]' is connected directly to output port 'tri_R13S[0][2][16]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][15]' is connected directly to output port 'tri_R13S[0][2][15]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][14]' is connected directly to output port 'tri_R13S[0][2][14]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][13]' is connected directly to output port 'tri_R13S[0][2][13]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][12]' is connected directly to output port 'tri_R13S[0][2][12]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][11]' is connected directly to output port 'tri_R13S[0][2][11]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][10]' is connected directly to output port 'tri_R13S[0][2][10]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][9]' is connected directly to output port 'tri_R13S[0][2][9]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][8]' is connected directly to output port 'tri_R13S[0][2][8]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][7]' is connected directly to output port 'tri_R13S[0][2][7]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][6]' is connected directly to output port 'tri_R13S[0][2][6]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][5]' is connected directly to output port 'tri_R13S[0][2][5]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][4]' is connected directly to output port 'tri_R13S[0][2][4]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][3]' is connected directly to output port 'tri_R13S[0][2][3]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][2]' is connected directly to output port 'tri_R13S[0][2][2]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][1]' is connected directly to output port 'tri_R13S[0][2][1]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'tri_R10S[0][2][0]' is connected directly to output port 'tri_R13S[0][2][0]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][20]' is connected directly to output port 'color_R13U[2][20]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][19]' is connected directly to output port 'color_R13U[2][19]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][18]' is connected directly to output port 'color_R13U[2][18]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][17]' is connected directly to output port 'color_R13U[2][17]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][16]' is connected directly to output port 'color_R13U[2][16]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][15]' is connected directly to output port 'color_R13U[2][15]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][14]' is connected directly to output port 'color_R13U[2][14]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][13]' is connected directly to output port 'color_R13U[2][13]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][12]' is connected directly to output port 'color_R13U[2][12]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][11]' is connected directly to output port 'color_R13U[2][11]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][10]' is connected directly to output port 'color_R13U[2][10]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][9]' is connected directly to output port 'color_R13U[2][9]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][8]' is connected directly to output port 'color_R13U[2][8]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][7]' is connected directly to output port 'color_R13U[2][7]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][6]' is connected directly to output port 'color_R13U[2][6]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][5]' is connected directly to output port 'color_R13U[2][5]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][4]' is connected directly to output port 'color_R13U[2][4]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][3]' is connected directly to output port 'color_R13U[2][3]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][2]' is connected directly to output port 'color_R13U[2][2]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][1]' is connected directly to output port 'color_R13U[2][1]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[2][0]' is connected directly to output port 'color_R13U[2][0]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][20]' is connected directly to output port 'color_R13U[1][20]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][19]' is connected directly to output port 'color_R13U[1][19]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][18]' is connected directly to output port 'color_R13U[1][18]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][17]' is connected directly to output port 'color_R13U[1][17]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][16]' is connected directly to output port 'color_R13U[1][16]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][15]' is connected directly to output port 'color_R13U[1][15]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][14]' is connected directly to output port 'color_R13U[1][14]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][13]' is connected directly to output port 'color_R13U[1][13]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][12]' is connected directly to output port 'color_R13U[1][12]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][11]' is connected directly to output port 'color_R13U[1][11]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][10]' is connected directly to output port 'color_R13U[1][10]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][9]' is connected directly to output port 'color_R13U[1][9]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][8]' is connected directly to output port 'color_R13U[1][8]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][7]' is connected directly to output port 'color_R13U[1][7]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][6]' is connected directly to output port 'color_R13U[1][6]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][5]' is connected directly to output port 'color_R13U[1][5]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][4]' is connected directly to output port 'color_R13U[1][4]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][3]' is connected directly to output port 'color_R13U[1][3]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][2]' is connected directly to output port 'color_R13U[1][2]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][1]' is connected directly to output port 'color_R13U[1][1]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[1][0]' is connected directly to output port 'color_R13U[1][0]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][20]' is connected directly to output port 'color_R13U[0][20]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][19]' is connected directly to output port 'color_R13U[0][19]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][18]' is connected directly to output port 'color_R13U[0][18]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][17]' is connected directly to output port 'color_R13U[0][17]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][16]' is connected directly to output port 'color_R13U[0][16]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][15]' is connected directly to output port 'color_R13U[0][15]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][14]' is connected directly to output port 'color_R13U[0][14]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][13]' is connected directly to output port 'color_R13U[0][13]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][12]' is connected directly to output port 'color_R13U[0][12]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][11]' is connected directly to output port 'color_R13U[0][11]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][10]' is connected directly to output port 'color_R13U[0][10]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][9]' is connected directly to output port 'color_R13U[0][9]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][8]' is connected directly to output port 'color_R13U[0][8]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][7]' is connected directly to output port 'color_R13U[0][7]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][6]' is connected directly to output port 'color_R13U[0][6]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][5]' is connected directly to output port 'color_R13U[0][5]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][4]' is connected directly to output port 'color_R13U[0][4]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][3]' is connected directly to output port 'color_R13U[0][3]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][2]' is connected directly to output port 'color_R13U[0][2]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][1]' is connected directly to output port 'color_R13U[0][1]'. (LINT-29)
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', input port 'color_R10U[0][0]' is connected directly to output port 'color_R13U[0][0]'. (LINT-29)
+Warning: In design 'rast', output port 'hit_R18S[1][18]' is connected directly to output port 'hit_R18S[0][4]'. (LINT-31)
+Warning: In design 'rast', output port 'hit_R18S[1][4]' is connected directly to output port 'hit_R18S[0][18]'. (LINT-31)
 Warning: In design 'rast', output port 'hit_R18S[1][1]' is connected directly to output port 'hit_R18S[0][0]'. (LINT-31)
-Warning: In design 'rast', output port 'hit_R18S[1][1]' is connected directly to output port 'hit_R18S[1][0]'. (LINT-31)
 Warning: In design 'rast', output port 'hit_R18S[1][1]' is connected directly to output port 'hit_R18S[0][1]'. (LINT-31)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', output port 'hit_R18S[1][18]' is connected directly to output port 'hit_R18S[0][4]'. (LINT-31)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', output port 'hit_R18S[1][17]' is connected directly to output port 'hit_R18S[0][3]'. (LINT-31)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', output port 'hit_R18S[1][16]' is connected directly to output port 'hit_R18S[0][2]'. (LINT-31)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', output port 'hit_R18S[1][4]' is connected directly to output port 'hit_R18S[0][18]'. (LINT-31)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', output port 'hit_R18S[1][3]' is connected directly to output port 'hit_R18S[0][17]'. (LINT-31)
-Warning: In design 'sampletest_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', output port 'hit_R18S[1][2]' is connected directly to output port 'hit_R18S[0][16]'. (LINT-31)
+Warning: In design 'rast', output port 'hit_R18S[1][1]' is connected directly to output port 'hit_R18S[1][0]'. (LINT-31)
 Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'tri_R10S[2][2][20]' is connected to logic 0. 
 Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
@@ -353,162 +417,10 @@ Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or 
    Pin 'tri_R10S[1][2][0]' is connected to logic 0. 
 Warning: In design 'rast', a pin on submodule 'bbox' is connected to logic 1 or logic 0. (LINT-32)
    Pin 'subSample_RnnnnU[3]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][20]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][19]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][18]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][17]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][16]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][15]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][14]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][13]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][12]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][11]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][10]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][9]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][8]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][7]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][6]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][5]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][4]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][3]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][2]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][1]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][2][0]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][1][20]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][1][19]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][1][18]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][1][17]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][0][20]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][0][19]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][0][18]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[2][0][17]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][20]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][19]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][18]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][17]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][16]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][15]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][14]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][13]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][12]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][11]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][10]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][9]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][8]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][7]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][6]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][5]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][4]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][3]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][2]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][1]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][2][0]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][1][20]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][1][19]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][1][18]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][1][17]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][0][20]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][0][19]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][0][18]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[1][0][17]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[0][1][20]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[0][1][19]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[0][1][18]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[0][1][17]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[0][0][20]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[0][0][19]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[0][0][18]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'tri_R16S[0][0][17]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'sample_R16S[1][1]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'sample_R16S[1][0]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'sample_R16S[0][1]' is connected to logic 0. 
-Warning: In design 'rast', a pin on submodule 'sampletest' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'sample_R16S[0][0]' is connected to logic 0. 
+Warning: In design 'bbox_SIGFIG21_RADIX10_VERTS3_AXIS3_COLORS3_PIPE_DEPTH2', a pin on submodule 'd_bbx_r3/genblk1[1].dff_arr/genblk1[1].genblk1.dff_pipe/genblk1.dff_pipe/clk_gate_data_pipe_a_reg[1]' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'TE' is connected to logic 0. 
 Warning: In design 'rast', the same net is connected to more than one pin on submodule 'bbox'. (LINT-33)
-   Net 'hit_R18S[0][1]' is connected to pins 'tri_R10S[2][2][20]', 'tri_R10S[2][2][19]'', 'tri_R10S[2][2][18]', 'tri_R10S[2][2][17]', 'tri_R10S[2][2][16]', 'tri_R10S[2][2][15]', 'tri_R10S[2][2][14]', 'tri_R10S[2][2][13]', 'tri_R10S[2][2][12]', 'tri_R10S[2][2][11]', 'tri_R10S[2][2][10]', 'tri_R10S[2][2][9]', 'tri_R10S[2][2][8]', 'tri_R10S[2][2][7]', 'tri_R10S[2][2][6]', 'tri_R10S[2][2][5]', 'tri_R10S[2][2][4]', 'tri_R10S[2][2][3]', 'tri_R10S[2][2][2]', 'tri_R10S[2][2][1]', 'tri_R10S[2][2][0]', 'tri_R10S[1][2][20]', 'tri_R10S[1][2][19]', 'tri_R10S[1][2][18]', 'tri_R10S[1][2][17]', 'tri_R10S[1][2][16]', 'tri_R10S[1][2][15]', 'tri_R10S[1][2][14]', 'tri_R10S[1][2][13]', 'tri_R10S[1][2][12]', 'tri_R10S[1][2][11]', 'tri_R10S[1][2][10]', 'tri_R10S[1][2][9]', 'tri_R10S[1][2][8]', 'tri_R10S[1][2][7]', 'tri_R10S[1][2][6]', 'tri_R10S[1][2][5]', 'tri_R10S[1][2][4]', 'tri_R10S[1][2][3]', 'tri_R10S[1][2][2]', 'tri_R10S[1][2][1]', 'tri_R10S[1][2][0]', 'subSample_RnnnnU[3]'.
-Warning: In design 'rast', the same net is connected to more than one pin on submodule 'sampletest'. (LINT-33)
-   Net 'hit_R18S[0][1]' is connected to pins 'tri_R16S[2][2][20]', 'tri_R16S[2][2][19]'', 'tri_R16S[2][2][18]', 'tri_R16S[2][2][17]', 'tri_R16S[2][2][16]', 'tri_R16S[2][2][15]', 'tri_R16S[2][2][14]', 'tri_R16S[2][2][13]', 'tri_R16S[2][2][12]', 'tri_R16S[2][2][11]', 'tri_R16S[2][2][10]', 'tri_R16S[2][2][9]', 'tri_R16S[2][2][8]', 'tri_R16S[2][2][7]', 'tri_R16S[2][2][6]', 'tri_R16S[2][2][5]', 'tri_R16S[2][2][4]', 'tri_R16S[2][2][3]', 'tri_R16S[2][2][2]', 'tri_R16S[2][2][1]', 'tri_R16S[2][2][0]', 'tri_R16S[2][1][20]', 'tri_R16S[2][1][19]', 'tri_R16S[2][1][18]', 'tri_R16S[2][1][17]', 'tri_R16S[2][0][20]', 'tri_R16S[2][0][19]', 'tri_R16S[2][0][18]', 'tri_R16S[2][0][17]', 'tri_R16S[1][2][20]', 'tri_R16S[1][2][19]', 'tri_R16S[1][2][18]', 'tri_R16S[1][2][17]', 'tri_R16S[1][2][16]', 'tri_R16S[1][2][15]', 'tri_R16S[1][2][14]', 'tri_R16S[1][2][13]', 'tri_R16S[1][2][12]', 'tri_R16S[1][2][11]', 'tri_R16S[1][2][10]', 'tri_R16S[1][2][9]', 'tri_R16S[1][2][8]', 'tri_R16S[1][2][7]', 'tri_R16S[1][2][6]', 'tri_R16S[1][2][5]', 'tri_R16S[1][2][4]', 'tri_R16S[1][2][3]', 'tri_R16S[1][2][2]', 'tri_R16S[1][2][1]', 'tri_R16S[1][2][0]', 'tri_R16S[1][1][20]', 'tri_R16S[1][1][19]', 'tri_R16S[1][1][18]', 'tri_R16S[1][1][17]', 'tri_R16S[1][0][20]', 'tri_R16S[1][0][19]', 'tri_R16S[1][0][18]', 'tri_R16S[1][0][17]', 'tri_R16S[0][1][20]', 'tri_R16S[0][1][19]', 'tri_R16S[0][1][18]', 'tri_R16S[0][1][17]', 'tri_R16S[0][0][20]', 'tri_R16S[0][0][19]', 'tri_R16S[0][0][18]', 'tri_R16S[0][0][17]', 'sample_R16S[1][1]', 'sample_R16S[1][0]', 'sample_R16S[0][1]', 'sample_R16S[0][0]'.
-Warning: In design 'rast', the same net is connected to more than one pin on submodule 'sampletest'. (LINT-33)
-   Net 'sample_R16S[1][18]' is connected to pins 'sample_R16S[1][18]', 'sample_R16S[0][4]''.
-Warning: In design 'rast', the same net is connected to more than one pin on submodule 'sampletest'. (LINT-33)
-   Net 'sample_R16S[1][17]' is connected to pins 'sample_R16S[1][17]', 'sample_R16S[0][3]''.
-Warning: In design 'rast', the same net is connected to more than one pin on submodule 'sampletest'. (LINT-33)
-   Net 'sample_R16S[1][16]' is connected to pins 'sample_R16S[1][16]', 'sample_R16S[0][2]''.
-Warning: In design 'rast', the same net is connected to more than one pin on submodule 'sampletest'. (LINT-33)
-   Net 'sample_R16S[0][18]' is connected to pins 'sample_R16S[1][4]', 'sample_R16S[0][18]''.
-Warning: In design 'rast', the same net is connected to more than one pin on submodule 'sampletest'. (LINT-33)
-   Net 'sample_R16S[0][17]' is connected to pins 'sample_R16S[1][3]', 'sample_R16S[0][17]''.
-Warning: In design 'rast', the same net is connected to more than one pin on submodule 'sampletest'. (LINT-33)
-   Net 'sample_R16S[0][16]' is connected to pins 'sample_R16S[1][2]', 'sample_R16S[0][16]''.
+   Net 'hit_R18S[1][0]' is connected to pins 'tri_R10S[2][2][20]', 'tri_R10S[2][2][19]'', 'tri_R10S[2][2][18]', 'tri_R10S[2][2][17]', 'tri_R10S[2][2][16]', 'tri_R10S[2][2][15]', 'tri_R10S[2][2][14]', 'tri_R10S[2][2][13]', 'tri_R10S[2][2][12]', 'tri_R10S[2][2][11]', 'tri_R10S[2][2][10]', 'tri_R10S[2][2][9]', 'tri_R10S[2][2][8]', 'tri_R10S[2][2][7]', 'tri_R10S[2][2][6]', 'tri_R10S[2][2][5]', 'tri_R10S[2][2][4]', 'tri_R10S[2][2][3]', 'tri_R10S[2][2][2]', 'tri_R10S[2][2][1]', 'tri_R10S[2][2][0]', 'tri_R10S[1][2][20]', 'tri_R10S[1][2][19]', 'tri_R10S[1][2][18]', 'tri_R10S[1][2][17]', 'tri_R10S[1][2][16]', 'tri_R10S[1][2][15]', 'tri_R10S[1][2][14]', 'tri_R10S[1][2][13]', 'tri_R10S[1][2][12]', 'tri_R10S[1][2][11]', 'tri_R10S[1][2][10]', 'tri_R10S[1][2][9]', 'tri_R10S[1][2][8]', 'tri_R10S[1][2][7]', 'tri_R10S[1][2][6]', 'tri_R10S[1][2][5]', 'tri_R10S[1][2][4]', 'tri_R10S[1][2][3]', 'tri_R10S[1][2][2]', 'tri_R10S[1][2][1]', 'tri_R10S[1][2][0]', 'subSample_RnnnnU[3]'.
 Warning: In design 'rast', output port 'hit_R18S[1][1]' is connected directly to 'logic 0'. (LINT-52)
 Warning: In design 'rast', output port 'hit_R18S[1][0]' is connected directly to 'logic 0'. (LINT-52)
 Warning: In design 'rast', output port 'hit_R18S[0][1]' is connected directly to 'logic 0'. (LINT-52)
