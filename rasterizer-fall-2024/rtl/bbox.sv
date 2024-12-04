@@ -237,8 +237,8 @@ module bbox
             // Sum in log domain  = mult
             // The shift is absolutely necessary do not
             // question it.
-            logsum1 = (log1+log2);
-            logsum2 = (log3+log4);
+            logsum1 = (log1+log2)>>>3;
+            logsum2 = (log3+log4)>>>3;
 
             // Set flag by performing comparison in log domain.
             if (logsum1 != logsum2)
